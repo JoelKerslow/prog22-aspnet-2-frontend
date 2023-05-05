@@ -1,13 +1,11 @@
 import React from 'react'
+import Showcase from '../partials/Showcase'
 
 const Home = () => {
   return (
-    <section>
-      <div className='showcase'>
-        /* behöver göra api för att skapa denna partial ska bli användbar  */
-        
-      </div>
-    </section>
+    <>
+      <Showcase />
+    </>
   )
 }
 
