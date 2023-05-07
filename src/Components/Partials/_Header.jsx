@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-const Header = () => {
+const Header = ({headerContent}) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const sidebarRef = useRef(null);
 
@@ -27,9 +27,14 @@ const Header = () => {
     <header>
       <div className='header-container'>
         <button className='fa-solid fa-bars' onClick={handleSidebarToggle}></button>
-        <h1>MANERO</h1>
+
+        <div className='header-content'>
+          {headerContent}
+        </div>
+        
         <button className='fa-thin fa-bag-shopping'></button>
       </div>
+      
       {isSidebarOpen && (
         <div className="sidebar-overlay">
           <div className="sidebar-container" ref={sidebarRef}>
