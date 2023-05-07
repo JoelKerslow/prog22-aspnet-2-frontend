@@ -27,7 +27,7 @@ const Header = () => {
     <header>
       <div className='header-container'>
         <button className='fa-solid fa-bars' onClick={handleSidebarToggle}></button>
-        <h1>Manero</h1>
+        <h1>MANERO</h1>
         <button className='fa-thin fa-bag-shopping'></button>
       </div>
       {isSidebarOpen && (
