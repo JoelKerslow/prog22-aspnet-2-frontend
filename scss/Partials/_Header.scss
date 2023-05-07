@@ -1,0 +1,95 @@
+.home-header{
+    display: flex;
+    justify-content: center;
+    
+}
+
+.home-header button{
+    border: none;
+    border-radius: 0;
+    background: none;
+}
+
+.contact-menu{
+    padding-top: 9px;
+    padding-right: 9px;
+}
+
+.cart-menu{
+    padding-top: 9px; 
+    padding-left: 10px;
+}
+
+.sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .sidebar-container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 50%;
+    max-width: 400px;
+    background-color: white;
+    padding: 20px;
+    z-index: 11;
+    overflow-y: auto;
+  }
+  
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+  .sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .sidebar-container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 50%;
+    max-width: 400px;
+    background-color: white;
+    padding: 20px;
+    z-index: 11;
+    overflow-y: auto;
+  }
+  
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  
+  
