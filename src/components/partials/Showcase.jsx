@@ -5,16 +5,16 @@ import { ShowcaseAsync } from "../../Services/ShowcaseServices";
 const Showcase = () => {
   const [ activeIndex, setActiveIndex ] = useState(0);
   const [ showcase, setShowcase ] = useState([]);
-  
+
   useEffect(() => {
     const fetchShowcaseAsync = async () => {
       ShowcaseAsync().then((data) =>{
         setShowcase(data)
       });
-      console.log(showcase)
     };
     fetchShowcaseAsync();
   }, []);
+
 
   const updateIndex = (newIndex) => {
     if (newIndex < 0) {
@@ -28,12 +28,12 @@ const Showcase = () => {
 
       return (
   <div className="carousel">
-    <div className="inner" style={{transform: `translate: (-${activeIndex *100})%`}}>
-      {showcase.map((item) => {
-        return <ShowcaseItem key={item.id} item={item} />
+    <div className="inner" style={{transform: `translate(-${activeIndex * 100}%)`}}>
+      {showcase.map((item) =>{
+        return <ShowcaseItem key={item.id} item={item}/>
       })}
     </div>
-    <div className="carousel-buttons">
+    {/* <div className="carousel-buttons">
       <button className="button-arrow" onClick={()=>{updateIndex(activeIndex -1)}}>Tillbaka</button>
       <div className="indicators">
         {showcase.map((item, index) => {
@@ -43,7 +43,7 @@ const Showcase = () => {
           })}
       </div>
       <button className="button-arrow" onClick={()=>{updateIndex()}}>Framåt</button>
-    </div>
+    </div> */}
   </div>
   );
 };

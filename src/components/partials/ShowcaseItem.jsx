@@ -8,7 +8,7 @@ const ShowcaseItem = ({ item }) => {
           <div className="title-1">{item.title}</div>
           <div className="title-1">{item.offer}</div>
         </div>
-        <img className="showcase-image" src={ShowcaseImage} alt="A very sexy man" />
+        <img className="showcase-img" src={ShowcaseImage} alt="A very sexy man" />
       </div>
   );
 };
