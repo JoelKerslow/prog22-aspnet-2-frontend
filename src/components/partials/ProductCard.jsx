@@ -2,31 +2,25 @@ import React, { useContext, useEffect } from "react";
 import { ProductContext } from "../../contexts/ProductContext";
 import StarRating from "./StarRating";
 import { useNavigate } from "react-router-dom";
-const ProductCard = () => {
-  const { getProductById, currentProduct, setCurrentProduct } = useContext(ProductContext);
+const ProductCard = ({product}) => {
+  const { setCurrentProduct } = useContext(ProductContext);
   const navigate = useNavigate();
 
-
-  useEffect(() => {
-    getProductById(1);
-  }, []);
-
-
-  
+ 
   const handleProductClick = () => {
-    // setCurrentProduct(product)
-    navigate(`/product/${currentProduct.id}`);
+    setCurrentProduct(product)
+    navigate(`/product/${product.id}`);
   };
 
   return (
     <>
-      {currentProduct && (
+      {product && (
         <div className="product-card" onClick={() => handleProductClick()}>
           <div className="top-section">
             <div className="image-section">
               <img
                 className="product-image"
-                src={currentProduct.imageUrl}
+                src={product.imageUrl}
                 alt=""
               />
               <div className="menu">
@@ -43,12 +37,12 @@ const ProductCard = () => {
           </div>
           <div className="body-section">
             <div className="rating-section d-flex">
-              <StarRating rating={currentProduct.reviewAverage} />
-              (1)
+              <StarRating rating={product.reviewAverage} />
+              ({product.reviewCount})
             </div>
-            <div className="category">{currentProduct.category}</div>
-            <div className="name">{currentProduct.title}</div>
-            <div className="price">${currentProduct.price}</div>
+            <div className="category">{product.category}</div>
+            <div className="name">{product.title}</div>
+            <div className="price">${product.price}</div>
           </div>
         </div>
       )}

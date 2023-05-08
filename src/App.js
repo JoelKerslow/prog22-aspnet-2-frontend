@@ -14,7 +14,7 @@ function App() {
     // </BrowserRouter>
         <Router>
           <ProductContextProvider>
-
+              <ProductCard/>
           </ProductContextProvider>
         </Router>
 
