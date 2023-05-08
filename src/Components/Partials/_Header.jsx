@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import SideBarContact from './_SideBarContact';
 
 const Header = ({headerContent}) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -36,18 +37,7 @@ const Header = ({headerContent}) => {
       </div>
       
       {isSidebarOpen && (
-        <div className="sidebar-overlay">
-          <div className="sidebar-container" ref={sidebarRef}>
-            <button className="close-button" onClick={handleSidebarToggle}>
-              &times;
-            </button>
-            <h1>Contact us</h1>
-            <ul>
-              <li>Phone: 123-456-7890</li>
-              <li>Email: info@example.com</li>
-            </ul>
-          </div>
-        </div>
+        <SideBarContact sidebarRef={sidebarRef} toggleSideBar={handleSidebarToggle}/>
       )}
     </header>
   );
