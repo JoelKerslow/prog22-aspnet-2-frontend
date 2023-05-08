@@ -110,7 +110,7 @@ const ProductContextProvider = ({ children }) => {
         getProductsByTag,
         products,
         currentProduct,
-        setCurrentProduct   
+        setCurrentProduct,
       }}
     >
       {children}
