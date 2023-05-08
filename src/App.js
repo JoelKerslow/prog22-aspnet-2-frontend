@@ -1,8 +1,8 @@
 import "./App.css";
 import React from "react";
-import ProductContextProvider from "./contexts/ProductContext";
+import ProductContextProvider from "./Contexts/ProductContext";
 import { BrowserRouter as Router } from "react-router-dom";
-import ProductCard from "./components/partials/ProductCard";
+import ProductCard from "./Components/partials/ProductCard";
 
 function App() {
 

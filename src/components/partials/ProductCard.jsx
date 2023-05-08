@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react";
-import { ProductContext } from "../../contexts/ProductContext";
+import { ProductContext } from "../../Contexts/ProductContext";
 import StarRating from "./StarRating";
 import { useNavigate } from "react-router-dom";
 const ProductCard = ({product}) => {
