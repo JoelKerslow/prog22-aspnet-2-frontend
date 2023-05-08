@@ -1,9 +1,10 @@
 .rating-section {
   font-size: 0.75rem;
   .star-rating {
-    color: rgb(220, 169, 0);
+    color: $color-yellow-dark
+    // color: black;
   }
   .star-rating:hover{
-    color: rgb(226, 179, 23);
+    color: $color-yellow
   }
 }

@@ -2,9 +2,10 @@ import React, { useContext, useEffect } from "react";
 import { ProductContext } from "../../contexts/ProductContext";
 import StarRating from "./StarRating";
 import { useNavigate } from "react-router-dom";
-const ProductCard = ({product}) => {
+const ProductCard = () => {
   const { getProductById, currentProduct, setCurrentProduct } = useContext(ProductContext);
   const navigate = useNavigate();
+
 
   useEffect(() => {
     getProductById(1);
@@ -13,7 +14,7 @@ const ProductCard = ({product}) => {
 
   
   const handleProductClick = () => {
-    setCurrentProduct(product)
+    // setCurrentProduct(product)
     navigate(`/product/${currentProduct.id}`);
   };
 

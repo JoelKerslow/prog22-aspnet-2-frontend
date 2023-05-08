@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&family=Open+Sans:wght@300;400;500;600;700;800&display=swap");
 .product-card {
   display: block;
   background-color: rgb(237, 237, 237);
@@ -28,7 +29,7 @@
   cursor: pointer;
 }
 .product-card .menu .fa-heart:hover {
-  color: rgb(255, 111, 111);
+  color: #f4303c;
 }
 .product-card .menu .fa-bag-shopping:hover {
   color: rgb(0, 168, 39);
@@ -40,14 +41,15 @@
   margin-bottom: 5px;
 }
 .product-card .menu .link i {
-  color: gray;
-  font-size: 20px;
+  color: #626262;
+  font-size: 16px;
+  font-weight: 500;
 }
 .product-card .body-section {
   display: block;
 }
 .product-card .body-section .category {
-  color: grey;
+  color: #888888;
 }
 .product-card .body-section .price {
   font-weight: 700;
@@ -61,8 +63,8 @@
   font-size: 0.75rem;
 }
 .rating-section .star-rating {
-  color: rgb(220, 169, 0);
+  color: #f2a953;
 }
 .rating-section .star-rating:hover {
-  color: rgb(226, 179, 23);
+  color: #ffbe00;
 }/*# sourceMappingURL=App.css.map */
