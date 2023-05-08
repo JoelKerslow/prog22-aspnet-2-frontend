@@ -1,1 +1,70 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&family=Open+Sans:wght@300;400;500;600;700;800&display=swap");/*# sourceMappingURL=App.css.map */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&family=Open+Sans:wght@300;400;500;600;700;800&display=swap");
+.product-card {
+  display: block;
+  background-color: rgb(237, 237, 237);
+  width: 150px;
+}
+.product-card .top-section {
+  display: flex;
+}
+.product-card .top-section .image-section {
+  position: relative;
+}
+.product-card .top-section .product-image {
+  width: 100%;
+}
+.product-card .menu {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.product-card .menu .icons {
+  display: flex;
+  flex-direction: column;
+}
+.product-card .menu .icons:hover {
+  cursor: pointer;
+}
+.product-card .menu .fa-heart:hover {
+  color: #f4303c;
+}
+.product-card .menu .fa-bag-shopping:hover {
+  color: rgb(0, 168, 39);
+}
+.product-card .menu .link {
+  background: none;
+  border: none;
+  padding: 0;
+  margin-bottom: 5px;
+}
+.product-card .menu .link i {
+  color: #626262;
+  font-size: 16px;
+  font-weight: 500;
+}
+.product-card .body-section {
+  display: block;
+}
+.product-card .body-section .category {
+  color: #888888;
+}
+.product-card .body-section .price {
+  font-weight: 700;
+}
+
+.product-card:hover {
+  cursor: pointer;
+}
+
+.rating-section {
+  font-size: 0.75rem;
+}
+.rating-section .star-rating {
+  color: #f2a953;
+}
+.rating-section .star-rating:hover {
+  color: #ffbe00;
+}/*# sourceMappingURL=App.css.map */
