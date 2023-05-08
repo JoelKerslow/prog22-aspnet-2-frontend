@@ -1,0 +1,24 @@
+.departments-section{
+    margin: 108px 10px 27px 10px;
+    display: grid;
+    gap: 7px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+
+    .department-item{
+        text-transform: uppercase;
+        text-align: center;
+        border-radius: 15px;
+        width: fit-content;
+        padding: 4px 18px;
+        font-family: $font-opensans;
+        font-weight: $font-weight-semibold;
+
+        // &:hover{
+        //     cursor: pointer;
+        // }
+    }
+}
+
+.active-department{
+    background-color: $color-theme;
+}
