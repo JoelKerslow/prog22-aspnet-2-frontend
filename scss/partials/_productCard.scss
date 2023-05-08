@@ -1,0 +1,70 @@
+.product-card {
+  display: block;
+  background-color: rgb(237, 237, 237);
+  width: 150px;
+
+
+  .top-section {
+    display: flex;
+
+    .image-section {
+      position: relative;
+    }
+
+    .product-image {
+      width: 100%;
+    }
+  }
+
+  .menu {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    .icons {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .icons:hover{
+      cursor: pointer;
+    }
+    .fa-heart:hover{
+      color: rgb(255, 111, 111);
+    }
+    .fa-bag-shopping:hover{
+      color: rgb(0, 168, 39);
+    }
+
+    .link {
+      background: none;
+      border: none;
+      padding: 0;
+      margin-bottom: 5px;
+    }
+
+    .link i {
+      color: gray;
+      font-size: 20px;
+    }
+  }
+
+  .body-section {
+    display: block;
+
+    .category {
+      color: grey;
+    }
+
+    .price{
+      font-weight: 700;
+    }
+  }
+}
+
+.product-card:hover{
+  cursor: pointer;
+}
