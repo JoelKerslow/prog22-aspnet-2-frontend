@@ -221,3 +221,10 @@ header.sidebar-open .sidebar-container {
 .rating-section .star-rating:hover {
   color: #ffbe00;
 }
+
+.sign-in-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100dvh;
+}
