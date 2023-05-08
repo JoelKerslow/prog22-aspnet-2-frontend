@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import SideBarContact from './_SideBarContact';
+import SideBarContact from './SideBarContact';
 
 const Header = ({headerContent}) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
