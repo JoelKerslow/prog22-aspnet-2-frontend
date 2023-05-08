@@ -38,7 +38,7 @@ header {
       }
       
 
-      .header-content input{
+      .search-field{
         height: 35px;
         font-size: $font-size-standard;
         border-radius: 20px;
@@ -47,6 +47,21 @@ header {
         border: 1px solid #ccc;
         font-family: 'Montserrat', sans-serif; 
         padding-left: 15px;
+        padding-bottom: 10px;
+        padding-top: 5px;
+
+        button{
+        font-size: 1rem;
+        }
+
+        input{
+          margin: 0;
+          border: 0;
+          padding: 0;
+          background-color: transparent;
+          outline: none;
+          width: 250px;
+        }
 
 
         @include xxl{

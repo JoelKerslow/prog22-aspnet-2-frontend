@@ -2,9 +2,11 @@ import React from 'react'
 
 const _SearchField = () => {
   return (
-    <div>
-        <i class="fa-thin fa-magnifying-glass fa-xs"></i>
-        <input type="text" placeholder="Search for products"  />
+    <div className='search-field'>
+        <label>
+            <button className='fa-thin fa-magnifying-glass fa-xs'></button>
+            <input type="text" placeholder="Search for products" />
+        </label>
     </div>
   )
 }
