@@ -1,77 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&family=Open+Sans:wght@300;400;500;600;700;800&display=swap");
-.showcase {
+.carousel {
   background-color: #dbe3f5;
-}
-.showcase .container {
+  font-family: "Open Sans", sans-serif;
   display: flex;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
-  padding: 40px 0;
-  text-align: left;
-}
-@media (min-width: 1400px) {
-  .showcase .container {
-    justify-content: space-between;
-    padding-top: 0;
-    padding-bottom: 0;
-  }
-}
-.showcase .content {
-  text-align: left;
-}
-@media (min-width: 1400px) {
-  .showcase .content {
-    text-align: center;
-  }
-}
-.showcase .content .title-1 {
-  font-size: 1.5em;
-  font-weight: 700;
-  font-family: "Montserrat", sans-serif;
-  line-height: 1;
-  margin-bottom: 0.6em;
-  color: #ffffff;
-}
-@media (min-width: 992px) {
-  .showcase .content .title-1 {
-    font-size: 1.9em;
-  }
-}
-@media (min-width: 1200px) {
-  .showcase .content .title-1 {
-    font-size: 2.188em;
-  }
-}
-@media (min-width: 1400px) {
-  .showcase .content .title-1 {
-    font-size: 1.3;
-  }
-}
-.showcase .content .title-2 {
-  font-size: 1.5em;
-  font-weight: 700;
-  font-family: "Montserrat", sans-serif;
-  line-height: 1;
-  margin-bottom: 0.6em;
-  align-content: flex-start;
-  color: #ffffff;
-}
-@media (min-width: 992px) {
-  .showcase .content .title-2 {
-    font-size: 1.9em;
-  }
-}
-@media (min-width: 1200px) {
-  .showcase .content .title-2 {
-    font-size: 2.188em;
-  }
-}
-@media (min-width: 1400px) {
-  .showcase .content .title-2 {
-    font-size: 1.3;
-  }
-}
-.showcase img {
-  max-height: 150px;
-  width: auto;
 }/*# sourceMappingURL=App.css.map */
