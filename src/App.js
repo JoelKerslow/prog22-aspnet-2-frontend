@@ -1,14 +1,24 @@
-import './App.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import "./App.css";
+import ProductContextProvider from "./Contexts/ProductContext";
 
 function App() {
   return (
     <>
-    <BrowserRouter>
+    {/* //#region flyttas till egen fil?
+      <BrowserRouter>
       <Routes>
-        {/* <Route path="/" element={<Home />}/> */}
+        <Route path="/" element={<Home />}/>
       </Routes>
-    </BrowserRouter>
+    </BrowserRouter> 
+    //#endregion */}
+
+
+      {/* <Router> */}
+        <ProductContextProvider>
+
+
+        </ProductContextProvider>
+      {/* </Router> */}
     </>
   );
 }
