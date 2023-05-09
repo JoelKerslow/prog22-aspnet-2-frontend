@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&family=Open+Sans:wght@300;400;500;600;700;800&display=swap");
-.carousel {
+.showcase-carousel {
   background-color: #dbe3f5;
   font-family: "Open Sans", sans-serif;
   overflow: hidden;
@@ -8,12 +8,59 @@
   flex-direction: column;
   align-items: center;
   height: 200px;
-}
-.carousel .inner {
   height: 200px;
   width: auto;
 }
-.carousel .carousel-img {
-  width: 250px;
+.showcase-carousel .inner {
+  overflow: hidden;
+}
+.showcase-carousel .inner .showcase-item .content .title-text {
+  font-size: 1.5em;
+  font-weight: 700;
+  font-family: "Montserrat", sans-serif;
+  line-height: 1;
+  margin-bottom: 0.2em;
+}
+@media (min-width: 992px) {
+  .showcase-carousel .inner .showcase-item .content .title-text {
+    font-size: 1.9em;
+  }
+}
+@media (min-width: 1200px) {
+  .showcase-carousel .inner .showcase-item .content .title-text {
+    font-size: 2.188em;
+  }
+}
+@media (min-width: 1400px) {
+  .showcase-carousel .inner .showcase-item .content .title-text {
+    font-size: 3;
+  }
+}
+.showcase-carousel .inner .showcase-item .content .offer-text {
+  font-size: 1.5em;
+  font-weight: 700;
+  font-family: "Montserrat", sans-serif;
+  line-height: 1;
+  margin-bottom: 0.2em;
+}
+@media (min-width: 992px) {
+  .showcase-carousel .inner .showcase-item .content .offer-text {
+    font-size: 1.9em;
+  }
+}
+@media (min-width: 1200px) {
+  .showcase-carousel .inner .showcase-item .content .offer-text {
+    font-size: 2.188em;
+  }
+}
+@media (min-width: 1400px) {
+  .showcase-carousel .inner .showcase-item .content .offer-text {
+    font-size: 3;
+  }
+}
+.showcase-carousel .showcase-img {
+  height: 150px;
   padding: 0 20px;
-}/*# sourceMappingURL=App.css.map */
+  flex-direction: column;
+  justify-content: center;
+}

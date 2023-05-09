@@ -1,4 +1,4 @@
-.carousel {
+.showcase-carousel {
     background-color: $color-theme;
     font-family: $font-opensans;
     overflow: hidden;
@@ -7,15 +7,30 @@
     flex-direction: column;
     align-items: center;
     height: 200px;
+    height: 200px;
+    width: auto;
 
-    .inner{
-        height: 200px;
-        width: auto;
+    .inner {
+        overflow: hidden;
+        .showcase-item {
+            .content {
+                .title-text {
+                    @include font-title-2;
+
+                }
+                .offer-text {
+                    @include font-title-2;
+                }
+            }
+
+        }
     }
 
-    .carousel-img{
-        width: 250px;
+    .showcase-img {
+        height: 150px;
         padding: 0 20px;
+        flex-direction: column;
+        justify-content: center;
     }
 }
 
