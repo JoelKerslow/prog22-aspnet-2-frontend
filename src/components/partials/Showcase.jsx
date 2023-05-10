@@ -17,9 +17,9 @@ const Showcase = () => {
 
   const updateIndex = (newIndex) => {
     if (newIndex < 0) {
-      newIndex = 0;
+      newIndex = showcase.length -1;
     } else if (newIndex >= showcase.length) {
-      newIndex = showcase.length - 1;
+      newIndex = 0;
     }
 
     setActiveIndex(newIndex);
@@ -34,20 +34,19 @@ const Showcase = () => {
       </div>
       <div className="showcase-carousel-buttons">
         <button className="button-arrow" onClick={() => {updateIndex(activeIndex - 1);}}>
-          <i className="fa-light fa-angle-left"></i>
+          <i className="fa-solid fa-angle-left"></i>
         </button>
         <div className="indicators">
           {showcase.map((item, index) => {
             return (
               <button key={index} className="indicator-buttons" onClick={() => {updateIndex(index)}}>
-                {index === activeIndex ?<i className="fa-regular fa-circle fa-xs"></i>:<i className="fa-solid fa-circle-small fa-2xs"></i>  }
-                
+                {index === activeIndex ?<div className="indicator-dot-big"></div>:<div className="indicator-dot"></div>}
               </button>
             );
           })}
         </div>
         <button className="button-arrow" onClick={() => {updateIndex(activeIndex + 1);}}>
-          <i className="fa-light fa-angle-right"></i>
+          <i className="fa-solid fa-angle-right"></i>
         </button>
       </div>
     </div>

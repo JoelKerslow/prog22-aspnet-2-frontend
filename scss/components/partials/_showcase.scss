@@ -10,9 +10,13 @@
     
     .inner {
         background-color: $color-theme;
-        height: auto;
+        min-height: 150px;
         white-space: nowrap;
         transition: 0.3s;
+        margin-bottom: auto;
+        @include xxl{
+            height: 500px;
+        }
         
 
         .showcase-item {
@@ -25,15 +29,26 @@
                 .title-text {
                     @include font-title-3;
                     white-space: normal;
-                    margin: 60px 0 0 0;
+                    margin-top: 60px;
+                    padding-left: 15px;
+
+                    @include xxl{
+                        @include font-title-1;
+                        position: relative;
+                        padding-right: 350px;
+                        padding-top: 115px
+                    }
                 }
                 .offer-text {
                     @include font-title-3;
                     white-space: normal;
                     margin-top: 10px;
-                    
+                    flex-wrap: wrap;
+                    padding-left: 15px;
+
                     @include xxl{
-                        justify-content: ;
+                        @include font-title-1;
+                        align-self: flex-end;
                     }
                 }
             }
@@ -42,7 +57,7 @@
     .showcase-carousel-buttons{
         display: flex;
         justify-content: space-evenly;
-        width: 100%;
+        width: 100vw;
         background-color: #ffffff;
         
         .button-arrow{
@@ -67,6 +82,22 @@
                 background: none;
             }
         }
+        .indicator-dot{
+            background-color: black;
+            border-radius: 2vw;
+            width: 7px;
+            height: 7px;
+            margin: 0 5px;
+            border: 2px solid black;
+        }
+        .indicator-dot-big{
+            background-color: white;
+            border-radius: 2vw;
+            width: 20px;
+            height: 7px;
+            margin: 0 5px;
+            border: 2px solid black;
+        }
     }
 
     .showcase-img {
@@ -74,5 +105,8 @@
         padding: 0 20px;
         flex-direction: column;
         justify-content: center;
+        @include xxl {
+            height: 500px;
+        }
     }
 }
