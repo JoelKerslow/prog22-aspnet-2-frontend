@@ -315,7 +315,8 @@ header.sidebar-open .sidebar-container {
 .product-card {
   display: block;
   background-color: rgb(237, 237, 237);
-  width: 150px;
+  width: 40vw;
+  transition: 0.3s ease;
 }
 .product-card .top-section {
   display: flex;
@@ -361,7 +362,7 @@ header.sidebar-open .sidebar-container {
 .product-card .body-section {
   display: block;
 }
-.product-card .body-section .category {
+.product-card .body-section .name {
   color: #888888;
 }
 .product-card .body-section .price {
@@ -370,16 +371,17 @@ header.sidebar-open .sidebar-container {
 
 .product-card:hover {
   cursor: pointer;
+  box-shadow: 0px 13px 40px -8px rgba(0, 0, 0, 0.4);
 }
 
 .rating-section {
   font-size: 0.75rem;
 }
 .rating-section .star-rating {
-  color: #f2a953;
+  color: #ffbe00;
 }
 .rating-section .star-rating:hover {
-  color: #ffbe00;
+  color: #f2a953;
 }
 
 .departments-section {
