@@ -27,39 +27,27 @@ const Showcase = () => {
 
   return (
     <div className="showcase-carousel">
-      <div
-        className="inner"
-        style={{ transform: `translate(-${activeIndex * 100}%)` }}
-      >
+      <div className="inner" style={{ transform: `translate(-${activeIndex * 100}%)` }}>
         {showcase.map((item) => {
           return <ShowcaseItem key={item.id} item={item} />;
         })}
       </div>
       <div className="showcase-carousel-buttons">
-        <button
-          className="button-arrow"
-          onClick={() => {
-            updateIndex(activeIndex - 1);
-          }}
-        >
-          <i class="fa-light fa-angle-left"></i>
+        <button className="button-arrow" onClick={() => {updateIndex(activeIndex - 1);}}>
+          <i className="fa-light fa-angle-left"></i>
         </button>
         <div className="indicators">
           {showcase.map((item, index) => {
             return (
-              <button key={index} className="indicator-button">
-                <i class="fa-solid fa-period"></i>
+              <button key={index} className="indicator-buttons" onClick={() => {updateIndex(index)}}>
+                {index === activeIndex ?<i className="fa-regular fa-circle fa-xs"></i>:<i className="fa-solid fa-circle-small fa-2xs"></i>  }
+                
               </button>
             );
           })}
         </div>
-        <button
-          className="button-arrow"
-          onClick={() => {
-            updateIndex();
-          }}
-        >
-          <i class="fa-light fa-angle-right"></i>
+        <button className="button-arrow" onClick={() => {updateIndex(activeIndex + 1);}}>
+          <i className="fa-light fa-angle-right"></i>
         </button>
       </div>
     </div>

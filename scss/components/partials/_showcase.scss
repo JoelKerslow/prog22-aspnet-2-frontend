@@ -2,27 +2,39 @@
     font-family: $font-opensans;
     overflow: hidden;
     display: flex;
-    justify-content: center;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    width: auto;
+    width: 100vw;
+    background: $color-theme;
     
     .inner {
         background-color: $color-theme;
         height: auto;
-        overflow: hidden;
         white-space: nowrap;
         transition: 0.3s;
         
+
         .showcase-item {
             display: inline-flex;
+            align-items: flex;
+            justify-content: center;
+            width: 100%;
+
             .content {
                 .title-text {
-                    @include font-title-2;
-                    
+                    @include font-title-3;
+                    white-space: normal;
+                    margin: 60px 0 0 0;
                 }
                 .offer-text {
                     @include font-title-3;
+                    white-space: normal;
+                    margin-top: 10px;
+                    
+                    @include xxl{
+                        justify-content: ;
+                    }
                 }
             }
         }
@@ -30,6 +42,31 @@
     .showcase-carousel-buttons{
         display: flex;
         justify-content: space-evenly;
+        width: 100%;
+        background-color: #ffffff;
+        
+        .button-arrow{
+            background: none;
+            border: none;
+            cursor: pointer;
+            margin-top: 5px;
+            opacity: 0.2;
+        }
+        .button-arrow:hover{
+            opacity:1;
+            transition: 0.2s;
+        }
+        .indicators{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-top: 5px;
+            
+            .indicator-buttons{
+                border: none;
+                background: none;
+            }
+        }
     }
 
     .showcase-img {
@@ -39,67 +76,3 @@
         justify-content: center;
     }
 }
-
-
-
-
-// .showcase {
-//     background-color: $color-theme;
-//     display: flex;
-//     justify-content: center;
-//     flex-direction: center;
-//     align-items: center;
-
-//     @include xxl {
-//         height: 40vh;
-//     }
-//     .container {
-//         @include center-content;
-//         padding: 40px 0;
-//         text-align: left;
-//         width: 100%;
-//         padding-bottom: 0;
-//         overflow: hidden;
-//         display: flex;
-//         justify-content: center;
-//         flex-direction: row;
-
-//         @include xxl {
-//             justify-content: space-between;
-//             padding-bottom: 0;
-//         }
-
-//     }
-
-
-//     .content {
-//         text-align: left;
-//         padding-bottom: 5px;
-//         @include xxl {
-//             text-align: center;
-//             padding-left: 75px;
-//         }
-
-//         .title-1 {
-//             padding: 26px 0 0 0;
-//             @include font-title-2;
-//             color: $color-light-1;
-//         }
-
-//         .title-2 {
-//             @include font-title-1;
-//             align-content: flex-start;
-//             color: $color-light-1;
-//         }
-//     }
-
-//     img {
-//         max-height: 150px;
-//         width: auto;
-//         padding-left: 15px;
-//             @include xxl{
-//                 max-height: 300px;
-//                 padding-top: 10px;
-//             }
-//     }
-// }

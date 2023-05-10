@@ -55,7 +55,7 @@
     font-weight: $font-weight-bold;
     font-family: $font-montserrat;
     line-height: $font-lineheight-small;
-    margin-bottom: 0.2em;
+    // margin-bottom: 0.2em;
 
     @include lg {
         font-size: 1.9em;
@@ -73,7 +73,7 @@
     font-weight: $font-weight-medium;
     font-family: $font-montserrat;
     line-height: $font-lineheight-standard;
-    margin-bottom: 1.5em;
+    // margin-bottom: 1.5em;
 
     @include lg {
         font-size: 1.1em;
