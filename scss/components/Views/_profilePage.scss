@@ -1,0 +1,23 @@
+.list-group-item {
+    border-left: none;
+    border-right: none;
+    border-radius: 0px;
+    display: flex;
+    padding: 0px;
+}
+.list-group {
+    border-radius: 0px;
+}
+.options-icon{
+    width: 15%;
+    text-align: center;
+}
+.options-text{
+    display: flex;
+    width: 75%;
+    padding: 0%;
+    margin: 0%;
+}
+.options-arrow{
+    width: 10%;
+}
