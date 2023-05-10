@@ -142,7 +142,7 @@ header .sidebar-container {
   left: 0;
   height: 100%;
   background-color: #000;
-  width: 50%;
+  width: 65%;
   overflow-x: hidden;
   transition: width 0.5s;
   padding: 20px;
@@ -150,24 +150,123 @@ header .sidebar-container {
   z-index: 999;
   color: #fff;
   text-align: center;
+  color: grey;
+  font-family: "Montserrat", sans-serif;
+}
+header .sidebar-container .order-tracking {
+  position: absolute;
+  bottom: 10%;
+  padding-left: 20px;
+}
+header .sidebar-container .order-tracking h6 {
+  font-size: 12px;
+  font-family: "Montserrat", sans-serif;
+  text-align: left;
+  padding-left: 4px;
+  color: lightgray;
+}
+header .sidebar-container .order-tracking input {
+  background-color: black;
+  border-radius: 20px 20px 20px 20px;
+  padding-left: 10px;
+  color: lightgray;
+  height: 40px;
+}
+header .sidebar-container .order-tracking .border-tracking {
+  padding-right: 100px;
+  background-color: black;
+  color: white;
+  border-radius: 20px 20px 20px 20px;
+  border-color: white;
+}
+header .sidebar-container .order-tracking .rounded-border {
+  border: 20px 20px 20px 20px;
+  border-color: white;
+  background-color: black;
+}
+header .sidebar-container .order-tracking button {
+  position: absolute;
+  right: 0;
+  margin-top: 0px;
+  margin-right: 0px;
+  border: 2px solid grey;
+  border-radius: 50%;
+  background: darkgrey;
+  box-sizing: border-box;
+  height: 40px;
+  width: 40px;
+}
+header .sidebar-container .order-tracking button:hover {
+  background: lightgray;
+  border: white;
+}
+@media (min-width: 768px) {
+  header .sidebar-container {
+    width: 400px;
+  }
+}
+@media (min-width: 992px) {
+  header .sidebar-container {
+    width: 300px;
+  }
+}
+@media (min-width: 1200px) {
+  header .sidebar-container {
+    width: 300px;
+  }
 }
 @media (min-width: 1400px) {
   header .sidebar-container {
-    width: 20%;
+    width: 300px;
   }
+}
+header .sidebar-container .contact-div {
+  border-bottom: 1px solid grey;
+  text-decoration: none;
+  color: grey;
+}
+header .sidebar-container .contact-div li {
+  padding-left: 10px;
+  color: lightgrey;
+}
+header .sidebar-container .contact-div li a {
+  text-decoration: none;
+  color: lightgrey;
+}
+header .sidebar-container .contact-div .icon i {
+  border-radius: 50%;
+  border: 1px solid;
+  width: 35px;
+  height: 35px;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  float: left;
+  color: white;
 }
 header .sidebar-container h1 {
   margin-top: 0;
   font-family: "Montserrat", sans-serif;
   font-size: 16px;
+  text-align: left;
+  text-decoration: solid;
+  color: white;
 }
 header .sidebar-container ul {
   list-style: none;
   margin: 0;
   padding: 0;
+  color: grey;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 header .sidebar-container ul li {
-  margin-bottom: 10px;
+  margin-bottom: 0px;
+  font-size: 0.8rem;
+  text-align: left;
+  display: flex;
+  align-items: center;
 }
 header .sidebar-container .close-button {
   position: absolute;
