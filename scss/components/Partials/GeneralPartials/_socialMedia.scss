@@ -1,0 +1,11 @@
+.SocialMediaClass{
+    width: 60%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+@media (min-width: 768px) { //Måste fixas lite mer med
+    .SocialMediaClass {
+      width: 20%; 
+    }    
+  }

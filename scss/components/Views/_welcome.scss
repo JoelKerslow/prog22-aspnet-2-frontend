@@ -1,0 +1,66 @@
+.Welcome-Container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: $color-bluegrey;
+    height: 100vh;
+}
+
+
+//Här ligger css för ManeroLogo också.
+.ManeroLogoClass {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $color-bluegrey;
+  }
+  
+  
+  .circle-1 {
+    height: 140px;
+    width: 140px;
+    border: 4px solid white;
+    border-radius: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $color-bluegrey;
+    transition: transform .5s ease;
+  }
+  .circle-1:hover {
+    transform: scale(1.1);
+  }
+  
+  .circle-2 {
+  
+    height: 100px;
+    width: 100px;
+    border-radius: 100px;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .maneroLogoRectangle {
+    display: flex;
+    width: 18px;
+    height: 5px;
+    border-radius: 3px;
+    background-color: $color-white;
+    border: 1.2000000476837158px solid #111111;
+  }
+  
+  .maneroLogoText {
+    font-size: 44px;
+    font-weight: bold;
+    margin: 0;
+    text-align: center;
+    color: $color-main;
+    transition: transform .5s ease;
+  }
+  .maneroLogoText:hover {
+    transform: scale(1.2);
+  }

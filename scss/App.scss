@@ -3,4 +3,25 @@
 @import './core/variables';
 
 //components
+@import './components/utilities';
+@import './components/buttons';
+
+//partials
+@import './components/Partials/header';
+@import './components/Partials/productCard';
+@import './components/Partials/starRating';
+@import './components/Partials/departments';
+@import './components/Partials/categories';
+@import './components/Partials/GeneralPartials/socialMedia';
+@import './components/Partials/pageIndicator';
+@import "./components/Partials/editProfile";
+@import './components/Partials/GeneralPartials/profilePicture';
+@import './components/Partials/registration';
 @import './components/partials/showcase'
+
+//Views
+@import './components/Views/onboarding';
+@import './components/Views/welcome';
+@import './components/Views/verificationCode';
+@import './components/Views/profilePage'
+

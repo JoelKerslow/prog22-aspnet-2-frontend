@@ -1,0 +1,106 @@
+.categories-section {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3, auto);
+    grid-gap: 2px;
+    margin: auto;
+
+    @include md {
+        position: absolute;
+    }
+
+    @include lg {
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: auto;
+        grid-gap: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+
+    .category-item {
+        background-color: $color-theme-2;
+        display: flex;
+        align-items: flex-end;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        @include lg {
+            border-radius: 10px;
+            transition: 0.5s;
+
+            &:hover {
+                cursor: pointer;
+                aspect-ratio: 1 / 1.35;
+                transition: 0.5s;
+            }
+        }
+
+        .category-item-text {
+            font-family: $font-opensans;
+            color: $color-light-1;
+            font-size: 20px;
+            padding-left: 10px;
+
+            @include md {
+                font-size: 30px;
+            }
+        }
+    }
+}
+
+.category-item:nth-child(1),
+.category-item:nth-child(2) {
+    grid-row: 1;
+    aspect-ratio: 1/1;
+
+    @include md {
+        aspect-ratio: 1.35/1;
+    }
+
+    @include lg {
+        aspect-ratio: 1/1.2;
+    }
+
+    @include xxl {}
+}
+
+.category-item:nth-child(3) {
+    grid-row: 2;
+    grid-column: 1 / -1;
+    aspect-ratio: 2/1;
+
+    @include md {
+        aspect-ratio: 2.7/1;
+    }
+
+    @include lg {
+        aspect-ratio: 1/1.2;
+        grid-column: auto;
+        grid-row: auto;
+    }
+
+    @include xxl {}
+}
+
+.category-item:nth-child(4),
+.category-item:nth-child(5) {
+    grid-row: 3;
+    aspect-ratio: 1/1;
+
+    @include md {
+        aspect-ratio: 1.35/1;
+    }
+
+    @include lg {
+        aspect-ratio: 1/1.2;
+        grid-row: 1;
+    }
+
+    @include xxl {}
+}
