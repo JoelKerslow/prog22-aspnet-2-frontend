@@ -41,6 +41,7 @@ const VerificationCode = () => {
             Verify
           </button>
         </form>
+
         <p className="text-center my-2">
           Didn't receive the OTP? <Link to="/NumberReg">Resend.</Link>
         </p>
