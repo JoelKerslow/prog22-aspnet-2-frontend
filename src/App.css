@@ -749,6 +749,60 @@ header.sidebar-open .sidebar-container {
   position: relative;
 }
 
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input-field-group {
+  display: flex;
+  position: relative;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.input-field {
+  border: 1px solid #DBE3F5;
+  border-radius: 50px;
+  opacity: 1;
+  margin-bottom: 15px;
+  font-size: 16px;
+  width: 90vw;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 15px;
+  padding: 8px 12px;
+}
+
+.input-field-group label {
+  position: absolute;
+  bottom: 44px;
+  left: 10%;
+  background-color: #FFFFFF;
+  font-size: 16px;
+}
+
+.RegHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2vh;
+  margin-bottom: 4vh;
+}
+
+.RegHeader h3 {
+  font-size: 18px;
+}
+
+@media (min-width: 768px) {
+  .input-field {
+    width: 20vw;
+  }
+  .input-field-group label {
+    left: 20%;
+  }
+}
 .Onboarding-Container {
   display: flex;
   flex-direction: column;
