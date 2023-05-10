@@ -7,6 +7,7 @@ import Search from './Components/Views/Search'
 import EditProfile from './Components/Partials/EditProfile'
 import Signup from './Components/Partials/Signup'
 import Signin from './Components/Partials/Signin'
+import ProfilePage from './Components/Views/ProfilePage'
 
 function App() {
   return (

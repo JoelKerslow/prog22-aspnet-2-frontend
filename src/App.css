@@ -62,7 +62,7 @@
   }
 }
 header {
-  position: fixed;
+  position: sticky;
   top: 0;
   width: 100%;
   z-index: 999;
@@ -250,7 +250,8 @@ header .sidebar-container h1 {
   font-family: "Montserrat", sans-serif;
   font-size: 16px;
   text-align: left;
-  text-decoration: solid;
+  -webkit-text-decoration: solid;
+          text-decoration: solid;
   color: white;
 }
 header .sidebar-container ul {
@@ -393,6 +394,7 @@ header.sidebar-open .sidebar-container {
   text-transform: uppercase;
   text-align: center;
   border-radius: 15px;
+  width: -moz-fit-content;
   width: fit-content;
   padding: 4px 18px;
   font-family: "Open Sans", sans-serif;
@@ -979,3 +981,31 @@ header.sidebar-open .sidebar-container {
   margin-top: 2vh;
   margin-bottom: 4vh;
 }
+
+.list-group-item {
+  border-left: none;
+  border-right: none;
+  border-radius: 0px;
+  display: flex;
+  padding: 0px;
+}
+
+.list-group {
+  border-radius: 0px;
+}
+
+.options-icon {
+  width: 15%;
+  text-align: center;
+}
+
+.options-text {
+  display: flex;
+  width: 75%;
+  padding: 0%;
+  margin: 0%;
+}
+
+.options-arrow {
+  width: 10%;
+}/*# sourceMappingURL=App.css.map */
