@@ -7,10 +7,14 @@
 @import './components/buttons';
 
 //partials
-@import './Partials/header';
-@import './Partials/productCard';
-@import './Partials/starRating';
-@import './Partials/departments';
-@import './Partials/categories'
+@import './components/Partials/header';
+@import './components/Partials/productCard';
+@import './components/Partials/starRating';
+@import './components/Partials/departments';
+@import './components/Partials/categories';
+@import './components/Partials/GeneralPartials/socialMedia';
+@import './components/Partials/pageIndicator';
 
 //Views
+@import './components/Views/onboarding';
+@import './components/Views/welcome';

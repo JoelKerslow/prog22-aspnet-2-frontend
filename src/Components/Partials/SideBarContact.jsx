@@ -1,6 +1,6 @@
 import React from 'react'
 
-const _SideBarContact = ({sidebarRef, toggleSideBar}) => {
+const SideBarContact = ({sidebarRef, toggleSideBar}) => {
   return (
     <div className="sidebar-overlay">
           <div className="sidebar-container" ref={sidebarRef}>
@@ -17,4 +17,4 @@ const _SideBarContact = ({sidebarRef, toggleSideBar}) => {
   )
 }
 
-export default _SideBarContact
+export default SideBarContact

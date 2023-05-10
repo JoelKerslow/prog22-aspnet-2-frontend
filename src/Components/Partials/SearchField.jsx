@@ -1,6 +1,6 @@
 import React from 'react'
 
-const _SearchField = () => {
+const SearchField = () => {
   return (
     <div className='search-field'>
         <label>
@@ -11,4 +11,4 @@ const _SearchField = () => {
   )
 }
 
-export default _SearchField
+export default SearchField

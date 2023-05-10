@@ -1,0 +1,21 @@
+.page-indicators {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // margin-top: 1rem;
+    padding-bottom: 1rem;
+  
+    .indicator {
+      background-color: white;
+      border-radius: 2vw;
+      width: 10px;
+      height: 7px;
+      margin: 0 5px;
+      border: 2px solid black;
+  
+      &.active {
+        width: 20px;
+      }
+    }
+  }
+  
