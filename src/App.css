@@ -250,8 +250,7 @@ header .sidebar-container h1 {
   font-family: "Montserrat", sans-serif;
   font-size: 16px;
   text-align: left;
-  -webkit-text-decoration: solid;
-          text-decoration: solid;
+  text-decoration: solid;
   color: white;
 }
 header .sidebar-container ul {
@@ -392,7 +391,6 @@ header.sidebar-open .sidebar-container {
   text-transform: uppercase;
   text-align: center;
   border-radius: 15px;
-  width: -moz-fit-content;
   width: fit-content;
   padding: 4px 18px;
   font-family: "Open Sans", sans-serif;
@@ -931,7 +929,6 @@ header.sidebar-open .sidebar-container {
 
 .maneroLogoText:hover {
   transform: scale(1.2);
-=======
 }
 
 .mycirclecontainer {
@@ -979,4 +976,4 @@ header.sidebar-open .sidebar-container {
   align-items: center;
   margin-top: 2vh;
   margin-bottom: 4vh;
-}/*# sourceMappingURL=App.css.map */
+}
