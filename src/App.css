@@ -378,10 +378,10 @@ header.sidebar-open .sidebar-container {
   font-size: 0.75rem;
 }
 .rating-section .star-rating {
-  color: #f2a953;
+  color: #ffbe00;
 }
 .rating-section .star-rating:hover {
-  color: #ffbe00;
+  color: #f2a953;
 }
 
 .departments-section {
