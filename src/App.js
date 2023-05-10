@@ -1,5 +1,6 @@
 import './App.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Home from './components/views/Home'
 import Welcome from './Components/Views/Welcome'
 import Onboarding from './Components/Views/Onboarding'
 import VerificationCode from './Components/Views/VerificationCode'
@@ -22,6 +23,7 @@ function App() {
       </BrowserRouter>
 
       {/* <ProductContextProvider></ProductContextProvider> */}
+
     </>
   )
 }
