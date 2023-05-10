@@ -1,29 +1,35 @@
 .showcase-carousel {
-    background-color: $color-theme;
     font-family: $font-opensans;
     overflow: hidden;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    height: 200px;
-    height: 200px;
     width: auto;
-
+    
     .inner {
+        background-color: $color-theme;
+        height: auto;
         overflow: hidden;
+        white-space: nowrap;
+        transition: 0.3s;
+        
         .showcase-item {
+            display: inline-flex;
             .content {
                 .title-text {
                     @include font-title-2;
-
+                    
                 }
                 .offer-text {
-                    @include font-title-2;
+                    @include font-title-3;
                 }
             }
-
         }
+    }
+    .showcase-carousel-buttons{
+        display: flex;
+        justify-content: space-evenly;
     }
 
     .showcase-img {
