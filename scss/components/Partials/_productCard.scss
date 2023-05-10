@@ -4,7 +4,6 @@
   width: 40vw;
   transition: 0.3s ease;
 
-
   .top-section {
     display: flex;
 
@@ -30,15 +29,13 @@
       flex-direction: column;
     }
 
-    .icons:hover{
+    .icons:hover {
       cursor: pointer;
     }
-    .fa-heart:hover{
+    .fa-heart:hover {
       color: $color-red;
-
     }
-    .fa-bag-shopping:hover{
-
+    .fa-bag-shopping:hover {
       color: $color-light-green;
     }
 
@@ -60,16 +57,16 @@
     display: block;
 
     .name {
-      color: $color-dark-3
+      color: $color-dark-3;
     }
 
-    .price{
+    .price {
       font-weight: 700;
     }
   }
 }
 
-.product-card:hover{
+.product-card:hover {
   cursor: pointer;
   box-shadow: 0px 13px 40px -8px rgba(0, 0, 0, 0.4);
 }
