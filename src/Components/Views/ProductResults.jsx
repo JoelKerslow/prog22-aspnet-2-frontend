@@ -12,11 +12,13 @@ const ProductResults = () => {
 
   useEffect(() => {
     const loadProducts = async () => {
+      setLoading(true)
       await searchProducts(searchVal)
+      await new Promise((resolve) => setTimeout(resolve, 100))
       setLoading(false)
     }
     loadProducts()
-  }, [searchProducts])
+  }, [searchVal])
 
   const productList = products.map((product) => (
     <ProductCard key={product.id} product={product} />
