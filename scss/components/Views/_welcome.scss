@@ -26,6 +26,10 @@
     justify-content: center;
     align-items: center;
     background-color: $color-bluegrey;
+    transition: transform .5s ease;
+  }
+  .circle-1:hover {
+    transform: scale(1.1);
   }
   
   .circle-2 {
@@ -38,7 +42,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  
   }
   
   .maneroLogoRectangle {
@@ -56,4 +59,8 @@
     margin: 0;
     text-align: center;
     color: $color-main;
+    transition: transform .5s ease;
+  }
+  .maneroLogoText:hover {
+    transform: scale(1.2);
   }
