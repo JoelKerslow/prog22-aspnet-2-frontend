@@ -58,6 +58,10 @@
   background-color: $color-main;
   margin-bottom: 2rem;
   /* Add margin for spacing */
+  transition: transform .5s ease;
+}
+.get-started-btn:hover {
+  transform: scale(1.1);
 }
 
 

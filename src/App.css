@@ -13,14 +13,14 @@
   justify-content: space-evenly;
   align-items: center;
   width: 100%;
-  height: 53px; /* Adjust the height as needed */
-  background-color: #ffffff; /* Change the background color as desired */
-  border-top: 1px solid #dbe3f5; /* Add a border at the top if needed */
+  height: 53px;
+  background-color: #ffffff;
+  border-top: 1px solid #dbe3f5;
 }
-
-.NavBarContainer .icon {
-  color: red;
-  font-size: 3rem; /* Adjust the icon size */
+@media (min-width: 1400px) {
+  .NavBarContainer {
+    width: 30%;
+  }
 }
 
 .center-button {
@@ -250,7 +250,8 @@ header .sidebar-container h1 {
   font-family: "Montserrat", sans-serif;
   font-size: 16px;
   text-align: left;
-  text-decoration: solid;
+  -webkit-text-decoration: solid;
+          text-decoration: solid;
   color: white;
 }
 header .sidebar-container ul {
@@ -393,6 +394,7 @@ header.sidebar-open .sidebar-container {
   text-transform: uppercase;
   text-align: center;
   border-radius: 15px;
+  width: -moz-fit-content;
   width: fit-content;
   padding: 4px 18px;
   font-family: "Open Sans", sans-serif;
@@ -573,6 +575,238 @@ header.sidebar-open .sidebar-container {
   width: 20px;
 }
 
+.form-edit-profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.edit-profile-input {
+  display: flex;
+  position: relative;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.input-field {
+  border: 1px solid #DBE3F5;
+  border-radius: 50px;
+  opacity: 1;
+  margin-bottom: 15px;
+  font-size: 16px;
+  width: 90vw;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 15px;
+  padding: 8px 12px;
+}
+
+.input-field-group label {
+  position: absolute;
+  bottom: 44px;
+  left: 10%;
+  background-color: #FFFFFF;
+  font-size: 16px;
+}
+
+.RegHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2vh;
+  margin-bottom: 4vh;
+}
+
+.RegHeader h3 {
+  font-size: 18px;
+}
+
+@media (min-width: 768px) {
+  .input-field {
+    width: 20vw;
+  }
+  .input-field-group label {
+    left: 20%;
+  }
+}
+.profilepic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  padding: 25px;
+}
+
+.profilepic-outer-circle {
+  height: 140px;
+  width: 140px;
+  border: 4px solid #dbe3f5;
+  border-radius: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  transition: transform 0.5s ease;
+}
+
+.profilepic-outer-circle:hover {
+  transform: scale(1.02);
+}
+
+.form-edit-profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.edit-profile-input {
+  display: flex;
+  position: relative;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.input-field {
+  border: 1px solid #DBE3F5;
+  border-radius: 50px;
+  opacity: 1;
+  margin-bottom: 15px;
+  font-size: 16px;
+  width: 90vw;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 15px;
+  padding: 8px 12px;
+}
+
+.input-field-group label {
+  position: absolute;
+  bottom: 44px;
+  left: 10%;
+  background-color: #FFFFFF;
+  font-size: 16px;
+}
+
+.RegHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2vh;
+  margin-bottom: 4vh;
+}
+
+.RegHeader h3 {
+  font-size: 18px;
+}
+
+@media (min-width: 768px) {
+  .input-field {
+    width: 20vw;
+  }
+  .input-field-group label {
+    left: 20%;
+  }
+}
+.profilepic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  padding: 25px;
+}
+
+.profilepic-outer-circle {
+  height: 140px;
+  width: 140px;
+  border: 4px solid #dbe3f5;
+  border-radius: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  transition: transform 0.5s ease;
+}
+
+.profilepic-outer-circle:hover {
+  transform: scale(1.02);
+}
+
+.small-camera-circle {
+  position: relative;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  background-color: #dbe3f5;
+  overflow: visible;
+  top: 50px;
+  left: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profilepic-camera-icon {
+  position: relative;
+}
+
+.profilepic-camera-icon {
+  position: relative;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input-field-group {
+  display: flex;
+  position: relative;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.input-field {
+  border: 1px solid #DBE3F5;
+  border-radius: 50px;
+  opacity: 1;
+  margin-bottom: 15px;
+  font-size: 16px;
+  width: 90vw;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 15px;
+  padding: 8px 12px;
+}
+
+.input-field-group label {
+  position: absolute;
+  bottom: 44px;
+  left: 10%;
+  background-color: #FFFFFF;
+  font-size: 16px;
+}
+
+.RegHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2vh;
+  margin-bottom: 4vh;
+}
+
+.RegHeader h3 {
+  font-size: 18px;
+}
+
+@media (min-width: 768px) {
+  .input-field {
+    width: 20vw;
+  }
+  .input-field-group label {
+    left: 20%;
+  }
+}
 .Onboarding-Container {
   display: flex;
   flex-direction: column;
@@ -629,6 +863,11 @@ header.sidebar-open .sidebar-container {
   background-color: #111111;
   margin-bottom: 2rem;
   /* Add margin for spacing */
+  transition: transform 0.5s ease;
+}
+
+.get-started-btn:hover {
+  transform: scale(1.1);
 }
 
 .Welcome-Container {
@@ -656,6 +895,11 @@ header.sidebar-open .sidebar-container {
   justify-content: center;
   align-items: center;
   background-color: #DBE3F5;
+  transition: transform 0.5s ease;
+}
+
+.circle-1:hover {
+  transform: scale(1.1);
 }
 
 .circle-2 {
@@ -684,4 +928,56 @@ header.sidebar-open .sidebar-container {
   margin: 0;
   text-align: center;
   color: #111111;
+  transition: transform 0.5s ease;
+}
+
+.maneroLogoText:hover {
+  transform: scale(1.2);
+}
+
+.mycirclecontainer {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.cirleOTP-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.circleOTP {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid #dbe3f5;
+  font-size: 24px;
+  margin-top: auto;
+  margin-bottom: 100px;
+}
+
+.circleOTP input {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  border-radius: 50%;
+  border: none;
+  background-color: transparent;
+  font-size: 24px;
+}
+
+.circleOTP.filled input {
+  background-color: #dbe3f5;
+}
+
+.RegHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2vh;
+  margin-bottom: 4vh;
 }/*# sourceMappingURL=App.css.map */
