@@ -3,7 +3,7 @@ import React, { useState, createContext } from "react";
 export const ProductContext = createContext();
 const ProductContextProvider = ({ children }) => {
   const productsBaseUrl =
-    "https://aspnet2-grupp1-backend.azurewebsites.net/api/Products/";
+    "https://aspnet2-grupp1-backend.azurewebsites.net/api/Products";
   const apiKey = "f77ca749-67f4-4c22-9039-137272442ea0";
   
   //Dessa kan komma att ändras/uppdateras när mer funktionalitet finns på sidan.
@@ -13,7 +13,7 @@ const ProductContextProvider = ({ children }) => {
 
 // #region Fetch methods
   const getProducts = () => {
-    fetch(productsBaseUrl + "All", {
+    fetch(productsBaseUrl + "/All", {
       headers: {
         "API-KEY": apiKey,
       },
@@ -35,7 +35,7 @@ const ProductContextProvider = ({ children }) => {
   };
 
   const getProductById = (productId) => {
-    fetch(productsBaseUrl + "Id?productId=" + productId, {
+    fetch(productsBaseUrl + "/Id?productId=" + productId, {
       headers: {
         "API-KEY": apiKey,
       },
@@ -57,7 +57,29 @@ const ProductContextProvider = ({ children }) => {
   };
 
   const getProductsByTag = (tagId) => {
-    fetch(productsBaseUrl + "tag?tagId=" + tagId, {
+    fetch(productsBaseUrl + "/tag?tagId=" + tagId, {
+      headers: {
+        "API-KEY": apiKey,
+      },
+    })
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        } else {
+          throw new Error("Error fetching products");
+        }
+      })
+      .then((data) => {
+        console.log(data);
+        setProducts(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching products:", error);
+      });
+  };
+
+  const searchProducts = (searchVal) => {
+    fetch(productsBaseUrl + "?searchValue=" + searchVal, {
       headers: {
         "API-KEY": apiKey,
       },
@@ -80,7 +102,7 @@ const ProductContextProvider = ({ children }) => {
 
 
   const getProductsByCategory = (categoryId) => {
-    fetch(productsBaseUrl + "category?categoryId=" + categoryId, {
+    fetch(productsBaseUrl + "/category?categoryId=" + categoryId, {
       headers: {
         "API-KEY": apiKey,
       },
@@ -112,6 +134,7 @@ const ProductContextProvider = ({ children }) => {
         products,
         currentProduct,
         setCurrentProduct,
+        searchProducts
       }}
     >
       {children}
