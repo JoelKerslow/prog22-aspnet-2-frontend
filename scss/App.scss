@@ -3,8 +3,14 @@
 @import './core/variables';
 
 //components
+@import './components/utilities';
+@import './components/buttons';
+
+//partials
 @import './Partials/header';
 @import './Partials/productCard';
 @import './Partials/starRating';
 @import './Partials/departments';
 @import './Partials/categories'
+
+//Views

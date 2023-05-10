@@ -1,0 +1,42 @@
+.center-button {
+    display: block;
+    margin: 0 auto;
+  }
+
+.BigBlackButton{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  color: $color-white;
+  margin-top: 2vh;
+  width: 89vw;
+  height: 7vh;
+  border-radius: 25px;
+  background-color: $color-main;
+}
+
+
+.backArrow {
+  position: fixed;
+  top: 2vh;
+  left: 10px;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  z-index: 1000; /* backArrow alltid högst upp */
+}
+
+
+@media (max-width: 768px) {
+  .backArrow {
+      top: 2vh;
+      left: 5px;
+  }
+}
+
+
+@media (min-width: 768px) {
+  .BigBlackButton {
+    width: 20vw; /* Width for desktop devices */
+  }
+}
