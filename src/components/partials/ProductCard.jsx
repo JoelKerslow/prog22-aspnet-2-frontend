@@ -25,7 +25,7 @@ const ProductCard = ({ product }) => {
         <div className="product-card" >
           <div className="top-section">
             <div className="image-section">
-              <img className="product-image" src={product.imageUrl} alt="" onClick={() => handleProductClick()} />
+              <img className="product-image" src={product.imageUrl} alt="" height="400" onClick={() => handleProductClick()} />
               <div className="menu">
                 <div className="icons">
                   <button className="link" onClick={() => handleFavouriteClick()}>
