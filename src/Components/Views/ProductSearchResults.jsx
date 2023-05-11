@@ -5,7 +5,7 @@ import ProductCard from '../partials/ProductCard'
 import Header from '../partials/Header'
 import SearchField from '../partials/SearchField'
 
-const ProductResults = () => {
+const ProductSearchResults = () => {
   const { searchVal } = useParams()
   const { searchProducts, products, loading } = useContext(ProductContext)
 
@@ -32,4 +32,4 @@ const ProductResults = () => {
   )
 }
 
-export default ProductResults
+export default ProductSearchResults

@@ -2,9 +2,8 @@ import React from 'react'
 import { getDepartmentsAsync } from '../../services/CategoryServices'
 import { useState, useEffect } from 'react'
 
-const DepartmentBar = () => {
+const DepartmentBar = ({activeDepartment, setActiveDepartment}) => {
 	const [departments, setDepartments] = useState([])
-	const [activeDepartment, setActiveDepartment] = useState(1)
 	const [loading, setLoading] = useState(true)
 
 	useEffect(() => {

@@ -125,6 +125,30 @@ const ProductContextProvider = ({ children }) => {
         console.error('Error fetching products:', error)
       })
   }
+
+  const getProductsByCategoryAndDepartment = (departmentId, categoryId) => {
+    setLoading(true)
+    fetch(productsBaseUrl + `Category/Department?categoryId=${categoryId}&departmentId=${departmentId}`, {
+      headers: {
+        'API-KEY': apiKey,
+      },
+    })
+      .then((res) => {
+        if (res.ok) {
+          return res.json()
+        } else {
+          throw new Error('Error fetching products')
+        }
+      })
+      .then((data) => {
+        console.log(data)
+        setProducts(data)
+        setLoading(false)
+      })
+      .catch((error) => {
+        console.error('Error fetching products:', error)
+      })
+  }
   //#endregion
 
   return (
@@ -138,7 +162,8 @@ const ProductContextProvider = ({ children }) => {
         currentProduct,
         setCurrentProduct,
         searchProducts,
-        loading
+        loading, 
+        getProductsByCategoryAndDepartment
       }}
     >
       {children}
