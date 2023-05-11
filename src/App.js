@@ -13,7 +13,7 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route exact path="/" element={<Signin />} />
+          <Route exact path="/" element={<EditProfile />} />
           <Route path="/Onboarding" element={<Onboarding />} />
           <Route path="/Verification" element={<VerificationCode />} />
           <Route path="/Search" element={<Search />} />
