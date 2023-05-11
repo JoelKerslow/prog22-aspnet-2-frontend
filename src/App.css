@@ -1048,6 +1048,74 @@ header.sidebar-open .sidebar-container {
   }
 }
 
+.filter-list {
+  margin: 10px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+}
+.filter-list h2 {
+  text-align: center;
+}
+.filter-list .size-filter {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 10px;
+}
+.filter-list .size-filter .size-option {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #DBE3F5;
+  border-radius: 100%;
+  aspect-ratio: 1/1;
+  text-transform: uppercase;
+}
+.filter-list .color-filter {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 10px;
+  align-items: center;
+}
+.filter-list .color-filter h4 {
+  margin-right: 20px;
+}
+.filter-list .color-filter .color-option {
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+  width: 10vw;
+}
+.filter-list .color-filter .red {
+  background-color: red;
+}
+.filter-list .color-filter .blue {
+  background-color: lightblue;
+}
+.filter-list .color-filter .beige {
+  background-color: beige;
+}
+.filter-list .color-filter .darkblue {
+  background-color: darkblue;
+}
+.filter-list .color-filter .black {
+  background-color: black;
+}
+.filter-list .price-filter {
+  width: 85vw;
+  margin-left: 15px;
+}
+.filter-list .price-filter .rc-slider-track {
+  background-color: black;
+}
+.filter-list .price-filter .rc-slider-handle {
+  background-color: black;
+  border: 2px solid black;
+  opacity: 1;
+  width: 18px;
+  height: 18px;
+  margin-top: -7px;
+}
+
 .Onboarding-Container {
   display: flex;
   flex-direction: column;

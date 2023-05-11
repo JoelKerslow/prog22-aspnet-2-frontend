@@ -4,6 +4,7 @@ import { ProductContext } from '../../contexts/ProductContext'
 import ProductCard from '../partials/ProductCard'
 import Header from '../partials/Header'
 import SearchField from '../partials/SearchField'
+import ProductFilter from '../partials/ProductFilter'
 
 const ProductSearchResults = () => {
   const { searchVal } = useParams()
@@ -20,6 +21,7 @@ const ProductSearchResults = () => {
   return (
     <>
       <Header headerContent={<SearchField />} />
+      <ProductFilter />
       {loading ? (
         <div className='product-loading-message'>Loading products...</div>
       ) : (

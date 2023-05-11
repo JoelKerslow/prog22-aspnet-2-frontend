@@ -4,6 +4,7 @@ import { ProductContext } from '../../contexts/ProductContext'
 import Header from '../partials/Header'
 import ProductCard from '../partials/ProductCard'
 import SearchField from '../partials/SearchField'
+import ProductFilter from '../partials/ProductFilter'
 
 const CategoryResults = () => {
   const {departmentId, categoryId} = useParams()
@@ -20,6 +21,7 @@ const CategoryResults = () => {
   return (
     <>
       <Header headerContent={<SearchField />} />
+      <ProductFilter />
       {loading ? (
         <div className='product-loading-message'>Loading products...</div>
       ) : (
