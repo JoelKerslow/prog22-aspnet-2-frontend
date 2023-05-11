@@ -1168,10 +1168,10 @@ header.sidebar-open .sidebar-container {
   margin: 0%;
 }
 
+.options-arrow {
+  width: 10%;
+}
+
 .product-result-list {
   margin-top: 20px;
 }
-
-.options-arrow {
-  width: 10%;
-}/*# sourceMappingURL=App.css.map */
