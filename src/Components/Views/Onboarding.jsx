@@ -22,7 +22,7 @@ const Onboarding = () => {
     if (currentPage < 3) {
       setCurrentPage(currentPage + 1)
     } else {
-      navigate('/Login')
+      navigate('/Signin')
       // setCurrentPage(1); //routing här
     }
   }
@@ -37,7 +37,7 @@ const Onboarding = () => {
           <button className="get-started-btn" onClick={handleButtonClick}>
             Get started
           </button>
-          <NavLink to="/Register"></NavLink>
+          <NavLink to="/Signin"></NavLink>
           <PageIndicator currentPage={currentPage} />
         </div>
       </div>

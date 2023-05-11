@@ -1,8 +1,8 @@
 //imports
 import SocialMedia from './generalPartials/SocialMedia'
-import BackArrow from "../../componentsa/partials/generalPartials/BackArrow";
-import VerticalBar from "./generalPartials/VerticalBar";
-// import { Link, useNavigate } from "react-router-dom";
+import BackArrow from './generalPartials/BackArrow'
+import VerticalBar from './generalPartials/VerticalBar'
+import { Link, useNavigate } from "react-router-dom"
 // import { DataContext } from "../../Contexts/DataContext";
 // import { useContext, useRef, useState } from "react";
 
@@ -90,7 +90,7 @@ const Registration = () => {
             </form>
 
             <p className="text-center my-2">
-              Already have an account? <a to="/Login">Sign in</a>
+              Already have an account? <Link to={"/Signin"}>Sign in</Link>
             </p>
             <SocialMedia />
           </div>

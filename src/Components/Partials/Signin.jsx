@@ -3,7 +3,7 @@ import BackArrow from "../../components/partials/generalPartials/BackArrow";
 import VerticalBar from "./generalPartials/VerticalBar";
 import SocialMedia from "./generalPartials/SocialMedia";
 import InputBox from "./generalPartials/InputBox";
-// import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 // import { AuthContext } from "../../contexts/AuthProvider";
 // import { useContext, useRef, useState } from "react";
 
@@ -58,7 +58,7 @@ const Login = () => {
               </div>
             </form>
             <p className="text-center my-2">
-              Don't have an account? <a to="/Register">Sign up</a>
+              Don't have an account? <Link to="/Signup">Sign up</Link>
             </p>
             <SocialMedia />
           </div>
