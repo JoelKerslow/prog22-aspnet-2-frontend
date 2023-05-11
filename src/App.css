@@ -385,7 +385,7 @@ header.sidebar-open .sidebar-container {
 }
 
 .departments-section {
-  margin: 108px 5px 27px 5px;
+  margin: 27px 5px 27px 5px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
@@ -1166,6 +1166,10 @@ header.sidebar-open .sidebar-container {
   width: 75%;
   padding: 0%;
   margin: 0%;
+}
+
+.product-result-list {
+  margin-top: 20px;
 }
 
 .options-arrow {

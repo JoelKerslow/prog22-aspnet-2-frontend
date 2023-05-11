@@ -1,6 +1,5 @@
 import React from 'react'
 import ManeroLogo from '../partials/generalPartials/ManeroLogo'
-
 import { useNavigate } from 'react-router-dom'
 
 const Welcome = () => {
