@@ -55,7 +55,7 @@ const Registration = () => {
                 <input
                   type="Name"
                   className="input-field"
-                  placeholder="Name"
+                  placeholder="John Doe"
                 />
               </div>
               <div className="input-field-group">
@@ -63,7 +63,7 @@ const Registration = () => {
                 <input
                   type="Email"
                   className="input-field"
-                  placeholder="Email"
+                  placeholder="Johndoe@gmail.com"
                 />
               </div>
               <div className="input-field-group">
@@ -71,7 +71,7 @@ const Registration = () => {
                 <input
                   type="Password"
                   className="input-field"
-                  placeholder="Password"
+                  placeholder="Enter your password here"
                 />
               </div>
               <div className="input-field-group">
@@ -79,8 +79,7 @@ const Registration = () => {
                 <input
                   type="Password"
                   className="input-field"
-                  placeholder="Confirm
-                Password"
+                  placeholder="Enter your password here"
                 />
               </div>
 

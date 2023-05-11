@@ -35,13 +35,13 @@ const Login = () => {
             <VerticalBar />
             <h2 className="text-center my-4">Sign in</h2>
             <form method="post" onSubmit="{handleLogin}">
-              <div className="form-container">
+              <div>
                 <div className="input-field-group">
                   <label>Email</label>
                   <input
                     type="Email"
                     className="input-field"
-                    placeholder="Email"
+                    placeholder="Johndoe@gmail.com"
                     />
                   </div>
                 <div className="input-field-group">
@@ -49,7 +49,7 @@ const Login = () => {
                   <input
                     type="Password"
                     className="input-field"
-                    placeholder="Password"
+                    placeholder="Enter your password here"
                     />
                   </div>
                 <button className="BigBlackButton" type="submit">
