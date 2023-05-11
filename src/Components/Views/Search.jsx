@@ -1,8 +1,8 @@
 import React from 'react'
-import Header from '../Partials/Header'
-import SearchField from '../Partials/SearchField'
-import Departments from '../Partials/Departments'
-import Categories from '../Partials/Categories'
+import Header from '../partials/Header'
+import SearchField from '../partials/SearchField'
+import Departments from '../partials/Departments'
+import Categories from '../partials/Categories'
 
 const Search = () => {
   return (

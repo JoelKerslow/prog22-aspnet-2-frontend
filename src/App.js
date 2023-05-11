@@ -1,11 +1,11 @@
 import './App.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Welcome from './Components/Views/Welcome'
-import Onboarding from './Components/Views/Onboarding'
-import VerificationCode from './Components/Views/VerificationCode'
-import Search from './Components/Views/Search'
-import ProductResults from './Components/Views/ProductResults'
-import ProductContextProvider from './Contexts/ProductContext'
+import Welcome from './components/views/Welcome'
+import Onboarding from './components/views/Onboarding'
+import VerificationCode from './components/views/VerificationCode'
+import Search from './components/views/Search'
+import ProductResults from './components/views/ProductResults'
+import ProductContextProvider from './contexts/ProductContext'
 
 function App() {
   return (

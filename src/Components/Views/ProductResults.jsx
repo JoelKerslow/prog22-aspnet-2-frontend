@@ -1,23 +1,16 @@
 import React, { useEffect, useContext, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { ProductContext } from '../../Contexts/ProductContext'
-import ProductCard from '../Partials/ProductCard'
-import Header from '../Partials/Header'
-import SearchField from '../Partials/SearchField'
+import { ProductContext } from '../../contexts/ProductContext'
+import ProductCard from '../partials/ProductCard'
+import Header from '../partials/Header'
+import SearchField from '../partials/SearchField'
 
 const ProductResults = () => {
   const { searchVal } = useParams()
-  const { searchProducts, products } = useContext(ProductContext)
-  const [loading, setLoading] = useState(true)
+  const { searchProducts, products, loading } = useContext(ProductContext)
 
   useEffect(() => {
-    const loadProducts = async () => {
-      setLoading(true)
-      await searchProducts(searchVal)
-      await new Promise((resolve) => setTimeout(resolve, 100))
-      setLoading(false)
-    }
-    loadProducts()
+    searchProducts(searchVal)
   }, [searchVal])
 
   const productList = products.map((product) => (

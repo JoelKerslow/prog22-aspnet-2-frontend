@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import VerticalBar from '../Partials/GeneralPartials/VerticalBar'
-import PageIndicator from '../Partials/PageIndicator'
+import VerticalBar from '../partials/generalPartials/VerticalBar'
+import PageIndicator from '../partials/PageIndicator'
 import { NavLink, useNavigate } from 'react-router-dom'
 
 const Onboarding = () => {

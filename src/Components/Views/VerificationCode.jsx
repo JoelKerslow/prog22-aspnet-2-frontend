@@ -1,5 +1,5 @@
 //imports
-import BackArrow from '../Partials/GeneralPartials/BackArrow'
+import BackArrow from '../partials/generalPartials/BackArrow'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
 

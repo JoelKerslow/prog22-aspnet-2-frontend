@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { ProductContext } from '../../Contexts/ProductContext'
+import { ProductContext } from '../../contexts/ProductContext'
 import StarRating from './StarRating'
 import { useNavigate } from 'react-router-dom'
 const ProductCard = ({ product }) => {
