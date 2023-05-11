@@ -1,5 +1,5 @@
 import React from 'react'
-import ManeroLogo from '../Partials/GeneralPartials/ManeroLogo'
+import ManeroLogo from '../partials/generalPartials/ManeroLogo'
 
 import { useNavigate } from 'react-router-dom'
 

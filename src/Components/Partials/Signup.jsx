@@ -1,7 +1,7 @@
 //imports
-import SocialMedia from './GeneralPartials/SocialMedia'
-import BackArrow from "./GeneralPartials/BackArrow";
-import VerticalBar from "./GeneralPartials/VerticalBar";
+import SocialMedia from './generalPartials/SocialMedia'
+import BackArrow from "../../componentsa/partials/generalPartials/BackArrow";
+import VerticalBar from "./generalPartials/VerticalBar";
 // import { Link, useNavigate } from "react-router-dom";
 // import { DataContext } from "../../Contexts/DataContext";
 // import { useContext, useRef, useState } from "react";

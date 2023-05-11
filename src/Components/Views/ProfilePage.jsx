@@ -1,7 +1,7 @@
 import React from 'react'
-import Header from '../Partials/Header'
-import VerticalBar from '../Partials/GeneralPartials/VerticalBar'
-import ProfilePicture from '../Partials/GeneralPartials/ProfilePicture'
+import Header from '../partials/Header'
+import VerticalBar from '../partials/generalPartials/VerticalBar'
+import ProfilePicture from '../partials/generalPartials/ProfilePicture'
 
 const ProfilePage = () => {
   return (
