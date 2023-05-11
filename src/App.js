@@ -6,13 +6,14 @@ import Search from './components/views/Search'
 import Signin from './components/partials/Signin'
 import Signup from './components/partials/Signup'
 import Welcome from './components/views/Welcome'
+import Home from './components/views/Home'
 
 function App() {
   return (
     <>
       <BrowserRouter>
         <Routes>
-          <Route exact path="/" element={<Welcome />} />
+          <Route exact path="/" element={<Home />} />
           <Route path="/Signup" element={<Signup />} />
           <Route path="/Signin" element={<Signin />} />
           <Route path="/Onboarding" element={<Onboarding />} />

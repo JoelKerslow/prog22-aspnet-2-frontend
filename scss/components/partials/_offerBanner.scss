@@ -1,0 +1,16 @@
+.offerContainer {
+    width: 375px;
+    height: 150px;
+    background-color: $color-theme;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: left;
+
+    .offerText {
+        @include font-title-2;
+        top: 893px;
+        color: $color-light-1;
+        margin-left: 20px;
+    }
+}

@@ -15,6 +15,22 @@
   background-color: $color-main;
 }
 
+.whiteButton{
+  background-color: $color-light-1;
+  color: $color-black;
+  font-weight: $font-weight-semibold;
+  border: none;
+  display: block;
+  width: 150px;
+  height: 50px;
+  font-size: 18px;
+  border-radius: 25px;
+  margin-top: 2vh;
+  margin-right: auto;
+  margin-bottom: 30px;
+  margin-left: 20px;
+}
+
 
 .backArrow {
   position: fixed;
