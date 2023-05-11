@@ -1,7 +1,7 @@
 //imports
-import BackArrow from "./GeneralPartials/BackArrow";
-import VerticalBar from "./GeneralPartials/VerticalBar";
-import ProfilePicture from "./GeneralPartials/ProfilePicture";
+import BackArrow from "./generalPartials/BackArrow";
+import VerticalBar from "./generalPartials/VerticalBar";
+import ProfilePicture from "./generalPartials/ProfilePicture";
 
 const Registration = () => {
 

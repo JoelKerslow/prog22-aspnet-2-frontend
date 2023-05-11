@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ShowcaseItem from "./ShowcaseItem";
-import { ShowcaseAsync } from "../../Services/ShowcaseServices";
+import { ShowcaseAsync } from "../../services/ShowcaseServices";
 
 const Showcase = () => {
   const [activeIndex, setActiveIndex] = useState(0);
