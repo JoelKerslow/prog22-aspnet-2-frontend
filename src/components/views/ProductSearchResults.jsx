@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, useState } from 'react'
+import React, { useEffect, useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import { ProductContext } from '../../contexts/ProductContext'
 import ProductCard from '../partials/ProductCard'
