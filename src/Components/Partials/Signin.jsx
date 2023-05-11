@@ -36,16 +36,22 @@ const Login = () => {
             <h2 className="text-center my-4">Sign in</h2>
             <form method="post" onSubmit="{handleLogin}">
               <div className="form-container">
-                <input
-                  type="Email"
-                  className="input-field"
-                  placeholder="Email"
-                />
-                <input
-                  type="Password"
-                  className="input-field"
-                  placeholder="Password"
-                />
+                <div className="input-field-group">
+                  <label>Email</label>
+                  <input
+                    type="Email"
+                    className="input-field"
+                    placeholder="Email"
+                    />
+                  </div>
+                <div className="input-field-group">
+                  <label>Password</label>
+                  <input
+                    type="Password"
+                    className="input-field"
+                    placeholder="Password"
+                    />
+                  </div>
                 <button className="BigBlackButton" type="submit">
                   Sign in
                 </button>

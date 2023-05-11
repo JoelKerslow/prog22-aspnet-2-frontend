@@ -4,6 +4,7 @@ import Onboarding from './Components/Views/Onboarding'
 import VerificationCode from './Components/Views/VerificationCode'
 import Search from './Components/Views/Search'
 import Signin from './Components/Partials/Signin'
+import Signup from './Components/Partials/Signup'
 
 function App() {
   return (
@@ -18,7 +19,6 @@ function App() {
       </BrowserRouter>
 
       {/* <ProductContextProvider></ProductContextProvider> */}
-
     </>
   )
 }
