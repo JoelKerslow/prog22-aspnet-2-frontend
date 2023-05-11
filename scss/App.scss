@@ -7,21 +7,24 @@
 @import './components/buttons';
 
 //partials
-@import './components/Partials/header';
-@import './components/Partials/productCard';
-@import './components/Partials/starRating';
-@import './components/Partials/departments';
-@import './components/Partials/categories';
-@import './components/Partials/GeneralPartials/socialMedia';
-@import './components/Partials/pageIndicator';
-@import "./components/Partials/editProfile";
-@import './components/Partials/GeneralPartials/profilePicture';
-@import './components/Partials/registration';
+<<<<<<< HEAD
+@import './components/partials/header';
+@import './components/partials/productCard';
+@import './components/partials/starRating';
+@import './components/partials/departments';
+@import './components/partials/categories';
+@import './components/partials/GeneralPartials/socialMedia';
+@import './components/partials/pageIndicator';
+@import "./components/partials/editProfile";
+@import './components/partials/GeneralPartials/profilePicture';
+@import './components/partials/registration';
 @import './components/partials/showcase'
+=======
+>>>>>>> 6c933eb4e5d02e4cc6579899703b750a25068a33
 
 //Views
-@import './components/Views/onboarding';
-@import './components/Views/welcome';
-@import './components/Views/verificationCode';
-@import './components/Views/profilePage'
+@import './components/views/onboarding';
+@import './components/views/welcome';
+@import './components/views/verificationCode';
+@import './components/views/profilePage'
 
