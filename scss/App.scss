@@ -7,7 +7,6 @@
 @import './components/buttons';
 
 //partials
-<<<<<<< HEAD
 @import './components/partials/header';
 @import './components/partials/productCard';
 @import './components/partials/starRating';
@@ -18,13 +17,10 @@
 @import "./components/partials/editProfile";
 @import './components/partials/GeneralPartials/profilePicture';
 @import './components/partials/registration';
-@import './components/partials/showcase'
-=======
->>>>>>> 6c933eb4e5d02e4cc6579899703b750a25068a33
+@import './components/partials/showcase';
 
 //Views
 @import './components/views/onboarding';
 @import './components/views/welcome';
 @import './components/views/verificationCode';
-@import './components/views/profilePage'
-
+@import './components/views/profilePage';
