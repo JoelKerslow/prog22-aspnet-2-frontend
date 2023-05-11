@@ -1,14 +1,9 @@
 import './App.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Home from './components/views/Home'
-import Welcome from './Components/Views/Welcome'
 import Onboarding from './Components/Views/Onboarding'
 import VerificationCode from './Components/Views/VerificationCode'
 import Search from './Components/Views/Search'
-import EditProfile from './Components/Partials/EditProfile'
-import Signup from './Components/Partials/Signup'
 import Signin from './Components/Partials/Signin'
-import ProfilePage from './Components/Views/ProfilePage'
 
 function App() {
   return (

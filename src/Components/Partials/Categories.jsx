@@ -4,8 +4,8 @@ import { getCategoriesAsync } from '../../services/CategoryServices'
 
 const Categories = () => {
 	const [categories, setCategories] = useState([])
-
 	useEffect(() => {
+		
 		const getCategories = async () => {
 			let categories = await getCategoriesAsync()
 			setCategories(categories)
