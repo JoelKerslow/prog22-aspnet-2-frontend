@@ -4,11 +4,10 @@ import Welcome from './components/views/Welcome'
 import Onboarding from './components/views/Onboarding'
 import VerificationCode from './components/views/VerificationCode'
 import SearchProducts from './components/views/SearchProducts'
-import ProductSearchResults from './components/views/ProductSearchResults'
+import Products from './components/views/Products'
 import ProductContextProvider from './contexts/ProductContext'
-import CategoryResults from './components/views/CategoryResults'
-import Signin from './components/partials/Signin'
-import Signup from './components/partials/Signup'
+import Signin from './components/views/Signin'
+import Signup from './components/views/Signup'
 
 function App() {
   return (
@@ -23,12 +22,8 @@ function App() {
             <Route path="/Signup" element={<Signup />} />
             <Route path="/Signin" element={<Signin />} />
             <Route
-              path="/ProductSearchResults/:searchVal"
-              element={<ProductSearchResults />}
-            />
-            <Route
-              path="/CategoryResults/:departmentId/:categoryId"
-              element={<CategoryResults />}
+              path="/Products/:type/:value"
+              element={<Products />}
             />
           </Routes>
         </BrowserRouter>

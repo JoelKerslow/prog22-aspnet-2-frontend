@@ -3,9 +3,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
 
-const BackArrow = () => {
+const BackArrow = ({clickEvent}) => {
   return (
-    <div className="backArrow">
+    <div className="backArrow" onClick={() => { clickEvent() }}>
       <FontAwesomeIcon icon={faChevronLeft} />
     </div>
   )

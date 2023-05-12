@@ -15,7 +15,7 @@ const SearchField = () => {
             navigate(
               searchVal.current.value === ''
                 ? '/SearchProducts'
-                : `/ProductSearchResults/${searchVal.current.value}`
+                : `/Products/search/${searchVal.current.value}`
             )
             searchVal.current.value = ''
           }}
