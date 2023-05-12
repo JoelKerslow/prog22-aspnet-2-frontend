@@ -8,7 +8,7 @@ import ProductSearchResults from './components/views/ProductSearchResults'
 import ProductContextProvider from './contexts/ProductContext'
 import CategoryResults from './components/views/CategoryResults'
 import Signin from './components/views/Signin'
-import Signup from './components/partials/Signup'
+import Signup from './components/views/Signup'
 
 function App() {
   return (
