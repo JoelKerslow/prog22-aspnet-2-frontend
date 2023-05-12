@@ -70,7 +70,7 @@ const ProductContextProvider = ({ children }) => {
         }
       })
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         setProducts(data);
       })
       .catch((error) => {

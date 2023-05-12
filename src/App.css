@@ -1021,6 +1021,41 @@ header.sidebar-open .sidebar-container {
   }
 }
 
+.previewContainer {
+  font-family: "Open Sans", sans-serif;
+  border-top: 2px solid green;
+  border-bottom: 2px solid green;
+  width: 100vw;
+  overflow: hidden;
+}
+.previewContainer .textRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.previewContainer .textRow .tagText {
+  font-weight: 700;
+}
+.previewContainer .textRow .fullListLink .link {
+  color: #111111;
+  text-decoration: none;
+}
+.previewContainer .textRow .fullListLink .link .icon {
+  color: red;
+}
+.previewContainer .cardView {
+  width: 100vw;
+  transition: 0.3s;
+  display: flex;
+}
+.previewContainer .cardView .productCard {
+  width: 140px;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex;
+}
+
 .Onboarding-Container {
   display: flex;
   flex-direction: column;

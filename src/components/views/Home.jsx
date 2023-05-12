@@ -1,10 +1,9 @@
 import React from 'react'
-import OfferBanner from '../partials/OfferBanner'
-
+import ProductTagPreview from '../partials/ProductTagPreview'
 const Home = () => {
 	return (
 		<>
-			<OfferBanner offer="Cheeper then yo mama" />
+			<ProductTagPreview tag="Featured Products" tagId="1" />
 		</>
 	)
 }

@@ -1,0 +1,40 @@
+.previewContainer{
+    font-family: $font-opensans;
+    border-top: 2px solid green;
+    border-bottom: 2px solid green;
+    width: 100vw;
+    overflow: hidden;
+
+    .textRow{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        
+        .tagText{
+            font-weight: $font-weight-bold ;
+        }
+        .fullListLink{
+            
+            .link{
+                color: $color-dark-1;
+                text-decoration: none;
+                .icon{
+                    color: red;
+                }
+            }
+        }
+    }
+
+    .cardView{
+        width: 100vw;
+        transition: 0.3s;
+        display: flex;
+        .productCard{
+            width: 140px;
+            display: inline-flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex;
+        }
+    }
+}
