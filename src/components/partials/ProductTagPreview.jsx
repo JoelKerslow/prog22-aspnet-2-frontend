@@ -12,7 +12,7 @@ const ProductTagPreview = ({ tag, tagId }) => {
         if(newIndex <0){
             newIndex = 0;
         }else if(newIndex >= shortProdList.length){
-            newIndex = shortProdList.length + 1;
+            newIndex = shortProdList.length;
         }
         setActiveIndex(newIndex)
     };
@@ -38,7 +38,7 @@ const ProductTagPreview = ({ tag, tagId }) => {
 						{!tag ? (<div className="tagText">Insert tag</div>) : (<div className="tagText">{tag}</div>)}
 					</div>
 					<div className="fullListLink">
-						<NavLink className="link" to="/Search">
+						<NavLink className="angleIcon" to="/Search">
                             view all<i className="fa-thin fa-angle-right"></i>
                         </NavLink>
 					</div>
@@ -46,11 +46,11 @@ const ProductTagPreview = ({ tag, tagId }) => {
                 <div className="cardView">
                     <div className="productCards" style={{ transform: `translate(-${activeIndex * 80}%)` }}>
                         {shortProdList.map((product) => {
-                            return <ProductCard key={product.id} product={product} />;
+                            return <div className="oneCard"><ProductCard key={product.id} product={product} /></div>
                         })}
+                    </div>
                         <button className="button-left" onClick={()=>{updateIndex(activeIndex - 1)}}><i className="fa-regular fa-angle-left"></i></button>
                         <button className="button-right" onClick={()=>{updateIndex(activeIndex + 1)}}><i className="fa-regular fa-angle-right"></i></button>
-                    </div>
                 </div>
 			</div>
 		);

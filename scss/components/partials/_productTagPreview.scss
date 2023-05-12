@@ -14,27 +14,61 @@
             font-weight: $font-weight-bold ;
         }
         .fullListLink{
-            
+
             .link{
                 color: $color-dark-1;
                 text-decoration: none;
-                .icon{
-                    color: red;
+                
+                .fa-angle-right{
+                    color: $color-black;
                 }
             }
+            .link:hover{
+            font-weight: $font-weight-semibold;
+        }
         }
     }
 
     .cardView{
-        width: 100vw;
-        transition: 0.3s;
         display: flex;
-        .productCard{
-            width: 140px;
-            display: inline-flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: flex;
+        height: 320px;
+        .productCards{
+            display: flex;
+            transition: 0.3s;
+            .oneCard{
+                width: auto;
+                justify-content: space-around;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                padding-left: 5px;
+                
+            }
+        }
+        .button-left{
+            background: $color-dark-3;
+            border:none;
+            opacity: 0.05;
+            height: 320px;
+            text-align: left;
+            position: absolute;
+            left:0;
+            width: 35px;
+        }
+        .button-left:hover{
+            opacity: 0.7;
+        }
+        .button-right{
+            background: $color-dark-3;
+            border:none;
+            opacity: 0.05;
+            height: 320px;
+            text-align: right;
+            position: absolute;
+            right:0;
+            width: 35px;
+        }
+        .button-right:hover{
+            opacity: 0.7;
         }
     }
 }
