@@ -157,7 +157,7 @@ const ProductContextProvider = ({ children }) => {
       comment: comment || null,
     }
 
-    fetch(productsBaseUrl + `/${productId}/reviews`, {
+    return fetch(productsBaseUrl + `/${productId}/reviews`, {
       method: 'POST',
       headers: {
         'API-KEY': apiKey,
@@ -178,7 +178,9 @@ const ProductContextProvider = ({ children }) => {
     })
     .catch((error) => {
       console.error('Error creating review:', error)
-    });
+      setLoading(false)
+      return Promise.reject(error)
+    })
   }
   //#endregion
 
@@ -195,7 +197,7 @@ const ProductContextProvider = ({ children }) => {
         searchProducts,
         loading, 
         getProductsByCategoryAndDepartment,
-        createProductReview
+        createProductReview,
       }}
     >
       {children}
