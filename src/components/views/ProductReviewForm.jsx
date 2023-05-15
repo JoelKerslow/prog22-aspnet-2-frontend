@@ -85,7 +85,7 @@ const ProductReviewForm = () => {
             </div>
             {serverError && (
               <div class='alert alert-danger' role='alert'>
-                Something went wrong. Please try again later
+                {serverError}
               </div>
             )}
             <button className='BigBlackButton mt-5' type='submit'>
