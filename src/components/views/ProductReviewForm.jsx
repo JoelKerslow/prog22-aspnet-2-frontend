@@ -1,6 +1,7 @@
 import { ProductContext } from "../../contexts/ProductContext"
+import { AuthorizationContext } from "../../contexts/AuthorizationContext"
 import { useEffect, useContext, useState, useRef } from "react"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import Cookies from "js-cookie"
 import VerticalBar from "../partials/generalPartials/VerticalBar"
 import BackArrow from "../partials/generalPartials/BackArrow"
@@ -8,49 +9,37 @@ import CircleWithIcon from "../partials/generalPartials/CircleWithIcon"
 import StarRatingInput from "../partials/StarRatingInput"
 
 const ProductReviewForm = () => {
-  const { currentProduct } = useContext(ProductContext)
+  const { userLoggedin } = useContext(AuthorizationContext)
+  const { productId } = useParams()
+
   const [rating, setRating] = useState(0)
   const [ratingError, setRatingError] = useState()
   const [serverError, setServerError] = useState()
+
   const navigate = useNavigate()
   const commentVal = useRef()
 
-  //TODO: Check if user is logged in, otherwise redirect
-  // useEffect(() => {
-    
-  // }, [])
+  const productReviewsUrl = "https://aspnet2-grupp1-backend.azurewebsites.net/api/ProductReviews"
+  const apiKey = "f77ca749-67f4-4c22-9039-137272442ea0"
 
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-
-    setRatingError(null)
-    setServerError(null)
-
-    if (rating === 0) {
-      setRatingError("Please select a rating")
-      return
-    }
-
-    if (await createProductReview()) {
-      // TODO: Display popup that review has been created
-      console.log("ProductReview created successfully")
-    } else {
-      console.log("Something went wrong creating product review")
-      setServerError("Something went wrong submitting your review. Please try again later")
-    }
-  }
+  useEffect(() => {
+    console.log(userLoggedin)
+    // if (!userLoggedin) {
+    //   //navigate('/SignIn')
+    // }
+  }, [userLoggedin])
 
   const createProductReview = async () => {
-    const productReviewsUrl =
-      "https://aspnet2-grupp1-backend.azurewebsites.net/api/ProductReviews"
-    const apiKey = "f77ca749-67f4-4c22-9039-137272442ea0"
     const comment = commentVal.current.value.replace(/\s+/g, " ").trim()
 
+    // TODO:
+    // 1. Get customerId from currently logged in user
+    // 2. Include date in reviewData
     const reviewData = {
       rating: rating,
       comment: comment || null,
       customerId: 1,
-      productId: currentProduct.id,
+      productId: productId,
     }
 
     const result = await fetch(productReviewsUrl, {
@@ -77,6 +66,25 @@ const ProductReviewForm = () => {
     return result
   }
 
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+
+    setRatingError(null)
+    setServerError(null)
+
+    if (rating === 0) {
+      setRatingError("Please select a rating")
+      return
+    }
+
+    if (await createProductReview()) {
+      // TODO: Display popup that review has been created
+      console.log("ProductReview created successfully")
+    } else {
+      setServerError("Something went wrong submitting your review. Please try again later")
+    }
+  }
+
   const handleStarClick = (value) => {
     setRating(value)
   }
@@ -98,13 +106,16 @@ const ProductReviewForm = () => {
 
           <form onSubmit={handleSubmit} method='post' className='form-review'>
             <StarRatingInput rating={rating} onStarClick={handleStarClick} />
+
             {ratingError && (
               <p className='text-danger text-center'>{ratingError}</p>
             )}
+
             <p className='text-center py-2 mx-2'>
               Your comments and suggestions help us improve the service quality
               better!
             </p>
+
             <div className='input-field-group my-4'>
               <label>COMMENT</label>
               <textarea
@@ -114,11 +125,13 @@ const ProductReviewForm = () => {
                 placeholder='Enter your comment'
               ></textarea>
             </div>
+
             {serverError && (
               <div className='alert alert-danger' role='alert'>
                 {serverError}
               </div>
             )}
+
             <button className='BigBlackButton mt-5' type='submit'>
               Submit
             </button>
