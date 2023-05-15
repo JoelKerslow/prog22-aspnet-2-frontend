@@ -1,27 +1,35 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import { getCategoriesAsync } from '../../services/CategoryServices'
+import { useNavigate } from 'react-router-dom'
 
-const Categories = () => {
-	const [categories, setCategories] = useState([])
-	useEffect(() => {
-		
-		const getCategories = async () => {
-			let categories = await getCategoriesAsync()
-			setCategories(categories)
-		}
-		getCategories()
-	}, [])
+const Categories = ({ activeDepartment }) => {
+  const [categories, setCategories] = useState([])
+  const navigate = useNavigate()
 
-	const categoryList = categories.map((c) => {
-		return (
-			<div key={c.id} className="category-item">
-				<p className='category-item-text'>{c.categoryName}</p>
-			</div>
-		)
-	})
+  useEffect(() => {
+    const getCategories = async () => {
+      let categories = await getCategoriesAsync()
+      setCategories(categories)
+    }
+    getCategories()
+  }, [])
 
-	return <div className="categories-section">{categoryList}</div>
+  const categoryList = categories.map((c) => {
+    return (
+      <div
+        key={c.id}
+        className="category-item"
+        onClick={() => {
+          navigate('/Products/category/' + activeDepartment + '-' + c.id)
+        }}
+      >
+        <p className="category-item-text">{c.categoryName}</p>
+      </div>
+    )
+  })
+
+  return <div className="categories-section">{categoryList}</div>
 }
 
 export default Categories
