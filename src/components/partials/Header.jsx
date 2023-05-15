@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import SideBarContact from './SideBarContact';
 
-const Header = ({headerContent}) => {
+const Header = ({headerContent, useGoBackButton }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const sidebarRef = useRef(null);
 
@@ -24,10 +24,20 @@ const Header = ({headerContent}) => {
     };
   }, []);
 
+  const handleGoBack = () => {
+    window.history.go(-1);
+  };
+
+
   return (
     <header>
       <div className='header-container'>
-        <button className='fa-solid fa-bars' onClick={handleSidebarToggle}></button>
+      {useGoBackButton ? (
+          <button className='fa-solid fa-arrow-left' onClick={handleGoBack}></button>
+        ) : (
+          <button className='fa-solid fa-bars' onClick={handleSidebarToggle}></button>
+        )}
+        
 
         <div className='header-content'>
           {headerContent}
