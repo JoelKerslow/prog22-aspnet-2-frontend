@@ -3,16 +3,21 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Welcome from './components/views/Welcome'
 import Onboarding from './components/views/Onboarding'
 import VerificationCode from './components/views/VerificationCode'
+
 import SearchProducts from './components/views/SearchProducts'
 import ProductSearchResults from './components/views/ProductSearchResults'
 import ProductContextProvider from './contexts/ProductContext'
 import CategoryResults from './components/views/CategoryResults'
+import AuthorizationContextProvider from './contexts/AuthorizationContext'
 import Signin from './components/views/Signin'
 import Signup from './components/views/Signup'
+import ProfilePage from './components/views/ProfilePage'
 
 function App() {
   return (
     <>
+
+  <AuthorizationContextProvider>
       <ProductContextProvider>
         <BrowserRouter>
           <Routes>
@@ -33,6 +38,7 @@ function App() {
           </Routes>
         </BrowserRouter>
       </ProductContextProvider>
+ </AuthorizationContextProvider>
     </>
   )
 }

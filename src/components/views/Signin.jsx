@@ -4,24 +4,18 @@ import VerticalBar from "../partials/generalPartials/VerticalBar";
 import SocialMedia from "../partials/generalPartials/SocialMedia";
 import InputBox from "../partials/generalPartials/InputBox";
 import { Link, useNavigate } from "react-router-dom";
-// import { AuthContext } from "../../contexts/AuthProvider";
-// import { useContext, useRef, useState } from "react";
+import { AuthorizationContext } from "../../contexts/AuthorizationContext";
+import { useContext, useRef, useState } from "react";
 
-const Login = () => {
+const SignIn = () => {
+  const { loginUser } = useContext(AuthorizationContext);
+  const emailRef = useRef();
+  const passwordRef = useRef();
 
-  // const { signIn } = useContext(AuthContext);
-  // const emailRef = useRef();
-  // const passwordRef = useRef();
-
-  // const handleLogin = async (e) => {
-  //   e.preventDefault();
-  //   try{
-  //     await signIn(emailRef.current.value, passwordRef.current.value);
-  //   }catch{
-
-  //   }
-  // }
-
+  const handleLogin = async () => {
+    await loginUser(emailRef.current.value, passwordRef.current.value);
+  };
+  
   return (
     <>
       <div className="container">
@@ -34,7 +28,6 @@ const Login = () => {
 
             <VerticalBar />
             <h2 className="text-center my-4">Sign in</h2>
-            <form method="post" onSubmit="{handleLogin}">
               <div>
                 <div className="input-field-group">
                   <label>Email</label>
@@ -42,21 +35,27 @@ const Login = () => {
                     type="Email"
                     className="input-field"
                     placeholder="Johndoe@gmail.com"
-                    />
-                  </div>
+                    ref={emailRef}
+                  />
+                </div>
                 <div className="input-field-group">
                   <label>Password</label>
                   <input
                     type="Password"
                     className="input-field"
                     placeholder="Enter your password here"
-                    />
-                  </div>
-                <button className="BigBlackButton" type="submit">
+                    ref={passwordRef}
+                  />
+                </div>
+                <button
+                  className="BigBlackButton"
+                  onClick={() => {
+                    handleLogin();
+                  }}
+                >
                   Sign in
                 </button>
               </div>
-            </form>
             <p className="text-center my-2">
               Don't have an account? <Link to="/Signup">Sign up</Link>
             </p>
@@ -67,4 +66,4 @@ const Login = () => {
     </>
   );
 };
-export default Login;
+export default SignIn;
