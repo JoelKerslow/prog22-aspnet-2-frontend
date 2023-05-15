@@ -14,12 +14,17 @@
     height: 53px;
     background-color: #ffffff; 
     border-top: 1px solid #dbe3f5; 
-
+    margin: 0 auto;
+ 
     @include xxl {
       width: 30%;
       //background-color: wheat;
     }
   }
+  .profile-navbar > .NavBarContainer {
+    border-top: none;
+  }
+  
 
  .product-result-list{
   display: grid;

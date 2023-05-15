@@ -11,9 +11,11 @@ const SignIn = () => {
   const { loginUser } = useContext(AuthorizationContext);
   const emailRef = useRef();
   const passwordRef = useRef();
+  const navigate = useNavigate();
 
   const handleLogin = async () => {
     await loginUser(emailRef.current.value, passwordRef.current.value);
+    navigate("/Profile");
   };
   
   return (
