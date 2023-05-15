@@ -1,13 +1,14 @@
 import { ProductContext } from "../../contexts/ProductContext"
 import { useEffect, useContext, useState, useRef } from "react"
 import { useNavigate } from "react-router-dom"
+import Cookies from "js-cookie"
 import VerticalBar from "../partials/generalPartials/VerticalBar"
 import BackArrow from "../partials/generalPartials/BackArrow"
 import CircleWithIcon from "../partials/generalPartials/CircleWithIcon"
 import StarRatingInput from "../partials/StarRatingInput"
 
 const ProductReviewForm = () => {
-  const { currentProduct, createProductReview } = useContext(ProductContext)
+  const { currentProduct } = useContext(ProductContext)
   const [rating, setRating] = useState(0)
   const [ratingError, setRatingError] = useState()
   const [serverError, setServerError] = useState()
@@ -16,10 +17,10 @@ const ProductReviewForm = () => {
 
   //TODO: Check if user is logged in, otherwise redirect
   // useEffect(() => {
-  // navigate(-1)
+    
   // }, [])
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
 
     setRatingError(null)
@@ -30,20 +31,50 @@ const ProductReviewForm = () => {
       return
     }
 
+    if (await createProductReview()) {
+      // TODO: Display popup that review has been created
+      console.log("ProductReview created successfully")
+    } else {
+      console.log("Something went wrong creating product review")
+      setServerError("Something went wrong submitting your review. Please try again later")
+    }
+  }
+
+  const createProductReview = async () => {
+    const productReviewsUrl =
+      "https://aspnet2-grupp1-backend.azurewebsites.net/api/ProductReviews"
+    const apiKey = "f77ca749-67f4-4c22-9039-137272442ea0"
     const comment = commentVal.current.value.replace(/\s+/g, " ").trim()
 
-    createProductReview(currentProduct.id, rating, comment)
-      .then(() => {
-        // Review created successfully
-        // TODO: Show success message to the user
-        console.log("Review created successfully")
+    const reviewData = {
+      rating: rating,
+      comment: comment || null,
+      customerId: 1,
+      productId: currentProduct.id,
+    }
+
+    const result = await fetch(productReviewsUrl, {
+      method: "POST",
+      headers: {
+        "API-KEY": apiKey,
+        "Content-Type": "application/json",
+        "Authorization": "Bearer " + Cookies.get("maneroToken"),
+      },
+      body: JSON.stringify(reviewData),
+    })
+      .then((res) => {
+        if (res.ok) {
+          return true
+        }
+
+        return false
       })
-      .catch((error) => {
-        // Server error occurred
-        setServerError(
-          "An error occurred while creating the review. Please try again later."
-        )
+      .catch((err) => {
+        console.error(err.message)
+        return false
       })
+
+    return result
   }
 
   const handleStarClick = (value) => {
@@ -84,7 +115,7 @@ const ProductReviewForm = () => {
               ></textarea>
             </div>
             {serverError && (
-              <div class='alert alert-danger' role='alert'>
+              <div className='alert alert-danger' role='alert'>
                 {serverError}
               </div>
             )}
