@@ -1,4 +1,3 @@
-
 import './App.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Welcome from './components/views/Welcome'
@@ -11,31 +10,29 @@ import AuthorizationContextProvider from './contexts/AuthorizationContext'
 import Signin from './components/views/Signin'
 import Signup from './components/views/Signup'
 import ProfilePage from './components/views/ProfilePage'
+import EditProfile from './components/partials/EditProfile'
+import PaymentMethod from './components/views/PaymentMethod'
 
 function App() {
   return (
     <>
-
-  <AuthorizationContextProvider>
-      <ProductContextProvider>
-        <BrowserRouter>
-          <Routes>
-            <Route exact path="/" element={<Welcome />} />
-            <Route path="/Onboarding" element={<Onboarding />} />
-            <Route path="/Verification" element={<VerificationCode />} />
-            <Route path="/SearchProducts" element={<SearchProducts />} />
-            <Route path="/Signup" element={<Signup />} />
-            <Route path="/Signin" element={<Signin />} />
-            <Route
-              path="/Products/:type/:value"
-              element={<Products />}
-            />
-          </Routes>
-        </BrowserRouter>
-      </ProductContextProvider>
- </AuthorizationContextProvider>
+      <AuthorizationContextProvider>
+        <ProductContextProvider>
+          <BrowserRouter>
+            <Routes>
+              <Route exact path="/" element={<PaymentMethod />} />
+              <Route path="/Onboarding" element={<Onboarding />} />
+              <Route path="/Verification" element={<VerificationCode />} />
+              <Route path="/SearchProducts" element={<SearchProducts />} />
+              <Route path="/Signup" element={<Signup />} />
+              <Route path="/Signin" element={<Signin />} />
+              <Route path="/Products/:type/:value" element={<Products />} />
+            </Routes>
+          </BrowserRouter>
+        </ProductContextProvider>
+      </AuthorizationContextProvider>
     </>
   )
 }
 
-export default App;
+export default App
