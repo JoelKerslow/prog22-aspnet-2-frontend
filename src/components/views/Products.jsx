@@ -13,6 +13,7 @@ const Products = () => {
     products,
     loading,
     getProductsByCategoryAndDepartment,
+    getProductsByTag
   } = useContext(ProductContext)
   const [filteredList, setFilteredList] = useState([])
 
@@ -38,6 +39,9 @@ const Products = () => {
       const departmentId = valArr[0]
       const categoryId = valArr[1]
       getProductsByCategoryAndDepartment(departmentId, categoryId)
+    }
+    if (type.toLowerCase() === 'tag'){
+      getProductsByTag(value)
     }
   }, [type, value])
 

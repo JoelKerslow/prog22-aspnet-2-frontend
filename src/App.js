@@ -6,7 +6,6 @@ import VerificationCode from './components/views/VerificationCode'
 import SearchProducts from './components/views/SearchProducts'
 import Products from './components/views/Products'
 import ProductContextProvider from './contexts/ProductContext'
-import CategoryResults from './components/views/CategoryResults'
 import AuthorizationContextProvider from './contexts/AuthorizationContext'
 import Signin from './components/views/Signin'
 import Signup from './components/views/Signup'
@@ -20,7 +19,7 @@ function App() {
       <ProductContextProvider>
         <BrowserRouter>
           <Routes>
-            <Route exact path="/" element={<EditProfile />} />
+            <Route exact path="/" element={<Welcome />} />
             <Route path="/Onboarding" element={<Onboarding />} />
             <Route path="/Verification" element={<VerificationCode />} />
             <Route path="/SearchProducts" element={<SearchProducts />} />
