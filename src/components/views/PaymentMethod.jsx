@@ -14,33 +14,36 @@ const PaymentMethod = () => {
             <div className="container mt-4">
                 <div className="row align-items-center justify-content-between">
                     <div className="col-8">Cards</div>
-                    <div className="col-4 text-end"><FontAwesomeIcon icon={faPlus} /></div>
+                    <div className="text-end">
+                        <span>Add new card </span>
+                        <FontAwesomeIcon icon={faPlus} />
+                    </div>
                 </div>
-                <Carousel>
-                    <div className="card my-3">
-                        <div className="card-body">
-                            <FontAwesomeIcon icon={faCreditCard} className="me-2" />
-                            **** **** **** ****
-                            <br/>
-                            John Doe
-                        </div>
+                <div className="card my-3">
+                    <div className="card-body">
+                        <FontAwesomeIcon icon={faCreditCard} className="me-2" />
+                        **** **** **** ****
+                        <br/>
+                        John Doe
                     </div>
-                    <div className="card my-3">
-                        <div className="card-body">
-                            <FontAwesomeIcon icon={faCreditCard} className="me-2" />
-                            **** **** **** ****
-                            <br/>
-                            John Doe
-                        </div>
-                    </div>
-                </Carousel>
-                <div className="row align-items-center justify-content-between">
+                </div>
+                <div className="payment-wrapper row align-items-center justify-content-between">
                     <div className="col-8">Apple Pay</div>
-                    <div className="col-4 text-end"><FontAwesomeIcon icon={faPlus} /></div>
+                    <div className="text-end">
+                        <FontAwesomeIcon icon={faPlus} />
+                    </div>
                 </div>
-                <div className="row align-items-center justify-content-between">
+                <div className="payment-wrapper row align-items-center justify-content-between">
                     <div className="col-8">PayPal</div>
-                    <div className="col-4 text-end"><FontAwesomeIcon icon={faPlus} /></div>
+                    <div className="text-end">
+                        <FontAwesomeIcon icon={faPlus} />
+                    </div>
+                </div>
+                <div className="payment-wrapper row align-items-center justify-content-between">
+                    <div className="col-8">Payoneer</div>
+                    <div className="text-end">
+                        <FontAwesomeIcon icon={faPlus} />
+                    </div>
                 </div>
             </div>
         </>
