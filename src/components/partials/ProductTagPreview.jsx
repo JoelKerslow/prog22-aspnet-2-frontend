@@ -28,7 +28,6 @@ const ProductTagPreview = ({ tag, tagId }) => {
     useEffect(()=>{
         const shortlist = products.splice(0,6)
         SetshortProdList(shortlist)
-        console.log(shortProdList);
     },[products])
 
     return (

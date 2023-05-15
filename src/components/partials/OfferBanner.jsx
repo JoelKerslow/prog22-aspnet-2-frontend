@@ -4,7 +4,8 @@ const OfferBanner = ({offer}) => {
   return (
 		<div>
 			<div className="offerContainer">
-				<div className="offerText">{offer}</div>
+				{!offer ? <div className="offerText">Great Offer</div>:<div className="offerText">{offer}</div>}
+				<div className="offerText">{!offer}</div>
 				<div>
 					<button className="whiteButton">Shop Now</button>
 				</div>

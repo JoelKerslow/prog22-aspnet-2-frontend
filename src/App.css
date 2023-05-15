@@ -832,6 +832,7 @@ header.sidebar-open .sidebar-container {
   align-items: center;
   width: 100vw;
   background: #dbe3f5;
+  margin-bottom: 38px;
 }
 .showcase-carousel .inner {
   background-color: #dbe3f5;
@@ -842,7 +843,7 @@ header.sidebar-open .sidebar-container {
 }
 @media (min-width: 1400px) {
   .showcase-carousel .inner {
-    height: 500px;
+    height: 750px;
   }
 }
 .showcase-carousel .inner .showcase-item {
@@ -850,6 +851,12 @@ header.sidebar-open .sidebar-container {
   align-items: flex;
   justify-content: center;
   width: 100%;
+}
+@media (min-width: 1400px) {
+  .showcase-carousel .inner .showcase-item {
+    align-items: center;
+    justify-content: center;
+  }
 }
 .showcase-carousel .inner .showcase-item .content .title-text {
   font-size: 1em;
@@ -983,7 +990,7 @@ header.sidebar-open .sidebar-container {
 }
 @media (min-width: 1400px) {
   .showcase-carousel .showcase-img {
-    height: 500px;
+    height: 750px;
   }
 }
 
@@ -995,6 +1002,23 @@ header.sidebar-open .sidebar-container {
   flex-direction: column;
   justify-content: flex-end;
   align-items: left;
+  margin-bottom: 40px;
+}
+@media (min-width: 1400px) {
+  .offerContainer {
+    margin-bottom: 100px;
+  }
+}
+@media (min-width: 1400px) {
+  .offerContainer {
+    align-items: center;
+    justify-content: center;
+    height: 350px;
+    width: 950px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 1px 1px 2px 1px #8d93a7;
+  }
 }
 .offerContainer .offerText {
   font-size: 1.5em;
@@ -1020,13 +1044,31 @@ header.sidebar-open .sidebar-container {
     font-size: 3;
   }
 }
+@media (min-width: 1400px) {
+  .offerContainer .offerText {
+    font-size: 2.5em;
+    font-weight: 900;
+    font-family: "Montserrat", sans-serif;
+    line-height: 1.5;
+    margin-bottom: 0.6em;
+  }
+}
+@media (min-width: 1400px) and (min-width: 1400px) {
+  .offerContainer .offerText {
+    font-size: 3em;
+  }
+}
 
 .previewContainer {
   font-family: "Open Sans", sans-serif;
-  border-top: 2px solid green;
-  border-bottom: 2px solid green;
   width: 100vw;
   overflow: hidden;
+}
+@media (min-width: 1400px) {
+  .previewContainer {
+    margin-bottom: 100px;
+    min-height: 700px;
+  }
 }
 .previewContainer .textRow {
   display: flex;
@@ -1065,11 +1107,16 @@ header.sidebar-open .sidebar-container {
   background: #888888;
   border: none;
   opacity: 0.05;
-  height: 320px;
+  height: 272px;
   text-align: left;
   position: absolute;
   left: 0;
   width: 35px;
+}
+@media (min-width: 1400px) {
+  .previewContainer .cardView .button-left {
+    height: 320px;
+  }
 }
 .previewContainer .cardView .button-left:hover {
   opacity: 0.7;
@@ -1078,7 +1125,7 @@ header.sidebar-open .sidebar-container {
   background: #888888;
   border: none;
   opacity: 0.05;
-  height: 320px;
+  height: 272px;
   text-align: right;
   position: absolute;
   right: 0;
