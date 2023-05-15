@@ -6,7 +6,7 @@
 
 .profilepic {
   position: relative;
-  display: flex;
+  display:contents;
   justify-content: center;
   align-items: center;
   background-color: transparent;
@@ -61,4 +61,7 @@
   justify-content: center;
   align-items: center;
   height: 100%;
+}
+.form-editprofile{
+  margin-top: 2vh;
 }

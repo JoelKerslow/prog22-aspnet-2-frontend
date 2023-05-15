@@ -808,7 +808,7 @@ header.sidebar-open .sidebar-container {
 
 .profilepic {
   position: relative;
-  display: flex;
+  display: contents;
   justify-content: center;
   align-items: center;
   background-color: transparent;
@@ -863,6 +863,10 @@ header.sidebar-open .sidebar-container {
   justify-content: center;
   align-items: center;
   height: 100%;
+}
+
+.form-editprofile {
+  margin-top: 2vh;
 }
 
 .form-container {
