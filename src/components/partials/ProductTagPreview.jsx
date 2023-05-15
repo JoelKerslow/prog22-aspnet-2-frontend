@@ -54,8 +54,8 @@ const ProductTagPreview = ({ tag, tagId }) => {
             const updateIndex = (newIndex) => {
                if(newIndex <0){
                    newIndex = 0;
-               }else if(newIndex >= activeProdList.length){
-                   newIndex = activeProdList.length;
+               }else if(newIndex >= shortList.length * 0.5){
+                   newIndex = 0;
                }
                setActiveIndex(newIndex)
            };
@@ -73,7 +73,7 @@ const ProductTagPreview = ({ tag, tagId }) => {
 					</div>
 				</div>
                 <div className="cardView">
-                    <div className="productCards" style={{ transform: `translate(-${activeIndex * 80}%)` }}>
+                    <div className="productCards" style={{ transform: `translate(-${activeIndex * 50}%)` }}>
                         {shortList.map((product) => {
                             return <div className="oneCard"><ProductCard key={product.id} product={product} /></div>
                         })}
