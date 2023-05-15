@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import Header from "../partials/Header";
 import VerticalBar from "../partials/generalPartials/VerticalBar";
 import ProfilePicture from "../partials/generalPartials/ProfilePicture";
@@ -7,8 +7,14 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthorizationContext } from "../../contexts/AuthorizationContext";
 
 const ProfilePage = () => {
-  const { logoutUser } = useContext(AuthorizationContext);
+  const { logoutUser, userLoggedin } = useContext(AuthorizationContext);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if(userLoggedin !== true){
+      navigate("/Signin");
+    }
+  }, []);
 
   const handleLogout = () => {
     logoutUser();

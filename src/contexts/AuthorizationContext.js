@@ -99,6 +99,8 @@ const AuthorizationContextProvider = ({children}) => {
             loginUser, 
             registerUser,
             logoutUser,
+            userLoggedin,
+            setUserLoggedin,
         }}>
             {children}
         </AuthorizationContext.Provider>
