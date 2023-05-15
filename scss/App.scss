@@ -19,6 +19,7 @@
 @import './components/partials/registration';
 @import './components/partials/showcase';
 @import './components/partials/generalPartials/circleWithIcon';
+@import './components/partials/starRatingInput';
 
 //Views
 @import './components/views/onboarding';
@@ -26,3 +27,4 @@
 @import './components/views/verificationCode';
 @import './components/views/profilePage';
 @import './components/Views/productSearchResults';
+@import './components/views/reviewForm'

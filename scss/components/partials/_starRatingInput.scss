@@ -1,0 +1,18 @@
+.star-rating-input {
+  display: flex;
+  justify-content: center;
+
+  i {
+    font-size: 2em;
+    color: $color-bluegrey;
+  }
+
+  i:hover {
+    // color: $color-bluegrey-dark;
+    cursor: pointer;
+  }
+
+  .star-selected {
+    color: $color-yellow;
+  }
+}
