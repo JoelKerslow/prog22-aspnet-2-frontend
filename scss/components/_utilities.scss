@@ -14,12 +14,38 @@
     height: 53px;
     background-color: #ffffff; 
     border-top: 1px solid #dbe3f5; 
-
+    margin: 0 auto;
+ 
     @include xxl {
       width: 30%;
       //background-color: wheat;
     }
   }
+  .profile-navbar > .NavBarContainer {
+    border-top: none;
+  }
+  
+
+ .product-result-list{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  .product-card{
+    margin: 10px;
+  }
+
+  @include md{
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  @include lg{
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  @include xxxl{
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
+ } 
 
 
 

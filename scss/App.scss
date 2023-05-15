@@ -18,6 +18,9 @@
 @import './components/partials/GeneralPartials/profilePicture';
 @import './components/partials/registration';
 @import './components/partials/showcase';
+@import './components/partials/offerBanner';
+@import './components/partials/productTagPreview';
+@import './components/partials/productFilter';
 @import './components/partials/generalPartials/circleWithIcon';
 @import './components/partials/starRatingInput';
 
@@ -26,5 +29,5 @@
 @import './components/views/welcome';
 @import './components/views/verificationCode';
 @import './components/views/profilePage';
-@import './components/Views/productSearchResults';
+@import './components/Views/products';
 @import './components/views/reviewForm'

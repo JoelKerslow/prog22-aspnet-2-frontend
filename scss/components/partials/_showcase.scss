@@ -7,7 +7,8 @@
     align-items: center;
     width: 100vw;
     background: $color-theme;
-    
+    margin-bottom: 38px;
+
     .inner {
         background-color: $color-theme;
         min-height: 150px;
@@ -15,7 +16,7 @@
         transition: 0.3s;
         margin-bottom: auto;
         @include xxl{
-            height: 500px;
+            height: 750px;
         }
         
 
@@ -25,9 +26,15 @@
             justify-content: center;
             width: 100%;
 
+            @include xxl{
+                align-items: center;
+                justify-content: center;
+            }
+
             .content {
                 .title-text {
                     @include font-title-3;
+                    color: $color-light-1;
                     white-space: normal;
                     margin-top: 60px;
                     padding-left: 15px;
@@ -36,11 +43,12 @@
                         @include font-title-1;
                         position: relative;
                         padding-right: 350px;
-                        padding-top: 115px
+                        padding-top: 115px;                        
                     }
                 }
                 .offer-text {
                     @include font-title-3;
+                    color: $color-light-1;
                     white-space: normal;
                     margin-top: 10px;
                     flex-wrap: wrap;
@@ -106,7 +114,7 @@
         flex-direction: column;
         justify-content: center;
         @include xxl {
-            height: 500px;
+            height: 750px;
         }
     }
 }

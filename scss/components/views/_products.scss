@@ -1,0 +1,23 @@
+.under-header{
+    margin-top: 10px;
+    margin-left: 10px;
+    padding-right: 5px;
+    display: flex;
+    gap: 10px;
+    font-family: $font-opensans;
+    font-weight: $font-weight-semibold;
+    opacity: 70%;
+    width: fit-content;
+
+    &:hover{
+        cursor: pointer;
+    }
+
+    i{
+        margin-top: 5px;
+    }
+}
+
+.product-result-list{
+    margin-top: 0px;
+}
