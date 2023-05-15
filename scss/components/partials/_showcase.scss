@@ -34,6 +34,7 @@
             .content {
                 .title-text {
                     @include font-title-3;
+                    color: $color-light-1;
                     white-space: normal;
                     margin-top: 60px;
                     padding-left: 15px;
@@ -47,6 +48,7 @@
                 }
                 .offer-text {
                     @include font-title-3;
+                    color: $color-light-1;
                     white-space: normal;
                     margin-top: 10px;
                     flex-wrap: wrap;

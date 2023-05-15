@@ -4,47 +4,77 @@ import ProductCard from "./ProductCard"
 import { NavLink } from "react-router-dom";
 
 const ProductTagPreview = ({ tag, tagId }) => {
-	const { getProductsByTag, products } = useContext(ProductContext)
-    const [shortProdList, SetshortProdList] = useState([]);
+	const { getProductsListByTagForPreview } = useContext(ProductContext)
+    const [activeProdList, setActiveProdList] = useState([]);
     const [activeIndex, setActiveIndex] = useState(0);
+    const [shortList, setShortList] = useState([]);
 
-    const updateIndex = (newIndex) => {
-        if(newIndex <0){
-            newIndex = 0;
-        }else if(newIndex >= shortProdList.length){
-            newIndex = shortProdList.length;
-        }
-        setActiveIndex(newIndex)
-    };
-
-    useEffect(()=>{
-        const tagIdInt = parseInt(tagId);
-        const getProductsAsync = async () => {
-            getProductsByTag(tagIdInt)
-        };
-        getProductsAsync();
-    }, []);
+    const productsBaseUrl =
+    "https://aspnet2-grupp1-backend.azurewebsites.net/api/Products/";
+     const apiKey = "f77ca749-67f4-4c22-9039-137272442ea0";
     
-    useEffect(()=>{
-        const shortlist = products.splice(0,6)
-        SetshortProdList(shortlist)
-    },[products])
+     const getProductsAsync = (tagId) =>{
+         fetch(productsBaseUrl + "tag?tagId=" + tagId, {
+             headers: {
+                 "API-KEY": apiKey,
+                },
+            })
+            .then((res) => {
+                if (res.ok) {
+                    return res.json();
+                } else {
+                    throw new Error("Error fetching products");
+                }
+            })
+            .then((data) => {
+                // console.log(data);
+                setActiveProdList(data)
+            })
+            .catch((error) => {
+                console.error("Error fetching products:", error);
+            });
+     }
 
-    return (
-			<div className="previewContainer">
+
+        useEffect(()=>{
+            const tagIdInt = parseInt(tagId);
+            
+            const getProducts = () => {
+                getProductsAsync(tagIdInt)
+            }
+            
+            getProducts();
+        }, []);
+        
+        useEffect(() => {
+            		const shortlist = activeProdList.splice(0, 6);
+            		setShortList(shortlist);
+            	}, [activeProdList]);
+            
+            const updateIndex = (newIndex) => {
+               if(newIndex <0){
+                   newIndex = 0;
+               }else if(newIndex >= activeProdList.length){
+                   newIndex = activeProdList.length;
+               }
+               setActiveIndex(newIndex)
+           };
+        //    
+            return (
+                <div className="previewContainer">
 				<div className="textRow">
 					<div className="tagText">
 						{!tag ? (<div className="tagText">Insert tag</div>) : (<div className="tagText">{tag}</div>)}
 					</div>
 					<div className="fullListLink">
-						<NavLink className="angleIcon" to="/Search">
+						<NavLink className="angleIcon" to={`/Products/tag/${tagId}`} >
                             view all<i className="fa-thin fa-angle-right"></i>
                         </NavLink>
 					</div>
 				</div>
                 <div className="cardView">
                     <div className="productCards" style={{ transform: `translate(-${activeIndex * 80}%)` }}>
-                        {shortProdList.map((product) => {
+                        {shortList.map((product) => {
                             return <div className="oneCard"><ProductCard key={product.id} product={product} /></div>
                         })}
                     </div>
