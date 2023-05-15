@@ -11,6 +11,7 @@ import AuthorizationContextProvider from './contexts/AuthorizationContext'
 import Signin from './components/views/Signin'
 import Signup from './components/views/Signup'
 import ProfilePage from './components/views/ProfilePage'
+import Home from './components/views/Home'
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
       <ProductContextProvider>
         <BrowserRouter>
           <Routes>
-            <Route exact path="/" element={<Welcome />} />
+            <Route exact path="/" element={<Home />} />
             <Route path="/Onboarding" element={<Onboarding />} />
             <Route path="/Verification" element={<VerificationCode />} />
             <Route path="/SearchProducts" element={<SearchProducts />} />
