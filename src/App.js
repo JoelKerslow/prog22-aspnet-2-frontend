@@ -9,6 +9,7 @@ import ProductContextProvider from './contexts/ProductContext'
 import CategoryResults from './components/views/CategoryResults'
 import Signin from './components/views/Signin'
 import Signup from './components/views/Signup'
+import ProductDetails from './components/views/ProductDetails'
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
               path="/CategoryResults/:departmentId/:categoryId"
               element={<CategoryResults />}
             />
+            <Route path="/Product/:id" element={<ProductDetails />} />
           </Routes>
         </BrowserRouter>
       </ProductContextProvider>
