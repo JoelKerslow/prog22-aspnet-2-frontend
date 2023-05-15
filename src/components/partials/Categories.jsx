@@ -21,7 +21,7 @@ const Categories = ({ activeDepartment }) => {
         key={c.id}
         className="category-item"
         onClick={() => {
-          navigate('/CategoryResults/' + activeDepartment + '/' + c.id)
+          navigate('/Products/category/' + activeDepartment + '-' + c.id)
         }}
       >
         <p className="category-item-text">{c.categoryName}</p>
