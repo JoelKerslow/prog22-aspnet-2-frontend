@@ -4,9 +4,14 @@
     border-radius: 0px;
     display: flex;
     padding: 0px;
+    cursor: pointer;
+    
 }
 .list-group {
     border-radius: 0px;
+    :hover{
+        color: $color-dark-3;
+    }
 }
 .options-icon{
     width: 15%;

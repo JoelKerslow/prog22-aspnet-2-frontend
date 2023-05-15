@@ -26,6 +26,7 @@ function App() {
             <Route path="/SearchProducts" element={<SearchProducts />} />
             <Route path="/Signup" element={<Signup />} />
             <Route path="/Signin" element={<Signin />} />
+            <Route path="/Profile" element={<ProfilePage />} />
             <Route
               path="/Products/:type/:value"
               element={<Products />}
