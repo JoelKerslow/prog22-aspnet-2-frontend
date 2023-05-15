@@ -21,6 +21,8 @@
 @import './components/partials/offerBanner';
 @import './components/partials/productTagPreview';
 @import './components/partials/productFilter';
+@import './components/partials/generalPartials/circleWithIcon';
+@import './components/partials/starRatingInput';
 
 //Views
 @import './components/views/onboarding';
@@ -28,3 +30,4 @@
 @import './components/views/verificationCode';
 @import './components/views/profilePage';
 @import './components/Views/products';
+@import './components/views/reviewForm'

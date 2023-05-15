@@ -163,7 +163,7 @@ const ProductContextProvider = ({ children }) => {
         setCurrentProduct,
         searchProducts,
         loading, 
-        getProductsByCategoryAndDepartment
+        getProductsByCategoryAndDepartment,
       }}
     >
       {children}

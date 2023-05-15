@@ -1,0 +1,55 @@
+.circle-with-icon {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 153px;
+  height: 153px;
+  border-radius: 50%;
+  background-color: $color-bluegrey;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border: 5px solid $color-bluegrey;
+    border-radius: 50%;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-image: linear-gradient(
+      -25deg,
+      transparent 25%,
+      #fff 25%,
+      #fff 50%,
+      transparent 50%,
+      transparent 75%,
+      #fff 75%,
+      #fff
+    );
+    background-size: 24px 11px;
+    animation: move 3s linear infinite;
+  }
+
+  .fa-regular {
+    position: relative;
+    z-index: 1;
+    font-size: 50px;
+  }
+}
+
+@keyframes move {
+  to {
+    background-position: 30px 30px;
+  }
+}

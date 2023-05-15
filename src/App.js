@@ -11,6 +11,7 @@ import AuthorizationContextProvider from './contexts/AuthorizationContext'
 import Signin from './components/views/Signin'
 import Signup from './components/views/Signup'
 import ProfilePage from './components/views/ProfilePage'
+import ProductReviewForm from './components/views/ProductReviewForm'
 
 function App() {
   return (
@@ -21,12 +22,14 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route exact path="/" element={<Welcome />} />
+            <Route path="*" element={<Welcome />} />
             <Route path="/Onboarding" element={<Onboarding />} />
             <Route path="/Verification" element={<VerificationCode />} />
             <Route path="/SearchProducts" element={<SearchProducts />} />
             <Route path="/Signup" element={<Signup />} />
             <Route path="/Signin" element={<Signin />} />
             <Route path="/Profile" element={<ProfilePage />} />
+            <Route path="/ProductReview/:productId" element={<ProductReviewForm />} />
             <Route
               path="/Products/:type/:value"
               element={<Products />}
@@ -36,7 +39,7 @@ function App() {
       </ProductContextProvider>
  </AuthorizationContextProvider>
     </>
-  )
+  );
 }
 
 export default App;

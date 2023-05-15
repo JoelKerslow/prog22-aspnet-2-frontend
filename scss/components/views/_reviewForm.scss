@@ -1,0 +1,20 @@
+.form-review {
+  p {
+    color: $color-dark-2;
+  }
+
+  .input-field-group {
+    label {
+      position: absolute;
+      bottom: 102px;
+      left: 38px;
+    }
+
+    textarea {
+      resize: none;
+      min-height: 100px;
+      border-radius: 20px;
+      font-size: 14px;
+    }
+  }
+}
