@@ -40,7 +40,6 @@ const Signup = () => {
 
             <VerticalBar />
             <h2 className="text-center my-4">Sign up</h2>
-
               <div className="input-field-group">
                 <label>Name</label>
                 <input

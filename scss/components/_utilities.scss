@@ -21,6 +21,27 @@
     }
   }
 
+ .product-result-list{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  .product-card{
+    margin: 10px;
+  }
+
+  @include md{
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  @include lg{
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  @include xxxl{
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
+ } 
+
 
 
 
