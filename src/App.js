@@ -12,6 +12,7 @@ import Signin from './components/views/Signin'
 import Signup from './components/views/Signup'
 import ProfilePage from './components/views/ProfilePage'
 import Home from './components/views/Home'
+import ProductReview from './components/views/ProductReview'
 
 function App() {
   return (
@@ -21,7 +22,7 @@ function App() {
       <ProductContextProvider>
         <BrowserRouter>
           <Routes>
-            <Route exact path="/" element={<Home />} />
+            <Route exact path="/" element={<ProductReview />} />
             <Route path="/Onboarding" element={<Onboarding />} />
             <Route path="/Verification" element={<VerificationCode />} />
             <Route path="/SearchProducts" element={<SearchProducts />} />

@@ -1382,6 +1382,54 @@ header.sidebar-open .sidebar-container {
   background-color: #DBE3F5;
 }
 
+.reviewHeader {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.reviewHeader .backButton {
+  width: 25px;
+  height: 25px;
+  margin-top: 5px;
+  margin-left: 5px;
+  border: none;
+  background-color: transparent;
+  border-radius: 50%;
+}
+.reviewHeader .backButton:hover {
+  background-color: #8d93a7;
+}
+.reviewHeader .headerText {
+  margin-right: auto;
+  margin-left: auto;
+}
+@media (min-width: 1400px) {
+  .reviewHeader .headerText {
+    font-size: 1.5em;
+    font-weight: 700;
+    font-family: "Montserrat", sans-serif;
+    line-height: 1;
+  }
+}
+@media (min-width: 1400px) and (min-width: 992px) {
+  .reviewHeader .headerText {
+    font-size: 1.9em;
+  }
+}
+@media (min-width: 1400px) and (min-width: 1200px) {
+  .reviewHeader .headerText {
+    font-size: 2.188em;
+  }
+}
+@media (min-width: 1400px) and (min-width: 1400px) {
+  .reviewHeader .headerText {
+    font-size: 3;
+  }
+}
+
 .Onboarding-Container {
   display: flex;
   flex-direction: column;
