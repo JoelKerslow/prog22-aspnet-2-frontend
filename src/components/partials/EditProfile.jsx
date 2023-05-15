@@ -16,7 +16,7 @@ const Registration = () => {
             </div>
 
             <VerticalBar />
-            <ProfilePicture/>
+            <ProfilePicture className={'fa-camera'}/>
 
             <form onSubmit="" method="post" className="form-editprofile">
               <div className="edit-profile-input input-field-group">

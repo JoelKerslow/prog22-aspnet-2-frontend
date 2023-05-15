@@ -20,7 +20,7 @@ function App() {
         <ProductContextProvider>
           <BrowserRouter>
             <Routes>
-              <Route exact path="/" element={<PaymentMethod />} />
+              <Route exact path="/" element={<EditProfile />} />
               <Route path="/Onboarding" element={<Onboarding />} />
               <Route path="/Verification" element={<VerificationCode />} />
               <Route path="/SearchProducts" element={<SearchProducts />} />
