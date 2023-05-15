@@ -11,6 +11,7 @@ import AuthorizationContextProvider from './contexts/AuthorizationContext'
 import Signin from './components/views/Signin'
 import Signup from './components/views/Signup'
 import ProfilePage from './components/views/ProfilePage'
+import ProductReviewForm from './components/views/ProductReviewForm'
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
             <Route path="/Signup" element={<Signup />} />
             <Route path="/Signin" element={<Signin />} />
             <Route path="/Profile" element={<ProfilePage />} />
+            <Route path="/ProductReview/:productId" element={<ProductReviewForm />} />
             <Route
               path="/Products/:type/:value"
               element={<Products />}
