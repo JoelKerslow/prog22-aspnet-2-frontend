@@ -8,10 +8,16 @@ import SearchProducts from './components/views/SearchProducts'
 import ProductSearchResults from './components/views/ProductSearchResults'
 import ProductContextProvider from './contexts/ProductContext'
 import CategoryResults from './components/views/CategoryResults'
+<<<<<<< Updated upstream
 import AuthorizationContextProvider from './contexts/AuthorizationContext'
 import Signin from './components/views/Signin'
 import Signup from './components/views/Signup'
 import ProfilePage from './components/views/ProfilePage'
+=======
+import Signin from './components/partials/Signin'
+import Signup from './components/partials/Signup'
+import EditProfile from './components/partials/EditProfile'
+>>>>>>> Stashed changes
 
 function App() {
   return (
@@ -21,7 +27,7 @@ function App() {
       <ProductContextProvider>
         <BrowserRouter>
           <Routes>
-            <Route exact path="/" element={<Welcome />} />
+            <Route exact path="/" element={<EditProfile />} />
             <Route path="/Onboarding" element={<Onboarding />} />
             <Route path="/Verification" element={<VerificationCode />} />
             <Route path="/SearchProducts" element={<SearchProducts />} />
