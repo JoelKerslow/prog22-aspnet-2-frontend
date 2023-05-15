@@ -149,6 +149,37 @@ const ProductContextProvider = ({ children }) => {
         console.error('Error fetching products:', error)
       })
   }
+
+  const createProductReview = (productId, rating, comment) => {
+    setLoading(true)
+    const reviewData = {
+      rating: rating,
+      comment: comment || null,
+    }
+
+    fetch(productsBaseUrl + `/${productId}/reviews`, {
+      method: 'POST',
+      headers: {
+        'API-KEY': apiKey,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(reviewData),
+    })
+    .then((res) => {
+      if (res.ok) {
+        return res.json()
+      } else {
+        throw new Error('Failed to create review')
+      }
+    })
+    .then((data) => {
+      console.log('Review created successfully:', data)
+      setLoading(false)
+    })
+    .catch((error) => {
+      console.error('Error creating review:', error)
+    });
+  }
   //#endregion
 
   return (
@@ -163,7 +194,8 @@ const ProductContextProvider = ({ children }) => {
         setCurrentProduct,
         searchProducts,
         loading, 
-        getProductsByCategoryAndDepartment
+        getProductsByCategoryAndDepartment,
+        createProductReview
       }}
     >
       {children}
