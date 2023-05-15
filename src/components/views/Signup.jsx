@@ -1,40 +1,32 @@
 //imports
-import SocialMedia from './generalPartials/SocialMedia'
-import BackArrow from './generalPartials/BackArrow'
-import VerticalBar from './generalPartials/VerticalBar'
-import { Link, useNavigate } from "react-router-dom"
-// import { DataContext } from "../../Contexts/DataContext";
-// import { useContext, useRef, useState } from "react";
+import SocialMedia from '../partials/generalPartials/SocialMedia';
+import BackArrow from '../partials/generalPartials/BackArrow';
+import VerticalBar from '../partials/generalPartials/VerticalBar';
+import { Link, useNavigate } from "react-router-dom";
+import { useContext, useRef, useState } from "react";
+import { AuthorizationContext } from '../../contexts/AuthorizationContext';
 
-const Registration = () => {
-  // const { signup } = useContext(DataContext);
-  // const fullNameRef = useRef();
-  // const emailRef = useRef();
-  // const passwordRef = useRef();
-  // const confirmPasswordRef = useRef();
+const Signup = () => {
+  const [error, setError] = useState('');
+  const { registerUser } = useContext(AuthorizationContext);
+  const fullNameRef = useRef();
+  const emailRef = useRef();
+  const passwordRef = useRef();
+  const confirmPasswordRef = useRef();
+  const navigate = useNavigate();
 
-  // const handleRegistration = async (e) => {
-  //   console.log("i handle metoden");
-  //   e.preventDefault();
-  //   if (passwordRef.current.value !== confirmPasswordRef.current.value) {
-  //     return false;
-  //   } else {
-  //     const nameArray = fullNameRef.current.value.split(" ");
-  //     try {
-  //       console.log(
-  //         "success regwindow metod" + " " + nameArray[0] + nameArray[1]
-  //       );
-  //       await signup(
-  //         nameArray[0],
-  //         nameArray[1],
-  //         emailRef.current.value,
-  //         passwordRef.current.value,
-  //         "+46123456789"
-  //       );
-  //       console.log("success regwindow metod #2");
-  //     } catch {}
-  //   }
-  // };
+  const handleRegistration = async () => {
+    if (passwordRef.current.value !== confirmPasswordRef.current.value) {
+      return setError("Passwords do not match");
+    }
+    try{
+      setError('');
+      await registerUser(fullNameRef.current.value, emailRef.current.value, passwordRef.current.value);
+      navigate("/Signin");
+    }catch{
+      setError('Failed to create an account');
+    }
+  };
 
   return (
     <>
@@ -49,13 +41,13 @@ const Registration = () => {
             <VerticalBar />
             <h2 className="text-center my-4">Sign up</h2>
 
-            <form onSubmit="" method="post">
               <div className="input-field-group">
                 <label>Name</label>
                 <input
                   type="Name"
                   className="input-field"
                   placeholder="John Doe"
+                  ref={fullNameRef}
                 />
               </div>
               <div className="input-field-group">
@@ -64,6 +56,7 @@ const Registration = () => {
                   type="Email"
                   className="input-field"
                   placeholder="Johndoe@gmail.com"
+                  ref={emailRef}
                 />
               </div>
               <div className="input-field-group">
@@ -72,6 +65,7 @@ const Registration = () => {
                   type="Password"
                   className="input-field"
                   placeholder="Enter your password here"
+                  ref={passwordRef}
                 />
               </div>
               <div className="input-field-group">
@@ -80,13 +74,15 @@ const Registration = () => {
                   type="Password"
                   className="input-field"
                   placeholder="Enter your password here"
+                  ref={confirmPasswordRef}
                 />
               </div>
 
-              <button className="BigBlackButton" type="submit">
+              {error &&  <div className='error-text'>{error}</div> }
+
+              <button className="BigBlackButton" onClick={handleRegistration}>
                 Sign Up
               </button>
-            </form>
 
             <p className="text-center my-2">
               Already have an account? <Link to={"/Signin"}>Sign in</Link>
@@ -98,4 +94,4 @@ const Registration = () => {
     </>
   );
 };
-export default Registration;
+export default Signup;

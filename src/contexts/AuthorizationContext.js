@@ -27,6 +27,7 @@ const AuthorizationContextProvider = ({children}) => {
         }
 
         const result = await fetch(authBaseUrl + 'Register',{
+            method: 'POST',
             headers: {
                 "API-KEY": apiKey,
                 "Content-Type": "application/json"
@@ -90,7 +91,8 @@ const AuthorizationContextProvider = ({children}) => {
 
     return(
         <AuthorizationContext.Provider value={{
-            loginUser,
+            loginUser, 
+            registerUser,
         }}>
             {children}
         </AuthorizationContext.Provider>

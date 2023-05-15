@@ -3,10 +3,11 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Onboarding from './components/views/Onboarding'
 import VerificationCode from './components/views/VerificationCode'
 import Search from './components/views/Search'
-import Signin from './components/partials/Signin'
-import Signup from './components/partials/Signup'
+import Signin from './components/views/Signin'
+import Signup from './components/views/Signup'
 import Welcome from './components/views/Welcome'
 import AuthorizationContextProvider from './contexts/AuthorizationContext'
+import ProfilePage from './components/views/ProfilePage'
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
             <Route path="/Onboarding" element={<Onboarding />} />
             <Route path="/Verification" element={<VerificationCode />} />
             <Route path="/Search" element={<Search />} />
+            <Route path="/Profile" element={<ProfilePage />} />
           </Routes>
         </BrowserRouter>
     </AuthorizationContextProvider>

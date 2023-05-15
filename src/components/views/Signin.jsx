@@ -1,8 +1,8 @@
 //imports
-import BackArrow from "./generalPartials/BackArrow";
-import VerticalBar from "./generalPartials/VerticalBar";
-import SocialMedia from "./generalPartials/SocialMedia";
-import InputBox from "./generalPartials/InputBox";
+import BackArrow from "../partials/generalPartials/BackArrow";
+import VerticalBar from "../partials/generalPartials/VerticalBar";
+import SocialMedia from "../partials/generalPartials/SocialMedia";
+import InputBox from "../partials/generalPartials/InputBox";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthorizationContext } from "../../contexts/AuthorizationContext";
 import { useContext, useRef, useState } from "react";
