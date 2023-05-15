@@ -808,10 +808,12 @@ header.sidebar-open .sidebar-container {
 
 .profilepic {
   position: relative;
-  display: contents;
+  display: flex;
   justify-content: center;
   align-items: center;
   background-color: transparent;
+  margin-top: -3vh;
+  margin-bottom: -2vh;
 }
 
 .profilepic-outer-circle {
@@ -863,10 +865,6 @@ header.sidebar-open .sidebar-container {
   justify-content: center;
   align-items: center;
   height: 100%;
-}
-
-.form-editprofile {
-  margin-top: 2vh;
 }
 
 .form-container {
