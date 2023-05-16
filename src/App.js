@@ -11,6 +11,7 @@ import Signin from "./components/views/Signin"
 import Signup from "./components/views/Signup"
 import ProfilePage from "./components/views/ProfilePage"
 import ProductReviewForm from "./components/views/ProductReviewForm"
+import Home from './components/views/Home'
 
 function App() {
   return (
@@ -19,7 +20,7 @@ function App() {
         <ProductContextProvider>
           <BrowserRouter>
             <Routes>
-              <Route exact path='/' element={<Welcome />} />
+              <Route exact path='/' element={<Home />} />
               <Route path='*' element={<Welcome />} />
               <Route path='/Onboarding' element={<Onboarding />} />
               <Route path='/Verification' element={<VerificationCode />} />
