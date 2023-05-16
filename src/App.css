@@ -652,7 +652,7 @@ header.sidebar-open .sidebar-container {
 
 @media (min-width: 768px) {
   .SocialMediaClass {
-    width: 20%;
+    width: 60%;
   }
 }
 .page-indicators {
@@ -898,12 +898,30 @@ header.sidebar-open .sidebar-container {
   padding: 8px 30px;
 }
 
-.input-field-group label {
+.input-field-group > label {
   position: absolute;
   bottom: 44px;
   left: 10%;
   background-color: #FFFFFF;
   font-size: 16px;
+}
+
+.RememberMe-flexbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  font-size: small;
+}
+
+.RememberMe-flexbox > div {
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.RememberMelbl {
+  margin-left: 2px;
 }
 
 .RegHeader {
