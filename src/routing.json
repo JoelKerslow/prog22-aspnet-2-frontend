@@ -33,6 +33,10 @@
       "element": "ProfilePage"
     },
     {
+      "path":"/EditProfile",
+      "element":"EditProfile"
+    },
+    {
       "path": "/ProductReview/:productId",
       "element": "ProductReviewForm"
     },
