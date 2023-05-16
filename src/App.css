@@ -821,6 +821,8 @@ header.sidebar-open .sidebar-container {
   justify-content: center;
   align-items: center;
   background-color: transparent;
+  margin-top: -3vh;
+  margin-bottom: -2vh;
 }
 
 .profilepic-outer-circle {
@@ -1404,7 +1406,6 @@ header.sidebar-open .sidebar-container {
 .filter-list .tag-filter .selected-tag {
   background-color: #DBE3F5;
 }
-
 .circle-with-icon {
   position: relative;
   display: flex;
@@ -1693,6 +1694,8 @@ header.sidebar-open .sidebar-container {
   margin-top: 0px;
 }
 
+.payment-wrapper {
+  border-bottom: 1px solid #dbe3f5;
 .form-review p {
   color: #626262;
 }
