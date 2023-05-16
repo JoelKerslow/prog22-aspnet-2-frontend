@@ -5,9 +5,11 @@ import ProfilePicture from "../partials/generalPartials/ProfilePicture";
 import Navbar from "../partials/Navbar";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthorizationContext } from "../../contexts/AuthorizationContext";
+import { UserContext } from "../../contexts/UserContext";
 
 const ProfilePage = () => {
   const { logoutUser, userLoggedin } = useContext(AuthorizationContext);
+  const { currentUser } = useContext(UserContext);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -29,7 +31,7 @@ const ProfilePage = () => {
           <VerticalBar />
           <ProfilePicture />
           <div className="profile-info text-center">
-            <h2>Namn på användare</h2>
+            <h2>{currentUser.firstName}</h2>
             <p>email på användare</p>
           </div>
         </div>

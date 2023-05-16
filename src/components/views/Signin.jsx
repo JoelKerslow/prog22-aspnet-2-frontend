@@ -5,18 +5,27 @@ import SocialMedia from "../partials/generalPartials/SocialMedia";
 import InputBox from "../partials/generalPartials/InputBox";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthorizationContext } from "../../contexts/AuthorizationContext";
+import { UserContext } from "../../contexts/UserContext";
 import { useContext, useRef, useState } from "react";
 
 const SignIn = () => {
+  const [error, setError] = useState('');
   const { loginUser, setUserLoggedin } = useContext(AuthorizationContext);
+  const { getLoggedinUser } = useContext(UserContext);
   const emailRef = useRef();
   const passwordRef = useRef();
   const navigate = useNavigate();
 
   const handleLogin = async () => {
-    await loginUser(emailRef.current.value, passwordRef.current.value);
-    setUserLoggedin(true);
-    navigate("/Profile");
+    var result = await loginUser(emailRef.current.value, passwordRef.current.value);
+    if(result === true){
+      setUserLoggedin(true);
+      var result = await getLoggedinUser();
+      navigate("/Profile");
+    }else{
+      setError("Failed to login")
+    }
+    
   };
   
   return (
@@ -50,6 +59,7 @@ const SignIn = () => {
                     ref={passwordRef}
                   />
                 </div>
+                { error && <div className="error-text">{error}</div>}
                 <button
                   className="BigBlackButton"
                   onClick={() => {
