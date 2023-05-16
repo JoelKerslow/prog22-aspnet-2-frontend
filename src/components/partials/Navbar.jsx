@@ -16,36 +16,42 @@ const Navbar = () => {
 
   return (
     <div className="NavBarContainer">
-      {/* Dessa länkar måste ändras, för tillfället är de placeholders //Henrik */}
-      <Link to="/Verification">
+      {/* Replace "/Onboarding" with link to "Home" (name to be decided/not yet implemented)*/}
+      <Link to="/Onboarding">
         <FontAwesomeIcon
         className='fa-lg'
           icon={faHouse}
-          style={{ color: location.pathname === '/Verification' ? activeColor : inactiveColor }}
+          style={{ color: location.pathname === '/Onboarding' ? activeColor : inactiveColor }}
         />
       </Link>
-      <Link to="/search">
+      
+      <Link to="/SearchProducts">
         <FontAwesomeIcon
           icon={faMagnifyingGlass}
-          style={{ color: location.pathname === '/search' ? activeColor : inactiveColor }}
+          style={{ color: location.pathname === '/SearchProducts' ? activeColor : inactiveColor }}
         />
       </Link>
-      <Link to="/">
+
+      {/* Replace "/Onboarding" with link to "Shopping" (name to be decided/not yet implemented)*/}
+      <Link to="/Onboarding">
         <FontAwesomeIcon
           icon={faBagShopping}
-          style={{ color: location.pathname === '/' ? activeColor : inactiveColor }}
+          style={{ color: location.pathname === '/Onboarding' ? activeColor : inactiveColor }}
         />
       </Link>
+
+      {/* Replace "/Onboarding" with link to "Wishlist" (name to be decided/not yet implemented)*/}
       <Link to="/Onboarding">
         <FontAwesomeIcon
           icon={faHeart}
           style={{ color: location.pathname === '/Onboarding' ? activeColor : inactiveColor }}
         />
       </Link>
-      <Link to="/Verification">
+
+      <Link to="/Profile">
         <FontAwesomeIcon
           icon={faUser}
-          style={{ color: location.pathname === '/Verifictaion' ? activeColor : inactiveColor }}
+          style={{ color: location.pathname === '/Profile' ? activeColor : inactiveColor }}
         />
       </Link>
     </div>
