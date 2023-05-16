@@ -1,4 +1,4 @@
-const ProfilePicture = () =>{
+const ProfilePicture = ({className}) =>{
     return(
 
 <div className="profilepic">
@@ -10,7 +10,7 @@ const ProfilePicture = () =>{
                     </div>
             </div>
             <div className="small-camera-circle">
-                <i class="profilepic-camera-icon fa-thin fa-camera"></i>
+                <i class={`profilepic-camera-icon fa-thin ${className}`}></i>
             </div>
         </div>
     </div>
