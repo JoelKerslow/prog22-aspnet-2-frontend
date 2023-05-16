@@ -23,7 +23,7 @@ const ProductReviewForm = () => {
   const apiKey = "f77ca749-67f4-4c22-9039-137272442ea0"
 
   useEffect(() => {
-    console.log(userLoggedin)
+    console.log('userLoggedin = ' + userLoggedin)
     // if (!userLoggedin) {
     //   //navigate('/SignIn')
     // }
@@ -94,7 +94,7 @@ const ProductReviewForm = () => {
       <div className='row justify-content-center'>
         <div className='col-12 col-sm-8 col-md-6 col-lg-4'>
           <div className='RegHeader'>
-            <BackArrow />
+            <BackArrow clickEvent={() => navigate(-1)}/>
             <h3>Leave a review</h3>
           </div>
           <CircleWithIcon iconClassName={"fa-comments"} />
