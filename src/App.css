@@ -294,8 +294,7 @@ header .sidebar-container h1 {
   font-family: "Montserrat", sans-serif;
   font-size: 16px;
   text-align: left;
-  -webkit-text-decoration: solid;
-          text-decoration: solid;
+  text-decoration: solid;
   color: white;
 }
 header .sidebar-container ul {
@@ -360,7 +359,6 @@ header.sidebar-open .sidebar-container {
 .product-card {
   background-color: rgb(244, 244, 244);
   width: 45vw;
-  height: -moz-fit-content;
   height: fit-content;
   transition: 0.3s ease;
   margin: 15px;
@@ -398,8 +396,7 @@ header.sidebar-open .sidebar-container {
 .product-card .top-section .product-image {
   width: 100%;
   height: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
   max-width: 100%;
   max-height: 100%;
 }
@@ -496,7 +493,6 @@ header.sidebar-open .sidebar-container {
   text-transform: uppercase;
   text-align: center;
   border-radius: 15px;
-  width: -moz-fit-content;
   width: fit-content;
   padding: 4px 18px;
   font-family: "Open Sans", sans-serif;
@@ -846,8 +842,7 @@ header.sidebar-open .sidebar-container {
 .profilepic-outer-circle img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .profilepic-picture {
@@ -1340,7 +1335,6 @@ header.sidebar-open .sidebar-container {
 .filter-list .mark-filter .mark-option {
   display: flex;
   align-items: center;
-  width: -moz-fit-content;
   width: fit-content;
   padding-right: 10px;
 }
@@ -1377,7 +1371,6 @@ header.sidebar-open .sidebar-container {
   border-radius: 15px;
   border: 1px solid #DBE3F5;
   padding: 5px 18px;
-  width: -moz-fit-content;
   width: fit-content;
   font-weight: 600;
   font-size: 14px;
@@ -1388,6 +1381,7 @@ header.sidebar-open .sidebar-container {
 .filter-list .tag-filter .selected-tag {
   background-color: #DBE3F5;
 }
+
 .circle-with-icon {
   position: relative;
   display: flex;
@@ -1662,7 +1656,6 @@ header.sidebar-open .sidebar-container {
   font-family: "Open Sans", sans-serif;
   font-weight: 600;
   opacity: 70%;
-  width: -moz-fit-content;
   width: fit-content;
 }
 .under-header:hover {
@@ -1678,6 +1671,8 @@ header.sidebar-open .sidebar-container {
 
 .payment-wrapper {
   border-bottom: 1px solid #dbe3f5;
+}
+
 .form-review p {
   color: #626262;
 }
@@ -1691,4 +1686,4 @@ header.sidebar-open .sidebar-container {
   min-height: 100px;
   border-radius: 20px;
   font-size: 14px;
-}/*# sourceMappingURL=App.css.map */
+}
