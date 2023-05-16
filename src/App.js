@@ -4,6 +4,7 @@ import "./App.css"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import ProductContextProvider from "./contexts/ProductContext"
 import AuthorizationContextProvider from "./contexts/AuthorizationContext"
+import UserContextProvider from "./contexts/UserContext"
 
 function App() {
   const { routes, fallback } = routingConfig
@@ -22,6 +23,7 @@ function App() {
   )
 
   return (
+
     <AuthorizationContextProvider>
       <ProductContextProvider>
         <BrowserRouter>
