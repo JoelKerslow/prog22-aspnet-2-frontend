@@ -8,12 +8,15 @@ import { AuthorizationContext } from "../../contexts/AuthorizationContext";
 import { useContext, useRef, useState } from "react";
 
 const SignIn = () => {
-  const { loginUser } = useContext(AuthorizationContext);
+  const { loginUser, setUserLoggedin } = useContext(AuthorizationContext);
   const emailRef = useRef();
   const passwordRef = useRef();
+  const navigate = useNavigate();
 
   const handleLogin = async () => {
     await loginUser(emailRef.current.value, passwordRef.current.value);
+    setUserLoggedin(true);
+    navigate("/Profile");
   };
   
   return (

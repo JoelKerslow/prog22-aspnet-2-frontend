@@ -12,6 +12,21 @@ import Signup from './components/views/Signup'
 import ProfilePage from './components/views/ProfilePage'
 import EditProfile from './components/partials/EditProfile'
 import PaymentMethod from './components/views/PaymentMethod'
+import "./App.css"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import Welcome from "./components/views/Welcome"
+import Onboarding from "./components/views/Onboarding"
+import VerificationCode from "./components/views/VerificationCode"
+import SearchProducts from "./components/views/SearchProducts"
+import Products from "./components/views/Products"
+import ProductContextProvider from "./contexts/ProductContext"
+import AuthorizationContextProvider from "./contexts/AuthorizationContext"
+import Signin from "./components/views/Signin"
+import Signup from "./components/views/Signup"
+import ProfilePage from "./components/views/ProfilePage"
+import ProductReviewForm from "./components/views/ProductReviewForm"
+import Home from './components/views/Home'
+import PaymentMethod from './components/views/PaymentMethod'
 
 function App() {
   return (
@@ -20,13 +35,19 @@ function App() {
         <ProductContextProvider>
           <BrowserRouter>
             <Routes>
-              <Route exact path="/" element={<EditProfile />} />
-              <Route path="/Onboarding" element={<Onboarding />} />
-              <Route path="/Verification" element={<VerificationCode />} />
-              <Route path="/SearchProducts" element={<SearchProducts />} />
-              <Route path="/Signup" element={<Signup />} />
-              <Route path="/Signin" element={<Signin />} />
-              <Route path="/Products/:type/:value" element={<Products />} />
+              <Route exact path='/' element={<Home />} />
+              <Route path='*' element={<Welcome />} />
+              <Route path='/Onboarding' element={<Onboarding />} />
+              <Route path='/Verification' element={<VerificationCode />} />
+              <Route path='/SearchProducts' element={<SearchProducts />} />
+              <Route path='/Signup' element={<Signup />} />
+              <Route path='/Signin' element={<Signin />} />
+              <Route path='/Profile' element={<ProfilePage />} />
+              <Route
+                path='/ProductReview/:productId'
+                element={<ProductReviewForm />}
+              />
+              <Route path='/Products/:type/:value' element={<Products />} />
             </Routes>
           </BrowserRouter>
         </ProductContextProvider>

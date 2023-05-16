@@ -69,6 +69,11 @@ const AuthorizationContextProvider = ({children}) => {
         }
     }
 
+    const logoutUser = async () => {
+        Cookies.remove("maneroToken");
+        setUserLoggedin(false);
+    }
+
     const authorize = async () => {
         const res = await fetch(authBaseUrl + 'Authorize', {
             headers: {
@@ -93,6 +98,9 @@ const AuthorizationContextProvider = ({children}) => {
         <AuthorizationContext.Provider value={{
             loginUser, 
             registerUser,
+            logoutUser,
+            userLoggedin,
+            setUserLoggedin,
         }}>
             {children}
         </AuthorizationContext.Provider>
