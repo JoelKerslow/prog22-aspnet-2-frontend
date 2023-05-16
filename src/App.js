@@ -19,7 +19,7 @@ function App() {
         <ProductContextProvider>
           <BrowserRouter>
             <Routes>
-              <Route exact path='/' element={<ProfilePage />} />
+              <Route exact path='/' element={<Welcome />} />
               <Route path='*' element={<Welcome />} />
               <Route path='/Onboarding' element={<Onboarding />} />
               <Route path='/Verification' element={<VerificationCode />} />
