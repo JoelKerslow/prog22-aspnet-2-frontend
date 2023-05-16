@@ -1,7 +1,6 @@
-//imports
 import BackArrow from "../partials/generalPartials/BackArrow";
 import VerticalBar from "../partials/generalPartials/VerticalBar";
-import SocialMedia from "../partials/generalPartials/SocialMedia";
+import SocialLogin from "../partials/generalPartials/SocialLogin";
 import InputBox from "../partials/generalPartials/InputBox";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthorizationContext } from "../../contexts/AuthorizationContext";
@@ -62,11 +61,12 @@ const SignIn = () => {
             <p className="text-center my-2">
               Don't have an account? <Link to="/Signup">Sign up</Link>
             </p>
-            <SocialMedia />
+            <SocialLogin />
           </div>
         </div>
       </div>
     </>
   );
 };
+
 export default SignIn;
