@@ -1,4 +1,3 @@
-
 import routingConfig from "./routing.json"
 import React from "react"
 import "./App.css"

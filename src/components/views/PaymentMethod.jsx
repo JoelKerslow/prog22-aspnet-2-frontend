@@ -2,7 +2,6 @@ import React from 'react';
 import BackArrow from '../partials/generalPartials/BackArrow';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faCreditCard } from '@fortawesome/free-solid-svg-icons';
-import { Carousel } from 'react-responsive-carousel';
 
 const PaymentMethod = () => {
     return (
