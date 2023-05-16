@@ -57,6 +57,7 @@ const ProductContextProvider = ({ children }) => {
   }
 
   const getProductsByTag = (tagId) => {
+    setLoading(true)
     fetch(productsBaseUrl + 'tag?tagId=' + tagId, {
       headers: {
         'API-KEY': apiKey,
@@ -72,6 +73,7 @@ const ProductContextProvider = ({ children }) => {
       .then((data) => {
         console.log(data)
         setProducts(data)
+        setLoading(false)
       })
       .catch((error) => {
         console.error('Error fetching products:', error)
