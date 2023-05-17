@@ -76,14 +76,6 @@ const SignIn = () => {
                   <label className="RememberMelbl">Remember me</label>
                 </div>
                 { error && <div className="error-text">{error}</div>}
-                <button
-                  className="BigBlackButton"
-                  onClick={() => {
-                    handleLogin();
-                  }}
-                >
-                  Sign in
-                </button>
                 <Link to="/PasswordReset">Forgot password?</Link>
               </div>
               <button
