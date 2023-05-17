@@ -24,16 +24,18 @@ function App() {
 
   return (
 
-    <AuthorizationContextProvider>
-      <ProductContextProvider>
-        <BrowserRouter>
-          <Routes>
-            {routeElements}
-            <Route path='*' element={fallbackElement} />
-          </Routes>
-        </BrowserRouter>
-      </ProductContextProvider>
-    </AuthorizationContextProvider>
+    <UserContextProvider>
+      <AuthorizationContextProvider>
+        <ProductContextProvider>
+          <BrowserRouter>
+            <Routes>
+              {routeElements}
+              <Route path='*' element={fallbackElement} />
+            </Routes>
+          </BrowserRouter>
+        </ProductContextProvider>
+      </AuthorizationContextProvider>
+    </UserContextProvider>
   )
 }
 
