@@ -1,0 +1,56 @@
+.reviewCard {
+    @include font-default;
+    font-family: $font-opensans;
+    width: 100dvw;
+    height: auto;
+    margin-top: 19px;
+
+    .cardHeader {
+        margin-top: 5px;
+        margin-left: 5px;
+        margin-right: 5px;
+        display: flex;
+        flex-direction: row;
+
+        .profileImg {
+            margin-left: 20px;
+            height: 50px;
+            width: 50px;
+            flex-direction: row;
+            background-color: $color-theme;
+            border-radius: 50%;
+
+            .faceImg {
+                width: 50px;
+                flex-direction: row;
+            }
+        }
+
+        .nameAndDate {
+            margin-left: 14px;
+            margin-right: auto;
+            flex-direction: column;
+
+            .profileName {
+                font-weight: $font-weight-semibold;
+            }
+
+            .reviewDate {
+                font-size: 10px;
+                color: $color-dark-3;
+            }
+        }
+
+        .reviewStarRating {
+            margin-right: 5px;
+        }
+    }
+
+    .reviewText {
+        margin-left: 84px;
+        flex-direction: column;
+
+    }
+
+
+}
