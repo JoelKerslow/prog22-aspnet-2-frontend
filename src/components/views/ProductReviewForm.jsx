@@ -156,11 +156,11 @@ const ProductReviewForm = () => {
                 className='BigBlackButton mt-5 mb-2'
                 onClick={handleGoBack}
               >
-                Go back
+                GO BACK
               </button>
             ) : (
               <button className='BigBlackButton mt-5 mb-2' type='submit'>
-                Submit
+                SUBMIT
               </button>
             )}
           </form>
