@@ -85,7 +85,7 @@ const AuthorizationContextProvider = ({children}) => {
                 "Authorization": "Bearer " + Cookies.get("maneroToken")  
             }
         })
-        if(res.statusCode === 200){
+        if(res.status === 200){
             setUserLoggedin(true);
             await getLoggedinUser();
         }
