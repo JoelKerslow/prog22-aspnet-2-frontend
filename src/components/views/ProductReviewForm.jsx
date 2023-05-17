@@ -1,5 +1,4 @@
 import { UserContext } from "../../contexts/UserContext"
-import { AuthorizationContext } from "../../contexts/AuthorizationContext"
 import { useEffect, useContext, useState, useRef } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import Cookies from "js-cookie"
@@ -9,7 +8,6 @@ import CircleWithIcon from "../partials/generalPartials/CircleWithIcon"
 import StarRatingInput from "../partials/StarRatingInput"
 
 const ProductReviewForm = () => {
-  const { userLoggedin } = useContext(AuthorizationContext)
   const { currentUser } = useContext(UserContext)
   const { productId } = useParams()
 
@@ -24,7 +22,7 @@ const ProductReviewForm = () => {
   const apiKey = "f77ca749-67f4-4c22-9039-137272442ea0"
 
   useEffect(() => {
-    if (!currentUser) {
+    if (!currentUser.id) {
       navigate('/SignIn')
     }
   }, [currentUser])
@@ -38,6 +36,8 @@ const ProductReviewForm = () => {
       customerId: currentUser.id,
       productId: productId,
     }
+
+    console.log(reviewData)
 
     const result = await fetch(productReviewsUrl, {
       method: "POST",
