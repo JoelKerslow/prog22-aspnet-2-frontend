@@ -1405,7 +1405,6 @@ header.sidebar-open .sidebar-container {
   background-color: #DBE3F5;
 }
 
-
 .reviewHeader {
   font-family: "Open Sans", sans-serif;
   font-weight: 600;
@@ -1520,7 +1519,8 @@ header.sidebar-open .sidebar-container {
   left: -10px;
   right: -10px;
   bottom: -10px;
-  border: 5px solid #DBE3F5;
+  border: 5px solid;
+  border-color: #DBE3F5;
   border-radius: 50%;
 }
 .circle-with-icon::after {
@@ -1539,6 +1539,25 @@ header.sidebar-open .sidebar-container {
   position: relative;
   z-index: 1;
   font-size: 50px;
+}
+
+.circle-with-icon.lg {
+  width: 200px;
+  height: 200px;
+}
+
+.circle-with-icon.green::before {
+  border-color: #00824B;
+}
+.circle-with-icon.green .fa-regular {
+  color: #00824B;
+}
+
+.circle-with-icon.red::before {
+  border-color: #f4303c;
+}
+.circle-with-icon.red .fa-regular {
+  color: #f4303c;
 }
 
 @keyframes move {
@@ -1808,5 +1827,4 @@ header.sidebar-open .sidebar-container {
   min-height: 100px;
   border-radius: 20px;
   font-size: 14px;
-}
-
+}/*# sourceMappingURL=App.css.map */
