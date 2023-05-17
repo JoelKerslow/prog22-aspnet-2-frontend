@@ -1,4 +1,4 @@
-import { ProductContext } from "../../contexts/ProductContext"
+import { UserContext } from "../../contexts/UserContext"
 import { AuthorizationContext } from "../../contexts/AuthorizationContext"
 import { useEffect, useContext, useState, useRef } from "react"
 import { useNavigate, useParams } from "react-router-dom"
@@ -10,6 +10,7 @@ import StarRatingInput from "../partials/StarRatingInput"
 
 const ProductReviewForm = () => {
   const { userLoggedin } = useContext(AuthorizationContext)
+  const { currentUser } = useContext(UserContext)
   const { productId } = useParams()
 
   const [rating, setRating] = useState(0)
@@ -23,22 +24,18 @@ const ProductReviewForm = () => {
   const apiKey = "f77ca749-67f4-4c22-9039-137272442ea0"
 
   useEffect(() => {
-    console.log('userLoggedin = ' + userLoggedin)
-    // if (!userLoggedin) {
-    //   //navigate('/SignIn')
-    // }
-  }, [userLoggedin])
+    if (!currentUser) {
+      navigate('/SignIn')
+    }
+  }, [currentUser])
 
   const createProductReview = async () => {
     const comment = commentVal.current.value.replace(/\s+/g, " ").trim()
 
-    // TODO:
-    // 1. Get customerId from currently logged in user
-    // 2. Include date in reviewData
     const reviewData = {
       rating: rating,
       comment: comment || null,
-      customerId: 1,
+      customerId: currentUser.id,
       productId: productId,
     }
 
