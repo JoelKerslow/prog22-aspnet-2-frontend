@@ -28,7 +28,7 @@ const ProductReviewForm = () => {
     if (!userLoggedin) {
       navigate('/Signin')
     }
-  }, [])
+  }, [userLoggedin])
 
   const createProductReview = async () => {
     const comment = commentVal.current.value.replace(/\s+/g, " ").trim()
