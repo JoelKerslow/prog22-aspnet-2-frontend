@@ -1430,6 +1430,24 @@ header.sidebar-open .sidebar-container {
   }
 }
 
+.reviewCard {
+  width: 100dvw;
+  display: flex;
+}
+.reviewCard .cardHeader {
+  flex-direction: row;
+}
+.reviewCard .cardHeader .profileImg {
+  height: 50px;
+  width: 50px;
+}
+.reviewCard .cardHeader .nameAndDate {
+  flex-direction: column;
+}
+.reviewCard .reviewText {
+  flex-direction: column;
+}
+
 .Onboarding-Container {
   display: flex;
   flex-direction: column;

@@ -1,0 +1,22 @@
+.reviewCard{
+    width: 100dvw;
+    display: flex;
+
+    .cardHeader{
+        flex-direction: row;
+        .profileImg{
+            height: 50px;
+            width: 50px;
+        }
+
+        .nameAndDate{
+            flex-direction: column;
+        }
+    }
+
+    .reviewText{
+        flex-direction: column;
+    }
+
+
+}
