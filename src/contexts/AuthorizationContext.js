@@ -66,7 +66,14 @@ const AuthorizationContextProvider = ({children}) => {
             const expirationDate = new Date();
             
             Cookies.set("maneroToken", token, {expires: expirationDate.getDate() + 1});
+            return true;
         }
+        return false;
+    }
+
+    const logoutUser = async () => {
+        Cookies.remove("maneroToken");
+        setUserLoggedin(false);
     }
 
     const authorize = async () => {
@@ -93,6 +100,9 @@ const AuthorizationContextProvider = ({children}) => {
         <AuthorizationContext.Provider value={{
             loginUser, 
             registerUser,
+            logoutUser,
+            userLoggedin,
+            setUserLoggedin,
         }}>
             {children}
         </AuthorizationContext.Provider>

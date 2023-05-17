@@ -1,7 +1,7 @@
 //imports
-import BackArrow from "./generalPartials/BackArrow";
-import VerticalBar from "./generalPartials/VerticalBar";
-import ProfilePicture from "./generalPartials/ProfilePicture";
+import BackArrow from "../partials/generalPartials/BackArrow";
+import VerticalBar from "../partials/generalPartials/VerticalBar";
+import ProfilePicture from "../partials/generalPartials/ProfilePicture";
 
 const Registration = () => {
 
@@ -16,7 +16,7 @@ const Registration = () => {
             </div>
 
             <VerticalBar />
-            <ProfilePicture/>
+            <ProfilePicture className={'fa-camera'}/>
 
             <form onSubmit="" method="post" className="form-editprofile">
               <div className="edit-profile-input input-field-group">

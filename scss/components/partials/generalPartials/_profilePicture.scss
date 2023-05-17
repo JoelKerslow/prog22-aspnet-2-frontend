@@ -6,10 +6,12 @@
 
 .profilepic {
   position: relative;
-  display: flex;
+  display:flex;
   justify-content: center;
   align-items: center;
   background-color: transparent;
+  margin-top: -3vh;
+  margin-bottom: -2vh;
 }
 
 .profilepic-outer-circle {

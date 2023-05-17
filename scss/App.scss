@@ -23,7 +23,8 @@
 @import './components/partials/productFilter';
 @import './components/partials/reviewHead';
 @import './components/partials/productReview';
-
+@import './components/partials/generalPartials/circleWithIcon';
+@import './components/partials/starRatingInput';
 
 //Views
 @import './components/views/onboarding';
@@ -31,3 +32,5 @@
 @import './components/views/verificationCode';
 @import './components/views/profilePage';
 @import './components/Views/products';
+@import './components/views/paymentMethod';
+@import './components/views/reviewForm';
