@@ -1,6 +1,8 @@
-const StarRatingInput = ({ rating, onStarClick }) => {
+const StarRatingInput = ({ rating, onStarClick, disabled }) => {
   const handleClick = (value) => {
-    onStarClick(value)
+    if (!disabled) {
+      onStarClick(value)
+    }
   }
 
   return (

@@ -12,6 +12,7 @@ const ProductReviewForm = () => {
   const { productId } = useParams()
 
   const [rating, setRating] = useState(0)
+  const [formSubmitted, setFormSubmitted] = useState(false)
   const [ratingError, setRatingError] = useState()
   const [serverError, setServerError] = useState()
 
@@ -64,6 +65,10 @@ const ProductReviewForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
 
+    if (formSubmitted) {
+      return
+    }
+
     setRatingError(null)
     setServerError(null)
 
@@ -73,8 +78,7 @@ const ProductReviewForm = () => {
     }
 
     if (await createProductReview()) {
-      // TODO: Display popup that review has been created
-      console.log("ProductReview created successfully")
+      setFormSubmitted(true)
     } else {
       setServerError(
         "Something went wrong submitting your review. Please try again later"
@@ -86,12 +90,16 @@ const ProductReviewForm = () => {
     setRating(value)
   }
 
+  const handleGoBack = () => {
+    navigate(-1)
+  }
+
   return (
     <div className='container'>
       <div className='row justify-content-center'>
         <div className='col-12 col-sm-8 col-md-6 col-lg-4'>
           <div className='RegHeader'>
-            <BackArrow clickEvent={() => navigate(-1)} />
+            <BackArrow clickEvent={handleGoBack} />
             <h3>Leave a review</h3>
           </div>
           <CircleWithIcon iconClassName={"fa-comments"} />
@@ -102,7 +110,11 @@ const ProductReviewForm = () => {
           </h3>
 
           <form onSubmit={handleSubmit} method='post' className='form-review'>
-            <StarRatingInput rating={rating} onStarClick={handleStarClick} />
+            <StarRatingInput
+              rating={rating}
+              onStarClick={handleStarClick}
+              disabled={formSubmitted}
+            />
 
             {ratingError && (
               <p className='text-danger text-center'>{ratingError}</p>
@@ -120,18 +132,35 @@ const ProductReviewForm = () => {
                 maxLength={120}
                 className='input-field'
                 placeholder='Enter your comment'
+                disabled={formSubmitted}
               ></textarea>
             </div>
 
             {serverError && (
-              <div className='alert alert-danger' role='alert'>
+              <div className='alert alert-danger text-center' role='alert'>
                 {serverError}
               </div>
             )}
 
-            <button className='BigBlackButton mt-5' type='submit'>
-              Submit
-            </button>
+            {formSubmitted && (
+              <div className='alert alert-success text-center' role='alert'>
+                Your review has been successfully submitted, thank you for your
+                feedback!
+              </div>
+            )}
+
+            {formSubmitted ? (
+              <button
+                className='BigBlackButton mt-5 mb-2'
+                onClick={handleGoBack}
+              >
+                Go back
+              </button>
+            ) : (
+              <button className='BigBlackButton mt-5 mb-2' type='submit'>
+                Submit
+              </button>
+            )}
           </form>
         </div>
       </div>
