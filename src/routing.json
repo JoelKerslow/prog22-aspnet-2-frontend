@@ -41,6 +41,10 @@
       "element": "ProductReviewForm"
     },
     {
+      "path": "/OrderReview/:orderId",
+      "element": "OrderReviewForm"
+    },
+    {
       "path": "/Products/:type/:value",
       "element": "Products"
     },
