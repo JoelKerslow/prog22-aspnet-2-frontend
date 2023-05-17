@@ -23,7 +23,7 @@ const ProductReviewForm = () => {
 
   useEffect(() => {
     if (!currentUser.id) {
-      navigate('/SignIn')
+      navigate("/SignIn")
     }
   }, [currentUser])
 
@@ -36,8 +36,6 @@ const ProductReviewForm = () => {
       customerId: currentUser.id,
       productId: productId,
     }
-
-    console.log(reviewData)
 
     const result = await fetch(productReviewsUrl, {
       method: "POST",
@@ -78,7 +76,9 @@ const ProductReviewForm = () => {
       // TODO: Display popup that review has been created
       console.log("ProductReview created successfully")
     } else {
-      setServerError("Something went wrong submitting your review. Please try again later")
+      setServerError(
+        "Something went wrong submitting your review. Please try again later"
+      )
     }
   }
 
@@ -91,7 +91,7 @@ const ProductReviewForm = () => {
       <div className='row justify-content-center'>
         <div className='col-12 col-sm-8 col-md-6 col-lg-4'>
           <div className='RegHeader'>
-            <BackArrow clickEvent={() => navigate(-1)}/>
+            <BackArrow clickEvent={() => navigate(-1)} />
             <h3>Leave a review</h3>
           </div>
           <CircleWithIcon iconClassName={"fa-comments"} />
