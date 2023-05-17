@@ -1,5 +1,4 @@
-import { ProductContext } from "../../contexts/ProductContext"
-import { AuthorizationContext } from "../../contexts/AuthorizationContext"
+import { UserContext } from "../../contexts/UserContext"
 import { useEffect, useContext, useState, useRef } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import Cookies from "js-cookie"
@@ -9,7 +8,7 @@ import CircleWithIcon from "../partials/generalPartials/CircleWithIcon"
 import StarRatingInput from "../partials/StarRatingInput"
 
 const ProductReviewForm = () => {
-  const { userLoggedin } = useContext(AuthorizationContext)
+  const { currentUser } = useContext(UserContext)
   const { productId } = useParams()
 
   const [rating, setRating] = useState(0)
@@ -23,22 +22,18 @@ const ProductReviewForm = () => {
   const apiKey = "f77ca749-67f4-4c22-9039-137272442ea0"
 
   useEffect(() => {
-    console.log('userLoggedin = ' + userLoggedin)
-    // if (!userLoggedin) {
-    //   //navigate('/SignIn')
-    // }
-  }, [userLoggedin])
+    if (!currentUser.id) {
+      navigate("/SignIn")
+    }
+  }, [currentUser])
 
   const createProductReview = async () => {
     const comment = commentVal.current.value.replace(/\s+/g, " ").trim()
 
-    // TODO:
-    // 1. Get customerId from currently logged in user
-    // 2. Include date in reviewData
     const reviewData = {
       rating: rating,
       comment: comment || null,
-      customerId: 1,
+      customerId: currentUser.id,
       productId: productId,
     }
 
@@ -81,7 +76,9 @@ const ProductReviewForm = () => {
       // TODO: Display popup that review has been created
       console.log("ProductReview created successfully")
     } else {
-      setServerError("Something went wrong submitting your review. Please try again later")
+      setServerError(
+        "Something went wrong submitting your review. Please try again later"
+      )
     }
   }
 
@@ -94,7 +91,7 @@ const ProductReviewForm = () => {
       <div className='row justify-content-center'>
         <div className='col-12 col-sm-8 col-md-6 col-lg-4'>
           <div className='RegHeader'>
-            <BackArrow clickEvent={() => navigate(-1)}/>
+            <BackArrow clickEvent={() => navigate(-1)} />
             <h3>Leave a review</h3>
           </div>
           <CircleWithIcon iconClassName={"fa-comments"} />
