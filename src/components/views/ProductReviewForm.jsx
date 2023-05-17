@@ -1,3 +1,4 @@
+import { AuthorizationContext } from "../../contexts/AuthorizationContext"
 import { UserContext } from "../../contexts/UserContext"
 import { useEffect, useContext, useState, useRef } from "react"
 import { useNavigate, useParams } from "react-router-dom"
@@ -8,6 +9,7 @@ import CircleWithIcon from "../partials/generalPartials/CircleWithIcon"
 import StarRatingInput from "../partials/StarRatingInput"
 
 const ProductReviewForm = () => {
+  const { userLoggedin } = useContext(AuthorizationContext)
   const { currentUser } = useContext(UserContext)
   const { productId } = useParams()
 
@@ -23,10 +25,10 @@ const ProductReviewForm = () => {
   const apiKey = "f77ca749-67f4-4c22-9039-137272442ea0"
 
   useEffect(() => {
-    if (!currentUser.id) {
-      navigate("/SignIn")
+    if (!userLoggedin) {
+      navigate('/Signin')
     }
-  }, [currentUser])
+  }, [])
 
   const createProductReview = async () => {
     const comment = commentVal.current.value.replace(/\s+/g, " ").trim()
