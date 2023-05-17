@@ -31,8 +31,8 @@ const ProfilePage = () => {
           <VerticalBar />
           <ProfilePicture />
           <div className="profile-info text-center">
-            <h2>{currentUser.firstName}</h2>
-            <p>email på användare</p>
+            <h2>{currentUser.firstName} {currentUser.lastName}</h2>
+            <p>{currentUser.email}</p>
           </div>
         </div>
 
