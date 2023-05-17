@@ -8,6 +8,10 @@ const ProductReview = () => {
     <div>
         <ProductReviewSiteHead />
         <UserProductReview />
+        <UserProductReview />
+        <UserProductReview />
+        <UserProductReview />
+        <UserProductReview />
     </div>
   )
 }
