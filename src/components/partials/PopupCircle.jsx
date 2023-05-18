@@ -1,18 +1,20 @@
 import React from 'react'
+import VerticalBar from './generalPartials/VerticalBar'
 
-const PopupCircle = () => {
+const PopupCircle = ({ onClose }) => {
   return (
-    <div className="Onboarding-Container">
+    <div className="popup-container" onClick={onClose}>
       <div className="circle-3">
         <div className="circle-4">
           <VerticalBar />
-          <div className="welcome-text">{texts[textVersion].welcome}</div>
-          <div className="subtext">{texts[textVersion].subtext}</div>
-          <button className="get-started-btn" onClick={handleButtonClick}>
-            Get started
+          <div className="logout-text">Are you sure you want to sign out?</div>
+          <button className="logout-button">
+            SURE
           </button>
-          <NavLink to="/Signin"></NavLink>
-          <PageIndicator currentPage={currentPage} />
+          <button className='cancel-button'>
+            CANCEL
+          </button>
+          {/* <NavLink to="/Signin"></NavLink> */}
         </div>
       </div>
     </div>
