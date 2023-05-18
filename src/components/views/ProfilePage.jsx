@@ -29,14 +29,14 @@ const ProfilePage = () => {
   return (
     <>
       {togglePopup && (<div className="popup-overlay" onClick={() => setTogglePopup(false)} />)}
-      {togglePopup && <PopupCircle onClose={() => setTogglePopup(false)}/>}
+      {togglePopup && <PopupCircle onClose={() => setTogglePopup(false)} handleLogout={() => handleLogout()} />}
      <div>
       <Header />
       <div className="container">
         <div className="container mt-3">
           <VerticalBar />
           <div className="mt-3">
-            <ProfilePicture />
+            <ProfilePicture className={'fa-pen-line'} event={() => navigate("/EditProfile")} />
           </div>
           <div className="profile-info text-center">
             <h2>{currentUser.firstName} {currentUser.lastName}</h2>
