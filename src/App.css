@@ -1358,6 +1358,7 @@ header.sidebar-open .sidebar-container {
 .filter-list .mark-filter .mark-option {
   display: flex;
   align-items: center;
+  width: -moz-fit-content;
   width: fit-content;
   padding-right: 10px;
 }
@@ -1394,6 +1395,7 @@ header.sidebar-open .sidebar-container {
   border-radius: 15px;
   border: 1px solid #DBE3F5;
   padding: 5px 18px;
+  width: -moz-fit-content;
   width: fit-content;
   font-weight: 600;
   font-size: 14px;
@@ -1404,7 +1406,6 @@ header.sidebar-open .sidebar-container {
 .filter-list .tag-filter .selected-tag {
   background-color: #DBE3F5;
 }
-
 
 .reviewHeader {
   font-family: "Open Sans", sans-serif;
@@ -1503,6 +1504,7 @@ header.sidebar-open .sidebar-container {
   margin-left: 84px;
   flex-direction: column;
 }
+
 .circle-with-icon {
   position: relative;
   display: flex;
@@ -1808,5 +1810,4 @@ header.sidebar-open .sidebar-container {
   min-height: 100px;
   border-radius: 20px;
   font-size: 14px;
-}
-
+}/*# sourceMappingURL=App.css.map */

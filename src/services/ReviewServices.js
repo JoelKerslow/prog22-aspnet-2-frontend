@@ -1,10 +1,9 @@
 const ProductReviewsAsync = async (productId) => {
 	const url =
-		"https://aspnet2-grupp1-backend.azurewebsites.net/api/ProductReviews?productId=" +
-		{ productId };
+		"https://aspnet2-grupp1-backend.azurewebsites.net/api/ProductReviews?productId=";
 	const apiKey = "f77ca749-67f4-4c22-9039-137272442ea0";
 
-	const result = await fetch(url, {
+	const result = await fetch(url + productId, {
 		headers: {
 			"API-KEY": apiKey,
 		},
