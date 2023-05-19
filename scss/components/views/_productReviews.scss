@@ -1,0 +1,12 @@
+.productReviewContainer{
+    @include xxl{
+        margin-top: 50px;
+        width: 50dvw;
+        margin-left: auto;
+        margin-right: auto;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        border-radius: 5px;
+        justify-content: center;
+    }
+}

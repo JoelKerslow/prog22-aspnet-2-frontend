@@ -15,16 +15,14 @@ const ProductReview = () => {
 		GetReviewsAsync();
 	}, [productId]);
 
-	useEffect(() => {
-		console.log(reviewList);
-	}, [reviewList]);
-
 	return (
 		<div>
 			<ProductReviewSiteHead />
-			{reviewList.map((review) => {
-				return <UserProductReview key={review.id} review={review} />;
-			})}
+			<div className="productReviewContainer">
+				{reviewList.map((review) => {
+					return <UserProductReview key={review.id} review={review} />;
+				})}
+			</div>
 		</div>
 	);
 };
