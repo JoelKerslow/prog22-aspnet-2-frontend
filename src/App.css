@@ -1532,7 +1532,8 @@ header.sidebar-open .sidebar-container {
   left: -10px;
   right: -10px;
   bottom: -10px;
-  border: 5px solid #DBE3F5;
+  border: 5px solid;
+  border-color: #DBE3F5;
   border-radius: 50%;
 }
 .circle-with-icon::after {
@@ -1553,6 +1554,25 @@ header.sidebar-open .sidebar-container {
   font-size: 50px;
 }
 
+.circle-with-icon.lg {
+  width: 200px;
+  height: 200px;
+}
+
+.circle-with-icon.green::before {
+  border-color: #00824B;
+}
+.circle-with-icon.green .fa-regular {
+  color: #00824B;
+}
+
+.circle-with-icon.red::before {
+  border-color: #f4303c;
+}
+.circle-with-icon.red .fa-regular {
+  color: #f4303c;
+}
+
 @keyframes move {
   to {
     background-position: 30px 30px;
@@ -1571,6 +1591,73 @@ header.sidebar-open .sidebar-container {
 }
 .star-rating-input .star-selected {
   color: #ffbe00;
+}
+
+.popup-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+}
+.popup-container .circle-3 {
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  background-color: transparent;
+}
+.popup-container .circle-4 {
+  border-radius: 208px;
+}
+.popup-container .logout-text {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.popup-container .logout-button {
+  color: #FFFFFF;
+  width: 40%;
+  height: 5vh;
+  border-radius: 25px;
+  background-color: #111111;
+  margin-bottom: 2rem;
+  transition: transform 0.5s ease;
+}
+.popup-container .logout-button:hover {
+  transform: scale(1.1);
+}
+.popup-container .cancel-button {
+  all: unset;
+  cursor: pointer;
+}
+.popup-container .cancel-button:hover {
+  transform: scale(1.1);
+}
+@media (max-width: 1000px) {
+  .popup-container .circle-3 {
+    width: 350px;
+    height: 350px;
+  }
+  .popup-container .circle-4 {
+    width: 300px;
+    height: 300px;
+  }
+  .popup-container .logout-text {
+    font-size: 1.5rem;
+    padding: 1rem;
+  }
+  .popup-container .logout-button {
+    margin-bottom: 1rem;
+  }
+  .popup-container .cancel-button {
+    margin-bottom: 0.5rem;
+  }
 }
 
 .Onboarding-Container {
@@ -1780,6 +1867,16 @@ header.sidebar-open .sidebar-container {
   width: 10%;
 }
 
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+}
+
 .under-header {
   margin-top: 10px;
   margin-left: 10px;
@@ -1833,4 +1930,5 @@ header.sidebar-open .sidebar-container {
     border-radius: 5px;
     justify-content: center;
   }
+
 }/*# sourceMappingURL=App.css.map */
