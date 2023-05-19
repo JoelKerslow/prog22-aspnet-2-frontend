@@ -1466,6 +1466,11 @@ header.sidebar-open .sidebar-container {
   height: auto;
   margin-top: 19px;
 }
+@media (min-width: 1400px) {
+  .reviewCard {
+    justify-content: flex-start;
+  }
+}
 .reviewCard .cardHeader {
   margin-top: 5px;
   margin-left: 5px;
@@ -1499,6 +1504,11 @@ header.sidebar-open .sidebar-container {
 }
 .reviewCard .cardHeader .reviewStarRating {
   margin-right: 5px;
+}
+@media (min-width: 1400px) {
+  .reviewCard .cardHeader .reviewStarRating {
+    margin-right: 1200px;
+  }
 }
 .reviewCard .reviewText {
   margin-left: 84px;
@@ -1907,4 +1917,18 @@ header.sidebar-open .sidebar-container {
   min-height: 100px;
   border-radius: 20px;
   font-size: 14px;
+}
+
+@media (min-width: 1400px) {
+  .productReviewContainer {
+    margin-top: 50px;
+    width: 50dvw;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-radius: 5px;
+    justify-content: center;
+  }
+
 }/*# sourceMappingURL=App.css.map */

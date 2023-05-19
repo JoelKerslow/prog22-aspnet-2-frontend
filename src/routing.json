@@ -51,6 +51,14 @@
     {
       "path":"/Profile/PaymentMethods",
       "element":"PaymentMethod"
+    },
+    {
+      "path": "/ProductSubmitedReviews/:productId",
+      "element": "ProductReview"
+    },
+    {
+      "path" : "/Home",
+      "element" : "Home"
     }
   ],
   "fallback": {
