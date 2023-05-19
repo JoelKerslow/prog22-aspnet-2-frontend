@@ -19,6 +19,7 @@ const SignIn = () => {
 
   const handleLogin = async () => {
     var result = await loginUser(emailRef.current.value, passwordRef.current.value);
+    console.log(rememberMe);
     if(result === true){
       setUserLoggedin(true);
       var result = await getLoggedinUser();

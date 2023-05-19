@@ -1,4 +1,4 @@
-const ProfilePicture = ({className}) =>{
+const ProfilePicture = ({className, event}) =>{
     return(
 
 <div className="profilepic">
@@ -9,7 +9,7 @@ const ProfilePicture = ({className}) =>{
                         <img src={require('../../../assets/images/showcase.png')} />
                     </div>
             </div>
-            <div className="small-camera-circle">
+            <div className="small-camera-circle" onClick={event}>
                 <i class={`profilepic-camera-icon fa-thin ${className}`}></i>
             </div>
         </div>
