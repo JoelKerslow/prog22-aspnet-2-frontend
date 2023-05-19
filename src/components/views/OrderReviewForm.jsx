@@ -1,17 +1,14 @@
 import { AuthorizationContext } from "../../contexts/AuthorizationContext"
-import { UserContext } from "../../contexts/UserContext"
 import { useEffect, useContext, useState, useRef } from "react"
 import { useNavigate, useParams } from "react-router-dom"
-import Cookies from "js-cookie"
 import VerticalBar from "../partials/generalPartials/VerticalBar"
 import BackArrow from "../partials/generalPartials/BackArrow"
 import CircleWithIcon from "../partials/generalPartials/CircleWithIcon"
 import StarRatingInput from "../partials/StarRatingInput"
 
-const ProductReviewForm = () => {
+const OrderReviewForm = () => {
   const { userLoggedin } = useContext(AuthorizationContext)
-  const { currentUser } = useContext(UserContext)
-  const { productId } = useParams()
+  const { orderId } = useParams()
 
   const [rating, setRating] = useState(0)
   const [formSubmitted, setFormSubmitted] = useState(false)
@@ -21,7 +18,7 @@ const ProductReviewForm = () => {
   const navigate = useNavigate()
   const commentVal = useRef()
 
-  const productReviewsUrl = "https://aspnet2-grupp1-backend.azurewebsites.net/api/ProductReviews"
+  const orderReviewsUrl = "https://aspnet2-grupp1-backend.azurewebsites.net/Review"
   const apiKey = "f77ca749-67f4-4c22-9039-137272442ea0"
 
   useEffect(() => {
@@ -30,22 +27,20 @@ const ProductReviewForm = () => {
     }
   }, [userLoggedin])
 
-  const createProductReview = async () => {
+  const createOrderReview = async () => {
     const comment = commentVal.current.value.replace(/\s+/g, " ").trim()
 
     const reviewData = {
-      rating: rating,
       comment: comment || null,
-      customerId: currentUser.id,
-      productId: productId,
+      rating: rating,
+      orderId: orderId,
     }
 
-    const result = await fetch(productReviewsUrl, {
+    const result = await fetch(orderReviewsUrl, {
       method: "POST",
       headers: {
         "API-KEY": apiKey,
         "Content-Type": "application/json",
-        "Authorization": "Bearer " + Cookies.get("maneroToken"),
       },
       body: JSON.stringify(reviewData),
     })
@@ -79,7 +74,7 @@ const ProductReviewForm = () => {
       return
     }
 
-    if (await createProductReview()) {
+    if (await createOrderReview()) {
       setFormSubmitted(true)
     } else {
       setServerError(
@@ -108,7 +103,7 @@ const ProductReviewForm = () => {
           <VerticalBar />
 
           <h3 className='text-center fw-bold'>
-            Please let us know how satisfied you were with your product!
+            Please rate the quality of service for the order!
           </h3>
 
           <form onSubmit={handleSubmit} method='post' className='form-review'>
@@ -170,4 +165,4 @@ const ProductReviewForm = () => {
   )
 }
 
-export default ProductReviewForm
+export default OrderReviewForm
