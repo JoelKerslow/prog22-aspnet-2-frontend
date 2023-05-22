@@ -1,6 +1,7 @@
 import Cookies from "js-cookie"
 
 const productReviewsUrl = "https://aspnet2-grupp1-backend.azurewebsites.net/api/ProductReviews"
+const orderReviewsUrl = "https://aspnet2-grupp1-backend.azurewebsites.net/Review"
 const apiKey = "f77ca749-67f4-4c22-9039-137272442ea0"
 
 const formatCommentOrNull = (comment) => comment ? comment.replace(/\s+/g, " ").trim() : null
@@ -18,13 +19,14 @@ const ProductReviewsAsync = async (productId) => {
 	return data;
 };
 
-const createProductReviewAsync = async (reviewData) => {
+const createReviewAsync = async (reviewData) => {
+	const url = reviewData.productId ? productReviewsUrl : orderReviewsUrl
 	const requestData = {
 		...reviewData,
 		comment: formatCommentOrNull(reviewData.comment),
 	}
 
-	const result = await fetch(productReviewsUrl, {
+	const result = await fetch(url, {
 		method: "POST",
 		headers: {
 			"API-KEY": apiKey,
@@ -48,4 +50,4 @@ const createProductReviewAsync = async (reviewData) => {
 	return result
 }
 
-export { ProductReviewsAsync, createProductReviewAsync };
+export { ProductReviewsAsync, createReviewAsync };
