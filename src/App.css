@@ -1556,28 +1556,42 @@ header.sidebar-open .sidebar-container {
   background-size: 24px 11px;
   animation: move 3s linear infinite;
 }
-.circle-with-icon .fa-regular {
+.circle-with-icon .icon {
   position: relative;
   z-index: 1;
   font-size: 50px;
+}
+
+.circle-with-icon.sm {
+  width: 108px;
+  height: 108px;
+}
+
+.circle-with-icon.md {
+  width: 153px;
+  height: 153px;
 }
 
 .circle-with-icon.lg {
   width: 200px;
   height: 200px;
 }
+.circle-with-icon.lg .icon {
+  font-size: 80px;
+  font-weight: 900;
+}
 
 .circle-with-icon.green::before {
   border-color: #00824B;
 }
-.circle-with-icon.green .fa-regular {
+.circle-with-icon.green .icon {
   color: #00824B;
 }
 
 .circle-with-icon.red::before {
   border-color: #f4303c;
 }
-.circle-with-icon.red .fa-regular {
+.circle-with-icon.red .icon {
   color: #f4303c;
 }
 
