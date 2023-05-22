@@ -1,4 +1,3 @@
-
 import routingConfig from "./routing.json"
 import React from "react"
 import "./App.css"
@@ -24,18 +23,18 @@ function App() {
   )
 
   return (
-    <UserContextProvider>
-      <AuthorizationContextProvider>
-        <ProductContextProvider>
-          <BrowserRouter>
+    <BrowserRouter>
+      <UserContextProvider>
+        <AuthorizationContextProvider>
+          <ProductContextProvider>
             <Routes>
               {routeElements}
               <Route path='*' element={fallbackElement} />
             </Routes>
-          </BrowserRouter>
-        </ProductContextProvider>
-      </AuthorizationContextProvider>
-    </UserContextProvider>
+          </ProductContextProvider>
+        </AuthorizationContextProvider>
+      </UserContextProvider>
+    </BrowserRouter>
   )
 }
 
