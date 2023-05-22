@@ -1123,7 +1123,7 @@ header.sidebar-open .sidebar-container {
 }
 
 .offerContainer {
-  width: 375px;
+  width: 100vw;
   height: 150px;
   background-color: #dbe3f5;
   display: flex;
@@ -1186,10 +1186,13 @@ header.sidebar-open .sidebar-container {
     font-size: 3em;
   }
 }
+.offerContainer .productsLink {
+  text-decoration: none;
+}
 
 .previewContainer {
   font-family: "Open Sans", sans-serif;
-  width: 100vw;
+  width: 100dvw;
   overflow: hidden;
 }
 @media (min-width: 1400px) {
@@ -1206,11 +1209,11 @@ header.sidebar-open .sidebar-container {
 .previewContainer .textRow .tagText {
   font-weight: 700;
 }
-.previewContainer .textRow .fullListLink .link {
+.previewContainer .textRow .fullListLink .angleIcon {
   color: #111111;
   text-decoration: none;
 }
-.previewContainer .textRow .fullListLink .link .fa-angle-right {
+.previewContainer .textRow .fullListLink .angleIcon .fa-angle-right {
   color: #000000;
 }
 .previewContainer .textRow .fullListLink .link:hover {
@@ -1462,9 +1465,12 @@ header.sidebar-open .sidebar-container {
   line-height: 1.5;
   margin-bottom: 0.6em;
   font-family: "Open Sans", sans-serif;
-  width: 100dvw;
+  width: 95vw;
   height: auto;
   margin-top: 19px;
+  margin-right: 5px;
+  margin-left: 5px;
+  border-bottom: 1px solid #dbe3f5;
 }
 @media (min-width: 1400px) {
   .reviewCard {
@@ -1473,13 +1479,10 @@ header.sidebar-open .sidebar-container {
 }
 .reviewCard .cardHeader {
   margin-top: 5px;
-  margin-left: 5px;
-  margin-right: 5px;
   display: flex;
   flex-direction: row;
 }
 .reviewCard .cardHeader .profileImg {
-  margin-left: 20px;
   height: 50px;
   width: 50px;
   flex-direction: row;
@@ -1492,11 +1495,11 @@ header.sidebar-open .sidebar-container {
 }
 .reviewCard .cardHeader .nameAndDate {
   margin-left: 14px;
-  margin-right: auto;
+  margin-right: 15px;
   flex-direction: column;
 }
 .reviewCard .cardHeader .nameAndDate .profileName {
-  font-weight: 600;
+  font-weight: 500;
 }
 .reviewCard .cardHeader .nameAndDate .reviewDate {
   font-size: 10px;
@@ -1504,15 +1507,20 @@ header.sidebar-open .sidebar-container {
 }
 .reviewCard .cardHeader .reviewStarRating {
   margin-right: 5px;
-}
-@media (min-width: 1400px) {
-  .reviewCard .cardHeader .reviewStarRating {
-    margin-right: 1200px;
-  }
+  justify-content: end;
 }
 .reviewCard .reviewText {
-  margin-left: 84px;
+  width: 200px;
+  margin-left: 65px;
+  margin-bottom: 20px;
   flex-direction: column;
+  font-size: 12px;
+  line-break: normal;
+}
+@media (min-width: 1400px) {
+  .reviewCard .reviewText {
+    width: auto;
+  }
 }
 
 .circle-with-icon {
@@ -1930,5 +1938,4 @@ header.sidebar-open .sidebar-container {
     border-radius: 5px;
     justify-content: center;
   }
-
 }/*# sourceMappingURL=App.css.map */
