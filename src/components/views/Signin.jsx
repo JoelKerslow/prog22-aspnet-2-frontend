@@ -6,22 +6,31 @@ import InputBox from "../partials/generalPartials/InputBox";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthorizationContext } from "../../contexts/AuthorizationContext";
 import { UserContext } from "../../contexts/UserContext";
-import { useContext, useRef, useState } from "react";
+import { useContext, useRef, useState, useEffect } from "react";
 
 const SignIn = () => {
   const [error, setError] = useState('');
-  const { loginUser, setUserLoggedin } = useContext(AuthorizationContext);
+  const { loginUser, authorize } = useContext(AuthorizationContext);
   const { getLoggedinUser } = useContext(UserContext);
   const emailRef = useRef();
   const passwordRef = useRef();
   const navigate = useNavigate();
   const [rememberMe, setRememberMe] = useState(false);
 
+  useEffect(() => {
+    const checkAuthentication = async () => {
+      if (await authorize()) {
+        navigate('/Profile');
+      }
+    };
+
+    checkAuthentication();
+  }, []);
+
   const handleLogin = async () => {
     var result = await loginUser(emailRef.current.value, passwordRef.current.value);
     console.log(rememberMe);
     if(result === true){
-      setUserLoggedin(true);
       var result = await getLoggedinUser();
       navigate("/Profile");
     }else{

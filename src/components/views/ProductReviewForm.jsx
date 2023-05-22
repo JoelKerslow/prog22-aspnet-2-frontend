@@ -9,7 +9,9 @@ import CircleWithIcon from "../partials/generalPartials/CircleWithIcon"
 import StarRatingInput from "../partials/StarRatingInput"
 
 const ProductReviewForm = () => {
-  const { userLoggedin } = useContext(AuthorizationContext)
+  const { useAuthorization } = useContext(AuthorizationContext)
+  useAuthorization()
+
   const { currentUser } = useContext(UserContext)
   const { productId } = useParams()
 
@@ -23,12 +25,6 @@ const ProductReviewForm = () => {
 
   const productReviewsUrl = "https://aspnet2-grupp1-backend.azurewebsites.net/api/ProductReviews"
   const apiKey = "f77ca749-67f4-4c22-9039-137272442ea0"
-
-  useEffect(() => {
-    if (!userLoggedin) {
-      navigate('/Signin')
-    }
-  }, [userLoggedin])
 
   const createProductReview = async () => {
     const comment = commentVal.current.value.replace(/\s+/g, " ").trim()
