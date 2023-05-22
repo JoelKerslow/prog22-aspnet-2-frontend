@@ -2,7 +2,7 @@ import { AuthorizationContext } from "../../contexts/AuthorizationContext"
 import { UserContext } from "../../contexts/UserContext"
 import { useContext, useState, useRef } from "react"
 import { useNavigate, useParams } from "react-router-dom"
-import { createProductReviewAsync } from "../../services/ReviewServices"
+import { createReviewAsync } from "../../services/ReviewServices"
 import VerticalBar from "../partials/generalPartials/VerticalBar"
 import BackArrow from "../partials/generalPartials/BackArrow"
 import CircleWithIcon from "../partials/generalPartials/CircleWithIcon"
@@ -45,7 +45,7 @@ const ProductReviewForm = () => {
       productId: productId,
     }
 
-    if (await createProductReviewAsync(reviewData)) {
+    if (await createReviewAsync(reviewData)) {
       setFormSubmitted(true)
     } else {
       setServerError(
