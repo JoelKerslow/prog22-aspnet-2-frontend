@@ -67,7 +67,7 @@ const OrderReviewForm = () => {
             <BackArrow clickEvent={handleGoBack} />
             <h3>Leave a review</h3>
           </div>
-          <CircleWithIcon iconClassName={"fa-comments"} />
+          <CircleWithIcon iconName={"fa-comments"} />
           <VerticalBar />
 
           <h3 className='text-center fw-bold'>
