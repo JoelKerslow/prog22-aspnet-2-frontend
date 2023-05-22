@@ -42,16 +42,31 @@
     animation: move 3s linear infinite;
   }
 
-  .fa-regular {
+  .icon {
     position: relative;
     z-index: 1;
     font-size: 50px;
   }
 }
 
+.circle-with-icon.sm {
+  width: 108px;
+  height: 108px;
+}
+
+.circle-with-icon.md {
+  width: 153px;
+  height: 153px;
+}
+
 .circle-with-icon.lg {
   width: 200px;
   height: 200px;
+
+  .icon {
+    font-size: 80px;
+    font-weight: 900;
+  }
 }
 
 .circle-with-icon.green {
@@ -59,7 +74,7 @@
     border-color: $color-green;
   }
 
-  .fa-regular {
+  .icon {
     color: $color-green;
   }
 }
@@ -69,7 +84,7 @@
     border-color: $color-red;
   }
 
-  .fa-regular {
+  .icon {
     color: $color-red;
   }
 }
