@@ -58,20 +58,19 @@ const OrderHistoryView = () => {
       {loading ? (
         <p>Loading orders...</p>
       ) : (
-        <ul>
+        <div className="order-list">
           {orders.map(order => (
-            <li key={order.id}>
-              {/* Display order details */}
-              <p>Order ID: {order.id}</p>
-              <p>Order Date: {order.orderDate}</p>
-              <p>Status: {order.status}</p>
-              <p>Total Amount: {order.totalAmount}</p>
-            </li>
+            <div key={order.id} className="order-banner">
+              {/* Order details */}
+              <div className="order-id">Order ID: {order.id}</div>
+              <div className="order-date">Order Date: {order.orderDate}</div>
+              <div className="order-status">Status: {order.status}</div>
+              <div className="order-amount">Total Amount: {order.totalAmount}</div>
+            </div>
           ))}
-        </ul>
+        </div>
       )}
     </div>
   );
 };
-
 export default OrderHistoryView;
