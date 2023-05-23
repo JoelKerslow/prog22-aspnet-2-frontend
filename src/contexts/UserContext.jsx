@@ -46,12 +46,35 @@ const UserContextProvider = ({children}) => {
         }
         return false;
       }
+      const updateImageUrl = async (imageUrl) => {
+        const res = await fetch(userBaseUrl + "CustomerProfile/Update", {
+          method: "PUT",
+          headers: {
+            "API-KEY": apiKey,
+            "Authorization": "Bearer " + Cookies.get("maneroToken"),
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            imageUrl,
+          }),
+        });
+    
+        const data = await res.json();
+    
+        if (res.ok) {
+          setCurrentUser(data);
+          return true;
+        }
+        return false;
+      };
+
 
     return(
         <UserContext.Provider value={{
             getLoggedinUser,
             currentUser,
             updateUserProfile,
+            updateImageUrl,
         }}>
             {children}
         </UserContext.Provider>
