@@ -23,6 +23,7 @@ const UserContextProvider = ({children}) => {
         }
         return false;
     }
+    
     const updateUserProfile = async (firstName, lastName) => {
         const res = await fetch(userBaseUrl + "CustomerProfile/Update", {
           method: 'PUT',
