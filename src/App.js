@@ -4,6 +4,22 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 import ProductContextProvider from "./contexts/ProductContext"
 import AuthorizationContextProvider from "./contexts/AuthorizationContext"
 import UserContextProvider from "./contexts/UserContext"
+import Welcome from './components/views/Welcome'
+import Onboarding from './components/views/Onboarding'
+import Home from './components/views/Home'
+import VerificationCode from './components/views/VerificationCode'
+import SearchProducts from './components/views/SearchProducts'
+import Signup from './components/views/Signup'
+import Signin from './components/views/Signin'
+import ProfilePage from './components/views/ProfilePage'
+import EditProfile from './components/views/EditProfile'
+import ProductReviewForm from './components/views/ProductReviewForm'
+import OrderReviewForm from './components/views/OrderReviewForm'
+import Products from './components/views/Products'
+import PaymentMethod from './components/views/PaymentMethod'
+import ProductReview from './components/views/ProductReview'
+
+
 
 function App() {
   // const { routes, fallback } = routingConfig
