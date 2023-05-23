@@ -5,10 +5,6 @@
       "element": "Welcome"
     },
     {
-      "path": "*",
-      "element": "Welcome"
-    },
-    {
       "path": "/Onboarding",
       "element": "Onboarding"
     },
@@ -41,15 +37,27 @@
       "element": "ProductReviewForm"
     },
     {
+      "path": "/OrderReview/:orderId",
+      "element": "OrderReviewForm"
+    },
+    {
       "path": "/Products/:type/:value",
       "element": "Products"
     },
     {
       "path":"/Profile/PaymentMethods",
       "element":"PaymentMethod"
+    },
+    {
+      "path": "/ProductSubmitedReviews/:productId",
+      "element": "ProductReview"
+    },
+    {
+      "path" : "/Home",
+      "element" : "Home"
     }
   ],
   "fallback": {
-    "element": "Welcome"
+    "element": "Home"
   }
 }

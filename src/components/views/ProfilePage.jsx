@@ -1,22 +1,21 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Header from "../partials/Header";
 import VerticalBar from "../partials/generalPartials/VerticalBar";
 import ProfilePicture from "../partials/generalPartials/ProfilePicture";
 import Navbar from "../partials/Navbar";
+import PopupCircle from "../partials/PopupCircle";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthorizationContext } from "../../contexts/AuthorizationContext";
 import { UserContext } from "../../contexts/UserContext";
 
 const ProfilePage = () => {
-  const { logoutUser, userLoggedin } = useContext(AuthorizationContext);
+  const { logoutUser, useAuthorization } = useContext(AuthorizationContext);
+  useAuthorization()
+
   const { currentUser } = useContext(UserContext);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if(userLoggedin !== true){
-      navigate("/Signin");
-    }
-  }, []);
+  const [togglePopup, setTogglePopup] = useState(false);
 
   const handleLogout = () => {
     logoutUser();
@@ -25,14 +24,19 @@ const ProfilePage = () => {
 
   return (
     <>
+      {togglePopup && (<div className="popup-overlay" onClick={() => setTogglePopup(false)} />)}
+      {togglePopup && <PopupCircle onClose={() => setTogglePopup(false)} handleLogout={() => handleLogout()} />}
+     <div>
       <Header />
       <div className="container">
-        <div className="container mt-2">
+        <div className="container mt-3">
           <VerticalBar />
-          <ProfilePicture />
+          <div className="mt-3">
+            <ProfilePicture className={'fa-pen-line'} event={() => navigate("/EditProfile")} />
+          </div>
           <div className="profile-info text-center">
-            <h2>{currentUser.firstName}</h2>
-            <p>email på användare</p>
+            <h2>{currentUser.firstName} {currentUser.lastName}</h2>
+            <p>{currentUser.email}</p>
           </div>
         </div>
 
@@ -86,7 +90,7 @@ const ProfilePage = () => {
             </div>
           </Link>
 
-          <li onClick={handleLogout} className="list-group-item pt-3 pb-1 ">
+          <li onClick={() => setTogglePopup(true)} className="list-group-item pt-3 pb-1 ">
             <div className="options-icon">
               <i class="fa-light fa-arrow-right-from-bracket text-decoration-none"></i>
             </div>
@@ -103,8 +107,8 @@ const ProfilePage = () => {
           <Navbar />
         </div>
       </div>
+    </div>
     </>
-    
   );
 };
 

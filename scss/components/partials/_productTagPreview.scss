@@ -1,6 +1,6 @@
 .previewContainer{
     font-family: $font-opensans;
-    width: 100vw;
+    width: 100dvw;
     overflow: hidden;
 
     @include xxl{
@@ -18,7 +18,7 @@
         }
         .fullListLink{
 
-            .link{
+            .angleIcon{
                 color: $color-dark-1;
                 text-decoration: none;
                 

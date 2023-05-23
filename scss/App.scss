@@ -21,8 +21,11 @@
 @import './components/partials/offerBanner';
 @import './components/partials/productTagPreview';
 @import './components/partials/productFilter';
+@import './components/partials/reviewHead';
+@import './components/partials/productReview';
 @import './components/partials/generalPartials/circleWithIcon';
 @import './components/partials/starRatingInput';
+@import './components/partials/popupCircle';
 
 //Views
 @import './components/views/onboarding';
@@ -32,3 +35,5 @@
 @import './components/Views/products';
 @import './components/views/paymentMethod';
 @import './components/views/reviewForm';
+@import './components/views/productReviews';
+
