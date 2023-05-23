@@ -18,13 +18,17 @@ const PaymentMethod = () => {
                         <FontAwesomeIcon icon={faPlus} />
                     </div>
                 </div>
-                <div className="card my-3">
-                    <div className="card-body">
-                        <FontAwesomeIcon icon={faCreditCard} className="me-2" />
-                        **** **** **** ****
-                        <br/>
-                        John Doe
-                    </div>
+                <div className='credit-card-side-scroll d-flex'>
+                    {[...Array(3)].map((_, i) => (
+                        <div className="card my-3" key={i}>
+                            <div className="card-body">
+                                <FontAwesomeIcon icon={faCreditCard} className="me-2" />
+                                **** **** **** ****
+                                <br/>
+                                John Doe
+                            </div>
+                        </div>
+                    ))}
                 </div>
                 <div className="payment-wrapper row align-items-center justify-content-between">
                     <div className="col-8">Apple Pay</div>
