@@ -27,6 +27,12 @@
   padding: 8px 30px;
 }
 
+.input-field.error {
+  border-color: red;
+  margin-bottom: 0;
+  margin-top: 20px;
+}
+
 .input-field-group > label {
   position: absolute;
   //bottom: 6vh;
