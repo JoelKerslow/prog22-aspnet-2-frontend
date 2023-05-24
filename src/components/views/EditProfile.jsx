@@ -24,22 +24,6 @@ const EditProfile = () => {
     updateUserProfile({ firstName, lastName });
   };
 
-  const { updateUserProfile } = useContext(UserContext);
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  
-  const handleNameChange = (event) => {
-    const name = event.target.value;
-    const [first, last] = name.split(" ");
-    setFirstName(first);
-    setLastName(last);
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    updateUserProfile({ firstName, lastName });
-  };
-
   return (
     <>
       <div className="container">
