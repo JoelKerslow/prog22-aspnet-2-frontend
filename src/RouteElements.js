@@ -13,6 +13,9 @@ import OrderReviewForm from './components/views/OrderReviewForm'
 import Products from './components/views/Products'
 import PaymentMethod from './components/views/PaymentMethod'
 import ProductReview from './components/views/ProductReview'
+import ForgotPassword from './components/views/ForgotPassword'
+import PasswordResetConfirmation from "./components/views/PasswordResetConfirmation"
+import ResetPassword from "./components/views/ResetPassword"
 
 const RouteElements = () => {
   return (
@@ -25,6 +28,9 @@ const RouteElements = () => {
       <Route path='/SearchProducts' element={<SearchProducts />} />
       <Route path='/Signup' element={<Signup />} />
       <Route path='/Signin' element={<Signin />} />
+      <Route path='/ForgotPassword' element={<ForgotPassword />} />
+      <Route path='/PasswordResetConfirmation' element={<PasswordResetConfirmation />} />
+      <Route path='/ResetPassword' element={<ResetPassword />} />
       <Route path='/Profile' element={<ProfilePage />} />
       <Route path='/EditProfile' element={<EditProfile />} />
       <Route path='/ProductReview/:productId' element={<ProductReviewForm />} />
