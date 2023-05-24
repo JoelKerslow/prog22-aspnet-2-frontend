@@ -59,6 +59,10 @@
     {
       "path" : "/Home",
       "element" : "Home"
+    },
+    {
+      "path": "/OrderHistory",
+      "element": "OrderHistory"
     }
   ],
   "fallback": {
