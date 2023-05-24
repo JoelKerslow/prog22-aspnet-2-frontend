@@ -5,15 +5,17 @@ import ProductCard from '../partials/ProductCard'
 import Header from '../partials/Header'
 import SearchField from '../partials/SearchField'
 import ProductFilter from '../partials/ProductFilter'
+import ProductSort from '../partials/ProductSort'
 
 const Products = () => {
   const { type, value } = useParams()
   const {
     searchProducts,
     products,
+    setProducts,
     loading,
     getProductsByCategoryAndDepartment,
-    getProductsByTag
+    getProductsByTag,
   } = useContext(ProductContext)
   const [filteredList, setFilteredList] = useState([])
 
@@ -24,9 +26,15 @@ const Products = () => {
   const [activeTags, setActiveTags] = useState([])
   const [showFilter, setShowFilter] = useState(false)
   const [isFiltered, setIsFiltered] = useState(false)
+  const [showSorting, setShowSorting] = useState(false)
+  const [activeSorting, setActiveSorting] = useState('');
 
   const toggleFilter = () => {
     setShowFilter(!showFilter)
+  }
+
+  const toggleSorting = () => {
+    setShowSorting(!showSorting)
   }
 
   useEffect(() => {
@@ -40,7 +48,7 @@ const Products = () => {
       const categoryId = valArr[1]
       getProductsByCategoryAndDepartment(departmentId, categoryId)
     }
-    if (type.toLowerCase() === 'tag'){
+    if (type.toLowerCase() === 'tag') {
       getProductsByTag(value)
     }
   }, [type, value])
@@ -49,6 +57,7 @@ const Products = () => {
     const filtered = products.filter(filterProducts)
     setFilteredList(filtered)
     setIsFiltered(true)
+    setShowFilter(false)
   }
 
   const filterProducts = (product) => {
@@ -58,7 +67,7 @@ const Products = () => {
     if (activeColor && product.color !== activeColor) {
       return false
     }
-    if (activeMark && (product.tag !== activeMark)) {
+    if (activeMark && product.tag !== activeMark) {
       return false
     }
     if (activeTags.length > 0) {
@@ -78,20 +87,48 @@ const Products = () => {
     return true
   }
 
-  const productList = !isFiltered ? products.map((product) => (
-    <ProductCard key={product.id} product={product} />
-  )) : filteredList.map((product) => (
-    <ProductCard key={product.id} product={product} />
-  ))
+  const productList = !isFiltered
+    ? products.map((product) => (
+        <ProductCard key={product.id} product={product} />
+      ))
+    : filteredList.map((product) => (
+        <ProductCard key={product.id} product={product} />
+      ))
 
   return (
     <>
       <Header headerContent={<SearchField />} />
       {!showFilter && (
-        <div className="under-header" onClick={toggleFilter}>
-          <i className="fa-light fa-sliders-up" />
-          <p>Filters</p>
-        </div>
+        <>
+          <div className="under-header">
+            <div onClick={toggleFilter}>
+              <i className="fa-light fa-sliders-up" />
+              <p>Filters</p>
+            </div>
+            <div onClick={toggleSorting}>
+              <p>Sorting by</p>
+              <i
+                className={
+                  !showSorting
+                    ? 'fa-light fa-chevron-down'
+                    : 'fa-light fa-chevron-up'
+                }
+              ></i>
+            </div>
+          </div>
+          {showSorting && (
+            <ProductSort
+              filteredList={filteredList}
+              products={products}
+              isFiltered={isFiltered}
+              setFilteredList={setFilteredList}
+              setProducts={setProducts}
+              setShowSorting={setShowSorting}
+              activeSorting={activeSorting}
+              setActiveSorting={setActiveSorting}
+            />
+          )}
+        </>
       )}
       {showFilter && (
         <ProductFilter
