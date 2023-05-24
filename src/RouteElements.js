@@ -16,6 +16,7 @@ import ProductReview from './components/views/ProductReview'
 import ForgotPassword from './components/views/ForgotPassword'
 import PasswordResetConfirmation from "./components/views/PasswordResetConfirmation"
 import ResetPassword from "./components/views/ResetPassword"
+import OrderHistory from "./components/views/OrderHistory"
 
 const RouteElements = () => {
   return (
@@ -41,6 +42,7 @@ const RouteElements = () => {
         path='/ProductSubmitedReviews/:productId'
         element={<ProductReview />}
       />
+      <Route path='/OrderHistory' element={<OrderHistory />} />
     </Routes>
   )
 }
