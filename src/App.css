@@ -1732,12 +1732,10 @@ header.sidebar-open .sidebar-container {
 .get-started-btn {
   color: #FFFFFF;
   width: 50%;
-  /* Set button width to 50% of the circle width */
   height: 7vh;
   border-radius: 25px;
   background-color: #111111;
   margin-bottom: 2rem;
-  /* Add margin for spacing */
   transition: transform 0.5s ease;
 }
 
@@ -1963,6 +1961,45 @@ header.sidebar-open .sidebar-container {
   font-size: 14px;
 }
 
+.ForgotPasswordText-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+}
+
+.ResetPassword-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.ForgotPasswordText {
+  position: relative;
+  margin: auto;
+  width: 90%;
+  margin-bottom: 50px;
+}
+
+.stacked {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stacked .maneroLogoRectangle {
+  background-color: #111111;
+}
+
+@media (min-width: 768px) {
+  .ForgotPasswordText {
+    width: 70%;
+  }
+}
 @media (min-width: 1400px) {
   .productReviewContainer {
     margin-top: 50px;
@@ -1974,4 +2011,4 @@ header.sidebar-open .sidebar-container {
     border-radius: 5px;
     justify-content: center;
   }
-}/*# sourceMappingURL=App.css.map */
+}

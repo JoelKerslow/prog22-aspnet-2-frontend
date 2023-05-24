@@ -30,7 +30,7 @@ const PasswordResetConfirmation = () => {
               </div>
             </div>
             <div className="ResetPassword-container">
-              <CircleWithIcon iconClassName={"fa-regular fa-key"} />
+              <CircleWithIcon iconName={"fa-key"} />
               <VerticalBar/>
 
               <h3>Your password has been reset!</h3>
