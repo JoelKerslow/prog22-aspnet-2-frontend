@@ -1682,6 +1682,44 @@ header.sidebar-open .sidebar-container {
   }
 }
 
+.addressCard {
+  font-family: "Open Sans", sans-serif;
+  padding: 20px 0;
+  border-bottom: 1px solid #dbe3f5;
+}
+.addressCard .cardContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 315px;
+  margin: 0 auto;
+}
+.addressCard .addressInfo .addressTitle {
+  font-weight: 500;
+}
+.addressCard .addressInfo .addressDetails {
+  color: #888888;
+  font-size: 14px;
+}
+
+.addAddress {
+  font-family: "Open Sans", sans-serif;
+}
+.addAddress .linkBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #111111;
+  text-decoration: none;
+  margin-top: 45px;
+}
+.addAddress .linkBox .textLine {
+  font-size: 14px;
+  color: #626262;
+}
+
 .Onboarding-Container {
   display: flex;
   flex-direction: column;

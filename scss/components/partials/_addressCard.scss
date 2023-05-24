@@ -1,0 +1,24 @@
+.addressCard{
+    font-family: $font-opensans;
+    padding: 20px 0;
+    border-bottom: 1px solid $color-theme;
+    .cardContent{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width:315px;
+        margin: 0 auto;        
+    }
+
+    .addressInfo{
+        .addressTitle{
+            font-weight: $font-weight-medium;
+        }
+
+        .addressDetails{
+            color: $color-dark-3;
+            font-size: 14px;
+        }
+    }
+}
