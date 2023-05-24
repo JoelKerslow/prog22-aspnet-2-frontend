@@ -1,8 +1,8 @@
-const CircleWithIcon = ({ iconClassName }) => {
+const CircleWithIcon = ({ size, theme, iconStyle, iconName }) => {
   return (
     <div className='d-flex justify-content-center mb-3'>
-      <div className='circle-with-icon'>
-        <i className={'fa-regular ' + iconClassName}></i>
+      <div className={`circle-with-icon ${size} ${theme}`}>
+        <i className={`${iconStyle ? iconStyle : "fa-regular" } ${iconName} icon`}></i>
       </div>
     </div>
   )

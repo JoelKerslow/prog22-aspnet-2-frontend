@@ -1,5 +1,4 @@
 import { AuthorizationContext } from "../../contexts/AuthorizationContext"
-import { UserContext } from "../../contexts/UserContext"
 import { useContext, useState, useRef } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import { createReviewAsync } from "../../services/ReviewServices"
@@ -8,12 +7,11 @@ import BackArrow from "../partials/generalPartials/BackArrow"
 import CircleWithIcon from "../partials/generalPartials/CircleWithIcon"
 import StarRatingInput from "../partials/StarRatingInput"
 
-const ProductReviewForm = () => {
+const OrderReviewForm = () => {
   const { useAuthorization } = useContext(AuthorizationContext)
   useAuthorization()
 
-  const { currentUser } = useContext(UserContext)
-  const { productId } = useParams()
+  const { orderId } = useParams()
 
   const [rating, setRating] = useState(0)
   const [formSubmitted, setFormSubmitted] = useState(false)
@@ -39,10 +37,9 @@ const ProductReviewForm = () => {
     }
 
     const reviewData = {
-      rating: rating,
       comment: commentVal.current.value,
-      customerId: currentUser.id,
-      productId: productId,
+      rating: rating,
+      orderId: orderId,
     }
 
     if (await createReviewAsync(reviewData)) {
@@ -74,7 +71,7 @@ const ProductReviewForm = () => {
           <VerticalBar />
 
           <h3 className='text-center fw-bold'>
-            Please let us know how satisfied you were with your product!
+            Please rate the quality of service for the order!
           </h3>
 
           <form onSubmit={handleSubmit} method='post' className='form-review'>
@@ -136,4 +133,4 @@ const ProductReviewForm = () => {
   )
 }
 
-export default ProductReviewForm
+export default OrderReviewForm

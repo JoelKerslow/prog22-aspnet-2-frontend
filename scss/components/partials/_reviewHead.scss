@@ -1,0 +1,32 @@
+.reviewHeader{
+    font-family: $font-opensans;
+    font-weight: $font-weight-semibold;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center; 
+    
+    .backButton{
+        width: 25px;
+        height: 25px;
+        margin-top: 5px;
+        margin-left: 5px;
+        border: none;
+        background-color: transparent;
+        border-radius: 50%;
+    }
+    .backButton:hover{
+        background-color: $color-theme-2;
+    }
+    
+    .headerText{
+        margin-right:auto;
+        margin-left:auto;
+        
+        @include xxl{
+            @include font-title-2
+        }
+    }
+
+    
+}
