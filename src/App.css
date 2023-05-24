@@ -1926,6 +1926,28 @@ header.sidebar-open .sidebar-container {
   border-bottom: 1px solid #dbe3f5;
 }
 
+.credit-card-side-scroll {
+  display: flex;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: #888 transparent;
+}
+.credit-card-side-scroll::-webkit-scrollbar {
+  height: 8px;
+}
+.credit-card-side-scroll::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 4px;
+}
+.credit-card-side-scroll .card {
+  flex: 0 0 auto;
+  margin-right: 16px;
+}
+.credit-card-side-scroll .card:last-child {
+  margin-right: 0;
+}
+
 .form-review p {
   color: #626262;
 }
