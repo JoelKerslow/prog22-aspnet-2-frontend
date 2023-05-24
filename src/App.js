@@ -18,6 +18,7 @@ import OrderReviewForm from './components/views/OrderReviewForm'
 import Products from './components/views/Products'
 import PaymentMethod from './components/views/PaymentMethod'
 import ProductReview from './components/views/ProductReview'
+import UserAddresses from "./components/views/UserAddresses"
 
 
 
@@ -59,7 +60,7 @@ function App() {
         <AuthorizationContextProvider>
           <ProductContextProvider>
             <Routes>
-              <Route path="/" element={<Welcome />} />
+              <Route path="/" element={<UserAddresses />} />
               <Route path="/Onboarding" element={<Onboarding />} />
               <Route path="/Verification" element={<VerificationCode />} />
               <Route path="/SearchProducts" element={<SearchProducts />} />

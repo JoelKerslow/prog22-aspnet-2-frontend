@@ -3,7 +3,7 @@ import { useContext, useState } from "react";
 import BackArrow from "../partials/generalPartials/BackArrow";
 import VerticalBar from "../partials/generalPartials/VerticalBar";
 import ProfilePicture from "../partials/generalPartials/ProfilePicture";
-import { UserContext } from "../contexts/UserContext";
+import { UserContext } from "../../contexts/UserContext";
 
 const Registration = () => {
 

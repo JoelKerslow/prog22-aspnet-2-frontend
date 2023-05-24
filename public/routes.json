@@ -55,6 +55,10 @@
     {
       "path" : "/Home",
       "element" : "Home"
+    },
+    {
+      "path" : "/UserAddress",
+      "element" : "UserAddresses"
     }
   ],
   "fallback": {
