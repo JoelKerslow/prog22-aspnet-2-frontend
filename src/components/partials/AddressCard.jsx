@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
 const AddressCard = () => {
 
@@ -17,7 +18,9 @@ const mockAddress = {
           <div className="addressTitle">{mockAddress.Title != null ? mockAddress.Title : "Standard"}</div>
           <div className="addressDetails">{mockAddress.Street}, {mockAddress.PostalCode} {mockAddress.City}</div>
         </div>
-        <div className="editAddressLink"><i className="fa-light fa-pen-line"></i></div>
+        <NavLink path="/" className='editAddressLink' > {/* needs to be completed with actual link */}
+          <div className='editAddressIcon'><i className="fa-light fa-pen-line fa-xs"></i></div>
+        </NavLink>
       </div>
     </div>
   )

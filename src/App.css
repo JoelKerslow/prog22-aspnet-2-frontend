@@ -1702,6 +1702,9 @@ header.sidebar-open .sidebar-container {
   color: #888888;
   font-size: 14px;
 }
+.addressCard .editAddressIcon {
+  color: #111111;
+}
 
 .addAddress {
   font-family: "Open Sans", sans-serif;
