@@ -26,7 +26,8 @@ const Products = () => {
   const [activeTags, setActiveTags] = useState([])
   const [showFilter, setShowFilter] = useState(false)
   const [isFiltered, setIsFiltered] = useState(false)
-  const [showSorting, setShowSorting] = useState(true)
+  const [showSorting, setShowSorting] = useState(false)
+  const [activeSorting, setActiveSorting] = useState('');
 
   const toggleFilter = () => {
     setShowFilter(!showFilter)
@@ -123,6 +124,8 @@ const Products = () => {
               setFilteredList={setFilteredList}
               setProducts={setProducts}
               setShowSorting={setShowSorting}
+              activeSorting={activeSorting}
+              setActiveSorting={setActiveSorting}
             />
           )}
         </>

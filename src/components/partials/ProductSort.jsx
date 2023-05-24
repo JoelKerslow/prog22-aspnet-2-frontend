@@ -7,6 +7,8 @@ const ProductSort = ({
   products,
   setProducts,
   setShowSorting,
+  activeSorting,
+  setActiveSorting
 }) => {
   const sortings = [
     'Newest',
@@ -88,13 +90,15 @@ const ProductSort = ({
       })
       setFilteredList(sortedProducts)
     }
-    console.log(sortedProducts)
+    setActiveSorting(sorting)
   }
 
   const sortingList = sortings.map((s) => {
+    const isActive = activeSorting === s;
     return (
       <li
-        value={s}
+        className={isActive ? "active-sorting" : ''}
+        key={s}
         onClick={() => {
           handleSorting(s)
           setShowSorting(false)
