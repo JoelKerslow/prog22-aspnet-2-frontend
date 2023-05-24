@@ -25,11 +25,14 @@ const Products = () => {
   const [activeTags, setActiveTags] = useState([])
   const [showFilter, setShowFilter] = useState(false)
   const [isFiltered, setIsFiltered] = useState(false)
-
-  const [sorting, setSorting] = useState('Rating')
+  const [showSorting, setShowSorting] = useState(false)
 
   const toggleFilter = () => {
     setShowFilter(!showFilter)
+  }
+
+  const toggleSorting = () => {
+    setShowSorting(!showSorting)
   }
 
   useEffect(() => {
@@ -82,77 +85,6 @@ const Products = () => {
     return true
   }
 
-  //       'Newest',
-  //       'Oldest',
-  //       'A-Z',
-  //       'Highest Price',
-  //       'Lowest Price',
-  //       'Rating'
-
-  const handleSorting = () => {
-    let sortedProducts = []
-    if (!isFiltered) {
-      sortedProducts = [...products].sort((a, b) => {
-        if (sorting === 'Newest') {
-          const date1 = new Date(a.createdAt)
-          const date2 = new Date(b.createdAt)
-          return date1 - date2
-        } else if (sorting === 'Oldest') {
-          const date1 = new Date(a.createdAt)
-          const date2 = new Date(b.createdAt)
-          return date2 - date1
-        } else if (sorting === 'A-Z') {
-          const name1 = a.name.toLowerCase()
-          const name2 = b.name.toLowerCase()
-          if (name1 < name2) {
-            return -1
-          }
-          if (name1 > name2) {
-            return 1
-          }
-          return 0
-        } else if (sorting === 'Highest Price') {
-          return b.price - a.price
-        } else if (sorting === 'Lowest Price') {
-          return a.price - b.price
-        } else if (sorting === 'Rating') {
-          return b.reviewAverage - a.reviewAverage
-        }
-      })
-      setProducts(sortedProducts)
-    } else {
-      sortedProducts = [...filteredList].sort((a, b) => {
-        if (sorting === 'Newest') {
-          const date1 = new Date(a.createdAt)
-          const date2 = new Date(b.createdAt)
-          return date1 - date2
-        } else if (sorting === 'Oldest') {
-          const date1 = new Date(a.createdAt)
-          const date2 = new Date(b.createdAt)
-          return date2 - date1
-        } else if (sorting === 'A-Z') {
-          const name1 = a.name.toLowerCase()
-          const name2 = b.name.toLowerCase()
-          if (name1 < name2) {
-            return -1
-          }
-          if (name1 > name2) {
-            return 1
-          }
-          return 0
-        } else if (sorting === 'Highest Price') {
-          return b.price - a.price
-        } else if (sorting === 'Lowest Price') {
-          return a.price - b.price
-        } else if (sorting === 'Rating') {
-          return b.reviewAverage - a.reviewAverage
-        }
-      })
-      setFilteredList(sortedProducts)
-    }
-    console.log(sortedProducts)
-  }
-
   const productList = !isFiltered
     ? products.map((product) => (
         <ProductCard key={product.id} product={product} />
@@ -165,9 +97,13 @@ const Products = () => {
     <>
       <Header headerContent={<SearchField />} />
       {!showFilter && (
-        <div className="under-header" onClick={toggleFilter}>
-          <i className="fa-light fa-sliders-up" />
-          <p>Filters</p>
+        <div className="under-header">
+          <div onClick={toggleFilter}>
+            <i className="fa-light fa-sliders-up" />
+            <p>Filters</p>
+          </div>
+          <div onClick={toggleSorting}><p>Sorting by</p><i className={!showSorting ?'fa-light fa-chevron-down' : 'fa-light fa-chevron-up'}></i></div>
+          
         </div>
       )}
       {showFilter && (
@@ -196,14 +132,6 @@ const Products = () => {
           )}
         </>
       )}
-      <button
-        className="BigBlackButton"
-        onClick={() => {
-          handleSorting()
-        }}
-      >
-        Sort
-      </button>
     </>
   )
 }

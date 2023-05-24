@@ -1,23 +1,33 @@
-.under-header{
+.under-header {
     margin-top: 10px;
     margin-left: 10px;
-    padding-right: 5px;
     display: flex;
-    gap: 10px;
+    justify-content: space-between;
     font-family: $font-opensans;
     font-weight: $font-weight-semibold;
-    opacity: 70%;
-    width: fit-content;
+    opacity: 70%;;
 
-    &:hover{
-        cursor: pointer;
+    div {
+        display: flex;
+        gap: 10px;
+        width: fit-content;
+        padding-right: 5px;
+        margin-right: 15px;
+
+        i {
+            margin-top: 5px;
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
     }
 
-    i{
-        margin-top: 5px;
-    }
+
+
+
 }
 
-.product-result-list{
+.product-result-list {
     margin-top: 0px;
 }
