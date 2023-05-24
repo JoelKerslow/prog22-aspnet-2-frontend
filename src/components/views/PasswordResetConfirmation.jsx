@@ -39,18 +39,17 @@ const PasswordResetConfirmation = () => {
                 Click "DONE" to go to next page and enter a new password.
               </div>
             </div>
-            {/* Fixa till så att maneroLogoRectangle blir ifylld, genom parentclass */}
 
-            <div>
-              <button
-                className="BigBlackButton"
-                onClick={() => {
-                  handleClick();
-                }}
-              >
-                DONE
-              </button>
-            </div>
+            <div className="input-field-group">
+                <button
+                  className="BigBlackButton"
+                  onClick={() => {
+                    handleClick();
+                  }}
+                >
+                  SEND
+                </button>
+              </div>
           </div>
         </div>
       </div>
