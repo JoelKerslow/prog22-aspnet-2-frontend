@@ -66,7 +66,7 @@ const SignIn = () => {
                   <input type="checkbox" className="RememberMeCB" onChange={handleRememberMeChange}></input>
                   <label className="RememberMelbl">Remember me</label>
                 </div>
-                <Link to="/PasswordReset">Forgot password?</Link>
+                <Link to="/ForgotPassword">Forgot password?</Link>
               </div>
               <button
                 className="BigBlackButton"
