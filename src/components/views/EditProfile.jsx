@@ -1,11 +1,28 @@
 //imports
-import { useContext, useState } from "react";
+import { useContext, useState, useRef } from "react";
 import BackArrow from "../partials/generalPartials/BackArrow";
 import VerticalBar from "../partials/generalPartials/VerticalBar";
 import ProfilePicture from "../partials/generalPartials/ProfilePicture";
-import { UserContext } from "../contexts/UserContext";
+import { UserContext } from "../../contexts/UserContext";
 
-const Registration = () => {
+const EditProfile = () => {
+
+  const fullNameRef = useRef();
+  const { updateUserProfile } = useContext(UserContext);
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  
+  const handleNameChange = (event) => {
+    const name = fullNameRef.current.value;
+    const [first, last] = name.split(" ");
+    setFirstName(first);
+    setLastName(last);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    updateUserProfile({ firstName, lastName });
+  };
 
   const { updateUserProfile } = useContext(UserContext);
   const [firstName, setFirstName] = useState("");
@@ -43,7 +60,7 @@ const Registration = () => {
                   type="text"
                   className="input-field"
                   placeholder="John Doe"
-                  value={`${firstName} ${lastName}`}
+                  ref={fullNameRef}
                   onChange={handleNameChange}
                 />
               </div>
@@ -82,4 +99,4 @@ const Registration = () => {
     </>
   );
 };
-export default Registration;
+export default EditProfile;
