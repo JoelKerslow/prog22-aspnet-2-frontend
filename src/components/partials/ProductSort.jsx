@@ -1,6 +1,13 @@
 import React from 'react'
 
-const ProductSort = ( isFiltered, filteredList, setFilteredList, products, setProducts, ) => {
+const ProductSort = ({
+  isFiltered,
+  filteredList,
+  setFilteredList,
+  products,
+  setProducts,
+  setShowSorting,
+}) => {
   const sortings = [
     'Newest',
     'Oldest',
@@ -17,12 +24,14 @@ const ProductSort = ( isFiltered, filteredList, setFilteredList, products, setPr
         if (sorting === 'Newest') {
           const date1 = new Date(a.createdAt)
           const date2 = new Date(b.createdAt)
-          return date1 - date2
-        } else if (sorting === 'Oldest') {
+          return date2 - date1
+        }
+        if (sorting === 'Oldest') {
           const date1 = new Date(a.createdAt)
           const date2 = new Date(b.createdAt)
-          return date2 - date1
-        } else if (sorting === 'A-Z') {
+          return date1 - date2
+        }
+        if (sorting === 'A-Z') {
           const name1 = a.name.toLowerCase()
           const name2 = b.name.toLowerCase()
           if (name1 < name2) {
@@ -32,11 +41,14 @@ const ProductSort = ( isFiltered, filteredList, setFilteredList, products, setPr
             return 1
           }
           return 0
-        } else if (sorting === 'Highest Price') {
+        }
+        if (sorting === 'Highest Price') {
           return b.price - a.price
-        } else if (sorting === 'Lowest Price') {
+        }
+        if (sorting === 'Lowest Price') {
           return a.price - b.price
-        } else if (sorting === 'Rating') {
+        }
+        if (sorting === 'Rating') {
           return b.reviewAverage - a.reviewAverage
         }
       })
@@ -46,12 +58,14 @@ const ProductSort = ( isFiltered, filteredList, setFilteredList, products, setPr
         if (sorting === 'Newest') {
           const date1 = new Date(a.createdAt)
           const date2 = new Date(b.createdAt)
-          return date1 - date2
-        } else if (sorting === 'Oldest') {
+          return date2 - date1
+        }
+        if (sorting === 'Oldest') {
           const date1 = new Date(a.createdAt)
           const date2 = new Date(b.createdAt)
-          return date2 - date1
-        } else if (sorting === 'A-Z') {
+          return date1 - date2
+        }
+        if (sorting === 'A-Z') {
           const name1 = a.name.toLowerCase()
           const name2 = b.name.toLowerCase()
           if (name1 < name2) {
@@ -61,11 +75,14 @@ const ProductSort = ( isFiltered, filteredList, setFilteredList, products, setPr
             return 1
           }
           return 0
-        } else if (sorting === 'Highest Price') {
+        }
+        if (sorting === 'Highest Price') {
           return b.price - a.price
-        } else if (sorting === 'Lowest Price') {
+        }
+        if (sorting === 'Lowest Price') {
           return a.price - b.price
-        } else if (sorting === 'Rating') {
+        }
+        if (sorting === 'Rating') {
           return b.reviewAverage - a.reviewAverage
         }
       })
@@ -74,7 +91,25 @@ const ProductSort = ( isFiltered, filteredList, setFilteredList, products, setPr
     console.log(sortedProducts)
   }
 
-  return <div></div>
+  const sortingList = sortings.map((s) => {
+    return (
+      <li
+        value={s}
+        onClick={() => {
+          handleSorting(s)
+          setShowSorting(false)
+        }}
+      >
+        {s}
+      </li>
+    )
+  })
+
+  return (
+    <div className="sorting-list">
+      <ul>{sortingList}</ul>
+    </div>
+  )
 }
 
 export default ProductSort

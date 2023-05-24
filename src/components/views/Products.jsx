@@ -5,6 +5,7 @@ import ProductCard from '../partials/ProductCard'
 import Header from '../partials/Header'
 import SearchField from '../partials/SearchField'
 import ProductFilter from '../partials/ProductFilter'
+import ProductSort from '../partials/ProductSort'
 
 const Products = () => {
   const { type, value } = useParams()
@@ -25,7 +26,7 @@ const Products = () => {
   const [activeTags, setActiveTags] = useState([])
   const [showFilter, setShowFilter] = useState(false)
   const [isFiltered, setIsFiltered] = useState(false)
-  const [showSorting, setShowSorting] = useState(false)
+  const [showSorting, setShowSorting] = useState(true)
 
   const toggleFilter = () => {
     setShowFilter(!showFilter)
@@ -97,14 +98,34 @@ const Products = () => {
     <>
       <Header headerContent={<SearchField />} />
       {!showFilter && (
-        <div className="under-header">
-          <div onClick={toggleFilter}>
-            <i className="fa-light fa-sliders-up" />
-            <p>Filters</p>
+        <>
+          <div className="under-header">
+            <div onClick={toggleFilter}>
+              <i className="fa-light fa-sliders-up" />
+              <p>Filters</p>
+            </div>
+            <div onClick={toggleSorting}>
+              <p>Sorting by</p>
+              <i
+                className={
+                  !showSorting
+                    ? 'fa-light fa-chevron-down'
+                    : 'fa-light fa-chevron-up'
+                }
+              ></i>
+            </div>
           </div>
-          <div onClick={toggleSorting}><p>Sorting by</p><i className={!showSorting ?'fa-light fa-chevron-down' : 'fa-light fa-chevron-up'}></i></div>
-          
-        </div>
+          {showSorting && (
+            <ProductSort
+              filteredList={filteredList}
+              products={products}
+              isFiltered={isFiltered}
+              setFilteredList={setFilteredList}
+              setProducts={setProducts}
+              setShowSorting={setShowSorting}
+            />
+          )}
+        </>
       )}
       {showFilter && (
         <ProductFilter
