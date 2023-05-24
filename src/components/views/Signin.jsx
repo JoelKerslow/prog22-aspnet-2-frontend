@@ -85,8 +85,8 @@ const SignIn = () => {
                   <input type="checkbox" className="RememberMeCB" onChange={handleRememberMeChange}></input>
                   <label className="RememberMelbl">Remember me</label>
                 </div>
+                <Link to="/ForgotPassword">Forgot password?</Link>
                 { error && <div className="error-text">{error}</div>}
-                <Link to="/PasswordReset">Forgot password?</Link>
               </div>
               <button
                 className="BigBlackButton"
