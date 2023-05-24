@@ -64,7 +64,7 @@
   margin-top: 2vh;
   width: 89vw;
   height: 7vh;
-  border-radius: 25px;
+  border-radius: 1000px;
   background-color: #111111;
 }
 
@@ -294,8 +294,7 @@ header .sidebar-container h1 {
   font-family: "Montserrat", sans-serif;
   font-size: 16px;
   text-align: left;
-  -webkit-text-decoration: solid;
-          text-decoration: solid;
+  text-decoration: solid;
   color: white;
 }
 header .sidebar-container ul {
@@ -1123,7 +1122,7 @@ header.sidebar-open .sidebar-container {
 }
 
 .offerContainer {
-  width: 375px;
+  width: 100vw;
   height: 150px;
   background-color: #dbe3f5;
   display: flex;
@@ -1186,10 +1185,13 @@ header.sidebar-open .sidebar-container {
     font-size: 3em;
   }
 }
+.offerContainer .productsLink {
+  text-decoration: none;
+}
 
 .previewContainer {
   font-family: "Open Sans", sans-serif;
-  width: 100vw;
+  width: 100dvw;
   overflow: hidden;
 }
 @media (min-width: 1400px) {
@@ -1206,11 +1208,11 @@ header.sidebar-open .sidebar-container {
 .previewContainer .textRow .tagText {
   font-weight: 700;
 }
-.previewContainer .textRow .fullListLink .link {
+.previewContainer .textRow .fullListLink .angleIcon {
   color: #111111;
   text-decoration: none;
 }
-.previewContainer .textRow .fullListLink .link .fa-angle-right {
+.previewContainer .textRow .fullListLink .angleIcon .fa-angle-right {
   color: #000000;
 }
 .previewContainer .textRow .fullListLink .link:hover {
@@ -1285,6 +1287,10 @@ header.sidebar-open .sidebar-container {
   font-family: "Open Sans", sans-serif;
   font-size: 14px;
   font-weight: 600;
+  max-width: 450px;
+}
+.filter-list .BigBlackButton {
+  width: 80%;
 }
 .filter-list .backArrow {
   margin-top: 75px;
@@ -1325,7 +1331,7 @@ header.sidebar-open .sidebar-container {
 .filter-list .color-filter .color-option {
   border-radius: 50%;
   aspect-ratio: 1/1;
-  width: 10vw;
+  width: 80%;
 }
 .filter-list .color-filter .color-option:hover {
   cursor: pointer;
@@ -1335,8 +1341,8 @@ header.sidebar-open .sidebar-container {
 }
 .filter-list .price-filter {
   margin-top: 20px;
-  width: 85vw;
-  margin-left: 15px;
+  width: 85%;
+  margin-left: 25px;
 }
 .filter-list .price-filter .rc-slider-track {
   background-color: black;
@@ -1352,8 +1358,8 @@ header.sidebar-open .sidebar-container {
 .filter-list .mark-filter {
   margin-top: 30px;
   margin-left: 10px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  display: flex;
+  justify-content: space-around;
 }
 .filter-list .mark-filter .mark-option {
   display: flex;
@@ -1405,6 +1411,22 @@ header.sidebar-open .sidebar-container {
 }
 .filter-list .tag-filter .selected-tag {
   background-color: #DBE3F5;
+}
+@media (min-width: 768px) {
+  .filter-list {
+    padding: 10px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  .filter-list .backArrow {
+    position: relative;
+    top: 0;
+    margin-top: 0;
+    left: 10px;
+    width: 24px;
+    height: 0px;
+    cursor: pointer;
+    z-index: 0; /* backArrow alltid högst upp */
+  }
 }
 
 .reviewHeader {
@@ -1462,9 +1484,12 @@ header.sidebar-open .sidebar-container {
   line-height: 1.5;
   margin-bottom: 0.6em;
   font-family: "Open Sans", sans-serif;
-  width: 100dvw;
+  width: 95vw;
   height: auto;
   margin-top: 19px;
+  margin-right: 5px;
+  margin-left: 5px;
+  border-bottom: 1px solid #dbe3f5;
 }
 @media (min-width: 1400px) {
   .reviewCard {
@@ -1473,13 +1498,10 @@ header.sidebar-open .sidebar-container {
 }
 .reviewCard .cardHeader {
   margin-top: 5px;
-  margin-left: 5px;
-  margin-right: 5px;
   display: flex;
   flex-direction: row;
 }
 .reviewCard .cardHeader .profileImg {
-  margin-left: 20px;
   height: 50px;
   width: 50px;
   flex-direction: row;
@@ -1492,11 +1514,11 @@ header.sidebar-open .sidebar-container {
 }
 .reviewCard .cardHeader .nameAndDate {
   margin-left: 14px;
-  margin-right: auto;
+  margin-right: 15px;
   flex-direction: column;
 }
 .reviewCard .cardHeader .nameAndDate .profileName {
-  font-weight: 600;
+  font-weight: 500;
 }
 .reviewCard .cardHeader .nameAndDate .reviewDate {
   font-size: 10px;
@@ -1504,15 +1526,20 @@ header.sidebar-open .sidebar-container {
 }
 .reviewCard .cardHeader .reviewStarRating {
   margin-right: 5px;
-}
-@media (min-width: 1400px) {
-  .reviewCard .cardHeader .reviewStarRating {
-    margin-right: 1200px;
-  }
+  justify-content: end;
 }
 .reviewCard .reviewText {
-  margin-left: 84px;
+  width: 200px;
+  margin-left: 65px;
+  margin-bottom: 20px;
   flex-direction: column;
+  font-size: 12px;
+  line-break: normal;
+}
+@media (min-width: 1400px) {
+  .reviewCard .reviewText {
+    width: auto;
+  }
 }
 
 .circle-with-icon {
@@ -1548,28 +1575,42 @@ header.sidebar-open .sidebar-container {
   background-size: 24px 11px;
   animation: move 3s linear infinite;
 }
-.circle-with-icon .fa-regular {
+.circle-with-icon .icon {
   position: relative;
   z-index: 1;
   font-size: 50px;
+}
+
+.circle-with-icon.sm {
+  width: 108px;
+  height: 108px;
+}
+
+.circle-with-icon.md {
+  width: 153px;
+  height: 153px;
 }
 
 .circle-with-icon.lg {
   width: 200px;
   height: 200px;
 }
+.circle-with-icon.lg .icon {
+  font-size: 80px;
+  font-weight: 900;
+}
 
 .circle-with-icon.green::before {
   border-color: #00824B;
 }
-.circle-with-icon.green .fa-regular {
+.circle-with-icon.green .icon {
   color: #00824B;
 }
 
 .circle-with-icon.red::before {
   border-color: #f4303c;
 }
-.circle-with-icon.red .fa-regular {
+.circle-with-icon.red .icon {
   color: #f4303c;
 }
 
@@ -1710,12 +1751,10 @@ header.sidebar-open .sidebar-container {
 .get-started-btn {
   color: #FFFFFF;
   width: 50%;
-  /* Set button width to 50% of the circle width */
   height: 7vh;
-  border-radius: 25px;
+  border-radius: 1000px;
   background-color: #111111;
   margin-bottom: 2rem;
-  /* Add margin for spacing */
   transition: transform 0.5s ease;
 }
 
@@ -1880,20 +1919,33 @@ header.sidebar-open .sidebar-container {
 .under-header {
   margin-top: 10px;
   margin-left: 10px;
-  padding-right: 5px;
   display: flex;
-  gap: 10px;
+  justify-content: space-between;
   font-family: "Open Sans", sans-serif;
   font-weight: 600;
   opacity: 70%;
   width: -moz-fit-content;
   width: fit-content;
+  padding-right: 5px;
+  margin-right: 15px;
 }
-.under-header:hover {
+.under-header div i {
+  margin-top: 5px;
+}
+.under-header div:hover {
   cursor: pointer;
 }
-.under-header i {
-  margin-top: 5px;
+@media (min-width: 992px) {
+  .under-header {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
+@media (min-width: 1200px) {
+  .under-header {
+    margin-left: 40px;
+    margin-right: 40px;
+  }
 }
 
 .product-result-list {
@@ -1902,6 +1954,28 @@ header.sidebar-open .sidebar-container {
 
 .payment-wrapper {
   border-bottom: 1px solid #dbe3f5;
+}
+
+.credit-card-side-scroll {
+  display: flex;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: #888 transparent;
+}
+.credit-card-side-scroll::-webkit-scrollbar {
+  height: 8px;
+}
+.credit-card-side-scroll::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 4px;
+}
+.credit-card-side-scroll .card {
+  flex: 0 0 auto;
+  margin-right: 16px;
+}
+.credit-card-side-scroll .card:last-child {
+  margin-right: 0;
 }
 
 .form-review p {
@@ -1919,6 +1993,45 @@ header.sidebar-open .sidebar-container {
   font-size: 14px;
 }
 
+.ForgotPasswordText-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+}
+
+.ResetPassword-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.ForgotPasswordText {
+  position: relative;
+  margin: auto;
+  width: 90%;
+  margin-bottom: 50px;
+}
+
+.stacked {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stacked .maneroLogoRectangle {
+  background-color: #111111;
+}
+
+@media (min-width: 768px) {
+  .ForgotPasswordText {
+    width: 70%;
+  }
+}
 @media (min-width: 1400px) {
   .productReviewContainer {
     margin-top: 50px;
@@ -1931,7 +2044,6 @@ header.sidebar-open .sidebar-container {
     justify-content: center;
   }
 }
-
 .order-status {
   width: 15%;
   text-align: right;

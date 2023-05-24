@@ -5,10 +5,6 @@
       "element": "Welcome"
     },
     {
-      "path": "*",
-      "element": "Welcome"
-    },
-    {
       "path": "/Onboarding",
       "element": "Onboarding"
     },
@@ -66,6 +62,6 @@
     }
   ],
   "fallback": {
-    "element": "Welcome"
+    "element": "Home"
   }
 }

@@ -9,17 +9,13 @@ import { AuthorizationContext } from "../../contexts/AuthorizationContext";
 import { UserContext } from "../../contexts/UserContext";
 
 const ProfilePage = () => {
-  const { logoutUser, userLoggedin } = useContext(AuthorizationContext);
+  const { logoutUser, useAuthorization } = useContext(AuthorizationContext);
+  useAuthorization()
+
   const { currentUser } = useContext(UserContext);
   const navigate = useNavigate();
 
   const [togglePopup, setTogglePopup] = useState(false);
-
-  useEffect(() => {
-    if(userLoggedin !== true){
-      navigate("/Signin");
-    }
-  }, []);
 
   const handleLogout = () => {
     logoutUser();

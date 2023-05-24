@@ -1,3 +1,29 @@
 .payment-wrapper{
     border-bottom: 1px solid #dbe3f5;
 }
+.credit-card-side-scroll {
+    display: flex;
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: #888 transparent;
+  
+    &::-webkit-scrollbar {
+      height: 8px;
+    }
+  
+    &::-webkit-scrollbar-thumb {
+      background-color: #888;
+      border-radius: 4px;
+    }
+  
+    .card {
+      flex: 0 0 auto;
+      margin-right: 16px;
+  
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+  
