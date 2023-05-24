@@ -1,0 +1,26 @@
+.order-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  
+  .order-banner {
+    width: 45%; // Adjust the width as per your preference
+    background-color: #f1f1f1;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border-radius: 4px;
+  }
+  
+  .order-id {
+    font-weight: bold;
+  }
+  
+  .order-date,
+  .order-status,
+  .order-amount {
+    margin-top: 5px;
+  }
