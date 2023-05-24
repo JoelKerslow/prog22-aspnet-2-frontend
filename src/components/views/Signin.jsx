@@ -88,6 +88,7 @@ const SignIn = () => {
                 <Link to="/ForgotPassword">Forgot password?</Link>
                 { error && <div className="error-text">{error}</div>}
               </div>
+              <div className="input-field-group">
               <button
                 className="BigBlackButton"
                 onClick={() => {
@@ -96,6 +97,9 @@ const SignIn = () => {
               >
                 Sign in
               </button>
+              </div>
+
+        
             </div>
 
             <p className="text-center my-2">

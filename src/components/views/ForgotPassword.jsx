@@ -42,14 +42,16 @@ const ForgotPassword = () => {
                   ref={emailRef}
                 />
               </div>
-              <button
-                className="BigBlackButton"
-                onClick={() => {
-                  handleEmailSender();
-                }}
-              >
-                SEND
-              </button>
+              <div className="input-field-group">
+                <button
+                  className="BigBlackButton"
+                  onClick={() => {
+                    handleEmailSender();
+                  }}
+                >
+                  SEND
+                </button>
+              </div>
             </div>
           </div>
         </div>

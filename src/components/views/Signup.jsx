@@ -78,10 +78,11 @@ const Signup = () => {
               </div>
 
               {error &&  <div className='error-text'>{error}</div> }
-
+              <div className="input-field-group">
               <button className="BigBlackButton" onClick={handleRegistration}>
                 Sign Up
               </button>
+              </div>
 
             <p className="text-center my-2">
               Already have an account? <Link to={"/Signin"}>Sign in</Link>

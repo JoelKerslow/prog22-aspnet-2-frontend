@@ -50,14 +50,16 @@ const ResetPassword = () => {
                 />
               </div>
 
-              <button
-                className="BigBlackButton"
-                onClick={() => {
-                  handleClick();
-                }}
-              >
-                CHANGE PASSWORD
-              </button>
+              <div className="input-field-group">
+                <button
+                  className="BigBlackButton"
+                  onClick={() => {
+                    handleClick();
+                  }}
+                >
+                  CHANGE PASSWORD
+                </button>
+              </div>
             </div>
           </div>
         </div>

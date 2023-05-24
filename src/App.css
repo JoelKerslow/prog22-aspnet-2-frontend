@@ -64,7 +64,7 @@
   margin-top: 2vh;
   width: 89vw;
   height: 7vh;
-  border-radius: 25px;
+  border-radius: 1000px;
   background-color: #111111;
 }
 
@@ -1733,7 +1733,7 @@ header.sidebar-open .sidebar-container {
   color: #FFFFFF;
   width: 50%;
   height: 7vh;
-  border-radius: 25px;
+  border-radius: 1000px;
   background-color: #111111;
   margin-bottom: 2rem;
   transition: transform 0.5s ease;
@@ -2011,4 +2011,4 @@ header.sidebar-open .sidebar-container {
     border-radius: 5px;
     justify-content: center;
   }
-}
+}/*# sourceMappingURL=App.css.map */
