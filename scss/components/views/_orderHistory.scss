@@ -13,13 +13,16 @@
     overflow: hidden;
 }
 
-.list-group-item{
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    border-top: none;
-    border-bottom: 4px solid #DBE3F5;
+.customer-order{
+    .list-group-item{
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        border-top: none;
+        border-bottom: 4px solid #DBE3F5;
+    }
 }
+
 .order-date{
     margin-top: 1px;
     font-weight: 100;
@@ -30,6 +33,18 @@
 }
 .order-status-text{
     margin-bottom: 0%;
+}
+.order-status-text.Pending{
+    color: $color-yellow;
+}
+.order-status-text.Shipped{
+    color: $color-yellow;
+}
+.order-status-text.Delivered{
+    color: $color-green;
+}
+.order-status-text.Canceled{
+    color: $color-red;
 }
 .order-price{
     font-weight: bold;

@@ -294,7 +294,8 @@ header .sidebar-container h1 {
   font-family: "Montserrat", sans-serif;
   font-size: 16px;
   text-align: left;
-  text-decoration: solid;
+  -webkit-text-decoration: solid;
+          text-decoration: solid;
   color: white;
 }
 header .sidebar-container ul {
@@ -1701,6 +1702,44 @@ header.sidebar-open .sidebar-container {
   }
 }
 
+.sorting-list {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  opacity: 80%;
+  display: flex;
+  justify-content: flex-end;
+}
+.sorting-list ul {
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-right: 10px;
+}
+.sorting-list li {
+  list-style: none;
+  margin: 7px;
+  padding: 5px;
+  border-radius: 10px;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.sorting-list li:hover {
+  cursor: pointer;
+  background-color: #DBE3F5;
+}
+.sorting-list .active-sorting {
+  background-color: #DBE3F5;
+}
+@media (min-width: 992px) {
+  .sorting-list ul {
+    margin-right: 25px;
+  }
+}
+@media (min-width: 1200px) {
+  .sorting-list ul {
+    margin-right: 50px;
+  }
+}
+
 .Onboarding-Container {
   display: flex;
   flex-direction: column;
@@ -1924,6 +1963,10 @@ header.sidebar-open .sidebar-container {
   font-family: "Open Sans", sans-serif;
   font-weight: 600;
   opacity: 70%;
+}
+.under-header div {
+  display: flex;
+  gap: 10px;
   width: -moz-fit-content;
   width: fit-content;
   padding-right: 5px;
@@ -2044,6 +2087,7 @@ header.sidebar-open .sidebar-container {
     justify-content: center;
   }
 }
+
 .order-status {
   width: 15%;
   text-align: right;
@@ -2060,7 +2104,7 @@ header.sidebar-open .sidebar-container {
   overflow: hidden;
 }
 
-.list-group-item {
+.customer-order .list-group-item {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -2080,6 +2124,22 @@ header.sidebar-open .sidebar-container {
 
 .order-status-text {
   margin-bottom: 0%;
+}
+
+.order-status-text.Pending {
+  color: #ffbe00;
+}
+
+.order-status-text.Shipped {
+  color: #ffbe00;
+}
+
+.order-status-text.Delivered {
+  color: #00824B;
+}
+
+.order-status-text.Canceled {
+  color: #f4303c;
 }
 
 .order-price {

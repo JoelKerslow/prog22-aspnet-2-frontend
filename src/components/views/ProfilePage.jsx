@@ -42,7 +42,7 @@ const ProfilePage = () => {
 
         <ul className="list-group mt-5">
 
-          <Link to="/Orders" className="list-group-item pt-3 pb-1">
+          <Link to="/OrderHistory" className="list-group-item pt-3 pb-1">
             <div className="options-icon">
               <i class="fa-light fa-calendar"></i>
             </div>
