@@ -21,8 +21,6 @@ const OrderHistoryView = () => {
             return;
           }
           
-          console.log('Current User:', currentUser); // Log the current user
-  
           const customerId = currentUser.id; // Retrieve the customer ID from currentUser
           const apiKey = 'f77ca749-67f4-4c22-9039-137272442ea0'
           const token = Cookies.get('maneroToken');
@@ -38,14 +36,14 @@ const OrderHistoryView = () => {
           const data = await response.json();
           if (Array.isArray(data)) {
             setOrders(data);
-            console.log('Orders:', data);
+            
           } else {
             setOrders([]);
-            console.log('No orders found.');
+            
           }
           setLoading(false);
         } catch (error) {
-          console.error('Error fetching orders:', error);
+          
         }
       };
   
