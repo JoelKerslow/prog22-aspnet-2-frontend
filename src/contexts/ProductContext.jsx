@@ -161,6 +161,7 @@ const ProductContextProvider = ({ children }) => {
         getProductsByTag,
         getProductsByCategory,
         products,
+        setProducts,
         currentProduct,
         setCurrentProduct,
         searchProducts,
