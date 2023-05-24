@@ -16,11 +16,12 @@ import ProductReview from './components/views/ProductReview'
 import ForgotPassword from './components/views/ForgotPassword'
 import PasswordResetConfirmation from "./components/views/PasswordResetConfirmation"
 import ResetPassword from "./components/views/ResetPassword"
+import MyPromocodes from "./components/views/MyPromocodes"
 
 const RouteElements = () => {
   return (
     <Routes>
-      <Route path='/' element={<Welcome />} />
+      <Route path='/' element={<MyPromocodes />} />
       <Route path='/Home' element={<Home />} />
       <Route path='*' element={<Home />} />
       <Route path='/Onboarding' element={<Onboarding />} />
@@ -37,6 +38,8 @@ const RouteElements = () => {
       <Route path='/OrderReview/:orderId' element={<OrderReviewForm />} />
       <Route path='/Products/:type/:value' element={<Products />} />
       <Route path='/Profile/PaymentMethods' element={<PaymentMethod />} />
+      <Route path='/MyPromocodes' element={<MyPromocodes />} />
+
       <Route
         path='/ProductSubmitedReviews/:productId'
         element={<ProductReview />}

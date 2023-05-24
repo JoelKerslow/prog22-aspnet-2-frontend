@@ -1,0 +1,40 @@
+.PromoCodeCard-item{
+    display: flex;
+    flex-direction: row;
+    border-top: 1px solid #DBE3F5;       
+}
+
+.PromoCodeCard-item .PromoCodeCard-title{
+    text-align: left;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.PromoCodeCard-item .PromoCodeCard-discount{
+    text-align: left;
+    color: red;
+    font-size: 21px; 
+    font-weight: 600;
+}
+
+.PromoCodeCard-item .PromoCodeCard-expiry{
+    text-align: left;
+    color: #626262;
+    font-size: 14px; 
+}
+
+
+
+
+.PromoCodeCard-item:last-child{
+    border-bottom: 1px solid #DBE3F5;
+}
+
+
+.PromoCode-placeholder{
+    height: 84px;
+    width: 73px;
+    background-color: #DBE3F5;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
