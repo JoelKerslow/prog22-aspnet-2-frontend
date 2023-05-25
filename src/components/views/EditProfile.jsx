@@ -4,8 +4,13 @@ import BackArrow from "../partials/generalPartials/BackArrow";
 import VerticalBar from "../partials/generalPartials/VerticalBar";
 import ProfilePicture from "../partials/generalPartials/ProfilePicture";
 import { UserContext } from "../../contexts/UserContext";
+import { useNavigate } from "react-router-dom";
+
 
 const EditProfile = () => {
+
+  const navigate = useNavigate();
+
 
   const fullNameRef = useRef();
   const { updateUserProfile } = useContext(UserContext);
@@ -24,13 +29,19 @@ const EditProfile = () => {
     updateUserProfile({ firstName, lastName });
   };
 
+  const handleGoBack = () => {
+    navigate(-1)
+  };
+
+  
+
   return (
     <>
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-12 col-sm-8 col-md-6 col-lg-4">
             <div className="RegHeader">
-              <BackArrow />
+              <BackArrow clickEvent={handleGoBack} />
               <h3>Edit profile</h3>
             </div>
 
