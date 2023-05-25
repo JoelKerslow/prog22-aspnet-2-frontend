@@ -14,13 +14,18 @@ const ResetPassword = () => {
     navigate("/Signin");
   };
 
+
+  const handleGoBack = () => {
+    navigate(-1)
+	};
+
   return (
     <>
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-12 col-sm-8 col-md-6 col-lg-4">
             <div className="RegHeader">
-              <BackArrow />
+              <BackArrow clickEvent={handleGoBack} />
               <h3>Reset Password</h3>
             </div>
             <div className="ResetPassword-container">
