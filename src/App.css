@@ -1682,7 +1682,6 @@ header.sidebar-open .sidebar-container {
   }
 }
 
-.promocodes-wrapper,
 .promo-header,
 .promocodes-container {
   display: flex;
@@ -1720,6 +1719,11 @@ header.sidebar-open .sidebar-container {
 
 .promocodes-wrapper {
   flex-direction: column;
+  width: 100%;
+  overflow-y: overlay;
+  height: 100vh;
+  display: flex;
+  align-items: center;
   width: 100%;
 }
 
