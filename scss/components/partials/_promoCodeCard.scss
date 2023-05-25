@@ -1,40 +1,122 @@
-.PromoCodeCard-item{
+.promocodes-wrapper,
+.promo-header,
+.promocodes-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+
+
+}
+
+
+
+.current-used-promocodes{
     display: flex;
-    flex-direction: row;
-    border-top: 1px solid #DBE3F5;       
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 }
 
-.PromoCodeCard-item .PromoCodeCard-title{
-    text-align: left;
-    font-size: 18px;
-    font-weight: 600;
-}
-
-.PromoCodeCard-item .PromoCodeCard-discount{
-    text-align: left;
-    color: red;
-    font-size: 21px; 
-    font-weight: 600;
-}
-
-.PromoCodeCard-item .PromoCodeCard-expiry{
-    text-align: left;
-    color: #626262;
-    font-size: 14px; 
-}
-
-
-
-
-.PromoCodeCard-item:last-child{
-    border-bottom: 1px solid #DBE3F5;
-}
-
-
-.PromoCode-placeholder{
-    height: 84px;
-    width: 73px;
+.promocode-tab-button {
     background-color: #DBE3F5;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    border: none;
+    color: #111111;
+    border-radius: 30px;
+    margin-right: 10px;
+    cursor: pointer;
+    text-align: center;
+    padding-left: 22px;
+    padding-right: 22px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    margin-top: 39px;
+    margin-bottom: 25px;
+
+
+
+  
+    &.active {
+      background-color: black;
+      color: white;
+    }
+  }
+  
+
+
+.promocodes-wrapper{
+    flex-direction: column;
+    width: 100%;
 }
+
+.promocodes-container {
+  flex-direction: column;
+  
+}
+
+.PromoCodeCard-content {
+  margin-top:auto;
+  margin-bottom: auto;
+}
+
+.PromoCodeCard-item {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid #DBE3F5;
+  border-bottom: none;
+  width: 100%;
+  justify-content: space-evenly;
+
+  &:last-child {
+    border-bottom: 1px solid #DBE3F5;
+  }
+}
+
+.clone-icon-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+
+  &:hover{
+    cursor: pointer;
+  }
+}
+
+
+.PromoCodeCard-title,
+.PromoCodeCard-discount,
+.PromoCodeCard-expiry {
+  text-align: left;
+}
+
+.PromoCodeCard-title {
+  font-size: 18px;
+  font-weight: 600;
+  width: 200px;
+}
+
+.PromoCodeCard-discount {
+  font-size: 21px;
+  font-weight: 600;
+}
+
+.PromoCodeCard-expiry {
+  color: #626262;
+  font-size: 14px;
+}
+
+.PromoCode-placeholder {
+  height: 84px;
+  width: 73px;
+  background-color: #DBE3F5;
+  margin: 20px 0;
+}
+
+@media (min-width: 768px) {
+  .promocodes-container {
+    width: 30%;
+  }
+}
+
+

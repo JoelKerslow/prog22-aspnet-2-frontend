@@ -21,7 +21,7 @@ import MyPromocodes from "./components/views/MyPromocodes"
 const RouteElements = () => {
   return (
     <Routes>
-      <Route path='/' element={<MyPromocodes />} />
+      <Route path='/' element={<Welcome />} />
       <Route path='/Home' element={<Home />} />
       <Route path='*' element={<Home />} />
       <Route path='/Onboarding' element={<Onboarding />} />
