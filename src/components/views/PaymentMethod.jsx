@@ -2,12 +2,22 @@ import React from 'react';
 import BackArrow from '../partials/generalPartials/BackArrow';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faCreditCard } from '@fortawesome/free-solid-svg-icons';
+import { useNavigate } from "react-router-dom";
 
 const PaymentMethod = () => {
+
+
+    const navigate = useNavigate();
+
+    const handleGoBack = () => {
+      navigate(-1);
+    };
+
+
     return (
         <>
             <div className="RegHeader">
-                <BackArrow />
+                <BackArrow clickEvent={handleGoBack} />
                 <h3>Payment Methods</h3>
             </div>
             <div className="container mt-4">
