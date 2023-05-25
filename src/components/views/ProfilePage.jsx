@@ -54,7 +54,7 @@ const ProfilePage = () => {
             </div>
           </Link>
 
-          <Link to="/Payment" className="list-group-item pt-3 pb-1">
+          <Link to="/Profile/PaymentMethods" className="list-group-item pt-3 pb-1">
             <div className="options-icon">
               <i class="fa-light fa-credit-card-front"></i>
             </div>

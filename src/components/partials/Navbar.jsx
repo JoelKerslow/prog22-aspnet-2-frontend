@@ -21,7 +21,7 @@ const Navbar = () => {
         <FontAwesomeIcon
         className='fa-lg'
           icon={faHouse}
-          style={{ color: location.pathname === '/Onboarding' ? activeColor : inactiveColor }}
+          style={{ color: location.pathname === '/Home' ? activeColor : inactiveColor }}
         />
       </Link>
       
@@ -36,7 +36,7 @@ const Navbar = () => {
       <Link to="/Onboarding">
         <FontAwesomeIcon
           icon={faBagShopping}
-          style={{ color: location.pathname === '/Onboarding' ? activeColor : inactiveColor }}
+          style={{ color: location.pathname === '/Cart' ? activeColor : inactiveColor }}
         />
       </Link>
 
@@ -44,7 +44,7 @@ const Navbar = () => {
       <Link to="/Onboarding">
         <FontAwesomeIcon
           icon={faHeart}
-          style={{ color: location.pathname === '/Onboarding' ? activeColor : inactiveColor }}
+          style={{ color: location.pathname === '/Wishlist' ? activeColor : inactiveColor }}
         />
       </Link>
 
