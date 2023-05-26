@@ -1,21 +1,47 @@
 import React from "react";
+import GoogleLogin from 'react-google-login';
+import FacebookLogin from 'react-facebook-login';
+import TwitterLogin from 'react-twitter-auth';
+import Cookies from 'js-cookie';
 
 const SocialMedia = () => {
+  const responseGoogle = (response) => {
+    console.log(response);
+    Cookies.set('googleAuthToken', response.tokenId);
+  }
+
+  const responseFacebook = (response) => {
+    console.log(response);
+    Cookies.set('facebookAuthToken', response.accessToken);
+  }
+
+  const responseTwitter = (response) => {
+    console.log(response);
+    Cookies.set('twitterAuthToken', response.oauth_token); 
+  }
+
   return (
     <div className="container">
       <div className="row justify-content-center">
-        {/* <div className="col-8 d-flex justify-content-evenly align-items-center"> */}
-        <div className="SocialMediaClass">
-          
-          <div className="social-icon">
-            <i className="fab fa-facebook-f fa-2x"></i>
-          </div>
-          <div className="social-icon">
-            <i className="fab fa-twitter fa-2x"></i>
-          </div>
-          <div className="social-icon">
-            <i className="fab fa-google fa-2x"></i>
-          </div>
+      <div className="SocialMediaClass">
+          <FacebookLogin
+            appId="261209846406173"  
+            autoLoad={false}
+            fields="name,email,picture"
+            callback={responseFacebook}
+          />
+          <GoogleLogin
+            clientId="602381374814-np3e5vttc0i08g58loadea4fosuc867q.apps.googleusercontent.com" 
+            buttonText="Login with Google"
+            onSuccess={responseGoogle}
+            onFailure={responseGoogle}
+            cookiePolicy={'single_host_origin'}
+          />
+          <TwitterLogin 
+            loginUrl="Your-Twitter-Login-URL"  
+            onSuccess={responseTwitter}
+            requestTokenUrl="Your-Twitter-Request-Token-URL"  
+          />
         </div>
       </div>
     </div>
@@ -23,3 +49,4 @@ const SocialMedia = () => {
 };
 
 export default SocialMedia;
+
