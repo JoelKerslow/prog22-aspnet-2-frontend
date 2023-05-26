@@ -945,14 +945,6 @@ header.sidebar-open .sidebar-container {
   font-size: 18px;
 }
 
-@media (min-width: 768px) {
-  .input-field {
-    width: 20vw;
-  }
-  .input-field-group label {
-    left: 20%;
-  }
-}
 .showcase-carousel {
   font-family: "Open Sans", sans-serif;
   overflow: hidden;
@@ -2128,4 +2120,9 @@ header.sidebar-open .sidebar-container {
 }
 .address-form .form-check .form-check-label {
   color: #626262;
+}
+.address-form hr {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
 }/*# sourceMappingURL=App.css.map */
