@@ -5,20 +5,13 @@ import { useNavigate } from "react-router-dom";
 import FavouriteIcon from "./FavouriteIcon";
 import CartIcon from "./CartIcon";
 const ProductCard = ({ product }) => {
-  const { setCurrentProduct } = useContext(ProductContext);
+  const { setCurrentProduct, setProductReviews } = useContext(ProductContext);
   const navigate = useNavigate();
 
   const handleProductClick = () => {
     setCurrentProduct(product);
+    setProductReviews(product.reviews)
     navigate(`/product/${product.id}`);
-  };
-
-  const handleFavouriteClick = () => {
-    //Functionality to add product to wishlist
-  };
-
-  const handleAddToCartClick = () => {
-    //Functionality to att product to cart
   };
 
   return (

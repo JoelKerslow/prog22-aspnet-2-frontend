@@ -1,17 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import StarRating from "./StarRating";
 import PageIndicator from "./PageIndicator";
 import FavouriteIcon from "./FavouriteIcon";
+import UserProductReview from "./UserProductReview";
 
-const ProductInfo = ({ product }) => {
+const ProductInfo = ({ product, productReviews }) => {
   const [quantity, setQuantity] = useState(1);
   const [selectedColor, setSelectedColor] = useState("");
   const [selectedSize, setSelectedSize] = useState(null);
+  const [latestReviews, setLatestReviews] = useState();
   const navigate = useNavigate();
 
   const sizeList = ["XS", "S", "M", "L", "XL", "XXL"];
   const colorList = ["Red", "Blue", "Beige", "Darkblue", "Black", "White"];
+
+  useEffect(() => {
+    if (setLatestReviews !== null) {
+      setLatestReviews([]);
+    }
+    setLatestReviews(
+      productReviews
+        .sort((a, b) => new Date(b.createdDate) - new Date(a.createdDate))
+        .slice(0, 5)
+    );
+  }, [product, productReviews]);
 
   const handleColorClick = (color) => {
     setSelectedColor(color);
@@ -21,12 +34,18 @@ const ProductInfo = ({ product }) => {
     setSelectedSize(size);
   };
 
+  const handleAddToCart = () => {
+    //functionality to add product to cart
+  }
+
   return (
     <>
-      <div className="product-info-container">
+      <div className="product-info-container" >
         <div className="product-image-container mb-3">
           <img className="product-image" src={product.imageUrl} alt="" />
-          <PageIndicator currentPage={1} />
+          <div className="image-indicator">
+            <PageIndicator currentPage={1} />
+          </div>
         </div>
         <div className="product-bottom-content">
           <div className="bottom-content-squeeze">
@@ -93,70 +112,35 @@ const ProductInfo = ({ product }) => {
               </div>
             </div>
 
-            {/* <div className="color-container section-title ">
-              <div className="">Color</div>
-              <div className="d-flex">
-                <div
-                  className="color-btn red-btn color-btn-active"
-                  onClick={() => {
-                    setColor("Red");
-                    handleColorClick();
-                  }}
-                ></div>
-                <div
-                  className="color-btn black-btn"
-                  onClick={() => {
-                    setColor("Black");
-                    handleColorClick();
-                  }}
-                ></div>
-                <div
-                  className="color-btn blue-btn"
-                  onClick={() => {
-                    setColor("Blue");
-                    handleColorClick();
-                  }}
-                ></div>
-                <div
-                  className="color-btn white-btn"
-                  onClick={() => {
-                    setColor("White");
-                    handleColorClick();
-                  }}
-                ></div>
-                <div
-                  className="color-btn green-btn"
-                  onClick={() => {
-                    setColor("Green");
-                    handleColorClick();
-                  }}
-                ></div>
-                <div
-                  className="color-btn red-btn"
-                  onClick={() => {
-                    setColor("XS");
-                    handleColorClick();
-                  }}
-                ></div>
-              </div>
-            </div> */}
-
             <div className="section-title">Description</div>
             <p>{product.description}</p>
           </div>
           <div className="button-container">
-            <button className="BigBlackButton add-to-cart-btn">
+            <button className="BigBlackButton add-to-cart-btn" onClick={() => handleAddToCart()}>
               + ADD TO CART
             </button>
           </div>
         </div>
       </div>
 
-      <div className="review-section d-flex justify-content-between mt-5">
-        <div className="reviews-header">Reviews ({product.reviewCount})</div>
-        <a href="/reviews">
-          view all <span>&gt;</span>
-        </a>
+      <div className="review-section">
+        <div className="d-flex justify-content-between mt-5">
+          <div className="d-flex">
+            <div className="reviews-header">
+              Reviews ({product.reviewCount})
+            </div>
+            <a href={`/reviews/${product.id}`}>
+              view all <span>&gt;</span>
+            </a>
+          </div>
+        </div>
+        {latestReviews && (
+          <div>
+            {latestReviews.map((review) => {
+              return <UserProductReview key={review.id} review={review} />;
+            })}
+          </div>
+        )}
       </div>
     </>
   );
