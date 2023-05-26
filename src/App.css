@@ -1412,7 +1412,7 @@ header.sidebar-open .sidebar-container {
 @media (min-width: 768px) {
   .filter-list {
     padding: 10px;
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
   }
   .filter-list .backArrow {
     position: relative;
@@ -1698,6 +1698,47 @@ header.sidebar-open .sidebar-container {
   }
 }
 
+.addressCard {
+  font-family: "Open Sans", sans-serif;
+  padding: 20px 0;
+  border-bottom: 1px solid #dbe3f5;
+}
+.addressCard .cardContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 315px;
+  margin: 0 auto;
+}
+.addressCard .addressInfo .addressTitle {
+  font-weight: 500;
+}
+.addressCard .addressInfo .addressDetails {
+  color: #888888;
+  font-size: 14px;
+}
+.addressCard .editAddressIcon {
+  color: #111111;
+}
+
+.addAddress {
+  font-family: "Open Sans", sans-serif;
+}
+.addAddress .linkBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #111111;
+  text-decoration: none;
+  margin-top: 45px;
+}
+.addAddress .linkBox .textLine {
+  font-size: 14px;
+  color: #626262;
+}
+
 .sorting-list {
   font-family: "Open Sans", sans-serif;
   font-weight: 600;
@@ -1742,6 +1783,116 @@ header.sidebar-open .sidebar-container {
   height: 390px;
   margin: 0 0 30px 0;
   border: 0;
+
+.promo-header,
+.promocodes-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.current-used-promocodes {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.promocode-tab-button {
+  background-color: #DBE3F5;
+  border: none;
+  color: #111111;
+  border-radius: 30px;
+  margin-right: 10px;
+  cursor: pointer;
+  text-align: center;
+  padding-left: 22px;
+  padding-right: 22px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  margin-top: 39px;
+  margin-bottom: 25px;
+}
+.promocode-tab-button.active {
+  background-color: black;
+  color: white;
+}
+
+.promocodes-wrapper {
+  flex-direction: column;
+  width: 100%;
+  overflow-y: overlay;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.promocodes-container {
+  flex-direction: column;
+}
+
+.PromoCodeCard-content {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.PromoCodeCard-item {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid #DBE3F5;
+  border-bottom: none;
+  width: 100%;
+  justify-content: space-evenly;
+}
+.PromoCodeCard-item:last-child {
+  border-bottom: 1px solid #DBE3F5;
+}
+
+.clone-icon-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+.clone-icon-div:hover {
+  cursor: pointer;
+}
+
+.PromoCodeCard-title,
+.PromoCodeCard-discount,
+.PromoCodeCard-expiry {
+  text-align: left;
+}
+
+.PromoCodeCard-title {
+  font-size: 18px;
+  font-weight: 600;
+  width: 200px;
+}
+
+.PromoCodeCard-discount {
+  font-size: 21px;
+  font-weight: 600;
+}
+
+.PromoCodeCard-expiry {
+  color: #626262;
+  font-size: 14px;
+}
+
+.PromoCode-placeholder {
+  height: 84px;
+  width: 73px;
+  background-color: #DBE3F5;
+  margin: 20px 0;
+}
+
+@media (min-width: 768px) {
+  .promocodes-container {
+    width: 30%;
+  }
 }
 
 .Onboarding-Container {
@@ -2125,4 +2276,64 @@ header.sidebar-open .sidebar-container {
   border: 0;
   height: 1px;
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+.order-status {
+  width: 15%;
+  text-align: right;
+  display: block;
+}
+
+.order-orderInfo {
+  display: block;
+  width: 70%;
+  padding: 0%;
+  margin: 0%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.customer-order .list-group-item {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  border-top: none;
+  border-bottom: 4px solid #DBE3F5;
+}
+
+.order-date {
+  margin-top: 1px;
+  font-weight: 100;
+}
+
+.order-number {
+  margin-bottom: 0%;
+  font-size: larger;
+}
+
+.order-status-text {
+  margin-bottom: 0%;
+}
+
+.order-status-text.Pending {
+  color: #ffbe00;
+}
+
+.order-status-text.Shipped {
+  color: #ffbe00;
+}
+
+.order-status-text.Delivered {
+  color: #00824B;
+}
+
+.order-status-text.Canceled {
+  color: #f4303c;
+}
+
+.order-price {
+  font-weight: bold;
+  font-size: 1rem;
+  margin-top: 6px;
 }/*# sourceMappingURL=App.css.map */
