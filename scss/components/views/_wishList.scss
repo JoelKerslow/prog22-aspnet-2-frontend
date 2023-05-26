@@ -1,5 +1,5 @@
 .wishlist-group {
-    margin-top: 10px; /* Add margin to create space between header and wishlist items */
+    margin-top: 10px;
     @media screen and (min-width: 768px) {
         width: 60%;
       margin-left: auto;
@@ -42,10 +42,14 @@
           font-size: 0.8rem;
   
           .wishlist-name {
-            margin-top: -50px;
+            margin-top: -30px;
           }
   
           .wishlist-price {
+            margin-top: -15px;
+            font-weight: $font-weight-medium;
+          }
+          .wishlist-rating{
             margin-top: -10px;
           }
         }

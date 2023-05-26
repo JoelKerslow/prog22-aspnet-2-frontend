@@ -2139,7 +2139,7 @@ header.sidebar-open .sidebar-container {
 }
 
 .wishlist-group {
-  margin-top: 10px; /* Add margin to create space between header and wishlist items */
+  margin-top: 10px;
 }
 @media screen and (min-width: 768px) {
   .wishlist-group {
@@ -2185,9 +2185,13 @@ header.sidebar-open .sidebar-container {
   font-size: 0.8rem;
 }
 .wishlist-group ul.wishlist-items li.wishlist-item .wishlist-details .wishlist-name {
-  margin-top: -50px;
+  margin-top: -30px;
 }
 .wishlist-group ul.wishlist-items li.wishlist-item .wishlist-details .wishlist-price {
+  margin-top: -15px;
+  font-weight: 500;
+}
+.wishlist-group ul.wishlist-items li.wishlist-item .wishlist-details .wishlist-rating {
   margin-top: -10px;
 }
 .wishlist-group ul.wishlist-items li.wishlist-item .wishlist-icons {
