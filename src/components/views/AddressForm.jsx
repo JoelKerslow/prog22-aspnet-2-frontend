@@ -4,14 +4,13 @@ import { useNavigate } from 'react-router-dom'
 import { AuthorizationContext } from '../../contexts/AuthorizationContext'
 import { UserContext } from '../../contexts/UserContext'
 import { removeWhitespaceOrNull } from '../../scripts/dataUtils'
-import FontIconPicker from '@fonticonpicker/react-fonticonpicker'
-import '@fonticonpicker/react-fonticonpicker/dist/fonticonpicker.base-theme.react.css'
-import '@fonticonpicker/react-fonticonpicker/dist/fonticonpicker.material-theme.react.css'
+// import FontIconPicker from '@fonticonpicker/react-fonticonpicker'
+// import '@fonticonpicker/react-fonticonpicker/dist/fonticonpicker.base-theme.react.css'
+// import '@fonticonpicker/react-fonticonpicker/dist/fonticonpicker.material-theme.react.css'
 import MapFrame from '../partials/MapFrame'
 import countries from 'i18n-iso-countries'
 import enLocale from 'i18n-iso-countries/langs/en.json'
 import Header from '../partials/Header'
-import BackArrow from '../partials/generalPartials/BackArrow'
 
 const googleApiKey = process.env.REACT_APP_GOOGLE_API_KEY
 const useTestData = true // !!! Sätt som TRUE för att inte spamma google api vid test !!!
@@ -226,8 +225,6 @@ const AddressForm = ({ recievedAddress }) => {
     }
   }
 
-  const handleGoBack = () => navigate(-1)
-
   const getAndSetLocation = () => {
     if (!navigator.geolocation) {
       setLocationError('Geolocation is not supported by your browser')
@@ -416,12 +413,12 @@ const AddressForm = ({ recievedAddress }) => {
 
               <hr />
 
-              {!isFormSubmitted && !serverError && (
+              {/* {!isFormSubmitted && !serverError && (
                 <div className='d-flex align-items-baseline justify-content-center mt-4'>
                   <p>Choose an icon</p>
                   <FontIconPicker {...iconPickerProps} />
                 </div>
-              )}
+              )} */}
 
               {isFormSubmitted && (
                 <div className='alert alert-success text-center' role='alert'>
