@@ -51,6 +51,10 @@
     {
       "path":"/Profile/PaymentMethods",
       "element":"PaymentMethod"
+    },
+    {
+      "path": "/product/:productId",
+      "element": "ProductDetails"
     }
   ],
   "fallback": {
