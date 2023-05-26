@@ -2,21 +2,16 @@ import React, { useContext } from "react";
 import { ProductContext } from "../../contexts/ProductContext";
 import StarRating from "./StarRating";
 import { useNavigate } from "react-router-dom";
+import FavouriteIcon from "./FavouriteIcon";
+import CartIcon from "./CartIcon";
 const ProductCard = ({ product }) => {
-  const { setCurrentProduct } = useContext(ProductContext);
+  const { setCurrentProduct, setProductReviews } = useContext(ProductContext);
   const navigate = useNavigate();
 
   const handleProductClick = () => {
     setCurrentProduct(product);
+    setProductReviews(product.reviews)
     navigate(`/product/${product.id}`);
-  };
-
-  const handleFavouriteClick = () => {
-    //Functionality to add product to wishlist
-  };
-
-  const handleAddToCartClick = () => {
-    //Functionality to att product to cart
   };
 
   return (
@@ -28,20 +23,15 @@ const ProductCard = ({ product }) => {
               <img className="product-image" src={product.imageUrl} alt="" onClick={() => handleProductClick()} />
               <div className="menu">
                 <div className="icons">
-                  <button className="link" onClick={() => handleFavouriteClick()}>
-                    <i className="fa-regular fa-heart"></i>
-                  </button>
-                  <button className="link" onClick={() => handleAddToCartClick()}>
-                    <i className="fa-regular fa-bag-shopping"></i>
-                  </button>
+                  <FavouriteIcon product={product} />
+                  <CartIcon product={product} />
                 </div>
               </div>
             </div>
           </div>
           <div className="body-section" onClick={() => handleProductClick()}>
             <StarRating
-              rating={product.reviewAverage}
-              reviewCount={product.reviewCount}
+              rating={product.reviewAverage} reviewCount={product.reviewCount}
             />
             <div className="name">{product.name}</div>
             <div className="price">${product.price}</div>

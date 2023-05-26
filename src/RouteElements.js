@@ -19,6 +19,7 @@ import ResetPassword from "./components/views/ResetPassword"
 import AddressForm from "./components/views/AddressForm"
 import OrderHistory from "./components/views/OrderHistory"
 import MyPromocodes from "./components/views/MyPromocodes"
+import ProductDetails from "./components/views/ProductDetails"
 
 const RouteElements = () => {
   return (
@@ -36,6 +37,7 @@ const RouteElements = () => {
       <Route path='/ResetPassword' element={<ResetPassword />} />
       <Route path='/Profile' element={<ProfilePage />} />
       <Route path='/EditProfile' element={<EditProfile />} />
+      <Route path='/Product/:productId' element={<ProductDetails />} />
       <Route path='/ProductReview/:productId' element={<ProductReviewForm />} />
       <Route path='/OrderReview/:orderId' element={<OrderReviewForm />} />
       <Route path='/Products/:type/:value' element={<Products />} />

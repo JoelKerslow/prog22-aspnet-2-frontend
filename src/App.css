@@ -358,7 +358,7 @@ header.sidebar-open .sidebar-container {
 }
 
 .product-card {
-  background-color: rgb(244, 244, 244);
+  background-color: rgb(251, 251, 251);
   width: 45vw;
   height: -moz-fit-content;
   height: fit-content;
@@ -392,8 +392,7 @@ header.sidebar-open .sidebar-container {
 .product-card .top-section .image-section {
   position: relative;
   width: 100%;
-  height: 70%;
-  min-height: 70%;
+  min-height: 330px;
 }
 .product-card .top-section .product-image {
   width: 100%;
@@ -1629,6 +1628,284 @@ header.sidebar-open .sidebar-container {
 }
 .star-rating-input .star-selected {
   color: #ffbe00;
+}
+
+.cart-icon {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 1.5rem;
+}
+.cart-icon .fa-bag-shopping:hover {
+  color: rgb(0, 168, 39);
+  filter: brightness(90%);
+}
+.cart-icon .fa-solid {
+  color: rgb(0, 168, 39);
+}
+
+.favourite-icon {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 1.5rem;
+}
+.favourite-icon .fa-heart:hover {
+  color: #f4303c;
+  filter: brightness(85%);
+}
+.favourite-icon .fa-solid {
+  color: #f4303c;
+}
+
+.product-info-container {
+  font-size: 1em;
+  font-weight: 400;
+  font-family: "Open Sans", sans-serif;
+  line-height: 1.5;
+  margin-bottom: 0.6em;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  height: fit-content;
+}
+@media (min-width: 992px) {
+  .product-info-container {
+    width: 80%;
+    display: flex;
+  }
+}
+.product-info-container .product-name {
+  font-weight: 700;
+}
+.product-info-container .product-image-container {
+  width: 100%;
+  text-align: center;
+}
+@media (min-width: 992px) {
+  .product-info-container .product-image-container {
+    width: 60%;
+    height: 100%;
+  }
+}
+.product-info-container .product-image-container .product-image {
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .product-info-container .product-image-container .product-image {
+    width: 80%;
+  }
+}
+@media (min-width: 1400px) {
+  .product-info-container .product-image-container .product-image {
+    width: 50%;
+  }
+}
+.product-info-container .name-favourite-container {
+  display: flex;
+  justify-content: space-between;
+}
+.product-info-container .name-favourite-container .favourite-icon {
+  font-size: 1rem;
+}
+@media (min-width: 992px) {
+  .product-info-container .name-favourite-container .favourite-icon {
+    font-size: 1.5rem;
+  }
+}
+.product-info-container .section-title {
+  font-weight: 550;
+}
+@media (min-width: 992px) {
+  .product-info-container .section-title {
+    margin-top: 8%;
+  }
+}
+.product-info-container .product-bottom-content {
+  width: 100%;
+  margin: 0 auto;
+}
+@media (min-width: 992px) {
+  .product-info-container .product-bottom-content {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+  }
+}
+@media (min-width: 992px) {
+  .product-info-container .product-bottom-content .bottom-content-squeeze {
+    width: 50%;
+  }
+}
+.product-info-container .product-bottom-content .button-container {
+  margin-bottom: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.product-info-container .product-bottom-content .button-container .add-to-cart-btn {
+  margin-top: auto;
+}
+.product-info-container .product-bottom-content .button-container .BigBlackButton {
+  width: 80%;
+}
+@media (min-width: 992px) {
+  .product-info-container .product-bottom-content .button-container .BigBlackButton {
+    width: 50%;
+    margin-right: auto;
+    margin-left: 0;
+  }
+}
+@media (min-width: 1400px) {
+  .product-info-container .product-bottom-content .button-container .BigBlackButton {
+    width: 30%;
+  }
+}
+.product-info-container .image-indicator:hover {
+  cursor: pointer;
+}
+.product-info-container .product-quantity-container {
+  margin: 0 6px;
+  background-color: transparent;
+  border: none;
+}
+.product-info-container .product-quantity-container .product-quantity {
+  background-color: transparent;
+  border: none;
+}
+.product-info-container .product-quantity-container .product-quantity:hover {
+  cursor: default;
+}
+.product-info-container .product-quantity-container .increment-btn {
+  background-color: transparent;
+  border: none;
+}
+
+.review-section {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1em;
+  font-weight: 400;
+  font-family: "Open Sans", sans-serif;
+  line-height: 1.5;
+  margin-bottom: 0.6em;
+}
+@media (min-width: 768px) {
+  .review-section {
+    width: fit-content;
+    margin-left: 20%;
+    margin-right: auto;
+  }
+}
+@media (min-width: 1400px) {
+  .review-section {
+    width: fit-content;
+    margin-left: 20%;
+    margin-right: auto;
+  }
+}
+.review-section .reviews-header {
+  font-size: 1.125rem;
+  font-weight: 650;
+}
+.review-section a {
+  color: black;
+  margin-left: 50px;
+  text-decoration: none;
+  font-weight: 550;
+}
+
+.size-container {
+  display: flex;
+  margin: auto auto;
+  width: 100%;
+  justify-content: center;
+}
+@media (min-width: 768px) {
+  .size-container {
+    justify-content: left;
+  }
+}
+.size-container .size-btn {
+  border: 1px solid rgb(175, 191, 209);
+  font-size: 0.65rem;
+  font-weight: 500;
+  padding: 1%;
+  margin: auto;
+  min-width: 13vw;
+  height: 13vw;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (min-width: 768px) {
+  .size-container .size-btn {
+    margin: 0;
+    margin-left: 5px;
+    width: 35px;
+    height: 35px;
+    min-width: 35px;
+    min-height: 35px;
+  }
+}
+.size-container .size-btn:hover {
+  border: none;
+  background-color: rgb(194, 201, 210);
+  cursor: pointer;
+}
+.size-container .selected-size {
+  background-color: rgb(175, 191, 209);
+}
+
+.color-container {
+  display: flex;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+@media (min-width: 992px) {
+  .color-container {
+    display: block;
+  }
+}
+.color-container .color-btn {
+  padding: 1%;
+  margin-left: 5px;
+  min-width: 35px;
+  height: 35px;
+  border-radius: 100%;
+}
+.color-container .red-btn {
+  background-color: red;
+}
+.color-container .blue-btn {
+  background-color: blue;
+}
+.color-container .darkblue-btn {
+  background-color: rgb(0, 0, 94);
+}
+.color-container .green-btn {
+  background-color: green;
+}
+.color-container .black-btn {
+  background-color: rgb(0, 0, 0);
+}
+.color-container .beige-btn {
+  background-color: rgb(219, 207, 174);
+}
+.color-container .white-btn {
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(165, 165, 165);
+}
+.color-container .color-btn:hover {
+  cursor: pointer;
+  scale: 105%;
+}
+.color-container .selected-color {
+  border: 3.5px solid rgb(175, 191, 209);
+  scale: 110%;
 }
 
 .popup-container {
