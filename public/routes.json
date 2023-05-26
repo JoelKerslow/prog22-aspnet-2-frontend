@@ -1,71 +1,114 @@
 {
   "routes": [
     {
-      "path": "/",
-      "component": "Welcome"
+      "route": "/",
+      "serve": "/index.html",
+      "statusCode": 200
     },
     {
-      "path": "/Onboarding",
-      "component": "Onboarding"
+      "route": "/Home",
+      "serve": "/index.html",
+      "statusCode": 200
     },
     {
-      "path": "/Verification",
-      "component": "VerificationCode"
+      "route": "*",
+      "serve": "/index.html",
+      "statusCode": 200
     },
     {
-      "path": "/SearchProducts",
-      "component": "SearchProducts"
+      "route": "/Onboarding",
+      "serve": "/index.html",
+      "statusCode": 200
     },
     {
-      "path": "/Signup",
-      "component": "Signup"
+      "route": "/Verification",
+      "serve": "/index.html",
+      "statusCode": 200
     },
     {
-      "path": "/Signin",
-      "component": "Signin"
+      "route": "/SearchProducts",
+      "serve": "/index.html",
+      "statusCode": 200
     },
     {
-      "path": "/Profile",
-      "component": "ProfilePage"
+      "route": "/Signup",
+      "serve": "/index.html",
+      "statusCode": 200
     },
     {
-      "path":"/EditProfile",
-      "component":"EditProfile"
+      "route": "/Signin",
+      "serve": "/index.html",
+      "statusCode": 200
     },
     {
-      "path": "/ProductReview/:productId",
-      "component": "ProductReviewForm"
+      "route": "/ForgotPassword",
+      "serve": "/index.html",
+      "statusCode": 200
     },
     {
-      "path": "/OrderReview/:orderId",
-      "component": "OrderReviewForm"
+      "route": "/PasswordResetConfirmation",
+      "serve": "/index.html",
+      "statusCode": 200
     },
     {
-      "path": "/Products/:type/:value",
-      "component": "Products"
+      "route": "/ResetPassword",
+      "serve": "/index.html",
+      "statusCode": 200
     },
     {
-      "path":"/Profile/PaymentMethods",
-      "component":"PaymentMethod"
+      "route": "/Profile",
+      "serve": "/index.html",
+      "statusCode": 200
     },
     {
-      "path": "/ProductSubmitedReviews/:productId",
-      "component": "ProductReview"
+      "route": "/EditProfile",
+      "serve": "/index.html",
+      "statusCode": 200
     },
     {
-      "path" : "/Home",
-      "element" : "Home"
+      "route": "/ProductReview/:productId",
+      "serve": "/index.html",
+      "statusCode": 200
     },
     {
-      "path" : "/UserAddress",
-      "element" : "UserAddresses"
+      "route": "/OrderReview/:orderId",
+      "serve": "/index.html",
+      "statusCode": 200
     },
     {
-      "path": "/OrderHistory",
-      "component": "OrderHistory"
+      "route": "/Products/:type/:value",
+      "serve": "/index.html",
+      "statusCode": 200
+    },
+    {
+      "route": "/Profile/PaymentMethods",
+      "serve": "/index.html",
+      "statusCode": 200
+    },
+    {
+      "route": "/Profile/AddAddress",
+      "serve": "/index.html",
+      "statusCode": 200
+    },
+    {
+      "route": "/MyPromocodes",
+      "serve": "/index.html",
+      "statusCode": 200
+    },
+    {
+      "route": "/ProductSubmitedReviews/:productId",
+      "serve": "/index.html",
+      "statusCode": 200
+    },
+    {
+      "route": "/OrderHistory",
+      "serve": "/index.html",
+      "statusCode": 200
+    },
+    {
+      "route": "/static/*",
+      "serve": "/static/:splat",
+      "statusCode": 200
     }
-  ],
-  "fallback": {
-    "component": "Home"
-  }
+  ]
 }
