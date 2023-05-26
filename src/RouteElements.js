@@ -17,6 +17,7 @@ import ForgotPassword from './components/views/ForgotPassword'
 import PasswordResetConfirmation from "./components/views/PasswordResetConfirmation"
 import ResetPassword from "./components/views/ResetPassword"
 import OrderHistory from "./components/views/OrderHistory"
+import Wishlist from "./components/views/Wishlist"
 
 const RouteElements = () => {
   return (
@@ -43,6 +44,7 @@ const RouteElements = () => {
         element={<ProductReview />}
       />
       <Route path='/OrderHistory' element={<OrderHistory />} />
+      <Route path="/Wishlist" element={<Wishlist />} /> {/* Add the Wishlist route */}
     </Routes>
   )
 }

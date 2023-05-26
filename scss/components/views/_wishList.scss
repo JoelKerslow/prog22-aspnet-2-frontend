@@ -1,0 +1,107 @@
+.wishlist-group {
+    margin-top: 10px; /* Add margin to create space between header and wishlist items */
+    @media screen and (min-width: 768px) {
+        width: 60%;
+      margin-left: auto;
+      margin-right: auto;
+      border: 1px;
+    }
+    @media screen and (min-width: 1200px) {
+      width: 60%;
+      margin-left: auto;
+      margin-right: auto;
+      border: 1px;
+    }
+  
+    ul.wishlist-items {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+  
+      li.wishlist-item {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-bottom: 1px solid #ccc;
+  
+        img {
+          width: 100px;
+          height: 100px;
+          display: flex;
+          align-items: center;
+          flex-shrink: 0;
+          margin-top: -10px;
+          margin-left: 5px;
+        }
+  
+        .wishlist-details {
+          flex-grow: 1;
+          padding-left: 10px;
+          font-family: 'Montserrat', sans-serif;
+          font-size: 0.8rem;
+  
+          .wishlist-name {
+            margin-top: -50px;
+          }
+  
+          .wishlist-price {
+            margin-top: -10px;
+          }
+        }
+  
+        .wishlist-icons {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-top: -5px;
+          margin-right: 5px;
+  
+          button {
+            border: none;
+            background-color: white;
+            padding-bottom: 10px;
+          }
+  
+          .wishlist-remove {
+            margin-bottom: 5px;
+  
+            i {
+              font-size: 24px;
+              color: red;
+              border: none;
+            }
+          }
+  
+          .wishlist-add-to-cart {
+            i {
+              font-size: 24px;
+              color: blue;
+            }
+          }
+        }
+      }
+  
+      li.wishlist-item:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+  
+  .add-to-cart-btn,
+  .remove-btn {
+    border: none;
+    background-color: transparent;
+    color: #fff;
+    padding: 5px 10px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    background: none;
+  }
+
+  h2{
+    font-family: 'Montserrat', sans-serif;
+    font-size: $font-size-standard;
+  }
+  
