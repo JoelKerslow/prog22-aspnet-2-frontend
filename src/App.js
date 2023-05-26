@@ -22,6 +22,7 @@ function App() {
   // )
 
   return (
+
     <UserContextProvider>
       <AuthorizationContextProvider>
         <ProductContextProvider>

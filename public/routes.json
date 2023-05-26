@@ -54,7 +54,11 @@
     },
     {
       "path" : "/Home",
-      "component" : "Home"
+      "element" : "Home"
+    },
+    {
+      "path" : "/UserAddress",
+      "element" : "UserAddresses"
     },
     {
       "path": "/OrderHistory",

@@ -1,0 +1,17 @@
+.addAddress{
+    font-family: $font-opensans;
+    .linkBox{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: $color-dark-1;
+        text-decoration: none;
+        margin-top: 45px;
+
+        .textLine{
+            font-size: 14px;
+            color: $color-dark-2;
+        }
+    }
+}

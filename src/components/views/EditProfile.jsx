@@ -7,6 +7,7 @@ import { UserContext } from "../../contexts/UserContext";
 import { useNavigate } from "react-router-dom";
 
 
+
 const EditProfile = () => {
 
   const navigate = useNavigate();
