@@ -52,12 +52,10 @@
 .get-started-btn {
   color: $color-white;
   width: 50%;
-  /* Set button width to 50% of the circle width */
   height: 7vh;
-  border-radius: 25px;
+  border-radius: 1000px;
   background-color: $color-main;
   margin-bottom: 2rem;
-  /* Add margin for spacing */
   transition: transform .5s ease;
 }
 .get-started-btn:hover {
@@ -65,44 +63,3 @@
 }
 
 
-
-
-//Gammal CSS
-
-
-// .welcome-section { //Inte längre relevant
-//   background-color: #dbe3f5;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center; /* Center content horizontally */
-//   width: 100vw;
-//   height: 100vh;
-//   overflow: hidden; /* Hide overflowing part of the circle */
-//   position: relative; /* Add position relative */
-// }
-
-// .welcome-circle { //Inte längre relevant
-//   background-color: white;
-//   border-radius: 50%;
-//   min-width: 110%; /* Increase width for a larger circle */
-//   min-height: 110%; /* Increase height for a larger circle */
-//   position: relative;
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   justify-content: flex-end; /* Align content to the lower part of the circle */
-//   transform: translateY(-50%); /* Move circle up */
-// }
-
-
-
-// &::after { //Inte längre relevant
-//   content: "";
-//   position: absolute;
-//   top: -2.5rem;
-//   left: -2.5rem;
-//   width: calc(100% + 5rem);
-//   height: calc(100% + 5rem);
-//   border-radius: 50%;
-//   border: 2px solid white;
-// }

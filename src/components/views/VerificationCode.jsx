@@ -2,8 +2,10 @@
 import BackArrow from '../partials/generalPartials/BackArrow'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
+import { useNavigate } from "react-router-dom";
 
 const VerificationCode = () => {
+  const navigate = useNavigate();
   const [inputValues, setInputValues] = useState(Array(5).fill(''))
 
   function handleInput(event, index) {
@@ -15,10 +17,14 @@ const VerificationCode = () => {
     }
   }
 
+  const handleGoBack = () => {
+    navigate(-1)
+	};
+
   return (
     <>
       <div className="RegHeader">
-        <BackArrow />
+        <BackArrow clickEvent={handleGoBack} />
         <h3>Verify your phone number</h3>
       </div>
       <div className="mycirclecontainer">

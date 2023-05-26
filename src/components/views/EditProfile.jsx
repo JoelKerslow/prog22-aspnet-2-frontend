@@ -1,18 +1,25 @@
 //imports
-import { useContext, useState } from "react";
+import { useContext, useState, useRef } from "react";
 import BackArrow from "../partials/generalPartials/BackArrow";
 import VerticalBar from "../partials/generalPartials/VerticalBar";
 import ProfilePicture from "../partials/generalPartials/ProfilePicture";
 import { UserContext } from "../../contexts/UserContext";
+import { useNavigate } from "react-router-dom";
 
-const Registration = () => {
 
+
+const EditProfile = () => {
+
+  const navigate = useNavigate();
+
+
+  const fullNameRef = useRef();
   const { updateUserProfile } = useContext(UserContext);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   
   const handleNameChange = (event) => {
-    const name = event.target.value;
+    const name = fullNameRef.current.value;
     const [first, last] = name.split(" ");
     setFirstName(first);
     setLastName(last);
@@ -23,13 +30,19 @@ const Registration = () => {
     updateUserProfile({ firstName, lastName });
   };
 
+  const handleGoBack = () => {
+    navigate(-1)
+  };
+
+  
+
   return (
     <>
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-12 col-sm-8 col-md-6 col-lg-4">
             <div className="RegHeader">
-              <BackArrow />
+              <BackArrow clickEvent={handleGoBack} />
               <h3>Edit profile</h3>
             </div>
 
@@ -43,7 +56,7 @@ const Registration = () => {
                   type="text"
                   className="input-field"
                   placeholder="John Doe"
-                  value={`${firstName} ${lastName}`}
+                  ref={fullNameRef}
                   onChange={handleNameChange}
                 />
               </div>
@@ -82,4 +95,4 @@ const Registration = () => {
     </>
   );
 };
-export default Registration;
+export default EditProfile;

@@ -1,0 +1,41 @@
+.sorting-list{
+    font-family: $font-opensans;
+    font-weight: $font-weight-semibold;
+    opacity: 80%;
+    display: flex;
+    justify-content: flex-end;
+
+    ul{
+        width: fit-content;
+        margin-right: 10px;
+    }
+
+    li{
+        list-style: none;
+        margin: 7px;
+        padding: 5px;
+        border-radius: 10px;
+        width: fit-content;
+
+        &:hover{
+            cursor: pointer;
+            background-color: $color-bluegrey;
+        }
+    }
+
+    .active-sorting{
+        background-color: $color-bluegrey;
+    }
+
+    @include lg{
+        ul{
+            margin-right: 25px;
+        }
+    }
+
+    @include xl{
+        ul{
+            margin-right: 50px;
+        }
+    }
+}

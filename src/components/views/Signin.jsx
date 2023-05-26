@@ -46,6 +46,11 @@ const SignIn = () => {
       // Set a cookie or use local storage here.
     }
   };
+
+
+  const handleGoBack = () => {
+    navigate(-1)
+	};
   
 
   return (
@@ -54,7 +59,7 @@ const SignIn = () => {
         <div className="row justify-content-center">
           <div className="col-12 col-sm-8 col-md-6 col-lg-4">
             <div className="RegHeader">
-              <BackArrow />
+              <BackArrow clickEvent={handleGoBack} />
               <h3>Sign in</h3>
             </div>
 
@@ -85,9 +90,10 @@ const SignIn = () => {
                   <input type="checkbox" className="RememberMeCB" onChange={handleRememberMeChange}></input>
                   <label className="RememberMelbl">Remember me</label>
                 </div>
+                <Link to="/ForgotPassword">Forgot password?</Link>
                 { error && <div className="error-text">{error}</div>}
-                <Link to="/PasswordReset">Forgot password?</Link>
               </div>
+              <div className="input-field-group">
               <button
                 className="BigBlackButton"
                 onClick={() => {
@@ -96,6 +102,9 @@ const SignIn = () => {
               >
                 Sign in
               </button>
+              </div>
+
+        
             </div>
 
             <p className="text-center my-2">
