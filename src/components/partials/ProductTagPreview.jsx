@@ -49,6 +49,7 @@ const ProductTagPreview = ({ tag, tagId }) => {
         useEffect(() => {
             		const shortlist = activeProdList.splice(0, 6);
             		setShortList(shortlist);
+                    console.log(shortList)
             	}, [activeProdList]);
             
             const updateIndex = (newIndex) => {
@@ -64,7 +65,7 @@ const ProductTagPreview = ({ tag, tagId }) => {
                 <div className="previewContainer">
 				<div className="textRow">
 					<div className="tagText">
-						{!tag ? (<div className="tagText">Insert tag</div>) : (<div className="tagText">{tag}</div>)}
+						{!tag ? (<div className="tagText">Amazing Products</div>) : (<div className="tagText">{tag}</div>)}
 					</div>
 					<div className="fullListLink">
 						<NavLink className="angleIcon" to={`/Products/tag/${tagId}`} >

@@ -1,19 +1,23 @@
 .reviewCard {
     @include font-default;
     font-family: $font-opensans;
-    width: 100dvw;
+    width: 95vw;
     height: auto;
     margin-top: 19px;
-
+    margin-right: 5px;
+    margin-left: 5px;
+    border-bottom: 1px solid $color-theme;
+    
+    
+    @include xxl{
+        justify-content: flex-start;
+    }
     .cardHeader {
         margin-top: 5px;
-        margin-left: 5px;
-        margin-right: 5px;
         display: flex;
         flex-direction: row;
 
         .profileImg {
-            margin-left: 20px;
             height: 50px;
             width: 50px;
             flex-direction: row;
@@ -28,11 +32,11 @@
 
         .nameAndDate {
             margin-left: 14px;
-            margin-right: auto;
+            margin-right: 15px;
             flex-direction: column;
 
             .profileName {
-                font-weight: $font-weight-semibold;
+                font-weight: $font-weight-medium;
             }
 
             .reviewDate {
@@ -43,14 +47,19 @@
 
         .reviewStarRating {
             margin-right: 5px;
+            justify-content: end;
         }
     }
 
     .reviewText {
-        margin-left: 84px;
+        width: 200px;
+        margin-left: 65px;
+        margin-bottom: 20px;
         flex-direction: column;
-
+        font-size: 12px;
+        line-break: normal;
+        @include xxl{
+            width:auto;
+        }
     }
-
-
 }

@@ -1,0 +1,71 @@
+{
+  "routes": [
+    {
+      "path": "/",
+      "component": "Welcome"
+    },
+    {
+      "path": "/Onboarding",
+      "component": "Onboarding"
+    },
+    {
+      "path": "/Verification",
+      "component": "VerificationCode"
+    },
+    {
+      "path": "/SearchProducts",
+      "component": "SearchProducts"
+    },
+    {
+      "path": "/Signup",
+      "component": "Signup"
+    },
+    {
+      "path": "/Signin",
+      "component": "Signin"
+    },
+    {
+      "path": "/Profile",
+      "component": "ProfilePage"
+    },
+    {
+      "path":"/EditProfile",
+      "component":"EditProfile"
+    },
+    {
+      "path": "/ProductReview/:productId",
+      "component": "ProductReviewForm"
+    },
+    {
+      "path": "/OrderReview/:orderId",
+      "component": "OrderReviewForm"
+    },
+    {
+      "path": "/Products/:type/:value",
+      "component": "Products"
+    },
+    {
+      "path":"/Profile/PaymentMethods",
+      "component":"PaymentMethod"
+    },
+    {
+      "path": "/ProductSubmitedReviews/:productId",
+      "component": "ProductReview"
+    },
+    {
+      "path" : "/Home",
+      "element" : "Home"
+    },
+    {
+      "path" : "/UserAddress",
+      "element" : "UserAddresses"
+    },
+    {
+      "path": "/OrderHistory",
+      "component": "OrderHistory"
+    }
+  ],
+  "fallback": {
+    "component": "Home"
+  }
+}
