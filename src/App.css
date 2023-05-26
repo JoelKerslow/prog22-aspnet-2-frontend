@@ -294,7 +294,8 @@ header .sidebar-container h1 {
   font-family: "Montserrat", sans-serif;
   font-size: 16px;
   text-align: left;
-  text-decoration: solid;
+  -webkit-text-decoration: solid;
+          text-decoration: solid;
   color: white;
 }
 header .sidebar-container ul {
@@ -359,6 +360,7 @@ header.sidebar-open .sidebar-container {
 .product-card {
   background-color: rgb(251, 251, 251);
   width: 45vw;
+  height: -moz-fit-content;
   height: fit-content;
   transition: 0.3s ease;
   margin: 15px;
@@ -395,7 +397,8 @@ header.sidebar-open .sidebar-container {
 .product-card .top-section .product-image {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
   max-width: 100%;
   max-height: 100%;
 }
@@ -492,6 +495,7 @@ header.sidebar-open .sidebar-container {
   text-transform: uppercase;
   text-align: center;
   border-radius: 15px;
+  width: -moz-fit-content;
   width: fit-content;
   padding: 4px 18px;
   font-family: "Open Sans", sans-serif;
@@ -841,7 +845,8 @@ header.sidebar-open .sidebar-container {
 .profilepic-outer-circle img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .profilepic-picture {
@@ -882,6 +887,10 @@ header.sidebar-open .sidebar-container {
   position: relative;
   margin-top: auto;
   margin-bottom: auto;
+}
+
+.input-field-group.error .input-field {
+  border-color: #f4303c;
 }
 
 .input-field {
@@ -935,14 +944,6 @@ header.sidebar-open .sidebar-container {
   font-size: 18px;
 }
 
-@media (min-width: 768px) {
-  .input-field {
-    width: 20vw;
-  }
-  .input-field-group label {
-    left: 20%;
-  }
-}
 .showcase-carousel {
   font-family: "Open Sans", sans-serif;
   overflow: hidden;
@@ -1359,6 +1360,7 @@ header.sidebar-open .sidebar-container {
 .filter-list .mark-filter .mark-option {
   display: flex;
   align-items: center;
+  width: -moz-fit-content;
   width: fit-content;
   padding-right: 10px;
 }
@@ -1395,6 +1397,7 @@ header.sidebar-open .sidebar-container {
   border-radius: 15px;
   border: 1px solid #DBE3F5;
   padding: 5px 18px;
+  width: -moz-fit-content;
   width: fit-content;
   font-weight: 600;
   font-size: 14px;
@@ -2021,6 +2024,7 @@ header.sidebar-open .sidebar-container {
   justify-content: flex-end;
 }
 .sorting-list ul {
+  width: -moz-fit-content;
   width: fit-content;
   margin-right: 10px;
 }
@@ -2029,6 +2033,7 @@ header.sidebar-open .sidebar-container {
   margin: 7px;
   padding: 5px;
   border-radius: 10px;
+  width: -moz-fit-content;
   width: fit-content;
 }
 .sorting-list li:hover {
@@ -2047,6 +2052,14 @@ header.sidebar-open .sidebar-container {
   .sorting-list ul {
     margin-right: 50px;
   }
+}
+
+.map-frame {
+  position: relative;
+  width: 100%;
+  height: 390px;
+  margin: 0 0 30px 0;
+  border: 0;
 }
 
 .promo-header,
@@ -2386,6 +2399,7 @@ header.sidebar-open .sidebar-container {
 .under-header div {
   display: flex;
   gap: 10px;
+  width: -moz-fit-content;
   width: fit-content;
   padding-right: 5px;
   margin-right: 15px;
@@ -2504,6 +2518,41 @@ header.sidebar-open .sidebar-container {
     border-radius: 5px;
     justify-content: center;
   }
+}
+
+.address-form-container {
+  padding: 0;
+}
+
+.address-form .input-field-group {
+  margin-bottom: 15px;
+}
+@media (min-width: 576px) {
+  .address-form .form-select {
+    width: 100%;
+  }
+}
+.address-form .error-text {
+  position: relative;
+  margin: 0;
+  padding-left: 30px;
+  bottom: 30px;
+  color: red;
+  font-size: 0.95rem;
+}
+.address-form .error-text::before {
+  content: "* ";
+}
+.address-form .form-check {
+  margin-left: 20px;
+}
+.address-form .form-check .form-check-label {
+  color: #626262;
+}
+.address-form hr {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
 }
 
 .order-status {
