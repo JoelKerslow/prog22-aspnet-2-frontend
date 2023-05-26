@@ -1783,6 +1783,7 @@ header.sidebar-open .sidebar-container {
   height: 390px;
   margin: 0 0 30px 0;
   border: 0;
+}
 
 .promo-header,
 .promocodes-container {
@@ -1894,7 +1895,6 @@ header.sidebar-open .sidebar-container {
     width: 30%;
   }
 }
-
 .Onboarding-Container {
   display: flex;
   flex-direction: column;
