@@ -38,7 +38,7 @@ const RouteElements = () => {
       <Route path='/OrderReview/:orderId' element={<OrderReviewForm />} />
       <Route path='/Products/:type/:value' element={<Products />} />
       <Route path='/Profile/PaymentMethods' element={<PaymentMethod />} />
-      <Route path='/Profile/AddAddress' element={<AddressForm />} />
+      <Route path='/Profile/Addresses/Manage' element={<AddressForm />} />
       <Route
         path='/ProductSubmitedReviews/:productId'
         element={<ProductReview />}
