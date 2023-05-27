@@ -1,0 +1,17 @@
+.cart-icon {
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 1.5rem;
+  
+    .fa-bag-shopping:hover {
+      color: $color-light-green;
+      filter: brightness(90%);
+    }
+  
+    .fa-solid {
+      color: $color-light-green;
+    }
+
+}
+
