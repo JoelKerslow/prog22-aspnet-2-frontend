@@ -1900,6 +1900,61 @@ header.sidebar-open .sidebar-container {
   scale: 110%;
 }
 
+.icon-picker {
+  position: relative;
+  border: 1px solid #8d93a7;
+  border-radius: 5px;
+  font-size: 1.4rem;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  transition: all 0.1s ease-in-out;
+}
+.icon-picker:hover {
+  background-color: #DBE3F5;
+}
+.icon-picker__selected {
+  cursor: pointer;
+  z-index: 1;
+}
+.icon-picker__icons {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 2;
+  display: flex;
+  align-items: baseline;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.icon-picker__icons.hide {
+  display: none;
+}
+.icon-picker__icons .icon-picker__icon {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 5px 0 5px;
+  width: 35px;
+  height: 35px;
+  border-radius: 4px;
+  background-color: #dbe3f5;
+  padding: 20px;
+  transition: all 0.1s ease-in-out;
+}
+.icon-picker__icons .icon-picker__icon:hover {
+  transform: scale(1.1);
+  background-color: #8d93a7;
+}
+.icon-picker__icons .icon-picker__icon i {
+  padding: 10px;
+  font-size: 1.6rem;
+}
+
 .popup-container {
   display: flex;
   justify-content: center;
@@ -2537,6 +2592,15 @@ header.sidebar-open .sidebar-container {
 }
 .address-form .form-check .form-check-label {
   color: #626262;
+}
+.address-form .icon-picker-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+.address-form .icon-picker-container label {
+  margin-right: 20px;
 }
 .address-form hr {
   border: 0;

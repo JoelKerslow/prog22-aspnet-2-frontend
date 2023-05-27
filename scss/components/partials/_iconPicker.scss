@@ -1,0 +1,61 @@
+.icon-picker {
+  position: relative;
+  border: 1px solid $color-theme-2;
+  border-radius: 5px;
+  font-size: 1.4rem;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  transition: all 0.1s ease-in-out;
+  
+  &:hover {
+    background-color: $color-bluegrey;
+  }
+
+  &__selected {
+    cursor: pointer;
+    z-index: 1;
+  }
+
+  &__icons {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 2;
+    display: flex;
+    align-items: baseline;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    
+    &.hide {
+      display: none;
+    }
+
+    .icon-picker__icon {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 5px 0 5px;
+      width: 35px;
+      height: 35px;
+      border-radius: 4px;
+      background-color: $color-theme;
+      padding: 20px;
+      transition: all 0.1s ease-in-out;
+
+      &:hover {
+        transform: scale(1.1);
+        background-color: $color-theme-2;
+      }
+
+      i {
+        padding: 10px;
+        font-size: 1.6rem;
+      }
+    }
+  }
+}

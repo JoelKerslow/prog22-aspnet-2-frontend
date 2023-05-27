@@ -4,9 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { AuthorizationContext } from '../../contexts/AuthorizationContext'
 import { UserContext } from '../../contexts/UserContext'
 import { removeWhitespaceOrNull } from '../../scripts/dataUtils'
-// import FontIconPicker from '@fonticonpicker/react-fonticonpicker'
-// import '@fonticonpicker/react-fonticonpicker/dist/fonticonpicker.base-theme.react.css'
-// import '@fonticonpicker/react-fonticonpicker/dist/fonticonpicker.material-theme.react.css'
+import IconPicker from '../partials/IconPicker'
 import MapFrame from '../partials/MapFrame'
 import countries from 'i18n-iso-countries'
 import enLocale from 'i18n-iso-countries/langs/en.json'
@@ -102,28 +100,11 @@ const AddressForm = ({ recievedAddress }) => {
   const [serverError, setServerError] = useState('')
   const [locationError, setLocationError] = useState('')
   const [loading, setLoading] = useState('')
-  const [iconValue, setIconValue] = useState('fa-regular fa-location-dot')
+  const [selectedIcon, setSelectedIcon] = useState('fa-location-dot')
 
   const initialMapCenter = {
     lat: 59.3454695384986,
     lng: 18.02331341412893,
-  }
-
-  const iconPickerProps = {
-    icons: [
-      'fa-regular fa-house',
-      'fa-regular fa-location-dot',
-      'fa-regular fa-briefcase',
-    ],
-    theme: 'bluegrey',
-    renderUsing: 'class',
-    value: iconValue,
-    onChange: (value) => {
-      setIconValue(value)
-    },
-    isMulti: false,
-    showCategory: false,
-    showSearch: false,
   }
 
   countries.registerLocale(enLocale)
@@ -251,7 +232,7 @@ const AddressForm = ({ recievedAddress }) => {
 
     const addressData = {
       ...data,
-      icon: iconValue,
+      icon: selectedIcon,
       customerId: currentUser.id,
     }
     console.log(addressData)
@@ -413,12 +394,14 @@ const AddressForm = ({ recievedAddress }) => {
 
               <hr />
 
-              {/* {!isFormSubmitted && !serverError && (
-                <div className='d-flex align-items-baseline justify-content-center mt-4'>
-                  <p>Choose an icon</p>
-                  <FontIconPicker {...iconPickerProps} />
-                </div>
-              )} */}
+              <div className='icon-picker-container'>
+                <label>Choose an icon</label>
+                <IconPicker
+                  icons={['fa-home', 'fa-briefcase', 'fa-location-dot']}
+                  selectedIcon={selectedIcon}
+                  onChange={(icon) => setSelectedIcon(icon)}
+                />
+              </div>
 
               {isFormSubmitted && (
                 <div className='alert alert-success text-center' role='alert'>
@@ -433,12 +416,12 @@ const AddressForm = ({ recievedAddress }) => {
               )}
 
               {!isFormSubmitted && !serverError ? (
-                <button className='BigBlackButton mt-5 mb-2' type='submit'>
+                <button className='BigBlackButton mt-3 mb-2' type='submit'>
                   SAVE ADDRESS
                 </button>
               ) : (
                 <button
-                  className='BigBlackButton mt-5 mb-2'
+                  className='BigBlackButton mt-3 mb-2'
                   onClick={() => navigate('/Profile')}
                 >
                   GO BACK

@@ -34,6 +34,17 @@
     }
   }
 
+  .icon-picker-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+
+    label {
+      margin-right: 20px;
+    }
+  }
+
   hr {
     border: 0;
     height: 1px;
