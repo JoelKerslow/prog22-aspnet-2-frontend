@@ -76,18 +76,19 @@ const AuthorizationContextProvider = ({ children }) => {
   }
 
   const authorize = async () => {
-    const res = await fetch(authBaseUrl + "Authorize", {
-      headers: {
-        "API-KEY": apiKey,
-        Authorization: "Bearer " + Cookies.get("maneroToken"),
-      },
-    })
+    try {
+      const response = await fetch(authBaseUrl + 'Authorize', {
+        headers: {
+          'API-KEY': apiKey,
+          Authorization: 'Bearer ' + Cookies.get('maneroToken'),
+        },
+      })
 
-    if (res.status === 200) {
-      return true
+      return response.status === 200
+    } catch (err) {
+      console.error('Authorization request failed:', err)
+      return false
     }
-    
-    return false
   }
 
   const useAuthorization = async () => {
