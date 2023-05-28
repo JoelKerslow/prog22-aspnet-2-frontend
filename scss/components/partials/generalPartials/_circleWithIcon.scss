@@ -69,7 +69,7 @@
   }
 }
 
-.circle-with-icon.green {
+.circle-with-icon-green {
   &::before {
     border-color: $color-green;
   }
@@ -79,7 +79,7 @@
   }
 }
 
-.circle-with-icon.red {
+.circle-with-icon-red {
   &::before {
     border-color: $color-red;
   }
