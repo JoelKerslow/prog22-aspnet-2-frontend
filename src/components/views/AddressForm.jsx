@@ -11,7 +11,7 @@ import enLocale from 'i18n-iso-countries/langs/en.json'
 import Header from '../partials/Header'
 
 const googleApiKey = process.env.REACT_APP_GOOGLE_API_KEY
-const useTestData = true // !!! Sätt som TRUE för att inte spamma google api vid test !!!
+const useTestData = false // !!! Sätt som TRUE för att inte spamma google api vid test !!!
 // #region TestData
 const testData = {
   plus_code: {
@@ -383,7 +383,7 @@ const AddressForm = ({ recievedAddress }) => {
                 />
                 <label className='form-check-label'>Use current location</label>
 
-                {loading && <p>{loading}</p>}
+                {loading && useLocation && <p>{loading}</p>}
               </div>
 
               {!isFormSubmitted && locationError && useLocation && (
