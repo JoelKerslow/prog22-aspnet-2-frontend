@@ -4,6 +4,7 @@ import RouteElements from "./RouteElements"
 import ProductContextProvider from "./contexts/ProductContext"
 import AuthorizationContextProvider from "./contexts/AuthorizationContext"
 import UserContextProvider from "./contexts/UserContext"
+import { WishlistProvider } from "./contexts/WishlistContext"
 
 function App() {
   // const { routes, fallback } = routingConfig
@@ -25,7 +26,9 @@ function App() {
     <UserContextProvider>
       <AuthorizationContextProvider>
         <ProductContextProvider>
-          <RouteElements />
+          <WishlistProvider>
+            <RouteElements />
+          </WishlistProvider>
         </ProductContextProvider>
       </AuthorizationContextProvider>
     </UserContextProvider>

@@ -44,7 +44,7 @@ const RouteElements = () => {
         element={<ProductReview />}
       />
       <Route path='/OrderHistory' element={<OrderHistory />} />
-      <Route path="/Wishlist" element={<Wishlist />} /> {/* Add the Wishlist route */}
+      <Route path="/Wishlist" element={<Wishlist/>} />
     </Routes>
   )
 }
