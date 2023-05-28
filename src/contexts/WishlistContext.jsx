@@ -8,6 +8,7 @@ const WishlistContext = createContext();
 const WishlistProvider = ({ children }) => {
   const [wishlist, setWishlist] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [cartItem, setCartItem] = useState(null); 
   const { useAuthorization, authorize } = useContext(AuthorizationContext);
   const { currentUser } = useContext(UserContext);
 
@@ -115,8 +116,38 @@ const WishlistProvider = ({ children }) => {
     }
   };
 
-  const addToCart = (productId) => {
-    console.log(`Adding product with ID ${productId} to cart`);
+  //Flytta över denna del till cartcontext. 
+  //undersök hur man kan göra med quantity (vissa produkter läggs till med quantity 0)
+  const addToCart = async (productId) => {
+    try {
+        const cartBaseUrl = 'https://aspnet2-grupp1-backend.azurewebsites.net/api/Cart/'
+      const token = Cookies.get('maneroToken');
+      const apiKey = 'f77ca749-67f4-4c22-9039-137272442ea0';
+      const url = `${cartBaseUrl}/Item/Create`;
+
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'API-KEY': apiKey,
+          Authorization: 'Bearer ' + token,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          productId: productId,
+        }),
+      });
+
+      if (!response.ok) {
+        const error = await response.text();
+        throw new Error(error || response.status);
+      }
+
+      setCartItem(productId);
+      const cartItem = await response.json();
+      console.log('Added cart item: ', cartItem);
+    } catch (error) {
+      console.log('Failed to add cart item: ', error);
+    }
   };
 
   const wishlistContextValue = {
