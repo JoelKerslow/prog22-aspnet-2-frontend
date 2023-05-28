@@ -1955,6 +1955,17 @@ header.sidebar-open .sidebar-container {
   font-size: 1.6rem;
 }
 
+.icon-picker.disabled {
+  opacity: 0.5;
+  cursor: initial;
+}
+.icon-picker.disabled .icon-picker__selected {
+  cursor: initial;
+}
+.icon-picker.disabled:hover {
+  background-color: initial;
+}
+
 .popup-container {
   display: flex;
   justify-content: center;
@@ -2601,6 +2612,14 @@ header.sidebar-open .sidebar-container {
 }
 .address-form .icon-picker-container label {
   margin-right: 20px;
+}
+.address-form input::-webkit-outer-spin-button,
+.address-form input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.address-form input[type=number] {
+  -moz-appearance: textfield;
 }
 .address-form hr {
   border: 0;
