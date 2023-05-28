@@ -4,6 +4,7 @@ import RouteElements from "./RouteElements"
 import ProductContextProvider from "./contexts/ProductContext"
 import AuthorizationContextProvider from "./contexts/AuthorizationContext"
 import UserContextProvider from "./contexts/UserContext"
+import CartContextProvider from "./contexts/CartContext"
 
 function App() {
   // const { routes, fallback } = routingConfig
@@ -24,12 +25,14 @@ function App() {
   return (
 
     <UserContextProvider>
-      <AuthorizationContextProvider>
-        <ProductContextProvider>
+    <AuthorizationContextProvider>
+      <ProductContextProvider>
+        <CartContextProvider>
           <RouteElements />
-        </ProductContextProvider>
-      </AuthorizationContextProvider>
-    </UserContextProvider>
+        </CartContextProvider>
+      </ProductContextProvider>
+    </AuthorizationContextProvider>
+  </UserContextProvider>
   )
 }
 
