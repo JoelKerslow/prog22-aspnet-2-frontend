@@ -125,6 +125,11 @@ const WishlistProvider = ({ children }) => {
       const apiKey = 'f77ca749-67f4-4c22-9039-137272442ea0';
       const url = `${cartBaseUrl}/Item/Create`;
 
+      const item = {
+        productId: productId,
+        quantity: 1, //sätter quant
+      };
+
       const response = await fetch(url, {
         method: 'POST',
         headers: {
