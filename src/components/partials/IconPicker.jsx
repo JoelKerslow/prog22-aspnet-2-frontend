@@ -1,7 +1,12 @@
 import { useState } from 'react'
 
-const IconPicker = ({ icons, selectedIcon, onChange }) => {
+const IconPicker = ({ icons, selectedIcon, onChange, disabled }) => {
   const [showIcons, setShowIcons] = useState(false)
+
+  const handleClick = () => {
+    if (disabled) return
+    setShowIcons(!showIcons)
+  }
 
   const handleIconClick = (icon) => {
     onChange(icon)
@@ -9,10 +14,10 @@ const IconPicker = ({ icons, selectedIcon, onChange }) => {
   }
 
   return (
-    <div className='icon-picker'>
+    <div className={`icon-picker ${disabled && 'disabled'}`}>
       <div
         className='icon-picker__selected'
-        onClick={() => setShowIcons(!showIcons)}
+        onClick={handleClick}
       >
         <i className={`fa-regular ${selectedIcon}`}></i>
       </div>

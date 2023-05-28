@@ -59,3 +59,16 @@
     }
   }
 }
+
+.icon-picker.disabled {
+  opacity: 0.5;
+  cursor: initial;
+
+  .icon-picker__selected {
+    cursor: initial;
+  }
+
+  &:hover {
+    background-color: initial;
+  }
+}
