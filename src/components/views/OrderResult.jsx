@@ -1,15 +1,36 @@
-import React from "react";
+import React, { useEffect, useState, useContext } from "react";
 import CircleWithIcon from "../partials/generalPartials/CircleWithIcon";
 import VerticalBar from "../partials/generalPartials/VerticalBar";
 import { useNavigate, useParams } from "react-router-dom";
+import { getOrderByCustomerId } from "../../services/OrderService";
+import { UserContext } from "../../contexts/UserContext";
 
 const OrderResult = () => {
   const navigate = useNavigate();
   const { outcome } = useParams();
+  const { orderId } = useParams();
+  const {currentUser} = useContext(UserContext);
 
+  const [orderExists, setOrderExists] = useState(false);
+
+  const verifyOrderId = async () => {
+    //Fetch orderId and see that it's correct
+    const order = getOrderByCustomerId(currentUser.id);
+    orderId === null || order === undefined ? setOrderExists(false) : setOrderExists(true);
+    console.log(currentUser)
+    console.log(order)
+  };
+
+  useEffect(() => {
+    verifyOrderId();
+  }, []);
   return (
-    <div className="d-flex align-items-center justify-content-center"  style={{height: "80vh" }}>
-      {outcome == "success" ? (
+    <div
+      className="d-flex align-items-center justify-content-center"
+      style={{ height: "80vh" }}
+    >
+    {orderExists ? (
+      outcome === "success" ? (
         <div className="order-result-container">
           <CircleWithIcon
             theme="circle-with-icon-green"
@@ -59,7 +80,10 @@ const OrderResult = () => {
             GO TO MY PROFILE
           </button>
         </div>
-      )}
+      )
+    ) : (
+      <div>Ops.. Nothing to see here.</div>
+    )}
     </div>
   );
 };

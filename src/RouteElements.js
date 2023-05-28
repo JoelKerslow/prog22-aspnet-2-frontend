@@ -50,7 +50,7 @@ const RouteElements = () => {
         element={<ProductReview />}
       />
       <Route path='/OrderHistory' element={<OrderHistory />} />
-      <Route path='/orderresult/:outcome' element={<OrderResult />} />
+      <Route path='/orderresult/:outcome/:orderId' element={<OrderResult />} />
 
     </Routes>
   )
