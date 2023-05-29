@@ -1,0 +1,194 @@
+.cart-list-container {
+  width: 50%;
+  margin: auto;
+  cursor: pointer;
+  font: $font-opensans;
+}
+
+.cart-container {
+  width: 100%;
+  grid-template-areas: "img inf cnt";
+}
+
+.cart-item-section {
+  display: grid;
+  height: 100px;
+  margin-top: 30px;
+  grid-template: 1fr / 1fr 2fr 0.5fr 0.2fr;
+  grid-template-areas: "img inf cnt dt";
+}
+
+.cart-image-section {
+  margin-left: 15%;
+  grid-area: img;
+  position: relative;
+}
+
+.sale-badge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30px;
+  background-color: $color-green;
+  text-align: center;
+  color: white;
+  font-size: 10px;
+}
+
+.cart-image {
+  width: 100px;
+  height: 100px;
+}
+
+.item-info {
+  grid-area: inf;
+}
+
+.item-price {
+  display: flex;
+}
+
+.item-price p {
+  display: inline;
+}
+
+.item-info p {
+  margin: 0;
+  margin-left: 10px;
+}
+
+.item-counter {
+  grid-area: cnt;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.delete {
+  grid-area: dt;
+  margin-top: 55px;
+}
+
+.counter-top,
+.counter-middle,
+.counter-bottom {
+  width: 30px;
+  height: 30px;
+  font-weight: $font-weight-bold;
+  font-size: 16px;
+  @include center-content;
+}
+
+.counter-top:hover,
+.counter-bottom:hover {
+  cursor: pointer;
+  background-color: rgb(254, 254, 254);
+  color: rgb(77, 76, 76);
+}
+
+hr {
+  width: 100%;
+  color: $color-dark-3;
+}
+
+.promo-code-section {
+  height: 70px;
+  position: relative;
+}
+
+.promo-code-section p {
+  padding: 10px;
+}
+
+.code-input {
+  width: 150px;
+  border-radius: 40px;
+  margin-left: 30px;
+}
+
+.code-input::placeholder {
+  opacity: 0.3;
+  text-align: center;
+}
+
+.code-input:focus {
+  outline: none;
+}
+
+.table {
+  width: 100%;
+}
+
+.table hr {
+  width: 100%;
+}
+
+.table tr {
+  border: none;
+}
+
+.table td {
+  padding: 10px;
+  border: none;
+}
+
+.table td.title {
+  text-align: left;
+  margin-left: 20px;
+}
+
+.table td.value {
+  text-align: right;
+  margin-right: 20px;
+}
+
+.green-icon {
+  color: $color-green;
+  margin-left: 10px;
+}
+
+.red-icon {
+  color: $color-red;
+  margin-left: 10px;
+}
+
+.cart-container{
+  position: relative;
+}
+
+.RegHeader div  {
+  position: absolute;
+  right: 80px;
+  font-size: larger;
+  @include center-content;
+}
+
+.RegHeader .total-container {
+  position: absolute;
+  right: 95px;
+  width: auto;
+  height: 20px;
+  padding: 5px;
+  border-radius: 30px;
+  font-size: 12px;
+  background-color: $color-red;
+  color: $color-white;
+  @include center-content;
+}
+
+/* Media query for phones */
+@media (max-width: 580px) {
+  .cart-list-container {
+    width: 100%;
+  }
+
+  .RegHeader div {
+    right: 20px;
+    font-size: larger;
+  }
+
+  .RegHeader .total-container {
+    right: 35px;
+  }
+}
