@@ -81,7 +81,12 @@
       "statusCode": 200
     },
     {
-      "route": "/Profile/AddAddress",
+      "route": "/Profile/Addresses",
+      "serve": "/index.html",
+      "statusCode": 200
+    },
+    {
+      "route": "/Profile/Addresses/Manage",
       "serve": "/index.html",
       "statusCode": 200
     },
