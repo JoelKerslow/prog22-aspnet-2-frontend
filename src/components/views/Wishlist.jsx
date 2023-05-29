@@ -29,10 +29,10 @@ const Wishlist = () => {
                     </div>
                   </div>
                   <div className="wishlist-icons">
-                    <button
-                      className="wishlist-remove"onClick={() => removeItemFromWishlist(item.productId)}>
+                    <button className="wishlist-remove"onClick={() => removeItemFromWishlist(item.productId)}>
+                      <i className='fa-solid fa-heart'></i>
                     </button>
-                    
+
                     <button className="wishlist-add-to-cart" onClick={() => addToCart(item.productId)}>
                       <i className="fa-thin fa-bag-shopping"></i>
                     </button>

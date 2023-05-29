@@ -2209,7 +2209,6 @@ header.sidebar-open .sidebar-container {
   padding-right: 5px;
   width: 100%; /* Add this line */
   height: 100%; /* Add this line */
-  overflow: hidden;
 }
 .wishlist-group ul.wishlist-items li.wishlist-item .wishlist-icons .wishlist-remove {
   margin-bottom: 10px;
