@@ -4,6 +4,9 @@ import StarRating from "./StarRating";
 import { useNavigate } from "react-router-dom";
 import FavouriteIcon from "./FavouriteIcon";
 import CartIcon from "./CartIcon";
+import {placeholderImage} from '../../contexts/ProductContext'
+
+
 const ProductCard = ({ product }) => {
   const { setCurrentProduct, setProductReviews } = useContext(ProductContext);
   const navigate = useNavigate();
@@ -20,7 +23,7 @@ const ProductCard = ({ product }) => {
         <div className="product-card" >
           <div className="top-section">
             <div className="image-section">
-              <img className="product-image" src={product.imageUrl} alt="" onClick={() => handleProductClick()} />
+              <img className="product-image" src={product.imageUrl !== null ? product.imageUrl : placeholderImage} alt="" onClick={() => handleProductClick()} />
               <div className="menu">
                 <div className="icons">
                   <FavouriteIcon product={product} />
