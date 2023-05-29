@@ -6,10 +6,10 @@ const ProductContextProvider = ({ children }) => {
     'https://aspnet2-grupp1-backend.azurewebsites.net/api/Products/'
   const apiKey = 'f77ca749-67f4-4c22-9039-137272442ea0'
 
-  //Dessa kan komma att ändras/uppdateras när mer funktionalitet finns på sidan.
   const [products, setProducts] = useState([])
   const [currentProduct, setCurrentProduct] = useState({})
   const [loading, setLoading] = useState(true)
+  const [productReviews, setProductReviews] = useState([])
 
   // #region Fetch methods
   const getProducts = () => {
@@ -26,7 +26,6 @@ const ProductContextProvider = ({ children }) => {
         }
       })
       .then((data) => {
-        console.log(data)
         setProducts(data)
       })
       .catch((error) => {
@@ -48,8 +47,8 @@ const ProductContextProvider = ({ children }) => {
         }
       })
       .then((data) => {
-        console.log(data)
         setCurrentProduct(data)
+        setProductReviews(data.reviews)
       })
       .catch((error) => {
         console.error('Error fetching product:', error)
@@ -71,7 +70,6 @@ const ProductContextProvider = ({ children }) => {
         }
       })
       .then((data) => {
-        console.log(data)
         setProducts(data)
         setLoading(false)
       })
@@ -95,7 +93,6 @@ const ProductContextProvider = ({ children }) => {
         }
       })
       .then((data) => {
-        console.log(data)
         setProducts(data)
         setLoading(false)
       })
@@ -119,7 +116,6 @@ const ProductContextProvider = ({ children }) => {
         }
       })
       .then((data) => {
-        console.log(data)
         setProducts(data)
         setLoading(false)
       })
@@ -143,7 +139,6 @@ const ProductContextProvider = ({ children }) => {
         }
       })
       .then((data) => {
-        console.log(data)
         setProducts(data)
         setLoading(false)
       })
@@ -167,6 +162,8 @@ const ProductContextProvider = ({ children }) => {
         searchProducts,
         loading, 
         getProductsByCategoryAndDepartment,
+        setProductReviews,
+        productReviews
       }}
     >
       {children}
