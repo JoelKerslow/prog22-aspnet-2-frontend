@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthorizationContext } from "../../contexts/AuthorizationContext";
 import Cookies from "js-cookie";
 import { UserContext } from "../../contexts/UserContext";
+import { useNavigate } from 'react-router';
 
 const OrderHistoryView = () => {
     const [orders, setOrders] = useState([]);
@@ -10,6 +11,7 @@ const OrderHistoryView = () => {
     useAuthorization();
 
     const { currentUser } = useContext(UserContext);
+    const navigate = useNavigate();
   
     useEffect(() => {
       const fetchOrders = async () => {
@@ -17,7 +19,7 @@ const OrderHistoryView = () => {
           const tokenValid = await authorize();
   
           if (!tokenValid || !currentUser || !currentUser.id) {
-            // Handle unauthorized access or redirect to login
+            navigate('/signin');
             return;
           }
           
