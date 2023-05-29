@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import StarRating from "./StarRating";
 import PageIndicator from "./PageIndicator";
 import FavouriteIcon from "./FavouriteIcon";
 import UserProductReview from "./UserProductReview";
+import { CartContext } from "../../contexts/CartContext";
+
 
 const ProductInfo = ({ product, productReviews }) => {
   const [quantity, setQuantity] = useState(1);
@@ -11,7 +13,8 @@ const ProductInfo = ({ product, productReviews }) => {
   const [selectedSize, setSelectedSize] = useState(null);
   const [latestReviews, setLatestReviews] = useState();
   const navigate = useNavigate();
-
+  const {addCartItem} = useContext(CartContext);
+ 
   const sizeList = ["XS", "S", "M", "L", "XL", "XXL"];
   const colorList = ["Red", "Blue", "Beige", "Darkblue", "Black", "White"];
 
@@ -35,7 +38,7 @@ const ProductInfo = ({ product, productReviews }) => {
   };
 
   const handleAddToCart = () => {
-    //functionality to add product to cart
+    addCartItem(product.id, quantity);
   }
 
   return (
