@@ -120,14 +120,14 @@ const WishlistProvider = ({ children }) => {
   //undersök hur man kan göra med quantity (vissa produkter läggs till med quantity 0)
   const addToCart = async (productId) => {
     try {
+        
         const cartBaseUrl = 'https://aspnet2-grupp1-backend.azurewebsites.net/api/Cart/'
       const token = Cookies.get('maneroToken');
       const apiKey = 'f77ca749-67f4-4c22-9039-137272442ea0';
       const url = `${cartBaseUrl}/Item/Create`;
 
       const item = {
-        productId: productId,
-        quantity: 1, //sätter quant
+        productId: productId, //sätter quant
       };
 
       const response = await fetch(url, {
@@ -137,9 +137,7 @@ const WishlistProvider = ({ children }) => {
           Authorization: 'Bearer ' + token,
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          productId: productId,
-        }),
+        body: JSON.stringify(item),
       });
 
       if (!response.ok) {

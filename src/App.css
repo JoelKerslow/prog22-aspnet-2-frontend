@@ -2205,6 +2205,7 @@ header.sidebar-open .sidebar-container {
   border: none;
   background-color: white;
   padding-bottom: 10px;
+  padding-right: 10px;
 }
 .wishlist-group ul.wishlist-items li.wishlist-item .wishlist-icons .wishlist-remove {
   margin-bottom: 5px;
