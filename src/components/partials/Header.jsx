@@ -4,7 +4,7 @@ import { CartContext } from '../../contexts/CartContext';
 
 
 
-const Header = ({headerContent, useGoBackButton }) => {
+const Header = ({headerContent, useGoBackButton, showCartButton }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const sidebarRef = useRef(null);
   const {cart, addCartItem} = useContext(CartContext);
@@ -47,14 +47,16 @@ const Header = ({headerContent, useGoBackButton }) => {
           {headerContent}
         </div>
         
-        <div className='cart-section'>
-          <div className='cart-button'>
-            <button className='fa-thin fa-bag-shopping'></button>
-            <div className='cart-total-circle'>
-              ${cart.totalAmountWithDiscount}
+        {showCartButton && (
+          <div className='cart-section'>
+            <div className='cart-button'>
+              <button className='fa-thin fa-bag-shopping'></button>
+              <div className='cart-total-circle'>
+                ${cart.totalAmountWithDiscount}
+              </div>
             </div>
           </div>
-        </div>
+        )}
         
       </div>
       

@@ -10,7 +10,7 @@ const SearchProducts = () => {
 
   return (
     <div>
-      <Header headerContent={<SearchField />} />
+      <Header headerContent={<SearchField />} showCartButton={true}/>
       <Departments activeDepartment={activeDepartment} setActiveDepartment={setActiveDepartment}/>
       <Categories activeDepartment={activeDepartment}/>
     </div>
