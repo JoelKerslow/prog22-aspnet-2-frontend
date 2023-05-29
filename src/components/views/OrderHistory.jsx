@@ -56,7 +56,7 @@ const OrderHistory= () => {
 
     return (
         <div>
-        <Header headerContent={"Order history"} useGoBackButton={true} />
+        <Header headerContent={<h1>Order History</h1>} useGoBackButton={true} showCartButton={true} />
         {loading ? (
             <p>Loading orders...</p>
         ) : (

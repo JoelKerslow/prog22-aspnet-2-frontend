@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, useContext } from 'react';
 import SideBarContact from './SideBarContact';
 import { CartContext } from '../../contexts/CartContext';
+import { Link } from 'react-router-dom';
 
 
 
@@ -50,7 +51,10 @@ const Header = ({headerContent, useGoBackButton, showCartButton }) => {
         {showCartButton && (
           <div className='cart-section'>
             <div className='cart-button'>
-              <button className='fa-thin fa-bag-shopping'></button>
+            <Link to="/cart" className="cart-link">
+                <button className='fa-thin fa-bag-shopping'></button>
+              </Link>
+              
               <div className='cart-total-circle'>
                 ${cart.totalAmountWithDiscount}
               </div>
