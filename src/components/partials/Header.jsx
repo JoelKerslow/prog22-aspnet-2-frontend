@@ -48,20 +48,20 @@ const Header = ({headerContent, useGoBackButton, showCartButton }) => {
           {headerContent}
         </div>
         
-        {showCartButton && (
+        {showCartButton ? (
           <div className='cart-section'>
             <div className='cart-button'>
-            <Link to="/cart" className="cart-link">
+              <Link to="/cart" className="cart-link">
                 <button className='fa-thin fa-bag-shopping'></button>
               </Link>
-              
               <div className='cart-total-circle'>
                 ${cart.totalAmountWithDiscount}
               </div>
             </div>
           </div>
+        ) : (
+          <div className='empty-placeholder'></div>
         )}
-        
       </div>
       
       {isSidebarOpen && (
