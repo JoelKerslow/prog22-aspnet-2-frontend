@@ -18,6 +18,7 @@ import OrderReviewForm from './components/views/OrderReviewForm'
 import Products from './components/views/Products'
 import PaymentMethod from './components/views/PaymentMethod'
 import ProductReview from './components/views/ProductReview'
+import AddCreditCard from "./components/views/AddCreditCard"
 
 
 
@@ -67,6 +68,7 @@ function App() {
               <Route path="/Signin" element={<Signin />} />
               <Route path="/Profile" element={<ProfilePage />} />
               <Route path="/EditProfile" element={<EditProfile />} />
+              <Route path="/AddCreditcard" element={<AddCreditCard />} />
               <Route
                 path="/ProductReview/:productId"
                 element={<ProductReviewForm />}

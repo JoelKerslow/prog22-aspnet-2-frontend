@@ -55,6 +55,10 @@
     {
       "path" : "/Home",
       "element" : "Home"
+    },
+    {
+      "path" : "/AddCreditcard",
+      "element" : "AddCreditCard"
     }
   ],
   "fallback": {
