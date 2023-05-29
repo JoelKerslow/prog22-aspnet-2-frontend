@@ -1,14 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { CartContext } from "../../contexts/CartContext";
+
 
 const CartIcon = ({ product }) => {
   const [addedToCart, setAddedToCart] = useState(false);
+  const {addCartItem, deleteItem} = useContext(CartContext);
 
   const handleAddToCartClick = () => {
     if (addedToCart) {
-      //functionality to remove product to customers cart
+      deleteItem(product.id);
       setAddedToCart(false);
     } else {
-      //functionality to add product to customers cart
+      addCartItem(product.id, 1);
       setAddedToCart(true);
     }
   };
