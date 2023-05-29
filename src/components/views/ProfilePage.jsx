@@ -66,7 +66,7 @@ const ProfilePage = () => {
             </div>
           </Link>
 
-          <Link to="/Addresses" className="list-group-item pt-3 pb-1">
+          <Link to="/Profile/Addresses" className="list-group-item pt-3 pb-1">
             <div className="options-icon">
               <i class="fa-sharp fa-light fa-location-dot"></i>
             </div>

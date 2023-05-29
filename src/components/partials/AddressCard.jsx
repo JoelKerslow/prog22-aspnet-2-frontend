@@ -1,8 +1,9 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const AddressCard = ({ userAddress }) => {
-   
+  const navigate = useNavigate() 
+
   return (
     <div className='addressCard'>
       <div className="cardContent">
@@ -11,9 +12,9 @@ const AddressCard = ({ userAddress }) => {
           <div className="addressTitle">{userAddress.Title}</div>
           <div className="addressDetails">{userAddress.AddressLine1}, {userAddress.PostalCode} {userAddress.City}</div>
         </div>
-        <NavLink path="/" className='editAddressLink' > {/* needs to be completed with actual link */}
+        <div onClick={() => navigate('/Profile/Addresses/Manage', { state: { userAddress: userAddress } })} className='editAddressLink' >
           <div className='editAddressIcon'><i className="fa-light fa-pen-line fa-xs"></i></div>
-        </NavLink>
+        </div>
       </div>
     </div>
   )
