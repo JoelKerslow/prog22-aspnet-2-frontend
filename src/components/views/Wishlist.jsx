@@ -3,6 +3,8 @@ import { WishlistContext } from '../../contexts/WishlistContext';
 import Navbar from '../partials/Navbar';
 import Header from '../partials/Header';
 import StarRating from '../partials/StarRating';
+import { Link } from 'react-router-dom';
+
 
 const Wishlist = () => {
   const { wishlist, loading, removeItemFromWishlist, addToCart } = useContext(WishlistContext);
@@ -18,11 +20,13 @@ const Wishlist = () => {
             <ul className="wishlist-items">
               {wishlist.map((item) => (
                 <li key={item.productId} className="wishlist-item">
+                  
 
                   <img src={item.product.imageUrl} alt={item.product.name} />
 
                   <div className="wishlist-details">
-                    <p className="wishlist-name">{item.product.name}</p>
+                  <Link to={`/product/${item.productId}`} className="wishlist-name">{item.product.name}</Link>
+                    {/* <p className="wishlist-name">{item.product.name}</p> */}
                     <p className="wishlist-price">${item.product.price}</p>
                     <div className="wishlist-rating">
                       <StarRating rating={item.rating} reviewCount={item.reviewCount} />
