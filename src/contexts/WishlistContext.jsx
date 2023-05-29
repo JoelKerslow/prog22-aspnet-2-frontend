@@ -127,7 +127,8 @@ const WishlistProvider = ({ children }) => {
       const url = `${cartBaseUrl}/Item/Create`;
 
       const item = {
-        productId: productId, //sätter quant
+        productId: productId,
+        quantity: 1,
       };
 
       const response = await fetch(url, {

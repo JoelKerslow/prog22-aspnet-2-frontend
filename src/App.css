@@ -2198,17 +2198,21 @@ header.sidebar-open .sidebar-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: -5px;
-  margin-right: 5px;
+  margin-top: -10px;
+  margin-right: 10px;
+  overflow: hidden;
 }
 .wishlist-group ul.wishlist-items li.wishlist-item .wishlist-icons button {
   border: none;
   background-color: white;
-  padding-bottom: 10px;
-  padding-right: 10px;
+  padding-bottom: 0px;
+  padding-right: 5px;
+  width: 100%; /* Add this line */
+  height: 100%; /* Add this line */
+  overflow: hidden;
 }
 .wishlist-group ul.wishlist-items li.wishlist-item .wishlist-icons .wishlist-remove {
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 .wishlist-group ul.wishlist-items li.wishlist-item .wishlist-icons .wishlist-remove i {
   font-size: 24px;
