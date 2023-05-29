@@ -44,61 +44,61 @@ const ProfilePage = () => {
 
           <Link to="/OrderHistory" className="list-group-item pt-3 pb-1">
             <div className="options-icon">
-              <i class="fa-light fa-calendar"></i>
+              <i className="fa-light fa-calendar"></i>
             </div>
             <div className="options-text">
               <p>Order history</p>
             </div>
             <div className="options-arrow">
-              <i class="fa-light fa-chevron-right"></i>
+              <i className="fa-light fa-chevron-right"></i>
             </div>
           </Link>
 
           <Link to="/Profile/PaymentMethods" className="list-group-item pt-3 pb-1">
             <div className="options-icon">
-              <i class="fa-light fa-credit-card-front"></i>
+              <i className="fa-light fa-credit-card-front"></i>
             </div>
             <div className="options-text">
               <p>Payment method</p>
             </div>
             <div className="options-arrow">
-              <i class="fa-light fa-chevron-right"></i>
+              <i className="fa-light fa-chevron-right"></i>
             </div>
           </Link>
 
-          <Link to="/Addresses" className="list-group-item pt-3 pb-1">
+          <Link to="/Profile/Addresses" className="list-group-item pt-3 pb-1">
             <div className="options-icon">
-              <i class="fa-sharp fa-light fa-location-dot"></i>
+              <i className="fa-sharp fa-light fa-location-dot"></i>
             </div>
             <div className="options-text">
               <p>My address</p>
             </div>
             <div className="options-arrow">
-              <i class="fa-light fa-chevron-right"></i>
+              <i className="fa-light fa-chevron-right"></i>
             </div>
           </Link>
 
           <Link to="/Promocodes" className="list-group-item pt-3 pb-1">
             <div className="options-icon">
-              <i class="fa-light fa-gift"></i>
+              <i className="fa-light fa-gift"></i>
             </div>
             <div className="options-text">
               <p>My promocodes</p>
             </div>
             <div className="options-arrow">
-              <i class="fa-light fa-chevron-right"></i>
+              <i className="fa-light fa-chevron-right"></i>
             </div>
           </Link>
 
           <li onClick={() => setTogglePopup(true)} className="list-group-item pt-3 pb-1 ">
             <div className="options-icon">
-              <i class="fa-light fa-arrow-right-from-bracket text-decoration-none"></i>
+              <i className="fa-light fa-arrow-right-from-bracket text-decoration-none"></i>
             </div>
             <div className="options-text">
               <p>Sign out</p>
             </div>
             <div className="options-arrow">
-              <i class="fa-light fa-chevron-right"></i>
+              <i className="fa-light fa-chevron-right"></i>
             </div>
           </li>
 

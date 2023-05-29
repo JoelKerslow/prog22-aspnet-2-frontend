@@ -22,6 +22,7 @@ import MyPromocodes from "./components/views/MyPromocodes"
 import ProductDetails from "./components/views/ProductDetails"
 import OrderResult from "./components/views/OrderResult"
 import Cart from "./components/views/Cart"
+import UserAddresses from "./components/views/UserAddresses"
 
 const RouteElements = () => {
   return (
@@ -50,6 +51,7 @@ const RouteElements = () => {
         path='/ProductSubmitedReviews/:productId'
         element={<ProductReview />}
       />
+      <Route path='/Profile/Addresses' element={<UserAddresses />} />
       <Route path='/OrderHistory' element={<OrderHistory />} />
       <Route path='/orderresult/:outcome' element={<OrderResult />} />
       <Route path='/Cart' element={<Cart />} />

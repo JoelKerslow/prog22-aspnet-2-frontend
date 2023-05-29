@@ -10,6 +10,8 @@
 
 .NavBarContainer {
   display: flex;
+  position: fixed;
+  bottom: 0;
   justify-content: space-evenly;
   align-items: center;
   width: 100%;
@@ -17,11 +19,6 @@
   background-color: #ffffff;
   border-top: 1px solid #dbe3f5;
   margin: 0 auto;
-}
-@media (min-width: 1400px) {
-  .NavBarContainer {
-    width: 30%;
-  }
 }
 
 .profile-navbar > .NavBarContainer {
@@ -950,11 +947,12 @@ header.sidebar-open .sidebar-container {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100vw;
+  width: 100%;
   background: #dbe3f5;
   margin-bottom: 38px;
 }
 .showcase-carousel .inner {
+  width: 100%;
   background-color: #dbe3f5;
   min-height: 150px;
   white-space: nowrap;
@@ -1186,7 +1184,7 @@ header.sidebar-open .sidebar-container {
 
 .previewContainer {
   font-family: "Open Sans", sans-serif;
-  width: 100dvw;
+  width: 100%;
   overflow: hidden;
 }
 @media (min-width: 1400px) {
