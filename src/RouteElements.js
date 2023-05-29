@@ -21,6 +21,7 @@ import OrderHistory from "./components/views/OrderHistory"
 import MyPromocodes from "./components/views/MyPromocodes"
 import ProductDetails from "./components/views/ProductDetails"
 import OrderResult from "./components/views/OrderResult"
+import Cart from "./components/views/Cart"
 
 const RouteElements = () => {
   return (
@@ -50,8 +51,8 @@ const RouteElements = () => {
         element={<ProductReview />}
       />
       <Route path='/OrderHistory' element={<OrderHistory />} />
-      <Route path='/orderresult/:outcome/:orderId' element={<OrderResult />} />
-
+      <Route path='/orderresult/:outcome' element={<OrderResult />} />
+      <Route path='/Cart' element={<Cart />} />
     </Routes>
   )
 }

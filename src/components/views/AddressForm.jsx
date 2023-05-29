@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import { AuthorizationContext } from '../../contexts/AuthorizationContext'
 import { UserContext } from '../../contexts/UserContext'
-import { removeWhitespaceOrNull } from '../../scripts/dataUtils'
+import { createOrUpdateAddressAsync } from '../../services/AddressService'
 import IconPicker from '../partials/IconPicker'
 import MapFrame from '../partials/MapFrame'
 import countries from 'i18n-iso-countries'
@@ -11,7 +11,7 @@ import enLocale from 'i18n-iso-countries/langs/en.json'
 import Header from '../partials/Header'
 
 const googleApiKey = process.env.REACT_APP_GOOGLE_API_KEY
-const useTestData = false // !!! Sätt som TRUE för att inte spamma google api vid test !!!
+const useTestData = true // !!! Sätt som TRUE för att inte spamma google api vid test !!!
 // #region TestData
 const testData = {
   plus_code: {
@@ -128,7 +128,7 @@ const AddressForm = ({ recievedAddress }) => {
       title: '',
       addressLine1: '',
       addressLine2: '',
-      postalCode: '',
+      postalCode: undefined,
       city: '',
       country: '',
     },
@@ -163,7 +163,7 @@ const AddressForm = ({ recievedAddress }) => {
 
       setValue('title', title)
       setValue('addressLine1', `${streetName} ${streetNumber}`)
-      setValue('postalCode', postalCode)
+      setValue('postalCode', parseInt(postalCode.replace(/\s/g, ''), 10))
       setValue('city', city)
       setValue('country', country)
       clearErrors()
@@ -226,26 +226,22 @@ const AddressForm = ({ recievedAddress }) => {
   const onSubmit = async (data) => {
     if (isFormSubmitted || serverError) return
 
-    for (const key in data) {
-      data[key] = removeWhitespaceOrNull(data[key])
-    }
-
     const addressData = {
       ...data,
       icon: selectedIcon,
-      customerId: currentUser.id,
+      customerProfileId: currentUser.id,
     }
-    console.log(addressData)
 
-    try {
-      // await fetch()
+    if (recievedAddress !== undefined) {
+      addressData.id = recievedAddress.id
+    }
+
+    if (await createOrUpdateAddressAsync(addressData)) {
       setIsFormSubmitted(true)
       setServerError('')
-      throw new Error('Not implemented')
-    } catch (err) {
+    } else {
       setIsFormSubmitted(false)
       setServerError('Something went wrong, please try again later')
-      console.error(err)
     }
   }
 
@@ -278,7 +274,10 @@ const AddressForm = ({ recievedAddress }) => {
                 <input
                   {...register('title', {
                     required: 'Title is required',
-                    minLength: 2,
+                    minLength: {
+                      value: 2,
+                      message: 'Title must be at least 2 characters long',
+                    },
                   })}
                   type='text'
                   disabled={isFormSubmitted || serverError}
@@ -299,7 +298,10 @@ const AddressForm = ({ recievedAddress }) => {
                 <input
                   {...register('addressLine1', {
                     required: 'Address line 1 is required',
-                    minLength: 2,
+                    minLength: {
+                      value: 2,
+                      message: 'Address must be at least 2 characters long',
+                    },
                   })}
                   type='text'
                   disabled={isFormSubmitted || serverError}
@@ -314,13 +316,22 @@ const AddressForm = ({ recievedAddress }) => {
               <div className='input-field-group'>
                 <label>ADDRESS LINE 2</label>
                 <input
-                  {...register('addressLine2', { required: false })}
+                  {...register('addressLine2', {
+                    required: false,
+                    minLength: {
+                      value: 2,
+                      message: 'Address must be at least 2 characters long',
+                    },
+                  })}
                   type='text'
                   disabled={isFormSubmitted || serverError}
                   className='input-field'
                   placeholder='Address line 2 (optional)'
                 />
               </div>
+              {errors.addressLine2 && (
+                <p className='error-text'>{errors.addressLine2.message}</p>
+              )}
 
               <div
                 className={`input-field-group ${errors.postalCode && 'error'}`}
@@ -329,9 +340,16 @@ const AddressForm = ({ recievedAddress }) => {
                 <input
                   {...register('postalCode', {
                     required: 'Postal code is required',
-                    minLength: 5,
+                    minLength: {
+                      value: 5,
+                      message: 'Postal code must be 5 digits',
+                    },
+                    maxLength: {
+                      value: 5,
+                      message: 'Postal code must be 5 digits',
+                    },
                   })}
-                  type='text'
+                  type='number'
                   disabled={isFormSubmitted || serverError}
                   className={`input-field ${errors.postalCode && 'error'}`}
                   placeholder='Your postal code'
@@ -400,6 +418,7 @@ const AddressForm = ({ recievedAddress }) => {
                   icons={['fa-home', 'fa-briefcase', 'fa-location-dot']}
                   selectedIcon={selectedIcon}
                   onChange={(icon) => setSelectedIcon(icon)}
+                  disabled={isFormSubmitted || serverError}
                 />
               </div>
 
