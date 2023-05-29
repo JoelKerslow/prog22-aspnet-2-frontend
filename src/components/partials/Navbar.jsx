@@ -17,7 +17,7 @@ const Navbar = () => {
   return (
     <div className="NavBarContainer">
       {/* Replace "/Onboarding" with link to "Home" (name to be decided/not yet implemented)*/}
-      <Link to="/Onboarding">
+      <Link to="/Home">
         <FontAwesomeIcon
           className="fa-lg"
           icon={faHouse}

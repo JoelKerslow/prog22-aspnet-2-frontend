@@ -37,4 +37,21 @@ const createOrUpdateAddressAsync = async (addressData) => {
   return result
 }
 
-export { createOrUpdateAddressAsync }
+const getUserAddresses = async (userId) => {
+    const result = await fetch(baseAddressUrl + "?userID=" + {userId}, {
+		headers: {
+			"API-KEY": apiKey,
+      "Authorization": "Bearer " + Cookies.get("maneroToken"),
+		},
+	});
+
+    const data = await result.json()
+
+    if(data !== null){
+        return data;
+    }
+    return [];
+};
+
+export { createOrUpdateAddressAsync, getUserAddresses }
+
