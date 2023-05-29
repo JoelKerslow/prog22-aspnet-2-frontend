@@ -25,14 +25,14 @@ function App() {
   return (
 
     <UserContextProvider>
-    <AuthorizationContextProvider>
-      <ProductContextProvider>
+      <AuthorizationContextProvider>
         <CartContextProvider>
+        <ProductContextProvider>
           <RouteElements />
+        </ProductContextProvider>
         </CartContextProvider>
-      </ProductContextProvider>
-    </AuthorizationContextProvider>
-  </UserContextProvider>
+      </AuthorizationContextProvider>
+    </UserContextProvider>
   )
 }
 

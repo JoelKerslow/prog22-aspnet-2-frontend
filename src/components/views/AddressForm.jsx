@@ -1,16 +1,16 @@
 import { useState, useEffect, useContext } from 'react'
 import { useForm } from 'react-hook-form'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 import { AuthorizationContext } from '../../contexts/AuthorizationContext'
 import { UserContext } from '../../contexts/UserContext'
-import { removeWhitespaceOrNull } from '../../scripts/dataUtils'
+import { createOrUpdateAddressAsync } from '../../services/AddressService'
 import IconPicker from '../partials/IconPicker'
 import MapFrame from '../partials/MapFrame'
 import countries from 'i18n-iso-countries'
 import enLocale from 'i18n-iso-countries/langs/en.json'
 import Header from '../partials/Header'
 
-const googleApiKey = process.env.REACT_APP_GOOGLE_API_KEY
+const googleApiKey = 'AIzaSyDNzG8GKrpZChIenaMnf1v-7bl6IrN2VHk'
 const useTestData = true // !!! Sätt som TRUE för att inte spamma google api vid test !!!
 // #region TestData
 const testData = {
@@ -86,14 +86,17 @@ const testData = {
 }
 // #endregion
 
-const AddressForm = ({ recievedAddress }) => {
+const AddressForm = () => {
   const { useAuthorization } = useContext(AuthorizationContext)
   useAuthorization()
   const { currentUser } = useContext(UserContext)
 
+  const navLocation = useLocation()
+  const recievedAddress = navLocation.state && navLocation.state.userAddress
+
   const navigate = useNavigate()
 
-  const [useLocation, setUseLocation] = useState(false)
+  const [shouldUseLocation, setShouldUseLocation] = useState(false)
   const [isFormSubmitted, setIsFormSubmitted] = useState(false)
   const [location, setLocation] = useState({})
   const [addressComponents, setAddressComponents] = useState()
@@ -124,15 +127,24 @@ const AddressForm = ({ recievedAddress }) => {
     clearErrors,
     formState: { errors },
   } = useForm({
-    defaultValues: {
-      title: '',
-      addressLine1: '',
-      addressLine2: '',
-      postalCode: '',
-      city: '',
-      country: '',
-    },
-  })
+    defaultValues: recievedAddress
+      ? {
+          title: recievedAddress.Title || '',
+          addressLine1: recievedAddress.AddressLine1 || '',
+          addressLine2: recievedAddress.AddressLine2 || '',
+          postalCode: recievedAddress.PostalCode || undefined,
+          city: recievedAddress.City || '',
+          country: recievedAddress.Country || '',
+        }
+      : {
+          title: '',
+          addressLine1: '',
+          addressLine2: '',
+          postalCode: undefined,
+          city: '',
+          country: '',
+        },
+  });
 
   useEffect(() => {
     if (!addressComponents) return
@@ -163,17 +175,17 @@ const AddressForm = ({ recievedAddress }) => {
 
       setValue('title', title)
       setValue('addressLine1', `${streetName} ${streetNumber}`)
-      setValue('postalCode', postalCode)
+      setValue('postalCode', parseInt(postalCode.replace(/\s/g, ''), 10))
       setValue('city', city)
       setValue('country', country)
       clearErrors()
     } catch {
       setLocationError('Something went wrong fetching your location')
     }
-  }, [addressComponents, useLocation, setValue, clearErrors])
+  }, [addressComponents, shouldUseLocation, setValue, clearErrors])
 
   useEffect(() => {
-    if (!useLocation) {
+    if (!shouldUseLocation) {
       reset()
       return
     }
@@ -195,11 +207,11 @@ const AddressForm = ({ recievedAddress }) => {
           setLocationError('Something went wrong fetching your location')
         })
     }
-  }, [location, useLocation, addressComponents, reset])
+  }, [location, shouldUseLocation, addressComponents, reset])
 
   const handleUseLocationChange = (e) => {
     setLocationError(null)
-    setUseLocation(e.target.checked)
+    setShouldUseLocation(e.target.checked)
 
     if (Object.keys(location).length === 0) {
       getAndSetLocation()
@@ -226,26 +238,22 @@ const AddressForm = ({ recievedAddress }) => {
   const onSubmit = async (data) => {
     if (isFormSubmitted || serverError) return
 
-    for (const key in data) {
-      data[key] = removeWhitespaceOrNull(data[key])
-    }
-
     const addressData = {
       ...data,
       icon: selectedIcon,
-      customerId: currentUser.id,
+      customerProfileId: currentUser.id,
     }
-    console.log(addressData)
 
-    try {
-      // await fetch()
+    if (recievedAddress !== null) {
+      addressData.id = recievedAddress.id
+    }
+
+    if (await createOrUpdateAddressAsync(addressData)) {
       setIsFormSubmitted(true)
       setServerError('')
-      throw new Error('Not implemented')
-    } catch (err) {
+    } else {
       setIsFormSubmitted(false)
       setServerError('Something went wrong, please try again later')
-      console.error(err)
     }
   }
 
@@ -253,8 +261,8 @@ const AddressForm = ({ recievedAddress }) => {
     <>
       <Header
         headerContent={
-          recievedAddress !== undefined
-            ? `Update ${recievedAddress.title} address`
+          recievedAddress !== null
+            ? `Update ${recievedAddress.Title} address`
             : 'Add a new address'
         }
         useGoBackButton={true}
@@ -278,7 +286,10 @@ const AddressForm = ({ recievedAddress }) => {
                 <input
                   {...register('title', {
                     required: 'Title is required',
-                    minLength: 2,
+                    minLength: {
+                      value: 2,
+                      message: 'Title must be at least 2 characters long',
+                    },
                   })}
                   type='text'
                   disabled={isFormSubmitted || serverError}
@@ -299,7 +310,10 @@ const AddressForm = ({ recievedAddress }) => {
                 <input
                   {...register('addressLine1', {
                     required: 'Address line 1 is required',
-                    minLength: 2,
+                    minLength: {
+                      value: 2,
+                      message: 'Address must be at least 2 characters long',
+                    },
                   })}
                   type='text'
                   disabled={isFormSubmitted || serverError}
@@ -314,13 +328,22 @@ const AddressForm = ({ recievedAddress }) => {
               <div className='input-field-group'>
                 <label>ADDRESS LINE 2</label>
                 <input
-                  {...register('addressLine2', { required: false })}
+                  {...register('addressLine2', {
+                    required: false,
+                    minLength: {
+                      value: 2,
+                      message: 'Address must be at least 2 characters long',
+                    },
+                  })}
                   type='text'
                   disabled={isFormSubmitted || serverError}
                   className='input-field'
                   placeholder='Address line 2 (optional)'
                 />
               </div>
+              {errors.addressLine2 && (
+                <p className='error-text'>{errors.addressLine2.message}</p>
+              )}
 
               <div
                 className={`input-field-group ${errors.postalCode && 'error'}`}
@@ -329,12 +352,16 @@ const AddressForm = ({ recievedAddress }) => {
                 <input
                   {...register('postalCode', {
                     required: 'Postal code is required',
-                    minLength: 5,
+                    pattern: {
+                      value: /^\d{5}$/,
+                      message: 'Postal code must be 5 digits',
+                    },
                   })}
                   type='text'
                   disabled={isFormSubmitted || serverError}
                   className={`input-field ${errors.postalCode && 'error'}`}
                   placeholder='Your postal code'
+                  maxLength={5}
                 />
               </div>
               {errors.postalCode && (
@@ -383,10 +410,10 @@ const AddressForm = ({ recievedAddress }) => {
                 />
                 <label className='form-check-label'>Use current location</label>
 
-                {loading && <p>{loading}</p>}
+                {loading && shouldUseLocation && <p>{loading}</p>}
               </div>
 
-              {!isFormSubmitted && locationError && useLocation && (
+              {!isFormSubmitted && locationError && shouldUseLocation && (
                 <div className='alert alert-danger text-center' role='alert'>
                   {locationError}
                 </div>
@@ -400,6 +427,7 @@ const AddressForm = ({ recievedAddress }) => {
                   icons={['fa-home', 'fa-briefcase', 'fa-location-dot']}
                   selectedIcon={selectedIcon}
                   onChange={(icon) => setSelectedIcon(icon)}
+                  disabled={isFormSubmitted || serverError}
                 />
               </div>
 

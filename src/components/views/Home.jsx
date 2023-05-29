@@ -3,6 +3,7 @@ import ProductTagPreview from '../partials/ProductTagPreview'
 import Showcase from '../partials/Showcase'
 import OfferBanner from '../partials/OfferBanner'
 import Header from '../partials/Header'
+import Navbar from '../partials/Navbar'
 
 const Home = () => {
 	return (
@@ -12,6 +13,7 @@ const Home = () => {
 			<ProductTagPreview tag="Featured Products" tagId="1" />
 			<OfferBanner offer="Take 50% off now!" />
 			<ProductTagPreview tag="Best Sellers" tagId="2" />
+			<Navbar />
 		</>
 	)
 }
