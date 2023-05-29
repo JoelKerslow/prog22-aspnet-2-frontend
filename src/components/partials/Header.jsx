@@ -1,9 +1,13 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
 import SideBarContact from './SideBarContact';
+import { CartContext } from '../../contexts/CartContext';
+
+
 
 const Header = ({headerContent, useGoBackButton }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const sidebarRef = useRef(null);
+  const {cart, addCartItem} = useContext(CartContext);
 
   const handleSidebarToggle = () => {
     setIsSidebarOpen(!isSidebarOpen);
@@ -43,7 +47,15 @@ const Header = ({headerContent, useGoBackButton }) => {
           {headerContent}
         </div>
         
-        <button className='fa-thin fa-bag-shopping'></button>
+        <div className='cart-section'>
+          <div className='cart-button'>
+            <button className='fa-thin fa-bag-shopping'></button>
+            <div className='cart-total-circle'>
+              ${cart.totalAmountWithDiscount}
+            </div>
+          </div>
+        </div>
+        
       </div>
       
       {isSidebarOpen && (
