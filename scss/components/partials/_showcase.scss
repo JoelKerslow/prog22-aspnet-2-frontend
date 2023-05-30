@@ -5,11 +5,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100vw;
+    width: 100%;
     background: $color-theme;
     margin-bottom: 38px;
 
     .inner {
+        width: 100%;
         background-color: $color-theme;
         min-height: 150px;
         white-space: nowrap;

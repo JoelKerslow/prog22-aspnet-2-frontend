@@ -51,6 +51,7 @@ const RouteElements = () => {
         path='/ProductSubmitedReviews/:productId'
         element={<ProductReview />}
       />
+      <Route path='/Profile/Addresses' element={<UserAddresses />} />
       <Route path='/OrderHistory' element={<OrderHistory />} />
       <Route path='/orderresult/:outcome' element={<OrderResult />} />
       <Route path='/Cart' element={<Cart />} />
