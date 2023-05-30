@@ -48,7 +48,7 @@ const ProfilePage = () => {
       {togglePopup && (<div className="popup-overlay" onClick={() => setTogglePopup(false)} />)}
       {togglePopup && <PopupCircle onClose={() => setTogglePopup(false)} handleLogout={() => handleLogout()} />}
      <div>
-      <Header />
+      <Header headerContent={<h1>MANERO</h1>}  showCartButton={true}/>
       <div className="container">
         <div className="container mt-3">
           <VerticalBar />
