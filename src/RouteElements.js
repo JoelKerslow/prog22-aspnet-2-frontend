@@ -20,6 +20,7 @@ import UserAddresses from "./components/views/UserAddresses"
 import AddressForm from "./components/views/AddressForm"
 import OrderHistory from "./components/views/OrderHistory"
 import MyPromocodes from "./components/views/MyPromocodes"
+import MyPromocodesEmpty from "./components/views/MyPromocodesEmpty"
 import ProductDetails from "./components/views/ProductDetails"
 import OrderResult from "./components/views/OrderResult"
 import Cart from "./components/views/Cart"
@@ -47,6 +48,8 @@ const RouteElements = () => {
       <Route path='/Profile/Addresses' element={<UserAddresses />} />
       <Route path='/Profile/Addresses/Manage' element={<AddressForm />} />
       <Route path='/MyPromocodes' element={<MyPromocodes />} />
+      <Route path='/MyPromocodesEmpty' element={<MyPromocodesEmpty />} />
+
       <Route
         path='/ProductSubmitedReviews/:productId'
         element={<ProductReview />}

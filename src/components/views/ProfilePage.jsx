@@ -13,9 +13,30 @@ const ProfilePage = () => {
   useAuthorization()
 
   const { currentUser } = useContext(UserContext);
+  const [promocodeClickCount, setPromocodeClickCount] = useState(0);
+
   const navigate = useNavigate();
 
   const [togglePopup, setTogglePopup] = useState(false);
+
+
+  const handlePromocodeClick = () => {
+    // Handles localStorage for Promocodes for DEMO purposes.
+    const currentCount = localStorage.getItem("promocodeClickCount")
+      ? parseInt(localStorage.getItem("promocodeClickCount"))
+      : 0;
+
+    const newCount = currentCount + 1;
+
+    localStorage.setItem("promocodeClickCount", newCount);
+
+    if (newCount === 1) {
+      navigate("/MyPromocodesEmpty");
+    } else {
+      navigate("/MyPromocodes");
+    }
+  };
+  
 
   const handleLogout = () => {
     logoutUser();
@@ -78,7 +99,9 @@ const ProfilePage = () => {
             </div>
           </Link>
 
-          <Link to="/Promocodes" className="list-group-item pt-3 pb-1">
+
+          {/* <Link to="/MyPromocodesEmpty" className="list-group-item pt-3 pb-1"> */}
+          <div onClick={handlePromocodeClick} className="list-group-item pt-3 pb-1">
             <div className="options-icon">
               <i className="fa-light fa-gift"></i>
             </div>
@@ -88,7 +111,7 @@ const ProfilePage = () => {
             <div className="options-arrow">
               <i className="fa-light fa-chevron-right"></i>
             </div>
-          </Link>
+          </div>
 
           <li onClick={() => setTogglePopup(true)} className="list-group-item pt-3 pb-1 ">
             <div className="options-icon">

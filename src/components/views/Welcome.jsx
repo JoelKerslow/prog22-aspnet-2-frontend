@@ -6,6 +6,8 @@ const Welcome = () => {
   const navigate = useNavigate()
 
   const handleLogoClick = () => {
+    //This is to reset local storage for promocodes for Demo Purposes.
+    localStorage.setItem('promocodeClickCount', 0)
     navigate('/Onboarding')
   }
 

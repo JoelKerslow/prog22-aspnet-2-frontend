@@ -23,12 +23,10 @@ const PasswordResetConfirmation = () => {
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-12 col-sm-8 col-md-6 col-lg-4">
-            <div className="RegHeader">
               <div className="stacked">
                 <div className="maneroLogoRectangle"></div>
                 <h2>MANERO</h2>
               </div>
-            </div>
             <div className="ResetPassword-container">
               <CircleWithIcon iconName={"fa-key"} />
               <VerticalBar/>
