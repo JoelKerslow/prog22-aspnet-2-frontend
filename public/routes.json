@@ -107,7 +107,7 @@
     },
     {
       "path" : "/AddCreditcard",
-      "element" : "AddCreditCard",
+      "serve": "/index.html",
       "statusCode" : 200
     },
     {
