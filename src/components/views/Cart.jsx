@@ -1,24 +1,34 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import BackArrow from "../partials/generalPartials/BackArrow";
+import Header from "../partials/Header";
 import Navbar from "../partials/Navbar";
 import { CartContext } from "../../contexts/CartContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faCheck, faTimes } from "@fortawesome/free-solid-svg-icons";
-import {placeholderImage} from '../../contexts/ProductContext'
+import { placeholderImage } from "../../contexts/ProductContext";
 
 const Cart = () => {
   const {
     cart,
     code,
     setCode,
+    getUserCart,
     deleteItem,
     updateQuantity,
     applyPromoCode,
-    addCartItem,
   } = useContext(CartContext);
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    getUserCart();
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
+    applyPromoCode(code);
+  }, []);
 
   const handleIncrement = (productId, quantity) => {
     const newQuantity = quantity + 1;
@@ -26,24 +36,18 @@ const Cart = () => {
   };
 
   const handleDecrement = (productId, quantity) => {
-    if (quantity > 1) {
+    if (quantity > 0) {
       const newQuantity = quantity - 1;
       updateQuantity(productId, newQuantity);
     }
+    deleteItem(productId);
   };
 
   const handleDeleteItem = (productId) => {
     deleteItem(productId);
   };
 
-  const handleAddToCart = (productId, quantity) => {
-    const updatedQuantity =
-      quantity === 0 ? quantity + 1 : quantity; /*  For adding to cart */
-    addCartItem(productId, updatedQuantity);
-  };
-
-  const handlePromoCode = (e) => {
-    setCode(e.target.value);
+  const handlePromoCode = () => {
     applyPromoCode(code);
   };
 
@@ -53,6 +57,7 @@ const Cart = () => {
 
   return (
     <>
+      {/* <Header headerContent={<h2>Cart</h2>} useGoBackButton={true} /> */}
       <div className="RegHeader">
         <BackArrow clickEvent={handleGoBack} />
         <h3>Cart</h3>
@@ -68,7 +73,11 @@ const Cart = () => {
               <div className="cart-image-section">
                 <img
                   className="cart-image"
-                  src={item.product.imageUrl !== null ? item.product.imageUrl : placeholderImage}
+                  src={
+                    item.product.imageUrl !== null
+                      ? item.product.imageUrl
+                      : placeholderImage
+                  }
                   alt=""
                 />
                 {cart.promoCode && <div className="sale-badge">SALE</div>}
@@ -127,10 +136,13 @@ const Cart = () => {
             type="text"
             placeholder="Promocode"
             value={code}
-            onChange={handlePromoCode}
+            onChange={(e) => setCode(e.target.value)}
             disabled={false}
             className="code-input"
           />
+          <button className="code-button" onClick={handlePromoCode}>
+            Apply
+          </button>
           <p>
             {cart.promoCode ? (
               <>
@@ -157,7 +169,7 @@ const Cart = () => {
                   Subtotal
                 </td>
                 <td className="value" style={{ fontWeight: "bold" }}>
-                 ${cart.totalAmountWithoutDiscount}
+                  ${cart.totalAmountWithoutDiscount}
                 </td>
               </tr>
               <tr>
@@ -184,12 +196,8 @@ const Cart = () => {
         <div className="button-section">
           <button className="BigBlackButton">PROCEED TO CHECKOUT</button>
         </div>
-        <div className="profile-navbar">
-          <Navbar />
-        </div>
-   {/*      {<button onClick={() => handleAddToCart(7, 4)}>AddProduct</button>}{" "} */}
-        {/*  Test  for adding to cart */}
       </div>
+      <Navbar />
     </>
   );
 };
