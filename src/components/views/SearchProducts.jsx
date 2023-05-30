@@ -4,6 +4,7 @@ import Header from '../partials/Header'
 import SearchField from '../partials/SearchField'
 import Departments from '../partials/Departments'
 import Categories from '../partials/Categories'
+import Navbar from '../partials/Navbar'
 
 const SearchProducts = () => {
   const [activeDepartment, setActiveDepartment] = useState(1)
@@ -13,6 +14,7 @@ const SearchProducts = () => {
       <Header headerContent={<SearchField />} />
       <Departments activeDepartment={activeDepartment} setActiveDepartment={setActiveDepartment}/>
       <Categories activeDepartment={activeDepartment}/>
+      <Navbar />
     </div>
   )
 }
