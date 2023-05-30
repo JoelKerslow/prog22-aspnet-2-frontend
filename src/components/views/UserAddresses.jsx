@@ -25,7 +25,7 @@ const UserAddresses = () => {
 
   return (
 		<div>
-			<Header headerContent="My Address" />
+			<Header headerContent="My Address" useGoBackButton={true} />
 			{
         userAddresses.length === 0 ? (<div className="loadingAddress">Loading</div>) : 
         userAddresses.map(address => (<AddressCard userAddress={address} />))       
