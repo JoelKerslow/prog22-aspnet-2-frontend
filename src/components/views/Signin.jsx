@@ -37,6 +37,7 @@ const SignIn = () => {
   }, [])
 
   const handleLogin = async () => {
+    handleRememberMe()
     var result = await loginUser(
       emailRef.current.value,
       passwordRef.current.value
@@ -49,8 +50,7 @@ const SignIn = () => {
     }
   }
 
-  const handleRememberMeChange = () => {
-
+  const handleRememberMe = () => {
     if (rememberMeRef.current.checked) {
       const expirationDate = new Date()
       console.log(expirationDate.getFullYear() + 1)
@@ -105,7 +105,6 @@ const SignIn = () => {
                     ref={rememberMeRef}
                     type="checkbox"
                     className="RememberMeCB"
-                    onChange={handleRememberMeChange}
                   ></input>
                   <label className="RememberMelbl">Remember me</label>
                 </div>
