@@ -23,11 +23,12 @@ import MyPromocodes from "./components/views/MyPromocodes"
 import ProductDetails from "./components/views/ProductDetails"
 import OrderResult from "./components/views/OrderResult"
 import Cart from "./components/views/Cart"
+import ShippingDetails from './components/views/ShippingDetails'
 
 const RouteElements = () => {
   return (
     <Routes>
-      <Route path='/' element={<Welcome />} />
+      <Route path='/' element={<ShippingDetails/>} />
       <Route path='/Home' element={<Home />} />
       <Route path='/Onboarding' element={<Onboarding />} />
       <Route path='/Verification' element={<VerificationCode />} />
@@ -55,6 +56,7 @@ const RouteElements = () => {
       <Route path='/OrderHistory' element={<OrderHistory />} />
       <Route path='/orderresult/:outcome' element={<OrderResult />} />
       <Route path='/Cart' element={<Cart />} />
+      <Route path='/ShippingDetails' element={<ShippingDetails />} />
       <Route path='*' element={<Home />} />
     </Routes>
   )

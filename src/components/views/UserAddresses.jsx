@@ -16,7 +16,6 @@ const UserAddresses = () => {
   const getAdressesAsync = async (id) =>{
     const res = await getUserAddresses(id)
     setUserAddresses(res)
-    console.log(userAddresses)
   }
 
   useEffect(()=>{

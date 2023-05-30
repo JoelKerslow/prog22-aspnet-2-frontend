@@ -17,7 +17,7 @@ const ProductReview = () => {
 
 	return (
 		<div>
-			<ProductReviewSiteHead />
+			<ProductReviewSiteHead text="Reviews"/>
 			<div className="productReviewContainer">
 				{reviewList.map((review) => {
 					return <UserProductReview key={review.id} review={review} />;
