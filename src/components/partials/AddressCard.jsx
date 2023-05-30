@@ -13,13 +13,13 @@ const AddressCard = ({ userAddress }) => {
   return (
     <div className='addressCard'>
       <div className="cardContent">
-        <div className='addressIcon'><i className="fa-light fa-house"></i></div>
+        <div className='addressIcon'><i className={`fa-light ${userAddress.icon}`}></i></div>
         <div className='addressInfo'>
-          <div className="addressTitle">{mockAddress.title}</div>
-          <div className="addressDetails">{mockAddress.addressLine1}, {mockAddress.postalCode} {mockAddress.city}</div>
+          <div className="addressTitle">{userAddress.title}</div>
+          <div className="addressDetails">{userAddress.addressLine1}, {userAddress.postalCode} {userAddress.city}</div>
         </div>
         <NavLink path="/" className='editAddressLink' > {/* needs to be completed with actual link */}
-          <div className='editAddressIcon'><i className={`fa-light ${userAddress.icon} fa-xs`}></i></div>
+          <div className='editAddressIcon'><i className={`fa-light fa-pen-line fa-xs`}></i></div>
         </NavLink>
       </div>
     </div>
