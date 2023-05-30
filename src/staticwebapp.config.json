@@ -1,13 +1,114 @@
 {
-    "routes": [
-      {
-        "route": "/*",
-        "serve": "/index.html",
-        "statusCode": 200
-      },
-      {
-        "route": "/searchproducts",
-        "rewrite": "/views/SearchProducts.jsx"
-      }
-    ]
-  }
+  "routes": [
+    {
+      "route": "/",
+      "serve": "/index.html",
+      "statusCode": 200
+    },
+    {
+      "route": "/Home",
+      "serve": "/index.html",
+      "statusCode": 200
+    },
+    {
+      "route": "/Onboarding",
+      "serve": "/index.html",
+      "statusCode": 200
+    },
+    {
+      "route": "/Verification",
+      "serve": "/index.html",
+      "statusCode": 200
+    },
+    {
+      "route": "/SearchProducts",
+      "serve": "/index.html",
+      "statusCode": 200
+    },
+    {
+      "route": "/Signup",
+      "serve": "/index.html",
+      "statusCode": 200
+    },
+    {
+      "route": "/Signin",
+      "serve": "/index.html",
+      "statusCode": 200
+    },
+    {
+      "route": "/ForgotPassword",
+      "serve": "/index.html",
+      "statusCode": 200
+    },
+    {
+      "route": "/PasswordResetConfirmation",
+      "serve": "/index.html",
+      "statusCode": 200
+    },
+    {
+      "route": "/ResetPassword",
+      "serve": "/index.html",
+      "statusCode": 200
+    },
+    {
+      "route": "/Profile",
+      "serve": "/index.html",
+      "statusCode": 200
+    },
+    {
+      "route": "/EditProfile",
+      "serve": "/index.html",
+      "statusCode": 200
+    },
+    {
+      "route": "/ProductReview/:productId",
+      "serve": "/index.html",
+      "statusCode": 200
+    },
+    {
+      "route": "/OrderReview/:orderId",
+      "serve": "/index.html",
+      "statusCode": 200
+    },
+    {
+      "route": "/Products/:type/:value",
+      "serve": "/index.html",
+      "statusCode": 200
+    },
+    {
+      "route": "/Profile/PaymentMethods",
+      "serve": "/index.html",
+      "statusCode": 200
+    },
+    {
+      "route": "/Profile/Addresses",
+      "serve": "/index.html",
+      "statusCode": 200
+    },
+    {
+      "route": "/Profile/Addresses/Manage",
+      "serve": "/index.html",
+      "statusCode": 200
+    },
+    {
+      "route": "/MyPromocodes",
+      "serve": "/index.html",
+      "statusCode": 200
+    },
+    {
+      "route": "/ProductSubmitedReviews/:productId",
+      "serve": "/index.html",
+      "statusCode": 200
+    },
+    {
+      "route": "/OrderHistory",
+      "serve": "/index.html",
+      "statusCode": 200
+    },
+    {
+      "route": "/static/*",
+      "serve": "/static/:splat",
+      "statusCode": 200
+    }
+  ]
+}
