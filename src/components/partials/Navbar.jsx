@@ -49,7 +49,7 @@ const Navbar = () => {
       </Link>
 
       {/* Replace "/Onboarding" with link to "Wishlist" (name to be decided/not yet implemented)*/}
-      <Link to="/Onboarding">
+      <Link to="/Wishlist">
         <FontAwesomeIcon
           icon={faHeart}
           style={{
