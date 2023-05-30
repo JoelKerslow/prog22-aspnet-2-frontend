@@ -111,7 +111,7 @@
       "statusCode": 200
     },
     {
-      "route": "*",
+      "route": "/*",
       "serve": "/index.html",
       "statusCode": 200
     }
