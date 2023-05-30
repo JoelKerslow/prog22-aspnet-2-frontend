@@ -5,6 +5,7 @@ import AddAddress from '../partials/AddAddress'
 import { UserContext } from "../../contexts/UserContext"
 import { getUserAddresses } from '../../services/AddressService'
 import { AuthorizationContext } from '../../contexts/AuthorizationContext'
+import Navbar from '../partials/Navbar'
 
 const UserAddresses = () => {
   const { useAuthorization } = useContext(AuthorizationContext)
@@ -22,13 +23,6 @@ const UserAddresses = () => {
     getAdressesAsync(currentUser.id);
   }, [currentUser])
 
-  const mockAddress = {
-        "Title" : "Home",
-        "AddressLine1" : "Skvadronvägen 1a",
-        "PostalCode" : "746 52",
-        "City": "Bålsta",
-      }
-
   return (
 		<div>
 			<Header headerContent="My Address" />
@@ -40,6 +34,7 @@ const UserAddresses = () => {
 
 
 			<AddAddress />
+      <Navbar />
 		</div>
 	);
 }
