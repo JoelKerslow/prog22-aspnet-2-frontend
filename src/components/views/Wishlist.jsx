@@ -11,7 +11,7 @@ const Wishlist = () => {
 
   return (
     <div>
-      <Header headerContent={<h2>Wishlist</h2>} useGoBackButton={false} />
+      <Header headerContent={<h2>Wishlist</h2>} useGoBackButton={false} showCartButton={true} />
       {loading ? (
         <p>Loading wishlist...</p>
       ) : (
