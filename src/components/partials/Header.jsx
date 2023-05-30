@@ -38,7 +38,7 @@ const Header = ({headerContent, useGoBackButton, showCartButton }) => {
     <header>
       <div className='header-container'>
       {useGoBackButton ? (
-          <button className='fa-solid fa-arrow-left' onClick={handleGoBack}></button>
+          <button className='fa-regular fa-chevron-left' onClick={handleGoBack}></button>
         ) : (
           <button className='fa-solid fa-bars' onClick={handleSidebarToggle}></button>
         )}
