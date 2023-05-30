@@ -129,12 +129,12 @@ const AddressForm = () => {
   } = useForm({
     defaultValues: recievedAddress
       ? {
-          title: recievedAddress.Title || '',
-          addressLine1: recievedAddress.AddressLine1 || '',
-          addressLine2: recievedAddress.AddressLine2 || '',
-          postalCode: recievedAddress.PostalCode || undefined,
-          city: recievedAddress.City || '',
-          country: recievedAddress.Country || '',
+          title: recievedAddress.title || '',
+          addressLine1: recievedAddress.addressline1 || '',
+          addressLine2: recievedAddress.addressline2 || '',
+          postalCode: recievedAddress.postalCode || undefined,
+          city: recievedAddress.city || '',
+          country: recievedAddress.country || '',
         }
       : {
           title: '',
@@ -262,7 +262,7 @@ const AddressForm = () => {
       <Header
         headerContent={
           recievedAddress !== null
-            ? `Update ${recievedAddress.Title} address`
+            ? `Update ${recievedAddress.title} address`
             : 'Add a new address'
         }
         useGoBackButton={true}
