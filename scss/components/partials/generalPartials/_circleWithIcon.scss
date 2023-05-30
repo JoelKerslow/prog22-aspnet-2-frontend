@@ -49,6 +49,16 @@
   }
 }
 
+.CircleWithIcon-text{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  font-weight: bold;
+  z-index: 2; 
+}
+
 .circle-with-icon.sm {
   width: 108px;
   height: 108px;
@@ -69,7 +79,7 @@
   }
 }
 
-.circle-with-icon.green {
+.circle-with-icon-green {
   &::before {
     border-color: $color-green;
   }
@@ -79,7 +89,7 @@
   }
 }
 
-.circle-with-icon.red {
+.circle-with-icon-red {
   &::before {
     border-color: $color-red;
   }

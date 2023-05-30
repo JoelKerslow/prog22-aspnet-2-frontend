@@ -12,7 +12,7 @@ const StarRating = ({ rating, reviewCount }) => {
 
   return (
     <div className="rating-section d-flex">
-      <div className="star-rating">{stars}</div>({reviewCount})
+      <div className="star-rating">{stars}</div>{reviewCount > 0 && <div>({reviewCount})</div>}
     </div>
   );
 };

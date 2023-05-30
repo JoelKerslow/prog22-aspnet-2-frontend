@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthorizationContext } from "../../contexts/AuthorizationContext";
 import Cookies from "js-cookie";
 import { UserContext } from "../../contexts/UserContext";
+import { useNavigate } from 'react-router';
 import { Link } from 'react-router-dom'
 import Header from '../partials/Header'
 
@@ -12,6 +13,7 @@ const OrderHistory= () => {
     useAuthorization();
 
     const { currentUser } = useContext(UserContext);
+    const navigate = useNavigate();
   
     useEffect(() => {
       const fetchOrders = async () => {
@@ -19,7 +21,7 @@ const OrderHistory= () => {
           const tokenValid = await authorize();
   
           if (!tokenValid || !currentUser || !currentUser.id) {
-            // Handle unauthorized access or redirect to login
+            navigate('/signin');
             return;
           }
           
@@ -56,7 +58,7 @@ const OrderHistory= () => {
 
     return (
         <div>
-        <Header headerContent={"Order history"} useGoBackButton={true} />
+        <Header headerContent={<h1>Order History</h1>} useGoBackButton={true} showCartButton={false}  />
         {loading ? (
             <p>Loading orders...</p>
         ) : (

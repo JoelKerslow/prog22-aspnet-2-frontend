@@ -1,10 +1,9 @@
 import Cookies from "js-cookie"
+import { removeWhitespaceOrNull } from "../scripts/dataUtils"
 
 const productReviewsUrl = "https://aspnet2-grupp1-backend.azurewebsites.net/api/ProductReviews"
 const orderReviewsUrl = "https://aspnet2-grupp1-backend.azurewebsites.net/Review"
 const apiKey = "f77ca749-67f4-4c22-9039-137272442ea0"
-
-const formatCommentOrNull = (comment) => comment ? comment.replace(/\s+/g, " ").trim() : null
 
 const ProductReviewsAsync = async (productId) => {
 	const url = `${productReviewsUrl}?productId=${productId}`
@@ -23,7 +22,7 @@ const createReviewAsync = async (reviewData) => {
 	const url = reviewData.productId ? productReviewsUrl : orderReviewsUrl
 	const requestData = {
 		...reviewData,
-		comment: formatCommentOrNull(reviewData.comment),
+		comment: removeWhitespaceOrNull(reviewData.comment),
 	}
 
 	const result = await fetch(url, {
