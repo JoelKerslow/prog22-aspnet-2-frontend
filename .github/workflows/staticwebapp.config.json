@@ -1,13 +1,13 @@
 {
     "routes": [
       {
+        "route": "/searchproducts",
+        "rewrite": "/_component/SearchProducts.jsx"
+      },
+      {
         "route": "/*",
         "serve": "/index.html",
         "statusCode": 200
-      },
-      {
-        "route": "/searchproducts",
-        "rewrite": "/_component/SearchProducts.jsx"
       }
     ]
   }
