@@ -5,9 +5,7 @@ import PageIndicator from "./PageIndicator";
 import FavouriteIcon from "./FavouriteIcon";
 import UserProductReview from "./UserProductReview";
 import { CartContext } from "../../contexts/CartContext";
-import {placeholderImage} from '../../contexts/ProductContext'
-
-
+import { placeholderImage } from "../../contexts/ProductContext";
 
 const ProductInfo = ({ product, productReviews }) => {
   const [quantity, setQuantity] = useState(1);
@@ -15,10 +13,18 @@ const ProductInfo = ({ product, productReviews }) => {
   const [selectedSize, setSelectedSize] = useState(null);
   const [latestReviews, setLatestReviews] = useState();
   const navigate = useNavigate();
-  const {addCartItem} = useContext(CartContext);
- 
+  const { addCartItem } = useContext(CartContext);
+
   const sizeList = ["XS", "S", "M", "L", "XL", "XXL"];
-  const colorList = ["Red", "Blue", "Beige", "Darkblue", "Black", "White", "Green"];
+  const colorList = [
+    "Red",
+    "Blue",
+    "Beige",
+    "Darkblue",
+    "Black",
+    "White",
+    "Green",
+  ];
 
   useEffect(() => {
     if (setLatestReviews !== null) {
@@ -30,8 +36,8 @@ const ProductInfo = ({ product, productReviews }) => {
         .slice(0, 5)
     );
 
-    setSelectedColor(product.color)
-    setSelectedSize(product.size)
+    setSelectedColor(product.color);
+    setSelectedSize(product.size);
   }, [product, productReviews]);
 
   // const handleColorClick = (color) => {
@@ -44,13 +50,19 @@ const ProductInfo = ({ product, productReviews }) => {
 
   const handleAddToCart = () => {
     addCartItem(product.id, quantity);
-  }
+  };
 
   return (
     <>
-      <div className="product-info-container" >
+      <div className="product-info-container">
         <div className="product-image-container mb-3">
-          <img className="product-image" src={product.imageUrl !== null ? product.imageUrl : placeholderImage} alt="" />
+          <img
+            className="product-image"
+            src={
+              product.imageUrl !== null ? product.imageUrl : placeholderImage
+            }
+            alt=""
+          />
           <div className="image-indicator">
             <PageIndicator currentPage={1} />
           </div>
@@ -124,7 +136,10 @@ const ProductInfo = ({ product, productReviews }) => {
             <p>{product.description}</p>
           </div>
           <div className="button-container">
-            <button className="BigBlackButton add-to-cart-btn" onClick={() => handleAddToCart()}>
+            <button
+              className="BigBlackButton add-to-cart-btn"
+              onClick={() => handleAddToCart()}
+            >
               + ADD TO CART
             </button>
           </div>
@@ -137,7 +152,7 @@ const ProductInfo = ({ product, productReviews }) => {
             <div className="reviews-header">
               Reviews ({product.reviewCount})
             </div>
-            <a href={`/reviews/${product.id}`}>
+            <a href={`/ProductSubmitedReviews/${product.id}`}>
               view all <span>&gt;</span>
             </a>
           </div>
