@@ -1,26 +1,53 @@
-.order-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin-top: 10px;
-  }
-  
-  .order-banner {
-    width: 45%; // Adjust the width as per your preference
-    background-color: #f1f1f1;
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin-bottom: 10px;
-    box-sizing: border-box;
-    border-radius: 4px;
-  }
-  
-  .order-id {
+.order-status{
+    width: 15%;
+    text-align: right;
+    display: block;
+}
+.order-orderInfo{
+    display: block;
+    width: 70%;
+    padding: 0%;
+    margin: 0%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.customer-order{
+    .list-group-item{
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        border-top: none;
+        border-bottom: 4px solid #DBE3F5;
+    }
+}
+
+.order-date{
+    margin-top: 1px;
+    font-weight: 100;
+}
+.order-number{
+    margin-bottom: 0%;
+    font-size: larger;
+}
+.order-status-text{
+    margin-bottom: 0%;
+}
+.order-status-text.Pending{
+    color: $color-yellow;
+}
+.order-status-text.Shipped{
+    color: $color-yellow;
+}
+.order-status-text.Delivered{
+    color: $color-green;
+}
+.order-status-text.Canceled{
+    color: $color-red;
+}
+.order-price{
     font-weight: bold;
-  }
-  
-  .order-date,
-  .order-status,
-  .order-amount {
-    margin-top: 5px;
-  }
+    font-size: 1rem;
+    margin-top: 6px;
+}

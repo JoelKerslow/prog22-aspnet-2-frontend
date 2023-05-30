@@ -1,8 +1,8 @@
 import { AuthorizationContext } from "../../contexts/AuthorizationContext"
 import { UserContext } from "../../contexts/UserContext"
-import { useEffect, useContext, useState, useRef } from "react"
+import { useContext, useState, useRef } from "react"
 import { useNavigate, useParams } from "react-router-dom"
-import Cookies from "js-cookie"
+import { createReviewAsync } from "../../services/ReviewServices"
 import VerticalBar from "../partials/generalPartials/VerticalBar"
 import BackArrow from "../partials/generalPartials/BackArrow"
 import CircleWithIcon from "../partials/generalPartials/CircleWithIcon"
@@ -23,43 +23,6 @@ const ProductReviewForm = () => {
   const navigate = useNavigate()
   const commentVal = useRef()
 
-  const productReviewsUrl = "https://aspnet2-grupp1-backend.azurewebsites.net/api/ProductReviews"
-  const apiKey = "f77ca749-67f4-4c22-9039-137272442ea0"
-
-  const createProductReview = async () => {
-    const comment = commentVal.current.value.replace(/\s+/g, " ").trim()
-
-    const reviewData = {
-      rating: rating,
-      comment: comment || null,
-      customerId: currentUser.id,
-      productId: productId,
-    }
-
-    const result = await fetch(productReviewsUrl, {
-      method: "POST",
-      headers: {
-        "API-KEY": apiKey,
-        "Content-Type": "application/json",
-        "Authorization": "Bearer " + Cookies.get("maneroToken"),
-      },
-      body: JSON.stringify(reviewData),
-    })
-      .then((res) => {
-        if (res.ok) {
-          return true
-        }
-
-        return false
-      })
-      .catch((err) => {
-        console.error(err.message)
-        return false
-      })
-
-    return result
-  }
-
   const handleSubmit = async (e) => {
     e.preventDefault()
 
@@ -75,7 +38,14 @@ const ProductReviewForm = () => {
       return
     }
 
-    if (await createProductReview()) {
+    const reviewData = {
+      rating: rating,
+      comment: commentVal.current.value,
+      customerId: currentUser.id,
+      productId: productId,
+    }
+
+    if (await createReviewAsync(reviewData)) {
       setFormSubmitted(true)
     } else {
       setServerError(
@@ -100,7 +70,7 @@ const ProductReviewForm = () => {
             <BackArrow clickEvent={handleGoBack} />
             <h3>Leave a review</h3>
           </div>
-          <CircleWithIcon iconClassName={"fa-comments"} />
+          <CircleWithIcon iconName={"fa-comments"} />
           <VerticalBar />
 
           <h3 className='text-center fw-bold'>

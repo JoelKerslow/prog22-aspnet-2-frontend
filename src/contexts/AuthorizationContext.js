@@ -1,20 +1,33 @@
-import React, { useState, createContext, useEffect, useContext } from "react"
-import { useNavigate } from "react-router-dom"
-import Cookies from "js-cookie"
-import { UserContext } from "./UserContext"
+import React, { createContext, useEffect, useContext } from 'react'
+import { useNavigate } from 'react-router-dom'
+import Cookies from 'js-cookie'
+import { UserContext } from './UserContext'
 
 export const AuthorizationContext = createContext()
 
 const AuthorizationContextProvider = ({ children }) => {
   const navigate = useNavigate()
   const authBaseUrl =
-    "https://aspnet2-grupp1-backend.azurewebsites.net/api/Authentication/"
-  const apiKey = "f77ca749-67f4-4c22-9039-137272442ea0"
-
+    'https://aspnet2-grupp1-backend.azurewebsites.net/api/Authentication/'
+  const apiKey = 'f77ca749-67f4-4c22-9039-137272442ea0'
   const { getLoggedinUser } = useContext(UserContext)
 
+  const googleLogin = async (token) => {
+    // ...Here you would handle the received Google token...
+    console.log('Received Google token:', token)
+
+    // Save the token to cookies
+    Cookies.set('googleToken', token, {
+      expires: 7, // expires after 7 days. Change this according to your requirement
+      secure: true, // ensures the cookie is only sent over HTTPS. Set this to false if you're not using HTTPS
+    })
+
+    await authorizeWithGoogle()
+    navigate("/profile")
+  }
+
   const registerUser = async (fullName, email, password) => {
-    let nameArr = fullName.split(" ", 2)
+    let nameArr = fullName.split(' ', 2)
     let firstName = nameArr[0]
     let lastName = nameArr[1]
 
@@ -25,11 +38,11 @@ const AuthorizationContextProvider = ({ children }) => {
       password: password,
     }
 
-    const result = await fetch(authBaseUrl + "Register", {
-      method: "POST",
+    const result = await fetch(authBaseUrl + 'Register', {
+      method: 'POST',
       headers: {
-        "API-KEY": apiKey,
-        "Content-Type": "application/json",
+        'API-KEY': apiKey,
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(newUser),
     })
@@ -43,27 +56,20 @@ const AuthorizationContextProvider = ({ children }) => {
       password: password,
     }
 
-    console.log(user)
-
-    const res = await fetch(authBaseUrl + "Login", {
-      method: "POST",
+    const res = await fetch(authBaseUrl + 'Login', {
+      method: 'POST',
       headers: {
-        "API-KEY": apiKey,
-        "Content-Type": "application/json",
+        'API-KEY': apiKey,
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(user),
     })
 
-    console.log(res)
-
     if (res.status === 200) {
-      console.log(res)
       const token = await res.text()
-      console.log("token " + token)
 
       const expirationDate = new Date()
-
-      Cookies.set("maneroToken", token, {
+      Cookies.set('maneroToken', token, {
         expires: expirationDate.getDate() + 1,
       })
       return true
@@ -72,32 +78,61 @@ const AuthorizationContextProvider = ({ children }) => {
   }
 
   const logoutUser = async () => {
-    Cookies.remove("maneroToken")
+    Cookies.remove('maneroToken')
+    Cookies.remove('googleToken')
   }
 
   const authorize = async () => {
-    const res = await fetch(authBaseUrl + "Authorize", {
-      headers: {
-        "API-KEY": apiKey,
-        Authorization: "Bearer " + Cookies.get("maneroToken"),
-      },
-    })
+    try {
+      const response = await fetch(authBaseUrl + 'Authorize', {
+        headers: {
+          'API-KEY': apiKey,
+          Authorization: 'Bearer ' + Cookies.get('maneroToken'),
+        },
+      })
 
-    if (res.status === 200) {
-      return true
+      return response.status === 200
+    } catch (err) {
+      console.error('Authorization request failed:', err)
+      return false
     }
-    
+  }
+
+  const authorizeWithGoogle = async () => {
+    let url = "https://localhost:7122/api/Authentication/AuthorizeWithGoogle"
+    try {
+      const res = await fetch(authBaseUrl + 'AuthorizeWithGoogle', {
+        method: 'POST',
+        headers: {
+          'API-KEY': apiKey,
+        },
+        body: Cookies.get('googleToken'),
+      })
+
+      if (res.status === 200) {
+        const token = await res.text()
+        console.log(token)
+
+        const expirationDate = new Date()
+        Cookies.set('maneroToken', token, {
+          expires: expirationDate.getDate() + 1,
+        })
+        return true
+      }
+    } catch (err) {
+      console.error('Authorization request failed:', err)
+    }
     return false
   }
 
-  const useAuthorization = async () => {
+  const useAuthorization = () => {
+
     useEffect(() => {
       const checkAuthorization = async () => {
         if (!(await authorize())) {
-          navigate("/Signin")
+          navigate('/Signin')
           return
         }
-
         await getLoggedinUser()
       }
 
@@ -113,6 +148,7 @@ const AuthorizationContextProvider = ({ children }) => {
         logoutUser,
         authorize,
         useAuthorization,
+        googleLogin, // Added googleLogin here
       }}
     >
       {children}

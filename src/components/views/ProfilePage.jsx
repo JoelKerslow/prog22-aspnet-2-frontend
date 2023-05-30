@@ -13,9 +13,30 @@ const ProfilePage = () => {
   useAuthorization()
 
   const { currentUser } = useContext(UserContext);
+  const [promocodeClickCount, setPromocodeClickCount] = useState(0);
+
   const navigate = useNavigate();
 
   const [togglePopup, setTogglePopup] = useState(false);
+
+
+  const handlePromocodeClick = () => {
+    // Handles localStorage for Promocodes for DEMO purposes.
+    const currentCount = localStorage.getItem("promocodeClickCount")
+      ? parseInt(localStorage.getItem("promocodeClickCount"))
+      : 0;
+
+    const newCount = currentCount + 1;
+
+    localStorage.setItem("promocodeClickCount", newCount);
+
+    if (newCount === 1) {
+      navigate("/MyPromocodesEmpty");
+    } else {
+      navigate("/MyPromocodes");
+    }
+  };
+  
 
   const handleLogout = () => {
     logoutUser();
@@ -27,7 +48,7 @@ const ProfilePage = () => {
       {togglePopup && (<div className="popup-overlay" onClick={() => setTogglePopup(false)} />)}
       {togglePopup && <PopupCircle onClose={() => setTogglePopup(false)} handleLogout={() => handleLogout()} />}
      <div>
-      <Header />
+      <Header headerContent={<h1>MANERO</h1>}  showCartButton={true}/>
       <div className="container">
         <div className="container mt-3">
           <VerticalBar />
@@ -42,63 +63,65 @@ const ProfilePage = () => {
 
         <ul className="list-group mt-5">
 
-          <Link to="/Orders" className="list-group-item pt-3 pb-1">
+          <Link to="/OrderHistory" className="list-group-item pt-3 pb-1">
             <div className="options-icon">
-              <i class="fa-light fa-calendar"></i>
+              <i className="fa-light fa-calendar"></i>
             </div>
             <div className="options-text">
               <p>Order history</p>
             </div>
             <div className="options-arrow">
-              <i class="fa-light fa-chevron-right"></i>
+              <i className="fa-light fa-chevron-right"></i>
             </div>
           </Link>
 
-          <Link to="/Payment" className="list-group-item pt-3 pb-1">
+          <Link to="/Profile/PaymentMethods" className="list-group-item pt-3 pb-1">
             <div className="options-icon">
-              <i class="fa-light fa-credit-card-front"></i>
+              <i className="fa-light fa-credit-card-front"></i>
             </div>
             <div className="options-text">
               <p>Payment method</p>
             </div>
             <div className="options-arrow">
-              <i class="fa-light fa-chevron-right"></i>
+              <i className="fa-light fa-chevron-right"></i>
             </div>
           </Link>
 
-          <Link to="/Addresses" className="list-group-item pt-3 pb-1">
+          <Link to="/Profile/Addresses" className="list-group-item pt-3 pb-1">
             <div className="options-icon">
-              <i class="fa-sharp fa-light fa-location-dot"></i>
+              <i className="fa-sharp fa-light fa-location-dot"></i>
             </div>
             <div className="options-text">
               <p>My address</p>
             </div>
             <div className="options-arrow">
-              <i class="fa-light fa-chevron-right"></i>
+              <i className="fa-light fa-chevron-right"></i>
             </div>
           </Link>
 
-          <Link to="/Promocodes" className="list-group-item pt-3 pb-1">
+
+          {/* <Link to="/MyPromocodesEmpty" className="list-group-item pt-3 pb-1"> */}
+          <div onClick={handlePromocodeClick} className="list-group-item pt-3 pb-1">
             <div className="options-icon">
-              <i class="fa-light fa-gift"></i>
+              <i className="fa-light fa-gift"></i>
             </div>
             <div className="options-text">
               <p>My promocodes</p>
             </div>
             <div className="options-arrow">
-              <i class="fa-light fa-chevron-right"></i>
+              <i className="fa-light fa-chevron-right"></i>
             </div>
-          </Link>
+          </div>
 
           <li onClick={() => setTogglePopup(true)} className="list-group-item pt-3 pb-1 ">
             <div className="options-icon">
-              <i class="fa-light fa-arrow-right-from-bracket text-decoration-none"></i>
+              <i className="fa-light fa-arrow-right-from-bracket text-decoration-none"></i>
             </div>
-            <div className="options-text">
+            <div className="options-text option-signout">
               <p>Sign out</p>
             </div>
             <div className="options-arrow">
-              <i class="fa-light fa-chevron-right"></i>
+              <i className="fa-light fa-chevron-right"></i>
             </div>
           </li>
 

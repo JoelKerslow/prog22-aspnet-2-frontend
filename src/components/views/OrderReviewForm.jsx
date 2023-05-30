@@ -1,13 +1,16 @@
 import { AuthorizationContext } from "../../contexts/AuthorizationContext"
-import { useEffect, useContext, useState, useRef } from "react"
+import { useContext, useState, useRef } from "react"
 import { useNavigate, useParams } from "react-router-dom"
+import { createReviewAsync } from "../../services/ReviewServices"
 import VerticalBar from "../partials/generalPartials/VerticalBar"
 import BackArrow from "../partials/generalPartials/BackArrow"
 import CircleWithIcon from "../partials/generalPartials/CircleWithIcon"
 import StarRatingInput from "../partials/StarRatingInput"
 
 const OrderReviewForm = () => {
-  const { userLoggedin } = useContext(AuthorizationContext)
+  const { useAuthorization } = useContext(AuthorizationContext)
+  useAuthorization()
+
   const { orderId } = useParams()
 
   const [rating, setRating] = useState(0)
@@ -17,47 +20,6 @@ const OrderReviewForm = () => {
 
   const navigate = useNavigate()
   const commentVal = useRef()
-
-  const orderReviewsUrl = "https://aspnet2-grupp1-backend.azurewebsites.net/Review"
-  const apiKey = "f77ca749-67f4-4c22-9039-137272442ea0"
-
-  useEffect(() => {
-    if (!userLoggedin) {
-      navigate('/Signin')
-    }
-  }, [userLoggedin])
-
-  const createOrderReview = async () => {
-    const comment = commentVal.current.value.replace(/\s+/g, " ").trim()
-
-    const reviewData = {
-      comment: comment || null,
-      rating: rating,
-      orderId: orderId,
-    }
-
-    const result = await fetch(orderReviewsUrl, {
-      method: "POST",
-      headers: {
-        "API-KEY": apiKey,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(reviewData),
-    })
-      .then((res) => {
-        if (res.ok) {
-          return true
-        }
-
-        return false
-      })
-      .catch((err) => {
-        console.error(err.message)
-        return false
-      })
-
-    return result
-  }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -74,7 +36,13 @@ const OrderReviewForm = () => {
       return
     }
 
-    if (await createOrderReview()) {
+    const reviewData = {
+      comment: commentVal.current.value,
+      rating: rating,
+      orderId: orderId,
+    }
+
+    if (await createReviewAsync(reviewData)) {
       setFormSubmitted(true)
     } else {
       setServerError(
@@ -99,7 +67,7 @@ const OrderReviewForm = () => {
             <BackArrow clickEvent={handleGoBack} />
             <h3>Leave a review</h3>
           </div>
-          <CircleWithIcon iconClassName={"fa-comments"} />
+          <CircleWithIcon iconName={"fa-comments"} />
           <VerticalBar />
 
           <h3 className='text-center fw-bold'>

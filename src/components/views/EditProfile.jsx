@@ -1,9 +1,40 @@
 //imports
+import { useContext, useState, useRef } from "react";
 import BackArrow from "../partials/generalPartials/BackArrow";
 import VerticalBar from "../partials/generalPartials/VerticalBar";
 import ProfilePicture from "../partials/generalPartials/ProfilePicture";
+import { UserContext } from "../../contexts/UserContext";
+import { useNavigate } from "react-router-dom";
 
-const Registration = () => {
+
+
+const EditProfile = () => {
+
+  const navigate = useNavigate();
+
+
+  const fullNameRef = useRef();
+  const { updateUserProfile } = useContext(UserContext);
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  
+  const handleNameChange = (event) => {
+    const name = fullNameRef.current.value;
+    const [first, last] = name.split(" ");
+    setFirstName(first);
+    setLastName(last);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    updateUserProfile({ firstName, lastName });
+  };
+
+  const handleGoBack = () => {
+    navigate(-1)
+  };
+
+  
 
   return (
     <>
@@ -11,20 +42,22 @@ const Registration = () => {
         <div className="row justify-content-center">
           <div className="col-12 col-sm-8 col-md-6 col-lg-4">
             <div className="RegHeader">
-              <BackArrow />
+              <BackArrow clickEvent={handleGoBack} />
               <h3>Edit profile</h3>
             </div>
 
             <VerticalBar />
             <ProfilePicture className={'fa-camera'}/>
 
-            <form onSubmit="" method="post" className="form-editprofile">
-              <div className="edit-profile-input input-field-group">
+            <form onSubmit={handleSubmit} method="post" className="form-editprofile">
+            <div className="edit-profile-input input-field-group">
                 <label>Name</label>
                 <input
-                  type="Name"
+                  type="text"
                   className="input-field"
                   placeholder="John Doe"
+                  ref={fullNameRef}
+                  onChange={handleNameChange}
                 />
               </div>
               <div className="edit-profile-input input-field-group">
@@ -62,4 +95,4 @@ const Registration = () => {
     </>
   );
 };
-export default Registration;
+export default EditProfile;
