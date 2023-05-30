@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import creditCardImage from "../../assets/images/creditcard.png";
 import BackArrow from "../partials/generalPartials/BackArrow";
 import VerticalBar from "../partials/generalPartials/VerticalBar";
@@ -8,6 +9,7 @@ const AddCreditCard = () => {
   const [cardNumber, setCardNumber] = useState("");
   const [expiryDate, setExpiryDate] = useState("");
   const [cvc, setCvc] = useState("");
+  const navigate = useNavigate();
 
   const handleFullNameChange = (event) => {
     setFullName(event.target.value);
@@ -23,6 +25,10 @@ const AddCreditCard = () => {
 
   const handleCvcChange = (event) => {
     setCvc(event.target.value);
+  };
+  const handleOnSubmit = (event) => {
+    event.preventDefault();
+    navigate(-1);
   };
 
   return (
@@ -42,7 +48,7 @@ const AddCreditCard = () => {
                 <div className="expiration-date">{expiryDate}</div>
               </div>
 
-          <form onSubmit={(event) => event.preventDefault()} method="post" className="form-addcreditcard">
+          <form onSubmit={handleOnSubmit} method="post" className="form-addcreditcard">
             <div className="add-credit-card-input input-field-group">
               <label>Full name</label>
               <input
