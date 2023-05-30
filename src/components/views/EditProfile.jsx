@@ -7,10 +7,7 @@ import ProfilePicture from "../partials/generalPartials/ProfilePicture";
 import { UserContext, CurrentUser } from "../../contexts/UserContext";
 
 const EditProfile = () => {
-
-  const navigate = useNavigate();
-
-
+  
   const fullNameRef = useRef();
   const imageUrlRef = useRef();
   const { updateUserProfile, currentUser } = useContext(UserContext);

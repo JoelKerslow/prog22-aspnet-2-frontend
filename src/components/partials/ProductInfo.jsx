@@ -75,7 +75,7 @@ const ProductInfo = ({ product, productReviews }) => {
             </div>
             <div
               onClick={() => {
-                navigate("/reviews/" + product.id);
+                navigate("/productreview/" + product.id);
               }}
             >
               <StarRating
