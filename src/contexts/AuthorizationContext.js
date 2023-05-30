@@ -7,11 +7,20 @@ export const AuthorizationContext = createContext()
 
 const AuthorizationContextProvider = ({ children }) => {
   const navigate = useNavigate()
-  const authBaseUrl =
-    "https://aspnet2-grupp1-backend.azurewebsites.net/api/Authentication/"
+  const authBaseUrl = "https://aspnet2-grupp1-backend.azurewebsites.net/api/Authentication/"
   const apiKey = "f77ca749-67f4-4c22-9039-137272442ea0"
-
   const { getLoggedinUser } = useContext(UserContext)
+
+  const googleLogin = async (token) => {
+    // ...Here you would handle the received Google token...
+    console.log('Received Google token:', token);
+
+    // Save the token to cookies
+    Cookies.set("googleToken", token, {
+      expires: 7, // expires after 7 days. Change this according to your requirement
+      secure: true, // ensures the cookie is only sent over HTTPS. Set this to false if you're not using HTTPS
+    });
+};
 
   const registerUser = async (fullName, email, password) => {
     let nameArr = fullName.split(" ", 2)
@@ -43,8 +52,6 @@ const AuthorizationContextProvider = ({ children }) => {
       password: password,
     }
 
-    console.log(user)
-
     const res = await fetch(authBaseUrl + "Login", {
       method: "POST",
       headers: {
@@ -54,15 +61,10 @@ const AuthorizationContextProvider = ({ children }) => {
       body: JSON.stringify(user),
     })
 
-    console.log(res)
-
     if (res.status === 200) {
-      console.log(res)
       const token = await res.text()
-      console.log("token " + token)
 
       const expirationDate = new Date()
-
       Cookies.set("maneroToken", token, {
         expires: expirationDate.getDate() + 1,
       })
@@ -91,7 +93,7 @@ const AuthorizationContextProvider = ({ children }) => {
     }
   }
 
-  const useAuthorization = async () => {
+  const useAuthorization = () => {
     useEffect(() => {
       const checkAuthorization = async () => {
         if (!(await authorize())) {
@@ -114,6 +116,7 @@ const AuthorizationContextProvider = ({ children }) => {
         logoutUser,
         authorize,
         useAuthorization,
+        googleLogin,  // Added googleLogin here
       }}
     >
       {children}
