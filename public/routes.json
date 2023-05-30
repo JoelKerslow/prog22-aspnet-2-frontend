@@ -81,7 +81,12 @@
       "statusCode": 200
     },
     {
-      "route": "/Profile/AddAddress",
+      "route": "/Profile/Addresses",
+      "serve": "/index.html",
+      "statusCode": 200
+    },
+    {
+      "route": "/Profile/Addresses/Manage",
       "serve": "/index.html",
       "statusCode": 200
     },
@@ -108,11 +113,6 @@
     {
       "route": "/static/*",
       "serve": "/static/:splat",
-      "statusCode": 200
-    },
-    {
-      "route": "*",
-      "serve": "/index.html",
       "statusCode": 200
     }
   ]

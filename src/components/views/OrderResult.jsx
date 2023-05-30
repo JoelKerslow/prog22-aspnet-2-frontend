@@ -1,15 +1,22 @@
-import React from "react";
+import React, { useContext } from "react";
 import CircleWithIcon from "../partials/generalPartials/CircleWithIcon";
 import VerticalBar from "../partials/generalPartials/VerticalBar";
 import { useNavigate, useParams } from "react-router-dom";
+import { AuthorizationContext } from "../../contexts/AuthorizationContext";
 
 const OrderResult = () => {
   const navigate = useNavigate();
   const { outcome } = useParams();
+  const { useAuthorization} = useContext(AuthorizationContext);
+  useAuthorization();
 
+  
   return (
-    <div className="d-flex align-items-center justify-content-center"  style={{height: "80vh" }}>
-      {outcome == "success" ? (
+    <div
+      className="d-flex align-items-center justify-content-center"
+      style={{ height: "80vh" }}
+    >
+      {outcome === "success" ? (
         <div className="order-result-container">
           <CircleWithIcon
             theme="circle-with-icon-green"
@@ -59,7 +66,8 @@ const OrderResult = () => {
             GO TO MY PROFILE
           </button>
         </div>
-      )}
+      )
+    }
     </div>
   );
 };

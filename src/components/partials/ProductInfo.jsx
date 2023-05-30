@@ -1,9 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import StarRating from "./StarRating";
 import PageIndicator from "./PageIndicator";
 import FavouriteIcon from "./FavouriteIcon";
 import UserProductReview from "./UserProductReview";
+import { CartContext } from "../../contexts/CartContext";
+import {placeholderImage} from '../../contexts/ProductContext'
+
+
 
 const ProductInfo = ({ product, productReviews }) => {
   const [quantity, setQuantity] = useState(1);
@@ -11,9 +15,10 @@ const ProductInfo = ({ product, productReviews }) => {
   const [selectedSize, setSelectedSize] = useState(null);
   const [latestReviews, setLatestReviews] = useState();
   const navigate = useNavigate();
-
+  const {addCartItem} = useContext(CartContext);
+ 
   const sizeList = ["XS", "S", "M", "L", "XL", "XXL"];
-  const colorList = ["Red", "Blue", "Beige", "Darkblue", "Black", "White"];
+  const colorList = ["Red", "Blue", "Beige", "Darkblue", "Black", "White", "Green"];
 
   useEffect(() => {
     if (setLatestReviews !== null) {
@@ -24,25 +29,28 @@ const ProductInfo = ({ product, productReviews }) => {
         .sort((a, b) => new Date(b.createdDate) - new Date(a.createdDate))
         .slice(0, 5)
     );
+
+    setSelectedColor(product.color)
+    setSelectedSize(product.size)
   }, [product, productReviews]);
 
-  const handleColorClick = (color) => {
-    setSelectedColor(color);
-  };
+  // const handleColorClick = (color) => {
+  //   setSelectedColor(color);
+  // };
 
-  const handleSizeClick = (size) => {
-    setSelectedSize(size);
-  };
+  // const handleSizeClick = (size) => {
+  //   setSelectedSize(size);
+  // };
 
   const handleAddToCart = () => {
-    //functionality to add product to cart
+    addCartItem(product.id, quantity);
   }
 
   return (
     <>
       <div className="product-info-container" >
         <div className="product-image-container mb-3">
-          <img className="product-image" src={product.imageUrl} alt="" />
+          <img className="product-image" src={product.imageUrl !== null ? product.imageUrl : placeholderImage} alt="" />
           <div className="image-indicator">
             <PageIndicator currentPage={1} />
           </div>
@@ -90,7 +98,7 @@ const ProductInfo = ({ product, productReviews }) => {
                   className={`size-btn ${
                     selectedSize === size ? "selected-size" : ""
                   }`}
-                  onClick={() => handleSizeClick(size)}
+                  // onClick={() => handleSizeClick(size)}
                 >
                   {size}
                 </div>
@@ -106,7 +114,7 @@ const ProductInfo = ({ product, productReviews }) => {
                     className={`color-btn ${
                       selectedColor === color ? "selected-color" : ""
                     } ${color.toLowerCase()}-btn`}
-                    onClick={() => handleColorClick(color)}
+                    // onClick={() => handleColorClick(color)}
                   ></div>
                 ))}
               </div>

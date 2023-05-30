@@ -1,15 +1,11 @@
 import { React, useContext } from 'react'
-import { NavLink } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { UserContext } from "../../contexts/UserContext"
 
 
 const AddressCard = ({ userAddress }) => {
-  const mockAddress = {
-    "title" : "Home",
-    "addressLine1" : "Skvadronvägen 1a",
-    "postalCode" : "746 52",
-    "city": "Bålsta",
-  }
+  const navigate = useNavigate() 
+
   return (
     <div className='addressCard'>
       <div className="cardContent">
@@ -18,9 +14,9 @@ const AddressCard = ({ userAddress }) => {
           <div className="addressTitle">{userAddress.title}</div>
           <div className="addressDetails">{userAddress.addressLine1}, {userAddress.postalCode} {userAddress.city}</div>
         </div>
-        <NavLink path="/" className='editAddressLink' > {/* needs to be completed with actual link */}
-          <div className='editAddressIcon'><i className={`fa-light fa-pen-line fa-xs`}></i></div>
-        </NavLink>
+        <div onClick={() => navigate('/Profile/Addresses/Manage', { state: { userAddress: userAddress } })} className='editAddressLink' >
+          <div className='editAddressIcon'><i className="fa-light fa-pen-line fa-xs"></i></div>
+        </div>
       </div>
     </div>
   )

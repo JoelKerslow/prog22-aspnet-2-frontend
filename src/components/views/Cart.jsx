@@ -5,6 +5,7 @@ import Navbar from "../partials/Navbar";
 import { CartContext } from "../../contexts/CartContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faCheck, faTimes } from "@fortawesome/free-solid-svg-icons";
+import {placeholderImage} from '../../contexts/ProductContext'
 
 const Cart = () => {
   const {
@@ -67,7 +68,7 @@ const Cart = () => {
               <div className="cart-image-section">
                 <img
                   className="cart-image"
-                  src={item.product.imageUrl}
+                  src={item.product.imageUrl !== null ? item.product.imageUrl : placeholderImage}
                   alt=""
                 />
                 {cart.promoCode && <div className="sale-badge">SALE</div>}
