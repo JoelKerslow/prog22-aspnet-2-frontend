@@ -2679,34 +2679,6 @@ header .cart-total-circle {
   }
 }
 
-.credit-card {
-  width: 300px;
-  height: 180px;
-  background-color: red;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  font-family: Arial, sans-serif;
-  margin: 0 auto;
-  margin-bottom: 3vh;
-}
-.credit-card .card-number {
-  font-size: 20px;
-  color: #000;
-  font-weight: bold;
-}
-.credit-card .card-holder {
-  font-size: 16px;
-  color: #555;
-}
-.credit-card .expiration-date {
-  font-size: 14px;
-  color: #555;
-}
-
 .address-form-container {
   padding: 0;
 }
@@ -3193,7 +3165,7 @@ hr {
 .wishlist-group ul.wishlist-items li.wishlist-item .wishlist-details .wishlist-name .wishlist-group ul.wishlist-items li.wishlist-item:last-child {
   border-bottom: none;
 }
-.wishlist-group ul.wishlist-items li.wishlist-item .wishlist-details .wishlist-name .add-to-cart-btn,
+.wishlist-group ul.wishlist-items li.wishlist-item .wishlist-details .wishlist-name .wishlist-add-to-cart-btn,
 .wishlist-group ul.wishlist-items li.wishlist-item .wishlist-details .wishlist-name .remove-btn {
   border: none;
   background-color: transparent;
@@ -3247,7 +3219,7 @@ hr {
   border-bottom: none;
 }
 
-.add-to-cart-btn,
+.wishlist-add-to-cart-btn,
 .remove-btn {
   border: none;
   background-color: transparent;
@@ -3268,3 +3240,31 @@ h2 {
   text-decoration: none !important;
   color: inherit;
 }
+
+.credit-card {
+  width: 300px;
+  height: 180px;
+  background-color: red;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: Arial, sans-serif;
+  margin: 0 auto;
+  margin-bottom: 3vh;
+}
+.credit-card .card-number {
+  font-size: 20px;
+  color: #000;
+  font-weight: bold;
+}
+.credit-card .card-holder {
+  font-size: 16px;
+  color: #555;
+}
+.credit-card .expiration-date {
+  font-size: 14px;
+  color: #555;
+}/*# sourceMappingURL=App.css.map */
