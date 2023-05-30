@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import ProductInfo from "../partials/ProductInfo";
 import Header from "../partials/Header";
 import { ProductReviewsAsync } from "../../services/ReviewServices";
+import Navbar from '../partials/Navbar'
 
 const ProductDetails = () => {
   const { productId } = useParams();
@@ -33,6 +34,7 @@ const ProductDetails = () => {
           />
         )}
       </div>
+      <Navbar />
     </>
   );
 };
