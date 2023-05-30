@@ -11,7 +11,7 @@ import enLocale from 'i18n-iso-countries/langs/en.json'
 import Header from '../partials/Header'
 
 const googleApiKey = 'AIzaSyDNzG8GKrpZChIenaMnf1v-7bl6IrN2VHk'
-const useTestData = true // !!! Sätt som TRUE för att inte spamma google api vid test !!!
+const useTestData = false // !!! Sätt som TRUE för att inte spamma google api vid test !!!
 // #region TestData
 const testData = {
   plus_code: {
@@ -130,16 +130,16 @@ const AddressForm = () => {
     defaultValues: recievedAddress
       ? {
           title: recievedAddress.title || '',
-          addressLine1: recievedAddress.addressline1 || '',
-          addressLine2: recievedAddress.addressline2 || '',
+          addressline1: recievedAddress.addressline1 || '',
+          addressline2: recievedAddress.addressline2 || '',
           postalCode: recievedAddress.postalCode || undefined,
           city: recievedAddress.city || '',
           country: recievedAddress.country || '',
         }
       : {
           title: '',
-          addressLine1: '',
-          addressLine2: '',
+          addressline1: '',
+          addressline2: '',
           postalCode: undefined,
           city: '',
           country: '',
@@ -174,7 +174,7 @@ const AddressForm = () => {
       ).short_name
 
       setValue('title', title)
-      setValue('addressLine1', `${streetName} ${streetNumber}`)
+      setValue('addressline1', `${streetName} ${streetNumber}`)
       setValue('postalCode', parseInt(postalCode.replace(/\s/g, ''), 10))
       setValue('city', city)
       setValue('country', country)
@@ -303,12 +303,12 @@ const AddressForm = () => {
 
               <div
                 className={`input-field-group ${
-                  errors.addressLine1 && 'error'
+                  errors.addressline1 && 'error'
                 }`}
               >
                 <label>ADDRESS LINE 1</label>
                 <input
-                  {...register('addressLine1', {
+                  {...register('addressline1', {
                     required: 'Address line 1 is required',
                     minLength: {
                       value: 2,
@@ -321,14 +321,14 @@ const AddressForm = () => {
                   placeholder='Address line 1'
                 />
               </div>
-              {errors.addressLine1 && (
-                <p className='error-text'>{errors.addressLine1.message}</p>
+              {errors.addressline1 && (
+                <p className='error-text'>{errors.addressline1.message}</p>
               )}
 
               <div className='input-field-group'>
                 <label>ADDRESS LINE 2</label>
                 <input
-                  {...register('addressLine2', {
+                  {...register('addressline2', {
                     required: false,
                     minLength: {
                       value: 2,
@@ -341,8 +341,8 @@ const AddressForm = () => {
                   placeholder='Address line 2 (optional)'
                 />
               </div>
-              {errors.addressLine2 && (
-                <p className='error-text'>{errors.addressLine2.message}</p>
+              {errors.addressline2 && (
+                <p className='error-text'>{errors.addressline2.message}</p>
               )}
 
               <div
