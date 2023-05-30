@@ -103,7 +103,7 @@ const AddressForm = () => {
   const [serverError, setServerError] = useState('')
   const [locationError, setLocationError] = useState('')
   const [loading, setLoading] = useState('')
-  const [selectedIcon, setSelectedIcon] = useState('fa-location-dot')
+  const [selectedIcon, setSelectedIcon] = useState(recievedAddress?.icon || 'fa-location-dot')
 
   const initialMapCenter = {
     lat: 59.3454695384986,
