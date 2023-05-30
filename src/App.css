@@ -1910,7 +1910,7 @@ header.sidebar-open .sidebar-container {
   top: 50%;
   left: 0;
   transform: translateY(-50%);
-  opacity: 50%;
+  opacity: 60%;
 }
 .color-container .color-btn::before {
   transform-origin: center center;
@@ -1949,6 +1949,9 @@ header.sidebar-open .sidebar-container {
   border: 3.5px solid rgb(175, 191, 209);
   scale: 110%;
   opacity: 100%;
+}
+.color-container .selected-color::before, .color-container .selected-color::after {
+  display: none;
 }
 .color-container .selected-color:hover {
   cursor: pointer;

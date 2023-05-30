@@ -256,7 +256,7 @@
     top: 50%;
     left: 0;
     transform: translateY(-50%);
-    opacity: 50%;
+    opacity: 60%;
   }
 
   .color-btn::before {
@@ -304,6 +304,11 @@
     border: 3.5px solid rgb(175, 191, 209);
     scale: calc(110%);
     opacity: 100%;
+
+    &::before,
+    &::after {
+      display: none;
+    }
   }
 
   .selected-color:hover {
