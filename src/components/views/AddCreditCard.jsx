@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import creditCardImage from "../../assets/images/creditcard.png";
 import BackArrow from "../partials/generalPartials/BackArrow";
 import VerticalBar from "../partials/generalPartials/VerticalBar";
 
