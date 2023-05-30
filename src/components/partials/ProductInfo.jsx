@@ -32,7 +32,7 @@ const ProductInfo = ({ product, productReviews }) => {
 
     setSelectedColor(product.color)
     setSelectedSize(product.size)
-  }, [product]);
+  }, [product, productReviews]);
 
   // const handleColorClick = (color) => {
   //   setSelectedColor(color);
