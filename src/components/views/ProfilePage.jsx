@@ -94,7 +94,7 @@ const ProfilePage = () => {
             <div className="options-icon">
               <i className="fa-light fa-arrow-right-from-bracket text-decoration-none"></i>
             </div>
-            <div className="options-text">
+            <div className="options-text option-signout">
               <p>Sign out</p>
             </div>
             <div className="options-arrow">

@@ -2497,6 +2497,10 @@ header.sidebar-open .sidebar-container {
   margin: 0%;
 }
 
+.option-signout {
+  margin-bottom: 35px;
+}
+
 .options-arrow {
   width: 10%;
 }
