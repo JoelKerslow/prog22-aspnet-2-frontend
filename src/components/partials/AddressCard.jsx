@@ -12,7 +12,7 @@ const AddressCard = ({ userAddress }) => {
         <div className='addressIcon'><i className={`fa-light ${userAddress.icon}`}></i></div>
         <div className='addressInfo'>
           <div className="addressTitle">{userAddress.title}</div>
-          <div className="addressDetails">{userAddress.addressLine1}, {userAddress.postalCode} {userAddress.city}</div>
+          <div className="addressDetails">{userAddress.addressline1}, {userAddress.postalCode} {userAddress.city}</div>
         </div>
         <div onClick={() => navigate('/Profile/Addresses/Manage', { state: { userAddress: userAddress } })} className='editAddressLink' >
           <div className='editAddressIcon'><i className="fa-light fa-pen-line fa-xs"></i></div>

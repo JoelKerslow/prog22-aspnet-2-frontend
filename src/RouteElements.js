@@ -23,7 +23,6 @@ import MyPromocodes from "./components/views/MyPromocodes"
 import ProductDetails from "./components/views/ProductDetails"
 import OrderResult from "./components/views/OrderResult"
 import Cart from "./components/views/Cart"
-import UserAddresses from "./components/views/UserAddresses"
 
 const RouteElements = () => {
   return (
