@@ -52,9 +52,9 @@ const RouteElements = () => {
         element={<ProductReview />}
       />
       <Route path='/OrderHistory' element={<OrderHistory />} />
-      <Route path='/orderresult/:outcome' element={<OrderResult />} />
+      <Route path='/Orderresult/:outcome' element={<OrderResult />} />
       <Route path='/Cart' element={<Cart />} />
-      <Route path='*' element={<Home />} />
+      {/* <Route path='*' element={<Home />} /> */}
     </Routes>
   )
 }
