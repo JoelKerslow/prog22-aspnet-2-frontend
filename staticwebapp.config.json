@@ -104,11 +104,6 @@
       "route": "/OrderHistory",
       "serve": "/index.html",
       "statusCode": 200
-    },
-    {
-      "route": "/static/*",
-      "serve": "/static/:splat",
-      "statusCode": 200
     }
   ]
 }
