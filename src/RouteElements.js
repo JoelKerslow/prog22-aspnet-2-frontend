@@ -19,6 +19,7 @@ import ResetPassword from "./components/views/ResetPassword"
 import UserAddresses from "./components/views/UserAddresses"
 import AddressForm from "./components/views/AddressForm"
 import OrderHistory from "./components/views/OrderHistory"
+import Wishlist from "./components/views/Wishlist"
 import MyPromocodes from "./components/views/MyPromocodes"
 import MyPromocodesEmpty from "./components/views/MyPromocodesEmpty"
 import ProductDetails from "./components/views/ProductDetails"
@@ -56,6 +57,7 @@ const RouteElements = () => {
       />
       <Route path='/Profile/Addresses' element={<UserAddresses />} />
       <Route path='/OrderHistory' element={<OrderHistory />} />
+      <Route path="/Wishlist" element={<Wishlist/>} />
       <Route path='/orderresult/:outcome' element={<OrderResult />} />
       <Route path='/Cart' element={<Cart />} />
       <Route path='*' element={<Home />} />
