@@ -29,7 +29,6 @@ const RouteElements = () => {
     <Routes>
       <Route path='/' element={<Welcome />} />
       <Route path='/Home' element={<Home />} />
-      <Route path='*' element={<Home />} />
       <Route path='/Onboarding' element={<Onboarding />} />
       <Route path='/Verification' element={<VerificationCode />} />
       <Route path='/SearchProducts' element={<SearchProducts />} />
@@ -55,6 +54,7 @@ const RouteElements = () => {
       <Route path='/OrderHistory' element={<OrderHistory />} />
       <Route path='/orderresult/:outcome' element={<OrderResult />} />
       <Route path='/Cart' element={<Cart />} />
+      <Route path='*' element={<Home />} />
     </Routes>
   )
 }
