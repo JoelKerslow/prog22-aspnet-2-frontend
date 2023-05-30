@@ -24,7 +24,7 @@ const ProductDetails = () => {
 
   return (
     <>
-      <Header headerContent={<h1>MANERO</h1>} showCartButton={true}/>
+      <Header headerContent={<h1>MANERO</h1>} showCartButton={true} useGoBackButton={true}/>
       <div>
         {currentProduct && (
           <ProductInfo
