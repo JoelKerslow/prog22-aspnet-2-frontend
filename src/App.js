@@ -1,12 +1,12 @@
-import React from "react"
-import "./App.css"
-import RouteElements from "./RouteElements"
-import ProductContextProvider from "./contexts/ProductContext"
-import AuthorizationContextProvider from "./contexts/AuthorizationContext"
-import UserContextProvider from "./contexts/UserContext"
-import { WishlistProvider } from "./contexts/WishlistContext"
-import CartContextProvider from "./contexts/CartContext"
-import { GoogleOAuthProvider } from "@react-oauth/google";
+import React from 'react'
+import './App.css'
+import RouteElements from './RouteElements'
+import ProductContextProvider from './contexts/ProductContext'
+import AuthorizationContextProvider from './contexts/AuthorizationContext'
+import UserContextProvider from './contexts/UserContext'
+import { WishlistProvider } from './contexts/WishlistContext'
+import CartContextProvider from './contexts/CartContext'
+import { GoogleOAuthProvider } from '@react-oauth/google'
 
 function App() {
   // const { routes, fallback } = routingConfig
@@ -25,18 +25,16 @@ function App() {
   // )
 
   return (
-
     <UserContextProvider>
       <AuthorizationContextProvider>
         <CartContextProvider>
-        <ProductContextProvider>
-          <WishlistProvider>
-            <RouteElements />
-        <GoogleOAuthProvider clientId="459344649179-np0o2klbr29dmv02l0tbdmvh3grh2l4p.apps.googleusercontent.com">
-          <RouteElements />
-          </GoogleOAuthProvider>
-    </WishlistProvider>
-        </ProductContextProvider>
+          <ProductContextProvider>
+            <WishlistProvider>
+              <GoogleOAuthProvider clientId="459344649179-np0o2klbr29dmv02l0tbdmvh3grh2l4p.apps.googleusercontent.com">
+                <RouteElements />
+              </GoogleOAuthProvider>
+            </WishlistProvider>
+          </ProductContextProvider>
         </CartContextProvider>
       </AuthorizationContextProvider>
     </UserContextProvider>

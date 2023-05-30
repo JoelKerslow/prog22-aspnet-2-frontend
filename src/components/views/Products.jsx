@@ -98,7 +98,7 @@ const Products = () => {
 
   return (
     <>
-      <Header headerContent={<SearchField />} />
+      <Header headerContent={<SearchField />} showCartButton={true}/>
       {!showFilter && (
         <>
           <div className="under-header">
