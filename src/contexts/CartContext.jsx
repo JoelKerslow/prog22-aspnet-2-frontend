@@ -136,9 +136,9 @@ export const CartContextProvider = ({ children }) => {
     getUserCart();
   }, [cart]);
 
-  useEffect(() => {
-    applyPromoCode(code);
-  }, [code]);
+  // useEffect(() => {
+  //   applyPromoCode(code);
+  // }, [code]);
 
   return (
     <CartContext.Provider
