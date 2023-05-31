@@ -1,11 +1,51 @@
 import Cookies from "js-cookie";
-import { createContext, useState } from "react";
+import { createContext, useState, useContext } from "react";
+import { AuthorizationContext } from "./AuthorizationContext";
+import { UserContext } from "./UserContext";
+import { useNavigate } from 'react-router';
 
 export const OrderContext = createContext();
 export const OrderContextProvider = ({ children }) => {
   const [order, setOrder] = useState({});
   const [orders, setOrders] = useState([]);
   const [currentOrder, setCurrentOrder] = useState({});
+  const { useAuthorization, authorize } = useContext(AuthorizationContext);
+  const { currentUser } = useContext(UserContext);
+  const navigate = useNavigate();
+
+  const fetchOrders = async () => {
+    try {
+      const tokenValid = await authorize();
+
+      if (!tokenValid || !currentUser || !currentUser.id) {
+        navigate('/signin');
+        return;
+      }
+      
+      const customerId = currentUser.id; // Retrieve the customer ID from currentUser
+      const apiKey = 'f77ca749-67f4-4c22-9039-137272442ea0'
+      const token = Cookies.get('maneroToken');
+      const url = `https://aspnet2-grupp1-backend.azurewebsites.net/api/Orders?customerId=${customerId}`;
+      
+
+      const response = await fetch(url, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "API-KEY": apiKey
+        },
+      });
+      const data = await response.json();
+      if (Array.isArray(data)) {
+        setOrders(data);
+        console.log(data);
+      } else {
+        setOrders([]);
+        
+      }
+    } catch (error) {
+      
+    }
+  };
 
 
   const orderBaseUrl =
@@ -99,7 +139,7 @@ export const OrderContextProvider = ({ children }) => {
   // };
 
   return (
-    <OrderContext.Provider value={{ sendOrder, getOrderById, order, currentOrder, setCurrentOrder, orders, setOrders }}>
+    <OrderContext.Provider value={{ sendOrder, getOrderById, order, currentOrder, setCurrentOrder, orders, setOrders, fetchOrders }}>
       {children}
     </OrderContext.Provider>
   );

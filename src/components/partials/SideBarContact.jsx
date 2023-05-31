@@ -3,16 +3,22 @@ import { OrderContext } from "../../contexts/OrderContext";
 import { useNavigate } from "react-router";
 
 const SideBarContact = ({ sidebarRef, toggleSideBar }) => {
-  const { getOrderById, setCurrentOrder } = useContext(OrderContext);
+  const { getOrderById, setCurrentOrder, orders } = useContext(OrderContext);
   const navigate = useNavigate();
   const orderId = useRef();
 
   const handleOrderStatusClick = async () => {
     setCurrentOrder({})
     if (!isNaN(orderId.current.value)) {
-      await getOrderById(orderId.current.value);
-      navigate("/Orderstatus");
-    }
+      const typedOrderId = Number(orderId.current.value);
+      const order = orders.find((order) => order.id === typedOrderId);
+      if (order) {
+        await getOrderById(orderId.current.value);
+        navigate("/Orderstatus");
+      }else{
+        navigate("/OrderHistory");
+      }
+    };
   };
 
   return (

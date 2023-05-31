@@ -1,60 +1,27 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthorizationContext } from "../../contexts/AuthorizationContext";
-import { UserContext } from '../../contexts/UserContext';
-import Cookies from "js-cookie";
 import { useNavigate } from 'react-router';
 import { Link } from 'react-router-dom'
 import Header from '../partials/Header'
 import { OrderContext } from '../../contexts/OrderContext';
+import { UserContext } from '../../contexts/UserContext';
 
-const OrderHistory= () => {
+const OrderHistory = () => {
     const [loading, setLoading] = useState(true);
-    const { currentOrder, setCurrentOrder, orders, setOrders } = useContext(OrderContext);
+    const { setCurrentOrder, orders, setOrders, fetchOrders } = useContext(OrderContext);
     const { useAuthorization, authorize } = useContext(AuthorizationContext);
+    const { currentUser } = useContext(UserContext);
     useAuthorization();
 
-    const { currentUser } = useContext(UserContext);
     const navigate = useNavigate();
   
     useEffect(() => {
-      const fetchOrders = async () => {
-        try {
-          const tokenValid = await authorize();
-  
-          if (!tokenValid || !currentUser || !currentUser.id) {
-            navigate('/signin');
-            return;
-          }
-          
-          const customerId = currentUser.id; // Retrieve the customer ID from currentUser
-          const apiKey = 'f77ca749-67f4-4c22-9039-137272442ea0'
-          const token = Cookies.get('maneroToken');
-          const url = `https://aspnet2-grupp1-backend.azurewebsites.net/api/Orders?customerId=${customerId}`;
-          
-  
-          const response = await fetch(url, {
-            headers: {
-              Authorization: `Bearer ${token}`,
-              "API-KEY": apiKey
-            },
-          });
-          const data = await response.json();
-          if (Array.isArray(data)) {
-            setOrders(data);
-            console.log(data);
-          } else {
-            setOrders([]);
-            
-          }
-          setLoading(false);
-        } catch (error) {
-          
-        }
-      };
-  
-
-      fetchOrders();
-  }, [authorize, currentUser]);
+      const getAllOrders = async () => {
+        await fetchOrders();
+        setLoading(false);
+      }
+      getAllOrders();
+    }, [authorize, currentUser]);
 
 
     return (
