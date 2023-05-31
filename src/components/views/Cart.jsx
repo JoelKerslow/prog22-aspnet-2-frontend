@@ -1,7 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import BackArrow from "../partials/generalPartials/BackArrow";
-import Header from "../partials/Header";
 import Navbar from "../partials/Navbar";
 import { CartContext } from "../../contexts/CartContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
