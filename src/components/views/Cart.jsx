@@ -1,11 +1,12 @@
 import React, { useContext, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import BackArrow from "../partials/generalPartials/BackArrow";
 import Navbar from "../partials/Navbar";
+import { useNavigate } from "react-router-dom";
 import { CartContext } from "../../contexts/CartContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faCheck, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { placeholderImage } from "../../contexts/ProductContext";
+import Header from "../partials/Header";
+import { OrderContext } from "../../contexts/OrderContext";
 
 const Cart = () => {
   const {
@@ -17,6 +18,7 @@ const Cart = () => {
     updateQuantity,
     applyPromoCode,
   } = useContext(CartContext);
+  const { sendOrder } = useContext(OrderContext);
 
   const navigate = useNavigate();
 
@@ -30,41 +32,33 @@ const Cart = () => {
   }, []);
 
   const handleIncrement = (productId, quantity) => {
-    const newQuantity = quantity + 1
-    updateQuantity(productId, newQuantity)
-  }
+    const newQuantity = quantity + 1;
+    updateQuantity(productId, newQuantity);
+  };
 
   const handleDecrement = (productId, quantity) => {
     if (quantity > 0) {
       const newQuantity = quantity - 1;
       updateQuantity(productId, newQuantity);
     }
-    if (quantity === 0) deleteItem(productId);
+    if (quantity === 1) deleteItem(productId);
   };
 
   const handleDeleteItem = (productId) => {
-    deleteItem(productId)
-  }
+    deleteItem(productId);
+  };
 
   const handlePromoCode = () => {
     applyPromoCode(code);
   };
 
-  const handleGoBack = () => {
-    navigate(-1)
-  }
-
   return (
     <>
-      {/* <Header headerContent={<h2>Cart</h2>} useGoBackButton={true} /> */}
-      <div className="RegHeader">
-        <BackArrow clickEvent={handleGoBack} />
-        <h3>Cart</h3>
-        <div className="cart-container">
-          <div className="total-container">${cart.totalAmountWithDiscount}</div>
-          <div className="fa-thin fa-bag-shopping"></div>
-        </div>
-      </div>
+      <Header
+        headerContent={<h2>Cart</h2>}
+        useGoBackButton={true}
+        showCartButton={true}
+      />
       <div className="cart-list-container">
         {cart?.cartItems?.map((item) => (
           <div key={item.product.id} className="cart-container">
@@ -86,7 +80,7 @@ const Cart = () => {
                 <div className="item-price">
                   <p>${item.product.price}</p>
                   {cart.promoCode && (
-                    <p style={{ color: 'red' }}>
+                    <p style={{ color: "red" }}>
                       $
                       {(item.product.price *
                         item.quantity *
@@ -123,7 +117,7 @@ const Cart = () => {
               >
                 <FontAwesomeIcon
                   icon={faTrash}
-                  style={{ color: 'lightgray' }}
+                  style={{ color: "lightgray" }}
                 />
               </div>
             </div>
@@ -164,7 +158,7 @@ const Cart = () => {
           <table className="table">
             <tbody>
               <tr>
-                <td className="title" style={{ fontWeight: 'bold' }}>
+                <td className="title" style={{ fontWeight: "bold" }}>
                   Subtotal
                 </td>
                 <td className="value" style={{ fontWeight: "bold" }}>
@@ -177,15 +171,15 @@ const Cart = () => {
               </tr>
               <tr>
                 <td className="title">Delivery</td>
-                <td className="value" style={{ color: 'green' }}>
+                <td className="value" style={{ color: "green" }}>
                   Free
                 </td>
               </tr>
               <tr>
-                <td className="title" style={{ fontWeight: 'bold' }}>
+                <td className="title" style={{ fontWeight: "bold" }}>
                   Total
                 </td>
-                <td className="value" style={{ fontWeight: 'bold' }}>
+                <td className="value" style={{ fontWeight: "bold" }}>
                   ${cart.totalAmountWithDiscount}
                 </td>
               </tr>
@@ -193,14 +187,21 @@ const Cart = () => {
           </table>
         </div>
         <div className="button-section">
-          <button className="BigBlackButton">PROCEED TO CHECKOUT</button>
+          <button
+            className="BigBlackButton"
+            onClick={() => {
+              navigate("/order");
+            }}
+          >
+            PROCEED TO CHECKOUT
+          </button>
         </div>
       </div>
       <div className="profile-navbar">
         <Navbar />
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Cart
+export default Cart;

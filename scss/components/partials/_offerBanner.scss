@@ -1,38 +1,38 @@
 .offerContainer {
-    width: 100vw;
-    height: 150px;
-    background-color: $color-theme;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: left;
-    margin-bottom: 40px;
+  width: 100vw;
+  height: 150px;
+  background-color: $color-theme;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: left;
+  margin-bottom: 40px;
 
-    @include xxl{
-        margin-bottom: 100px;
-    }
+  @include xxl {
+    margin-bottom: 100px;
+  }
 
-    @include xxl{
-        align-items: center;
-        justify-content: center;
-        height: 350px;
-        width: 950px;
-        margin-left: auto;
-        margin-right: auto;
-        box-shadow: 1px 1px 2px 1px $color-theme-2;
-    }
+  @include xxl {
+    align-items: center;
+    justify-content: center;
+    height: 350px;
+    width: 950px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 1px 1px 2px 1px $color-theme-2;
+  }
 
-    .offerText {
-        @include font-title-2;
-        top: 893px;
-        color: $color-light-1;
-        margin-left: 20px;
-        @include xxl{
-            @include font-title-1;
-        }
+  .offerText {
+    @include font-title-2;
+    top: 893px;
+    color: $color-light-1;
+    margin-left: 20px;
+    @include xxl {
+      @include font-title-1;
     }
+  }
 
-    .productsLink{
-        text-decoration: none;
-    }
+  .productsLink {
+    text-decoration: none;
+  }
 }

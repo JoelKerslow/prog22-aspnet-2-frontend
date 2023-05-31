@@ -375,8 +375,9 @@ header .cart-total-circle {
   border-radius: 50%;
   height: 28px;
   font-size: 10px;
-  padding: 0 4px;
-  width: 28px;
+  min-width: 28px;
+  min-height: 28px;
+  padding: 3px;
 }
 
 .product-card {
@@ -1214,8 +1215,7 @@ header .cart-total-circle {
 }
 @media (min-width: 1400px) {
   .previewContainer {
-    margin-bottom: 100px;
-    min-height: 700px;
+    min-height: 500px;
   }
 }
 .previewContainer .textRow {
@@ -2858,6 +2858,43 @@ header .cart-total-circle {
   }
 }
 
+.orderText {
+  text-align: center;
+}
+
+.main-page .VerticalBarClass p {
+  margin-bottom: 2px;
+  padding: 0%;
+}
+
+.first-row {
+  text-align: end;
+}
+.first-row .VerticalBarClass {
+  justify-content: end;
+  margin: 0px;
+  padding: 0 12px 10px 0;
+}
+
+.big-row {
+  padding-right: 12vh;
+}
+
+.text-order-track {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.text-order-status {
+  margin-bottom: 0;
+}
+
+.under-text-order-status {
+  font-weight: 100;
+  font-size: small;
+}
+
 .cart-list-container {
   width: 50%;
   margin: auto;
@@ -3038,36 +3075,6 @@ hr {
 .button-section {
   width: 100%;
   height: 150px;
-}
-
-.RegHeader div {
-  position: absolute;
-  right: 80px;
-  font-size: larger;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.RegHeader .total-container {
-  position: absolute;
-  right: 95px;
-  width: auto;
-  height: 20px;
-  padding: 5px;
-  border-radius: 30px;
-  font-size: 12px;
-  background-color: #f4303c;
-  color: #FFFFFF;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.RegHeader h3 {
-  font-family: "Montserrat", sans-serif;
-  font-size: 16px;
-  margin-top: 10px;
 }
 
 /* Media query for phones */
@@ -3329,39 +3336,61 @@ h2 {
   color: #555;
 }
 
-.orderText {
-  text-align: center;
+.checkout-container {
+  width: 55%;
+  margin: auto;
+  cursor: pointer;
+  font: "Open Sans", sans-serif;
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
 }
 
-.main-page .VerticalBarClass p {
-  margin-bottom: 2px;
-  padding: 0%;
+.order-details tbody {
+  background-color: rgb(237, 240, 250);
+  border: 1px solid #DBE3F5;
 }
 
-.first-row {
-  text-align: end;
-}
-.first-row .VerticalBarClass {
-  justify-content: end;
-  margin: 0px;
-  padding: 0 12px 10px 0;
-}
-
-.big-row {
-  padding-right: 12vh;
-}
-
-.text-order-track {
+.checkout-form {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  align-items: center;
 }
 
-.text-order-status {
-  margin-bottom: 0;
+.form-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
 }
 
-.under-text-order-status {
-  font-weight: 100;
-  font-size: small;
+textarea {
+  width: 90%;
+  height: 150px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-left: 45px;
+}
+
+.address-section {
+  width: 100%;
+  height: 150px;
+  margin-top: 20px;
+}
+
+@media (max-width: 767px) {
+  .checkout-container {
+    width: 100%;
+  }
+  textarea {
+    width: 90%;
+  }
+  label {
+    margin-left: 30px;
+  }
 }/*# sourceMappingURL=App.css.map */

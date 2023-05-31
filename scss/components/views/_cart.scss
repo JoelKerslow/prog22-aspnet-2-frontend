@@ -173,31 +173,6 @@ hr {
   height: 150px;
 }
 
-.RegHeader div {
-  position: absolute;
-  right: 80px;
-  font-size: larger;
-  @include center-content;
-}
-
-.RegHeader .total-container {
-  position: absolute;
-  right: 95px;
-  width: auto;
-  height: 20px;
-  padding: 5px;
-  border-radius: 30px;
-  font-size: 12px;
-  background-color: $color-red;
-  color: $color-white;
-  @include center-content;
-}
-
-.RegHeader h3 {
-  font-family: "Montserrat", sans-serif;
-  font-size: $font-size-standard;
-  margin-top: 10px;
-}
 /* Media query for phones */
 @media (max-width: 580px) {
   .cart-list-container {
