@@ -106,15 +106,13 @@ const WishlistProvider = ({ children }) => {
         },
         body: JSON.stringify(item),
       });
-      console.log(res);
       if (!res.ok) {
         const error = await res.text();
         throw new Error(error || res.status);
       }
       // const wishlistItem = await res.json();
-      console.log("Added cart item:", cartItem);
     } catch (error) {
-      console.log("Failed to add cart item:", error);
+      console.log("Failed to add wishlist item:", error);
     }
   };
 
@@ -189,7 +187,7 @@ const WishlistProvider = ({ children }) => {
     loading,
     removeItemFromWishlist,
     addToCart,
-    addWishlistItem
+    addWishlistItem,
   };
 
   return (

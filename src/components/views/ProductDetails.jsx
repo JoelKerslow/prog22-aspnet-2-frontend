@@ -20,7 +20,7 @@ const ProductDetails = () => {
       getProductById(productId);
     }
     setReviews()
-
+    
   }, [currentProduct]);
 
   return (
