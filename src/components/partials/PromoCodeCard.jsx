@@ -16,6 +16,20 @@ const PromoCodeCard = ({ title, discount, expiry, used }) => {
   const cardStyle = used 
     ? {opacity: "0.5", pointerEvents: "none"} 
     : {};
+  
+    const handleCopyClick = () =>{
+
+      const stringToCopy = `${title.substring(0, 3).toUpperCase()}2023`;
+  
+      navigator.clipboard.writeText(stringToCopy)
+      .then(() =>{
+        console.log("Promocode copied to clipboard");
+      })
+      .catch(err =>{
+        console.log("Could not copy promocode to clipboard", err)
+      })
+    }
+    
 
   return (
     <div className="PromoCodeCard-item" style={cardStyle}>
@@ -31,7 +45,7 @@ const PromoCodeCard = ({ title, discount, expiry, used }) => {
         </div>
         <div className="PromoCodeCard-expiry">{expiry}</div>
       </div>
-      <div className="clone-icon-div">
+      <div className="clone-icon-div" onClick={handleCopyClick}>
         <i
           className="fa-light fa-clone fa-rotate-90"
           style={{ color: "#626262" }}

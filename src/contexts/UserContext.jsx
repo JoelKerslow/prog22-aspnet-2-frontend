@@ -24,7 +24,13 @@ const UserContextProvider = ({children}) => {
         return false;
     }
     
-    const updateUserProfile = async (firstName, lastName) => {
+    const updateUserProfile = async (userId, firstName, lastName, imageUrl) => {
+      const updatedProfile = {
+        id: userId,
+        firstName: firstName,
+        lastName: lastName,
+        imageUrl: imageUrl
+      }
         const res = await fetch(userBaseUrl + "CustomerProfile/Update", {
           method: 'PUT',
           headers: {
@@ -32,49 +38,21 @@ const UserContextProvider = ({children}) => {
             "Authorization": "Bearer " + Cookies.get("maneroToken"),
             'Content-Type': 'application/json'
           },
-          body: JSON.stringify({
-            firstName,
-            lastName
-          })
+          body: JSON.stringify(updatedProfile)
         });
     
-        const data = await res.json();
-    
         if (res.ok) {
-          setCurrentUser(data);
+          getLoggedinUser();
           return true;
         }
         return false;
       }
-      const updateImageUrl = async (imageUrl) => {
-        const res = await fetch(userBaseUrl + "CustomerProfile/Update", {
-          method: "PUT",
-          headers: {
-            "API-KEY": apiKey,
-            "Authorization": "Bearer " + Cookies.get("maneroToken"),
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            imageUrl,
-          }),
-        });
-    
-        const data = await res.json();
-    
-        if (res.ok) {
-          setCurrentUser(data);
-          return true;
-        }
-        return false;
-      };
-
 
     return(
         <UserContext.Provider value={{
             getLoggedinUser,
             currentUser,
             updateUserProfile,
-            updateImageUrl,
         }}>
             {children}
         </UserContext.Provider>

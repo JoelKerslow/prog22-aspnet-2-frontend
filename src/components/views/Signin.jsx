@@ -1,57 +1,71 @@
 //imports
-import BackArrow from "../partials/generalPartials/BackArrow";
-import VerticalBar from "../partials/generalPartials/VerticalBar";
-import SocialMedia from "../partials/generalPartials/SocialMedia";
-import InputBox from "../partials/generalPartials/InputBox";
-import { Link, useNavigate } from "react-router-dom";
-import { AuthorizationContext } from "../../contexts/AuthorizationContext";
-import { UserContext } from "../../contexts/UserContext";
-import { useContext, useRef, useState, useEffect } from "react";
+import BackArrow from '../partials/generalPartials/BackArrow'
+import VerticalBar from '../partials/generalPartials/VerticalBar'
+import SocialMedia from '../partials/generalPartials/SocialMedia'
+import { Link, useNavigate } from 'react-router-dom'
+import { AuthorizationContext } from '../../contexts/AuthorizationContext'
+import { UserContext } from '../../contexts/UserContext'
+import { useContext, useRef, useState, useEffect } from 'react'
+import Cookies from 'js-cookie'
 
 const SignIn = () => {
-  const [error, setError] = useState('');
-  const { loginUser, authorize } = useContext(AuthorizationContext);
-  const { getLoggedinUser } = useContext(UserContext);
-  const emailRef = useRef();
-  const passwordRef = useRef();
-  const navigate = useNavigate();
-  const [rememberMe, setRememberMe] = useState(false);
+  const [error, setError] = useState('')
+  const { loginUser, authorize } = useContext(AuthorizationContext)
+  const { getLoggedinUser } = useContext(UserContext)
+  const emailRef = useRef()
+  const passwordRef = useRef()
+  const rememberMeRef = useRef()
+  const navigate = useNavigate()
 
   useEffect(() => {
     const checkAuthentication = async () => {
       if (await authorize()) {
-        navigate('/Profile');
+        navigate('/Profile')
       }
-    };
+    }
 
-    checkAuthentication();
-  }, []);
+    const checkRememberMe = () => {
+      const rememberMeToken = Cookies.get('rememberMe')
+      if (rememberMeToken != null) {
+        emailRef.current.value = rememberMeToken
+        rememberMeRef.current.checked = true
+      }
+    }
+
+    checkAuthentication()
+    checkRememberMe()
+  }, [])
 
   const handleLogin = async () => {
-    var result = await loginUser(emailRef.current.value, passwordRef.current.value);
-    console.log(rememberMe);
-    if(result === true){
-      var result = await getLoggedinUser();
-      navigate("/Profile");
-    }else{
-      setError("Failed to login")
+    handleRememberMe()
+    var result = await loginUser(
+      emailRef.current.value,
+      passwordRef.current.value
+    )
+    if (result === true) {
+      var result = await getLoggedinUser()
+      navigate('/Profile')
+    } else {
+      setError('Failed to login')
     }
-    
-  };
+  }
 
-  const handleRememberMeChange = (event) => { //Ale ska fixa cookies här. Feel free att ändra
-    setRememberMe(event.target.checked);
-    // If the checkbox is checked, then you can set a cookie or use local storage.
-    if (event.target.checked) {
-      // Set a cookie or use local storage here.
+  const handleRememberMe = () => {
+    if (rememberMeRef.current.checked) {
+      const expirationDate = new Date()
+      console.log(expirationDate.getFullYear() + 1)
+
+      Cookies.set('rememberMe', emailRef.current.value, {
+        expires: expirationDate.getFullYear() + 1,
+      })
+    } else {
+      Cookies.remove('rememberMe')
     }
-  };
-
+  }
 
   const handleGoBack = () => {
     navigate(-1)
-	};
-  
+  }
 
   return (
     <>
@@ -87,24 +101,26 @@ const SignIn = () => {
 
               <div className="RememberMe-flexbox">
                 <div>
-                  <input type="checkbox" className="RememberMeCB" onChange={handleRememberMeChange}></input>
+                  <input
+                    ref={rememberMeRef}
+                    type="checkbox"
+                    className="RememberMeCB"
+                  ></input>
                   <label className="RememberMelbl">Remember me</label>
                 </div>
                 <Link to="/ForgotPassword">Forgot password?</Link>
-                { error && <div className="error-text">{error}</div>}
+                {error && <div className="error-text">{error}</div>}
               </div>
               <div className="input-field-group">
-              <button
-                className="BigBlackButton"
-                onClick={() => {
-                  handleLogin();
-                }}
-              >
-                Sign in
-              </button>
+                <button
+                  className="BigBlackButton"
+                  onClick={() => {
+                    handleLogin()
+                  }}
+                >
+                  Sign in
+                </button>
               </div>
-
-        
             </div>
 
             <p className="text-center my-2">
@@ -115,6 +131,6 @@ const SignIn = () => {
         </div>
       </div>
     </>
-  );
-};
-export default SignIn;
+  )
+}
+export default SignIn

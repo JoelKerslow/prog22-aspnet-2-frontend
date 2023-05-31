@@ -6,6 +6,7 @@ import Header from '../partials/Header'
 import SearchField from '../partials/SearchField'
 import ProductFilter from '../partials/ProductFilter'
 import ProductSort from '../partials/ProductSort'
+import Navbar from '../partials/Navbar'
 
 const Products = () => {
   const { type, value } = useParams()
@@ -97,7 +98,7 @@ const Products = () => {
 
   return (
     <>
-      <Header headerContent={<SearchField />} />
+      <Header headerContent={<SearchField />} showCartButton={true}/>
       {!showFilter && (
         <>
           <div className="under-header">
@@ -156,6 +157,7 @@ const Products = () => {
           )}
         </>
       )}
+      <Navbar />
     </>
   )
 }

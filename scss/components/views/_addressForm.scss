@@ -1,0 +1,68 @@
+.address-form-container {
+  padding: 0;
+}
+
+.address-form {
+  .input-field-group {
+    margin-bottom: 15px;
+  }
+
+  .form-select {
+    @media (min-width: 576px) {
+      width: 100%;
+    }
+  }
+
+  .error-text {
+    position: relative;
+    margin: 0;
+    padding-left: 30px;
+    bottom: 30px;
+    color: red;
+    font-size: 0.95rem;
+
+    &::before {
+      content: '* ';
+    }
+  }
+
+  .form-check {
+    margin-left: 20px;
+
+    .form-check-label {
+      color: $color-dark-2;
+    }
+  }
+
+  .icon-picker-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+
+    label {
+      margin-right: 20px;
+    }
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input[type='number'] {
+    -moz-appearance: textfield;
+  }
+
+  hr {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 0.75),
+      rgba(0, 0, 0, 0)
+    );
+  }
+}

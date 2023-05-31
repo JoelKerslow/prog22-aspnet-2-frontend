@@ -1,0 +1,1 @@
+export const removeWhitespaceOrNull = (text) => text ? text.replace(/\s+/g, " ").trim() : null

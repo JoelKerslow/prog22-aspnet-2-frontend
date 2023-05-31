@@ -1,9 +1,14 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
 import SideBarContact from './SideBarContact';
+import { CartContext } from '../../contexts/CartContext';
+import { Link } from 'react-router-dom';
 
-const Header = ({headerContent, useGoBackButton }) => {
+
+
+const Header = ({headerContent, useGoBackButton, showCartButton }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const sidebarRef = useRef(null);
+  const {cart, addCartItem} = useContext(CartContext);
 
   const handleSidebarToggle = () => {
     setIsSidebarOpen(!isSidebarOpen);
@@ -33,7 +38,7 @@ const Header = ({headerContent, useGoBackButton }) => {
     <header>
       <div className='header-container'>
       {useGoBackButton ? (
-          <button className='fa-solid fa-arrow-left' onClick={handleGoBack}></button>
+          <button className='fa-regular fa-chevron-left' onClick={handleGoBack}></button>
         ) : (
           <button className='fa-solid fa-bars' onClick={handleSidebarToggle}></button>
         )}
@@ -43,7 +48,20 @@ const Header = ({headerContent, useGoBackButton }) => {
           {headerContent}
         </div>
         
-        <button className='fa-thin fa-bag-shopping'></button>
+        {showCartButton ? (
+          <div className='cart-section'>
+            <div className='cart-button'>
+              <Link to="/cart" className="cart-link">
+                <button className='fa-thin fa-bag-shopping'></button>
+              </Link>
+              <div className='cart-total-circle'>
+                ${cart.totalAmountWithDiscount}
+              </div>
+            </div>
+          </div>
+        ) : (
+          <div className='empty-placeholder'></div>
+        )}
       </div>
       
       {isSidebarOpen && (

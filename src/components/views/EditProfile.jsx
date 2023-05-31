@@ -1,48 +1,47 @@
 //imports
 import { useContext, useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import BackArrow from "../partials/generalPartials/BackArrow";
 import VerticalBar from "../partials/generalPartials/VerticalBar";
 import ProfilePicture from "../partials/generalPartials/ProfilePicture";
-import { UserContext } from "../../contexts/UserContext";
-import { useNavigate } from "react-router-dom";
-
-
+import { UserContext, CurrentUser } from "../../contexts/UserContext";
 
 const EditProfile = () => {
-
-  const navigate = useNavigate();
-
-
+  
   const fullNameRef = useRef();
-  const { updateUserProfile } = useContext(UserContext);
+  const imageUrlRef = useRef();
+  const { updateUserProfile, currentUser } = useContext(UserContext);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
+  const [userId, setUserId] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
+  const navigate = useNavigate();
+  
+  const clickEventArrow = () => {
+    navigate("/Profile");
+  };
   
   const handleNameChange = (event) => {
     const name = fullNameRef.current.value;
     const [first, last] = name.split(" ");
     setFirstName(first);
     setLastName(last);
+    setUserId(currentUser.id);
+    setImageUrl(imageUrlRef.current.value);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    updateUserProfile({ firstName, lastName });
+    await updateUserProfile(userId, firstName, lastName, imageUrl);
+    navigate(-1);
   };
-
-  const handleGoBack = () => {
-    navigate(-1)
-  };
-
-  
-
   return (
     <>
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-12 col-sm-8 col-md-6 col-lg-4">
             <div className="RegHeader">
-              <BackArrow clickEvent={handleGoBack} />
+              <BackArrow clickEvent={clickEventArrow}/>
               <h3>Edit profile</h3>
             </div>
 
@@ -55,7 +54,7 @@ const EditProfile = () => {
                 <input
                   type="text"
                   className="input-field"
-                  placeholder="John Doe"
+                  placeholder={`${currentUser.firstName} ${currentUser.lastName}`}
                   ref={fullNameRef}
                   onChange={handleNameChange}
                 />
@@ -65,7 +64,7 @@ const EditProfile = () => {
                 <input
                   type="Email"
                   className="input-field"
-                  placeholder="johndoe@gmail.com"
+                  placeholder={`${currentUser.email}`}
                 />
               </div>
               <div className="edit-profile-input input-field-group">
@@ -73,7 +72,7 @@ const EditProfile = () => {
                 <input
                   type="phone number"
                   className="input-field"
-                  placeholder="+46 112 hjälp mig"
+                  placeholder={`${currentUser.number}`}
                 />
               </div>
               <div className="edit-profile-input input-field-group">
@@ -81,7 +80,17 @@ const EditProfile = () => {
                 <input
                   type="Location"
                   className="input-field"
-                  placeholder="Tenstavägen 24"
+                  placeholder={`${currentUser.address}`}
+                />
+              </div>
+
+              <div className="edit-profile-input input-field-group">
+                <label>ImageUrl</label>
+                <input
+                  type="imageUrl"
+                  className="input-field"
+                  ref={imageUrlRef}
+                  placeholder="Profile picture"
                 />
               </div>
 
