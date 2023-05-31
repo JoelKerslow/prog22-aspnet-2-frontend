@@ -16,7 +16,6 @@ const UserAddresses = () => {
   const getAdressesAsync = async (id) =>{
     const res = await getUserAddresses(id)
     setUserAddresses(res)
-    console.log(userAddresses)
   }
 
   useEffect(()=>{
@@ -30,9 +29,6 @@ const UserAddresses = () => {
         userAddresses.length === 0 ? (<div className="loadingAddress">Loading</div>) : 
         userAddresses.map(address => (<AddressCard userAddress={address} />))       
       }
-
-
-
 			<AddAddress />
       <Navbar />
 		</div>

@@ -2067,6 +2067,25 @@ header .cart-total-circle {
   background-color: initial;
 }
 
+.addressCheckOut {
+  font-family: "Open Sans", sans-serif;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px 20px;
+  border-bottom: 1px solid #dbe3f5;
+}
+.addressCheckOut .shippingDetailHeadline {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.addressCheckOut .shippDetailsAddress {
+  color: #888888;
+  font-size: 14px;
+  padding-bottom: 13px;
+}
+
 .popup-container {
   display: flex;
   justify-content: center;
