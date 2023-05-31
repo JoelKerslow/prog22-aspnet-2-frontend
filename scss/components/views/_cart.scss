@@ -3,6 +3,8 @@
   margin: auto;
   cursor: pointer;
   font: $font-opensans;
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
 }
 
 .cart-container {
@@ -191,6 +193,11 @@ hr {
   @include center-content;
 }
 
+.RegHeader h3 {
+  font-family: "Montserrat", sans-serif;
+  font-size: $font-size-standard;
+  margin-top: 10px;
+}
 /* Media query for phones */
 @media (max-width: 580px) {
   .cart-list-container {

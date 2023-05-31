@@ -2844,6 +2844,8 @@ header .cart-total-circle {
   margin: auto;
   cursor: pointer;
   font: "Open Sans", sans-serif;
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
 }
 
 .cart-container {
@@ -3041,6 +3043,12 @@ hr {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.RegHeader h3 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  margin-top: 10px;
 }
 
 /* Media query for phones */

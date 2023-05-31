@@ -40,7 +40,7 @@ const Cart = () => {
       const newQuantity = quantity - 1;
       updateQuantity(productId, newQuantity);
     }
-    deleteItem(productId);
+    if (quantity === 0) deleteItem(productId);
   };
 
   const handleDeleteItem = (productId) => {
@@ -62,7 +62,7 @@ const Cart = () => {
         <BackArrow clickEvent={handleGoBack} />
         <h3>Cart</h3>
         <div className="cart-container">
-          <div className="total-container">{cart.totalAmountWithDiscount}</div>
+          <div className="total-container">${cart.totalAmountWithDiscount}</div>
           <div className="fa-thin fa-bag-shopping"></div>
         </div>
       </div>
