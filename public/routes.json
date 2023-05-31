@@ -112,7 +112,7 @@
     },
     {
       "route": "/Cart",
-      "element": "index.html",
+      "serve": "index.html",
       "statusCode": 200
     },
     {
