@@ -7,10 +7,17 @@ import PopupCircle from '../partials/PopupCircle'
 import { Link, useNavigate } from 'react-router-dom'
 import { AuthorizationContext } from '../../contexts/AuthorizationContext'
 import { UserContext } from '../../contexts/UserContext'
+import { OrderContext } from '../../contexts/OrderContext'
 
 const ProfilePage = () => {
   const { logoutUser, useAuthorization } = useContext(AuthorizationContext)
+  const { fetchOrders } = useContext(OrderContext);
+
   useAuthorization()
+
+  useEffect(() => {
+    fetchOrders();
+  },[])
 
   const { currentUser } = useContext(UserContext)
   const [promocodeClickCount, setPromocodeClickCount] = useState(0)

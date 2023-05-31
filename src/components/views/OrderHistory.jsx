@@ -33,7 +33,7 @@ const OrderHistory = () => {
             <div className='container mt-2'>
                 <ul className='list-group'>
                     {orders.map(order => (
-                        <div className='customer-order'>
+                        <div key={order.id + 1} className='customer-order'>
                             <Link key={order.id} to="/OrderStatus" onClick={() => setCurrentOrder(order)} className='list-group-item pt-3 pb-1' >
                                 <div className="order-orderInfo">
                                     <p className='order-number'>#{order.id}</p>

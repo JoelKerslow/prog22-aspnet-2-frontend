@@ -36,7 +36,7 @@ export const OrderContextProvider = ({ children }) => {
       });
       const data = await response.json();
       if (Array.isArray(data)) {
-        setOrders(data);
+        await setOrders(data);
         console.log(data);
       } else {
         setOrders([]);

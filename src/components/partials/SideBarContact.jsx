@@ -8,6 +8,7 @@ const SideBarContact = ({ sidebarRef, toggleSideBar }) => {
   const orderId = useRef();
 
   const handleOrderStatusClick = async () => {
+    console.log(orders);
     setCurrentOrder({})
     if (!isNaN(orderId.current.value)) {
       const typedOrderId = Number(orderId.current.value);
