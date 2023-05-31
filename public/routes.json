@@ -111,7 +111,7 @@
       "statusCode": 200
     },
     {
-      "path": "/Cart",
+      "route": "/Cart",
       "element": "index.html",
       "statusCode": 200
     },
