@@ -5,11 +5,11 @@ import Cookies from "js-cookie";
 import { useNavigate } from 'react-router';
 import { Link } from 'react-router-dom'
 import Header from '../partials/Header'
+import { OrderContext } from '../../contexts/OrderContext';
 
 const OrderHistory= () => {
-    const [orders, setOrders] = useState([]);
     const [loading, setLoading] = useState(true);
-    const { currentOrder, setCurrentOrder } = useContext(UserContext);
+    const { currentOrder, setCurrentOrder, orders, setOrders } = useContext(OrderContext);
     const { useAuthorization, authorize } = useContext(AuthorizationContext);
     useAuthorization();
 
