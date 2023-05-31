@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthorizationContext } from "../../contexts/AuthorizationContext";
+import { UserContext } from '../../contexts/UserContext';
 import Cookies from "js-cookie";
-import { UserContext } from "../../contexts/UserContext";
 import { useNavigate } from 'react-router';
 import { Link } from 'react-router-dom'
 import Header from '../partials/Header'
@@ -9,6 +9,7 @@ import Header from '../partials/Header'
 const OrderHistory= () => {
     const [orders, setOrders] = useState([]);
     const [loading, setLoading] = useState(true);
+    const { currentOrder, setCurrentOrder } = useContext(UserContext);
     const { useAuthorization, authorize } = useContext(AuthorizationContext);
     useAuthorization();
 
@@ -66,7 +67,7 @@ const OrderHistory= () => {
                 <ul className='list-group'>
                     {orders.map(order => (
                         <div className='customer-order'>
-                            <Link key={order.id} to="/Orders" className='list-group-item pt-3 pb-1' >
+                            <Link key={order.id} to="/OrderStatus" onClick={() => setCurrentOrder(order)} className='list-group-item pt-3 pb-1' >
                                 <div className="order-orderInfo">
                                     <p className='order-number'>#{order.id}</p>
                                     <p className='order-date'>{order.orderDate}</p>

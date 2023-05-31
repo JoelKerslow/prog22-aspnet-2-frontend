@@ -21,6 +21,7 @@ import AddressForm from "./components/views/AddressForm"
 import OrderHistory from "./components/views/OrderHistory"
 import Wishlist from "./components/views/Wishlist"
 import MyPromocodes from "./components/views/MyPromocodes"
+import OrderStatus from "./components/views/OrderStatus"
 import MyPromocodesEmpty from "./components/views/MyPromocodesEmpty"
 import ProductDetails from "./components/views/ProductDetails"
 import OrderResult from "./components/views/OrderResult"
@@ -50,7 +51,7 @@ const RouteElements = () => {
       <Route path='/Profile/Addresses/Manage' element={<AddressForm />} />
       <Route path='/MyPromocodes' element={<MyPromocodes />} />
       <Route path='/MyPromocodesEmpty' element={<MyPromocodesEmpty />} />
-
+      <Route path="/OrderStatus" element={<OrderStatus/>} />
       <Route
         path='/ProductSubmitedReviews/:productId'
         element={<ProductReview />}
