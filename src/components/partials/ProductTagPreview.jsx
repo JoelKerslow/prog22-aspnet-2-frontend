@@ -27,7 +27,6 @@ const ProductTagPreview = ({ tag, tagId }) => {
                 }
             })
             .then((data) => {
-                // console.log(data);
                 setActiveProdList(data)
             })
             .catch((error) => {
@@ -49,7 +48,6 @@ const ProductTagPreview = ({ tag, tagId }) => {
         useEffect(() => {
             		const shortlist = activeProdList.splice(0, 6);
             		setShortList(shortlist);
-                    console.log(shortList)
             	}, [activeProdList]);
             
             const updateIndex = (newIndex) => {

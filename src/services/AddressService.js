@@ -46,7 +46,6 @@ const getUserAddresses = async (userId) => {
 	});
 
 	const data = await result.json();
-	console.log(data);
 	return data;
 	};
 
