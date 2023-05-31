@@ -25,7 +25,6 @@ import MyPromocodesEmpty from "./components/views/MyPromocodesEmpty"
 import ProductDetails from "./components/views/ProductDetails"
 import OrderResult from "./components/views/OrderResult"
 import Cart from "./components/views/Cart"
-import AddressCheckoutCard from "./components/partials/AddressCheckoutCard"
 
 const RouteElements = () => {
   return (
@@ -60,7 +59,6 @@ const RouteElements = () => {
       <Route path="/Wishlist" element={<Wishlist/>} />
       <Route path='/orderresult/:outcome' element={<OrderResult />} />
       <Route path='/Cart' element={<Cart />} />
-      <Route path='/AddressCheckOut' element={<AddressCheckoutCard/>} />
       <Route path='*' element={<Home />} />
     </Routes>
   )
