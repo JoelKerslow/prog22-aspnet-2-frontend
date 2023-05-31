@@ -7,7 +7,6 @@ const UserContextProvider = ({children}) => {
     const apiKey = 'f77ca749-67f4-4c22-9039-137272442ea0';
 
     const [currentUser, setCurrentUser] = useState({})
-    const [currentOrder, setCurrentOrder] = useState({});
 
     const getLoggedinUser = async () => {
         const res = await fetch(userBaseUrl + "CustomerProfile", {
@@ -54,8 +53,6 @@ const UserContextProvider = ({children}) => {
             getLoggedinUser,
             currentUser,
             updateUserProfile,
-            currentOrder,
-            setCurrentOrder,
         }}>
             {children}
         </UserContext.Provider>
