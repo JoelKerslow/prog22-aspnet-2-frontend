@@ -291,7 +291,8 @@ header .sidebar-container h1 {
   font-family: "Montserrat", sans-serif;
   font-size: 16px;
   text-align: left;
-  text-decoration: solid;
+  -webkit-text-decoration: solid;
+          text-decoration: solid;
   color: white;
 }
 header .sidebar-container ul {
@@ -374,13 +375,15 @@ header .cart-total-circle {
   border-radius: 50%;
   height: 28px;
   font-size: 10px;
-  padding: 0 4px;
-  width: 28px;
+  min-width: 28px;
+  min-height: 28px;
+  padding: 3px;
 }
 
 .product-card {
   background-color: rgb(251, 251, 251);
   width: 45vw;
+  height: -moz-fit-content;
   height: fit-content;
   transition: 0.3s ease;
   margin: 15px;
@@ -416,7 +419,8 @@ header .cart-total-circle {
 .product-card .top-section .product-image {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
   max-width: 100%;
   max-height: 100%;
 }
@@ -513,6 +517,7 @@ header .cart-total-circle {
   text-transform: uppercase;
   text-align: center;
   border-radius: 15px;
+  width: -moz-fit-content;
   width: fit-content;
   padding: 4px 18px;
   font-family: "Open Sans", sans-serif;
@@ -862,7 +867,8 @@ header .cart-total-circle {
 .profilepic-outer-circle img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .profilepic-picture {
@@ -1209,8 +1215,7 @@ header .cart-total-circle {
 }
 @media (min-width: 1400px) {
   .previewContainer {
-    margin-bottom: 100px;
-    min-height: 700px;
+    min-height: 500px;
   }
 }
 .previewContainer .textRow {
@@ -1377,6 +1382,7 @@ header .cart-total-circle {
 .filter-list .mark-filter .mark-option {
   display: flex;
   align-items: center;
+  width: -moz-fit-content;
   width: fit-content;
   padding-right: 10px;
 }
@@ -1413,6 +1419,7 @@ header .cart-total-circle {
   border-radius: 15px;
   border: 1px solid #DBE3F5;
   padding: 5px 18px;
+  width: -moz-fit-content;
   width: fit-content;
   font-weight: 600;
   font-size: 14px;
@@ -1694,6 +1701,7 @@ header .cart-total-circle {
   margin-left: auto;
   margin-right: auto;
   margin-top: 20px;
+  height: -moz-fit-content;
   height: fit-content;
 }
 @media (min-width: 992px) {
@@ -1820,6 +1828,7 @@ header .cart-total-circle {
 }
 @media (min-width: 768px) {
   .review-section {
+    width: -moz-fit-content;
     width: fit-content;
     margin-left: 20%;
     margin-right: auto;
@@ -1827,6 +1836,7 @@ header .cart-total-circle {
 }
 @media (min-width: 1400px) {
   .review-section {
+    width: -moz-fit-content;
     width: fit-content;
     margin-left: 20%;
     margin-right: auto;
@@ -2193,6 +2203,7 @@ header .cart-total-circle {
   justify-content: flex-end;
 }
 .sorting-list ul {
+  width: -moz-fit-content;
   width: fit-content;
   margin-right: 10px;
 }
@@ -2201,6 +2212,7 @@ header .cart-total-circle {
   margin: 7px;
   padding: 5px;
   border-radius: 10px;
+  width: -moz-fit-content;
   width: fit-content;
 }
 .sorting-list li:hover {
@@ -2568,6 +2580,7 @@ header .cart-total-circle {
 .under-header div {
   display: flex;
   gap: 10px;
+  width: -moz-fit-content;
   width: fit-content;
   padding-right: 5px;
   margin-right: 15px;
@@ -2816,6 +2829,7 @@ header .cart-total-circle {
 .order-result-container {
   margin-top: auto;
   margin-bottom: auto;
+  height: -moz-fit-content;
   height: fit-content;
   text-align: center;
 }
@@ -3006,6 +3020,11 @@ hr {
   margin-left: 30px;
 }
 
+.code-input::-moz-placeholder {
+  opacity: 0.3;
+  text-align: center;
+}
+
 .code-input::placeholder {
   opacity: 0.3;
   text-align: center;
@@ -3059,36 +3078,6 @@ hr {
 .button-section {
   width: 100%;
   height: 150px;
-}
-
-.RegHeader div {
-  position: absolute;
-  right: 80px;
-  font-size: larger;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.RegHeader .total-container {
-  position: absolute;
-  right: 95px;
-  width: auto;
-  height: 20px;
-  padding: 5px;
-  border-radius: 30px;
-  font-size: 12px;
-  background-color: #f4303c;
-  color: #FFFFFF;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.RegHeader h3 {
-  font-family: "Montserrat", sans-serif;
-  font-size: 16px;
-  margin-top: 10px;
 }
 
 /* Media query for phones */
@@ -3348,4 +3337,63 @@ h2 {
 .credit-card .expiration-date {
   font-size: 14px;
   color: #555;
+}
+
+.checkout-container {
+  width: 55%;
+  margin: auto;
+  cursor: pointer;
+  font: "Open Sans", sans-serif;
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+}
+
+.order-details tbody {
+  background-color: rgb(237, 240, 250);
+  border: 1px solid #DBE3F5;
+}
+
+.checkout-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+textarea {
+  width: 90%;
+  height: 150px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-left: 45px;
+}
+
+.address-section {
+  width: 100%;
+  height: 150px;
+  margin-top: 20px;
+}
+
+@media (max-width: 767px) {
+  .checkout-container {
+    width: 100%;
+  }
+  textarea {
+    width: 90%;
+  }
+  label {
+    margin-left: 30px;
+  }
 }/*# sourceMappingURL=App.css.map */
