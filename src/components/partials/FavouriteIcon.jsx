@@ -1,9 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useContext } from "react";
+import ProductCard from "./ProductCard";
+import { WishlistContext } from "../../contexts/WishlistContext";
 // import MessageBox from "./generalPartials/MessageBox";
 
 const FavouriteIcon = ({ product }) => {
   const [favourite, setFavourite] = useState(false);
   const [showMessageBox, setShowMessageBox] = useState(false);
+  const {addWishlistItem} = useContext(WishlistContext)
+
 
   const handleFavouriteClick = () => {
     if (favourite) {
@@ -11,7 +15,7 @@ const FavouriteIcon = ({ product }) => {
       setFavourite(false);
       setShowMessageBox(false);
     } else {
-      //functionality to add product to customers wishlist
+      addWishlistItem(product.id)
       setFavourite(true);
       setShowMessageBox(true);
     }
