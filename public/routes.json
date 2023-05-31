@@ -116,7 +116,7 @@
       "statusCode": 200
     },
     {
-      "path" : "/OrderStatus",
+      "route" : "/OrderStatus",
       "serve": "/index.html",
       "statusCode" : 200
     },
