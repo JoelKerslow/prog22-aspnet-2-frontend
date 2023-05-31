@@ -20,6 +20,19 @@ const OrderStatus = () => {
   const newDate = new Date(currentOrder.orderDate);
   const fixedOrderDate = `${newDate.getDate()} ${newDate.toLocaleString('default', { month: 'long' })} ${newDate.getFullYear()}`;
 
+  const shippingDate = new Date(currentOrder.orderDate);
+  shippingDate.setDate(shippingDate.getDate() + 4);
+  const fixedShippingDate = `${shippingDate.getDate()} ${shippingDate.toLocaleString('default', { month: 'long' })} ${shippingDate.getFullYear()}`;
+
+
+  const deliveryDate = new Date(currentOrder.orderDate);
+  shippingDate.setDate(shippingDate.getDate() + 10);
+  const fixedDeliveryDate = `${shippingDate.getDate()} ${shippingDate.toLocaleString('default', { month: 'long' })} ${shippingDate.getFullYear()}`;
+
+  console.log(fixedDeliveryDate);
+
+//   const shippingDate = new Date(fixedOrderDate.getFullYear(), fixedOrderDate.getMonth(), fixedOrderDate.getDate()+3);
+
   return (
     <>
         <Header headerContent={"Track your order"} useGoBackButton={true} />
@@ -30,7 +43,7 @@ const OrderStatus = () => {
                 <h2>Your order:</h2>
                 <p>#{currentOrder.id}</p>
             </div>
-            <div className='container-fluid mt-5'>
+            <div className='container-fluid mt-4'>
                 <div className='row big-row'>
                     <div className='first-row col'>
                         <i className="fa-regular fa-circle-dot fa-2xl"></i>
@@ -51,7 +64,7 @@ const OrderStatus = () => {
                     </div>
                     <div className='text-bubble col'>
                         <h6 className='text-order-status'>Order confirmed</h6>
-                        <p className='under-text-order-status'>date and stuff</p>
+                        <p className='under-text-order-status'>{fixedOrderDate}</p>
                     </div>
                 </div>
                 <div className='row big-row'>
@@ -64,7 +77,7 @@ const OrderStatus = () => {
                     </div>
                     <div className='text-bubble col'>
                         <h6 className='text-order-status'>Order shipping</h6>
-                        <p className='under-text-order-status'>date and stuff</p>
+                        <p className='under-text-order-status'>Estimated shipping date: {fixedShippingDate}</p>
                     </div>
                 </div>
                 <div className='row big-row'>
@@ -77,7 +90,7 @@ const OrderStatus = () => {
                     </div>
                     <div className='text-bubble col'>
                         <h6 className='text-order-status'>Courier delivering</h6>
-                        <p className='under-text-order-status'>date and stuff</p>
+                        <p className='under-text-order-status'>Estimated delivery date: {fixedDeliveryDate}</p>
                     </div>
                 </div>
                 <div className='row big-row'>
@@ -89,7 +102,7 @@ const OrderStatus = () => {
                     </div>
                     <div className='text-bubble col'>
                         <h6 className='text-order-status'>Receiving</h6>
-                        <p className='under-text-order-status'>date and stuff</p>
+                        <p className='under-text-order-status'>Estimated delivery date: {fixedDeliveryDate}</p>
                     </div>
                 </div>
             </div>
