@@ -1,17 +1,25 @@
-import React, { useContext } from 'react';
-import { WishlistContext } from '../../contexts/WishlistContext';
-import Navbar from '../partials/Navbar';
-import Header from '../partials/Header';
-import StarRating from '../partials/StarRating';
-import { Link } from 'react-router-dom';
-
+import React, { useContext } from 'react'
+import { WishlistContext } from '../../contexts/WishlistContext'
+import Navbar from '../partials/Navbar'
+import Header from '../partials/Header'
+import StarRating from '../partials/StarRating'
+import { Link } from 'react-router-dom'
+import { AuthorizationContext } from '../../contexts/AuthorizationContext'
 
 const Wishlist = () => {
-  const { wishlist, loading, removeItemFromWishlist, addToCart } = useContext(WishlistContext);
+  const { wishlist, loading, removeItemFromWishlist, addToCart } =
+    useContext(WishlistContext)
+  const { useAuthorization } = useContext(AuthorizationContext)
+
+  useAuthorization()
 
   return (
     <div>
-      <Header headerContent={<h2>Wishlist</h2>} useGoBackButton={false} showCartButton={true} />
+      <Header
+        headerContent={<h2>Wishlist</h2>}
+        useGoBackButton={false}
+        showCartButton={true}
+      />
       {loading ? (
         <p>Loading wishlist...</p>
       ) : (
@@ -20,24 +28,36 @@ const Wishlist = () => {
             <ul className="wishlist-items">
               {wishlist.map((item) => (
                 <li key={item.productId} className="wishlist-item">
-                  
-
                   <img src={item.product.imageUrl} alt={item.product.name} />
 
                   <div className="wishlist-details">
-                  <Link to={`/product/${item.productId}`} className="wishlist-name">{item.product.name}</Link>
+                    <Link
+                      to={`/product/${item.productId}`}
+                      className="wishlist-name"
+                    >
+                      {item.product.name}
+                    </Link>
                     {/* <p className="wishlist-name">{item.product.name}</p> */}
                     <p className="wishlist-price">${item.product.price}</p>
                     <div className="wishlist-rating">
-                      <StarRating rating={item.rating} reviewCount={item.reviewCount} />
+                      <StarRating
+                        rating={item.rating}
+                        reviewCount={item.reviewCount}
+                      />
                     </div>
                   </div>
                   <div className="wishlist-icons">
-                    <button className="wishlist-remove"onClick={() => removeItemFromWishlist(item.productId)}>
-                      <i className='fa-solid fa-heart'></i>
+                    <button
+                      className="wishlist-remove"
+                      onClick={() => removeItemFromWishlist(item.productId)}
+                    >
+                      <i className="fa-solid fa-heart"></i>
                     </button>
 
-                    <button className="wishlist-add-to-cart" onClick={() => addToCart(item.productId)}>
+                    <button
+                      className="wishlist-add-to-cart"
+                      onClick={() => addToCart(item.productId)}
+                    >
                       <i className="fa-thin fa-bag-shopping"></i>
                     </button>
                   </div>
@@ -51,7 +71,7 @@ const Wishlist = () => {
       )}
       <Navbar />
     </div>
-  );
-};
+  )
+}
 
-export default Wishlist;
+export default Wishlist

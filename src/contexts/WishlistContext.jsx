@@ -9,10 +9,8 @@ const WishlistProvider = ({ children }) => {
   const [wishlist, setWishlist] = useState([]);
   const [loading, setLoading] = useState(true);
   const [cartItem, setCartItem] = useState(null); 
-  const { useAuthorization, authorize } = useContext(AuthorizationContext);
+  const { authorize } = useContext(AuthorizationContext);
   const { currentUser } = useContext(UserContext);
-
-  useAuthorization();
 
   useEffect(() => {
     const fetchWishlist = async () => {
