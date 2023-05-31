@@ -106,7 +106,7 @@
       "statusCode": 200
     },
     {
-      "path": "/AddCreditcard",
+      "route" : "/AddCreditcard",
       "serve": "/index.html",
       "statusCode": 200
     },
