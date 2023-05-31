@@ -12,6 +12,8 @@ const WishlistProvider = ({ children }) => {
   const { authorize } = useContext(AuthorizationContext);
   const { currentUser } = useContext(UserContext);
 
+        
+
   useEffect(() => {
     const fetchWishlist = async () => {
       try {
@@ -86,6 +88,34 @@ const WishlistProvider = ({ children }) => {
     fetchWishlist();
   }, [authorize, currentUser]);
 
+
+  const addWishlistItem = async (productId) => {
+    const apiKey = 'f77ca749-67f4-4c22-9039-137272442ea0';
+    const url = "https://aspnet2-grupp1-backend.azurewebsites.net/api/Wishlist/Item/create"
+    const item = {
+      productId: productId,
+    };
+
+    try {
+      const res = await fetch(`${url}`, {
+        method: "POST",
+        headers: {
+          "API-KEY": apiKey,
+          Authorization: "Bearer " + Cookies.get("maneroToken"),
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(item),
+      });
+      if (!res.ok) {
+        const error = await res.text();
+        throw new Error(error || res.status);
+      }
+      // const wishlistItem = await res.json();
+    } catch (error) {
+      console.log("Failed to add wishlist item:", error);
+    }
+  };
+
   const removeItemFromWishlist = async (itemId) => {
     try {
       const token = Cookies.get('maneroToken');
@@ -157,6 +187,7 @@ const WishlistProvider = ({ children }) => {
     loading,
     removeItemFromWishlist,
     addToCart,
+    addWishlistItem,
   };
 
   return (
