@@ -9,14 +9,17 @@
     }
 }
 
-.tracking-icons{
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    .VerticalBarClass p{
-        margin: 10px;
-        padding: 0 0 10px 0;
+.first-row{
+    text-align: end;
+    .VerticalBarClass{
+        justify-content: end;
+        margin: 0px;
+        padding: 0 12px 10px 0;
     }
+}
+
+.big-row{
+    padding-right: 12vh;
 }
 
 .text-order-track{
@@ -34,9 +37,7 @@
     font-size: small;
 }
 
-// .text-bubble1{
-//     margin-top: 0;
-// }
+
 
 // .text-bubble2{
 //     margin-top: 7%;

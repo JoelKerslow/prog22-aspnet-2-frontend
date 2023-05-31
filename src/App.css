@@ -1701,6 +1701,7 @@ header .cart-total-circle {
   margin-left: auto;
   margin-right: auto;
   margin-top: 20px;
+  height: -moz-fit-content;
   height: fit-content;
 }
 @media (min-width: 992px) {
@@ -1827,6 +1828,7 @@ header .cart-total-circle {
 }
 @media (min-width: 768px) {
   .review-section {
+    width: -moz-fit-content;
     width: fit-content;
     margin-left: 20%;
     margin-right: auto;
@@ -1834,6 +1836,7 @@ header .cart-total-circle {
 }
 @media (min-width: 1400px) {
   .review-section {
+    width: -moz-fit-content;
     width: fit-content;
     margin-left: 20%;
     margin-right: auto;
@@ -2339,7 +2342,6 @@ header .cart-total-circle {
     width: 30%;
   }
 }
-
 .Onboarding-Container {
   display: flex;
   flex-direction: column;
@@ -2805,6 +2807,7 @@ header .cart-total-circle {
 .order-result-container {
   margin-top: auto;
   margin-bottom: auto;
+  height: -moz-fit-content;
   height: fit-content;
   text-align: center;
 }
@@ -2945,6 +2948,11 @@ hr {
   width: 150px;
   border-radius: 40px;
   margin-left: 30px;
+}
+
+.code-input::-moz-placeholder {
+  opacity: 0.3;
+  text-align: center;
 }
 
 .code-input::placeholder {
@@ -3278,4 +3286,41 @@ h2 {
 .credit-card .expiration-date {
   font-size: 14px;
   color: #555;
+}
+
+.orderText {
+  text-align: center;
+}
+
+.main-page .VerticalBarClass p {
+  margin-bottom: 2px;
+  padding: 0%;
+}
+
+.first-row {
+  text-align: end;
+}
+.first-row .VerticalBarClass {
+  justify-content: end;
+  margin: 0px;
+  padding: 0 12px 10px 0;
+}
+
+.big-row {
+  padding-right: 12vh;
+}
+
+.text-order-track {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.text-order-status {
+  margin-bottom: 0;
+}
+
+.under-text-order-status {
+  font-weight: 100;
+  font-size: small;
 }/*# sourceMappingURL=App.css.map */

@@ -111,6 +111,11 @@
       "statusCode" : 200
     },
     {
+      "path" : "/OrderStatus",
+      "serve": "/index.html",
+      "statusCode" : 200
+    },
+    {
       "route": "*",
       "serve": "/index.html",
       "statusCode": 200
