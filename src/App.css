@@ -294,7 +294,8 @@ header .sidebar-container h1 {
   font-family: "Montserrat", sans-serif;
   font-size: 16px;
   text-align: left;
-  text-decoration: solid;
+  -webkit-text-decoration: solid;
+          text-decoration: solid;
   color: white;
 }
 header .sidebar-container ul {
@@ -359,6 +360,7 @@ header.sidebar-open .sidebar-container {
 .product-card {
   background-color: rgb(244, 244, 244);
   width: 45vw;
+  height: -moz-fit-content;
   height: fit-content;
   transition: 0.3s ease;
   margin: 15px;
@@ -396,7 +398,8 @@ header.sidebar-open .sidebar-container {
 .product-card .top-section .product-image {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
   max-width: 100%;
   max-height: 100%;
 }
@@ -493,6 +496,7 @@ header.sidebar-open .sidebar-container {
   text-transform: uppercase;
   text-align: center;
   border-radius: 15px;
+  width: -moz-fit-content;
   width: fit-content;
   padding: 4px 18px;
   font-family: "Open Sans", sans-serif;
@@ -842,7 +846,8 @@ header.sidebar-open .sidebar-container {
 .profilepic-outer-circle img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .profilepic-picture {
@@ -1360,6 +1365,7 @@ header.sidebar-open .sidebar-container {
 .filter-list .mark-filter .mark-option {
   display: flex;
   align-items: center;
+  width: -moz-fit-content;
   width: fit-content;
   padding-right: 10px;
 }
@@ -1396,6 +1402,7 @@ header.sidebar-open .sidebar-container {
   border-radius: 15px;
   border: 1px solid #DBE3F5;
   padding: 5px 18px;
+  width: -moz-fit-content;
   width: fit-content;
   font-weight: 600;
   font-size: 14px;
@@ -1744,6 +1751,7 @@ header.sidebar-open .sidebar-container {
   justify-content: flex-end;
 }
 .sorting-list ul {
+  width: -moz-fit-content;
   width: fit-content;
   margin-right: 10px;
 }
@@ -1752,6 +1760,7 @@ header.sidebar-open .sidebar-container {
   margin: 7px;
   padding: 5px;
   border-radius: 10px;
+  width: -moz-fit-content;
   width: fit-content;
 }
 .sorting-list li:hover {
@@ -1882,7 +1891,6 @@ header.sidebar-open .sidebar-container {
     width: 30%;
   }
 }
-
 .Onboarding-Container {
   display: flex;
   flex-direction: column;
@@ -2110,6 +2118,7 @@ header.sidebar-open .sidebar-container {
 .under-header div {
   display: flex;
   gap: 10px;
+  width: -moz-fit-content;
   width: fit-content;
   padding-right: 5px;
   margin-right: 15px;
@@ -2289,3 +2298,37 @@ header.sidebar-open .sidebar-container {
   font-size: 1rem;
   margin-top: 6px;
 }
+
+.orderText {
+  text-align: center;
+}
+
+.main-page .VerticalBarClass p {
+  margin-bottom: 2px;
+  padding: 0%;
+}
+
+.tracking-icons {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+.tracking-icons .VerticalBarClass p {
+  margin: 10px;
+  padding: 0 0 10px 0;
+}
+
+.text-order-track {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.text-order-status {
+  margin-bottom: 0;
+}
+
+.under-text-order-status {
+  font-weight: 100;
+  font-size: small;
+}/*# sourceMappingURL=App.css.map */

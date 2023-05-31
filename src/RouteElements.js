@@ -18,6 +18,7 @@ import PasswordResetConfirmation from "./components/views/PasswordResetConfirmat
 import ResetPassword from "./components/views/ResetPassword"
 import OrderHistory from "./components/views/OrderHistory"
 import MyPromocodes from "./components/views/MyPromocodes"
+import OrderStatus from "./components/views/OrderStatus"
 
 
 const RouteElements = () => {
@@ -41,7 +42,7 @@ const RouteElements = () => {
       <Route path='/Products/:type/:value' element={<Products />} />
       <Route path='/Profile/PaymentMethods' element={<PaymentMethod />} />
       <Route path='/MyPromocodes' element={<MyPromocodes />} />
-
+      <Route path="/OrderStatus" element={<OrderStatus/>} />
       <Route
         path='/ProductSubmitedReviews/:productId'
         element={<ProductReview />}
