@@ -2898,6 +2898,23 @@ header .cart-total-circle {
   font-size: small;
 }
 
+.cart-header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.empty-cart {
+  width: 80%;
+  height: 600px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .cart-list-container {
   width: 50%;
   margin: auto;

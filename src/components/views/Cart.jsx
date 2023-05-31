@@ -1,12 +1,15 @@
 import React, { useContext, useEffect } from "react";
 import Navbar from "../partials/Navbar";
+import Header from "../partials/Header";
+import BackArrow from "../partials/generalPartials/BackArrow";
 import { useNavigate } from "react-router-dom";
 import { CartContext } from "../../contexts/CartContext";
+import { OrderContext } from "../../contexts/OrderContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faCheck, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { placeholderImage } from "../../contexts/ProductContext";
-import Header from "../partials/Header";
-import { OrderContext } from "../../contexts/OrderContext";
+import VerticalBar from "../partials/generalPartials/VerticalBar";
+import CircleWithIcon from "../partials/generalPartials/CircleWithIcon";
 
 const Cart = () => {
   const {
@@ -51,6 +54,44 @@ const Cart = () => {
   const handlePromoCode = () => {
     applyPromoCode(code);
   };
+
+  const handleGoBack = () => {
+    navigate(-1);
+  };
+
+  if (cart && cart.cartItems.length === 0) {
+    return (
+      <>
+        <div className="cart-header">
+          <BackArrow clickEvent={handleGoBack} />
+          <h3>Cart</h3>
+        </div>
+        <div className="empty-cart">
+          <div className="col-12 col-sm-8 col-md-6 col-lg-4">
+            <div className="promocodesEmpty-container">
+              <div className="CircleWithIconDiv">
+                <CircleWithIcon iconName="fa-thin fa-bag-shopping" />
+              </div>
+              <VerticalBar />
+
+              <h2 className="text-center my-4 mx-5">Your cart is empty!</h2>
+
+              <div className="input-field-group">
+                <button
+                  className="BigBlackButton"
+                  onClick={() => {
+                    navigate("/home");
+                  }}
+                >
+                  SHOP NOW
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </>
+    );
+  }
 
   return (
     <>

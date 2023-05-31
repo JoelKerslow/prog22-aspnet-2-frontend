@@ -1,3 +1,17 @@
+
+.cart-header{
+  width: 100%;
+  @include center-content;
+  margin-top: 10px;
+}
+
+.empty-cart{
+  width: 80%;
+  height: 600px;
+  margin: auto;
+  @include center-content;
+}
+
 .cart-list-container {
   width: 50%;
   margin: auto;

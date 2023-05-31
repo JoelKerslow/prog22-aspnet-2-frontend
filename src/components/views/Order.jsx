@@ -68,13 +68,9 @@ const Order = () => {
           </table>
         </div>
         <div className="address-section">
-        <AddressCheckoutCard/>
+          <AddressCheckoutCard />
         </div>
-        <label
-          htmlFor="comment"
-        >
-          COMMENT
-        </label>
+        <label htmlFor="comment">COMMENT</label>
         <div className="checkout-form">
           <textarea
             id="comment "
