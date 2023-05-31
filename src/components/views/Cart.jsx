@@ -1,24 +1,33 @@
-import React, { useContext } from 'react'
-import { useNavigate } from 'react-router-dom'
-import BackArrow from '../partials/generalPartials/BackArrow'
-import Navbar from '../partials/Navbar'
-import { CartContext } from '../../contexts/CartContext'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTrash, faCheck, faTimes } from '@fortawesome/free-solid-svg-icons'
-import { placeholderImage } from '../../contexts/ProductContext'
+import React, { useContext, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import BackArrow from "../partials/generalPartials/BackArrow";
+import Navbar from "../partials/Navbar";
+import { CartContext } from "../../contexts/CartContext";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash, faCheck, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { placeholderImage } from "../../contexts/ProductContext";
 
 const Cart = () => {
   const {
     cart,
     code,
     setCode,
+    getUserCart,
     deleteItem,
     updateQuantity,
     applyPromoCode,
-    addCartItem,
-  } = useContext(CartContext)
+  } = useContext(CartContext);
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    getUserCart();
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
+    applyPromoCode(code);
+  }, []);
 
   const handleIncrement = (productId, quantity) => {
     const newQuantity = quantity + 1
@@ -26,26 +35,20 @@ const Cart = () => {
   }
 
   const handleDecrement = (productId, quantity) => {
-    if (quantity > 1) {
-      const newQuantity = quantity - 1
-      updateQuantity(productId, newQuantity)
+    if (quantity > 0) {
+      const newQuantity = quantity - 1;
+      updateQuantity(productId, newQuantity);
     }
-  }
+    if (quantity === 0) deleteItem(productId);
+  };
 
   const handleDeleteItem = (productId) => {
     deleteItem(productId)
   }
 
-  const handleAddToCart = (productId, quantity) => {
-    const updatedQuantity =
-      quantity === 0 ? quantity + 1 : quantity /*  For adding to cart */
-    addCartItem(productId, updatedQuantity)
-  }
-
-  const handlePromoCode = (e) => {
-    setCode(e.target.value)
-    applyPromoCode(code)
-  }
+  const handlePromoCode = () => {
+    applyPromoCode(code);
+  };
 
   const handleGoBack = () => {
     navigate(-1)
@@ -53,11 +56,12 @@ const Cart = () => {
 
   return (
     <>
+      {/* <Header headerContent={<h2>Cart</h2>} useGoBackButton={true} /> */}
       <div className="RegHeader">
         <BackArrow clickEvent={handleGoBack} />
         <h3>Cart</h3>
         <div className="cart-container">
-          <div className="total-container">{cart.totalAmountWithDiscount}</div>
+          <div className="total-container">${cart.totalAmountWithDiscount}</div>
           <div className="fa-thin fa-bag-shopping"></div>
         </div>
       </div>
@@ -131,10 +135,13 @@ const Cart = () => {
             type="text"
             placeholder="Promocode"
             value={code}
-            onChange={handlePromoCode}
+            onChange={(e) => setCode(e.target.value)}
             disabled={false}
             className="code-input"
           />
+          <button className="code-button" onClick={handlePromoCode}>
+            Apply
+          </button>
           <p>
             {cart.promoCode ? (
               <>
@@ -160,7 +167,7 @@ const Cart = () => {
                 <td className="title" style={{ fontWeight: 'bold' }}>
                   Subtotal
                 </td>
-                <td className="value" style={{ fontWeight: 'bold' }}>
+                <td className="value" style={{ fontWeight: "bold" }}>
                   ${cart.totalAmountWithoutDiscount}
                 </td>
               </tr>
@@ -188,8 +195,6 @@ const Cart = () => {
         <div className="button-section">
           <button className="BigBlackButton">PROCEED TO CHECKOUT</button>
         </div>
-        {/*      {<button onClick={() => handleAddToCart(7, 4)}>AddProduct</button>}{" "} */}
-        {/*  Test  for adding to cart */}
       </div>
       <div className="profile-navbar">
         <Navbar />

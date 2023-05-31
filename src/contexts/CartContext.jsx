@@ -74,6 +74,7 @@ export const CartContextProvider = ({ children }) => {
         throw new Error(error || res.status);
       }
       setCartItem(item);
+      getUserCart();
     } catch (error) {
       console.log("Failed to update quantity:", error);
     }
@@ -92,12 +93,12 @@ export const CartContextProvider = ({ children }) => {
           body: JSON.stringify({ promoCode }),
         }
       );
-
       if (!res.ok) {
         const error = await res.text();
         throw new Error(error || res.status);
       }
       setCode(promoCode);
+      getUserCart();
     } catch (error) {
       console.log("Failed to apply promo code:", error);
     }
@@ -119,7 +120,7 @@ export const CartContextProvider = ({ children }) => {
         },
         body: JSON.stringify(item),
       });
-
+      console.log(res);
       if (!res.ok) {
         const error = await res.text();
         throw new Error(error || res.status);
@@ -127,18 +128,11 @@ export const CartContextProvider = ({ children }) => {
       setCartItem(productId);
       const cartItem = await res.json();
       console.log("Added cart item:", cartItem);
+      getUserCart();
     } catch (error) {
       console.log("Failed to add cart item:", error);
     }
   };
-
-  // useEffect(() => {
-  //   getUserCart();
-  // }, [cart]);
-
-  // useEffect(() => {
-  //   applyPromoCode(code);
-  // }, [code]);
 
   return (
     <CartContext.Provider
@@ -151,6 +145,7 @@ export const CartContextProvider = ({ children }) => {
         updateQuantity,
         applyPromoCode,
         addCartItem,
+        getUserCart,
       }}
     >
       {children}

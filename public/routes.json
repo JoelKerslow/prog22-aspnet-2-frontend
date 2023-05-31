@@ -106,9 +106,14 @@
       "statusCode": 200
     },
     {
-      "path" : "/AddCreditcard",
+      "route" : "/AddCreditcard",
       "serve": "/index.html",
-      "statusCode" : 200
+      "statusCode": 200
+    },
+    {
+      "route": "/Cart",
+      "serve": "index.html",
+      "statusCode": 200
     },
     {
       "path" : "/OrderStatus",
