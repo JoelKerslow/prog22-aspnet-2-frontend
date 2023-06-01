@@ -1,20 +1,22 @@
-import React, { useContext, useState } from "react";
-import Header from "../partials/Header";
-import AddressCheckoutCard from "../partials/AddressCheckoutCard";
-import { CartContext } from "../../contexts/CartContext";
-import { OrderContext } from "../../contexts/OrderContext";
+import React, { useContext, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import Header from '../partials/Header'
+import AddressCheckoutCard from '../partials/AddressCheckoutCard'
+import { CartContext } from '../../contexts/CartContext'
+import { OrderContext } from '../../contexts/OrderContext'
 
 const Order = () => {
-  const { cart } = useContext(CartContext);
-  const { sendOrder } = useContext(OrderContext);
-  const [orderComment, setOrderComment] = useState("");
+  const { cart } = useContext(CartContext)
+  const { sendOrder } = useContext(OrderContext)
+  const [orderComment, setOrderComment] = useState('')
+  const navigate = useNavigate()
 
   const handleConfirmOrder = () => {
     if (cart?.cartItems) {
       const items = cart.cartItems.map((item) => ({
         productId: item.productId,
         quantity: item.quantity,
-      }));
+      }))
 
       sendOrder(
         cart.customerId,
@@ -22,9 +24,11 @@ const Order = () => {
         orderComment,
         cart.promoCodeId,
         items
-      );
+      )
+
+      navigate('/orderresult/success')
     }
-  };
+  }
 
   return (
     <>
@@ -34,10 +38,10 @@ const Order = () => {
           <table className="table">
             <thead>
               <tr>
-                <td className="title" style={{ fontWeight: "bold" }}>
+                <td className="title" style={{ fontWeight: 'bold' }}>
                   My order
                 </td>
-                <td className="value" style={{ fontWeight: "bold" }}>
+                <td className="value" style={{ fontWeight: 'bold' }}>
                   ${cart.totalAmountWithDiscount}
                 </td>
               </tr>
@@ -46,7 +50,7 @@ const Order = () => {
               {cart?.cartItems?.map((item) => (
                 <tr key={item.id}>
                   <td className="title">
-                    {item.product.name}, {item.product.size},{" "}
+                    {item.product.name}, {item.product.size},{' '}
                     {item.product.color}
                   </td>
                   <td className="value">
@@ -60,7 +64,7 @@ const Order = () => {
               </tr>
               <tr>
                 <td className="title">Delivery</td>
-                <td className="value" style={{ color: "green" }}>
+                <td className="value" style={{ color: 'green' }}>
                   Free
                 </td>
               </tr>
@@ -83,7 +87,7 @@ const Order = () => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Order;
+export default Order

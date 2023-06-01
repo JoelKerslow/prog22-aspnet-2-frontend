@@ -32,6 +32,10 @@
     margin: 10px;
   }
 
+  .general-footer{
+    min-height: 53px;
+  }
+
   @include md{
     grid-template-columns: 1fr 1fr 1fr;
   }

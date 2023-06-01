@@ -29,7 +29,7 @@ const OrderResult = () => {
 
           <button
             className="BigBlackButton mt-3 mb-2"
-            onClick={() => navigate("/orders")}
+            onClick={() => navigate("/orderhistory")}
           >
             VIEW ORDERS
           </button>
