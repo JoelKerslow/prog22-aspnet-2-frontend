@@ -25,7 +25,8 @@ const AddressCheckoutCard = () => {
 
 	return (
 		<div className="addressCheckOut">
-			{shippingAddress === null ? <div>
+			{shippingAddress === null || Object.keys(shippingAddress).length === 0? <AddAddress /> : 
+			<div>
 			<div className="shippingDetails">
 				<div className="shippingDetailHeadline">Shipping Details</div>
 				<div className="shippDetailsAddress">{shippingAddress.addressline1}, {shippingAddress.postalCode} {shippingAddress.city}</div>
@@ -33,8 +34,7 @@ const AddressCheckoutCard = () => {
 			<div className="changeAddressLink">
 				<i className="fa-regular fa-angle-right"></i>
 			</div>
-			</div>: 
-			<AddAddress />
+			</div>
 }
 		</div>
 	);
