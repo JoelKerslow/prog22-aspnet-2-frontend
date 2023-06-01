@@ -2181,6 +2181,15 @@ header .cart-total-circle {
 .addAddress {
   font-family: "Open Sans", sans-serif;
 }
+@media (min-width: 1400px) {
+  .addAddress {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
 .addAddress .linkBox {
   display: flex;
   flex-direction: column;

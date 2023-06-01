@@ -1,7 +1,8 @@
 import { React, useState, useEffect, useContext } from "react";
 import { getUserAddresses } from "../../services/AddressService";
 import { UserContext } from "../../contexts/UserContext";
-import { AuthorizationContext } from '../../contexts/AuthorizationContext'
+import { AuthorizationContext } from '../../contexts/AuthorizationContext';
+import AddAddress from "../partials/AddAddress"
 
 const AddressCheckoutCard = () => {
     const { useAuthorization } = useContext(AuthorizationContext)
@@ -24,6 +25,7 @@ const AddressCheckoutCard = () => {
 
 	return (
 		<div className="addressCheckOut">
+			{shippingAddress === null ? <div>
 			<div className="shippingDetails">
 				<div className="shippingDetailHeadline">Shipping Details</div>
 				<div className="shippDetailsAddress">{shippingAddress.addressline1}, {shippingAddress.postalCode} {shippingAddress.city}</div>
@@ -31,6 +33,9 @@ const AddressCheckoutCard = () => {
 			<div className="changeAddressLink">
 				<i className="fa-regular fa-angle-right"></i>
 			</div>
+			</div>: 
+			<AddAddress />
+}
 		</div>
 	);
 };

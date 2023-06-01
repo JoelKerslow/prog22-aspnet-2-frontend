@@ -1,5 +1,13 @@
 .addAddress{
     font-family: $font-opensans;
+    
+    @include xxl{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: auto;
+        margin-left: auto;
+    }
     .linkBox{
         display: flex;
         flex-direction: column;
