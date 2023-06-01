@@ -59,7 +59,7 @@ const Cart = () => {
     navigate(-1);
   };
 
-  if (cart && cart.cartItems.length === 0) {
+  if (cart && cart.items && cart.cartItems.length === 0) {
     return (
       <>
         <div className="cart-header">
